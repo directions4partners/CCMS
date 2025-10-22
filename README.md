@@ -67,11 +67,17 @@ CCMS deliberately avoids certain areas to stay focused and deliver real value:
 CCMS is a community-driven project. We welcome contributions from all partners, ISVs, and individuals who share our vision.
 
 - Read our [Governance model](./GOVERNANCE.md) to understand how decisions are made.
-- Review the [Code of Conduct](./CODE_OF_CONDUCT.md) — we are committed to a welcoming and inclusive community.
+- Review the [Code of Conduct](./CODEOFCONDUCT.md) — we are committed to a welcoming and inclusive community.
 - See [MAINTAINERS.md](./MAINTAINERS.md) to learn how to become a maintainer.
 
 Please open issues or submit pull requests via our GitHub repository:  
 👉 [https://github.com/directions4partners/ccms](https://github.com/directions4partners/ccms)
+
+## Contributor License Agreement (CLA)
+Before we can accept your pull request, you must sign our Contributor License Agreement (CLA).  
+You’ll be prompted to do this automatically when you open your first pull request.
+
+This agreement ensures that you have the right to contribute and that we can distribute your contributions under our open source license.
 
 ## 🛠️ Getting Started (Coming Soon)
 
