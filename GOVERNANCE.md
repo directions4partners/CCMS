@@ -26,6 +26,9 @@ CCMS (Cloud Customer Management System) is governed by a **Technical Steering Co
   - iFacto
   - Innovia
   - Tecman
+- **Foundation contributors:** One seat for the contribution of the foundation for CCMS goes to:
+  - [Stefano Demiliani](https://github.com/demiliani)
+  - [Duilio Tacconi](https://github.com/duiliotacconi)
 - **Permanent Seat:** Because CCMS is hosted by **Directions for Partners**, **one (1) permanent TSC seat** is reserved for Directions for Partners and appointed by its CEO. During and after the Bootstrap Period, this seat is part of the overall TSC size described below.
 
 ### 2.2 Post-Bootstrap (12 months - Maintainer-Elected TSC)
