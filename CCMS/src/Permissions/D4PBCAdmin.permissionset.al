@@ -36,6 +36,7 @@ permissionset 62000 "D4P BC ADMIN"
         tabledata "D4P KQL Slow AL Method" = RIMD,
         tabledata "D4P AppInsights Connection" = RIMD,
         tabledata "D4P BC Admin Center Cue" = RIMD,
+        tabledata "D4P PTE Object Range" = RIMD,
 
         // Table Objects
         table "D4P BC Customer" = X,
@@ -55,6 +56,7 @@ permissionset 62000 "D4P BC ADMIN"
         table "D4P KQL Slow AL Method" = X,
         table "D4P AppInsights Connection" = X,
         table "D4P BC Admin Center Cue" = X,
+        table "D4P PTE Object Range" = X,
 
         // Pages
         page "D4P BC Customers List" = X,
@@ -84,6 +86,7 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P Tenant Migration Dialog" = X,
         page "D4P AppInsights Conn List" = X,
         page "D4P AppInsights Conn Card" = X,
+        page "D4P PTE Object Ranges" = X,
 
         // Codeunits
         codeunit "D4P BC Environment Mgt" = X,

@@ -34,6 +34,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         tabledata "D4P KQL Report Execution" = RIMD,
         tabledata "D4P KQL Slow AL Method" = RIMD,
         tabledata "D4P AppInsights Connection" = R,
+        tabledata "D4P PTE Object Range" = R,
 
         // Table Objects
         table "D4P BC Customer" = X,
@@ -52,6 +53,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         table "D4P KQL Report Execution" = X,
         table "D4P KQL Slow AL Method" = X,
         table "D4P AppInsights Connection" = X,
+        table "D4P PTE Object Range" = X,
 
         // Pages - List and Card pages for viewing
         page "D4P BC Customers List" = X,
@@ -75,6 +77,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         page "D4P KQL Slow AL Methods" = X,
         page "D4P AppInsights Conn List" = X,
         page "D4P AppInsights Conn Card" = X,
+        page "D4P PTE Object Ranges" = X,
 
         // Codeunit for reading data
         codeunit "D4P BC Environment Mgt" = X,
