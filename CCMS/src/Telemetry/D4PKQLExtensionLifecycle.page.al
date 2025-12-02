@@ -25,7 +25,7 @@ page 62042 "D4P KQL Extension Lifecycle"
                     ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
-                field("Evend ID"; Rec."Event ID")
+                field("Event ID"; Rec."Event ID")
                 {
                     ApplicationArea = All;
                     StyleExpr = StyleExpression;

@@ -71,7 +71,7 @@ page 62004 "D4P BC Environment Card"
             group(Location)
             {
                 Caption = 'Location';
-                field("Contry/Region"; Rec."Contry/Region")
+                field("Country/Region"; Rec."Country/Region")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the country/region of the environment.';

@@ -159,7 +159,7 @@ report 62032 "D4P Load Data"
 
     procedure SetDates(NewFromDate: Date; NewToDate: Date)
     begin
-        SetDates(CreateDateTime(NewToDate, 000000T), CreateDateTime(NewToDate, 235959T));
+        SetDates(CreateDateTime(NewFromDate, 000000T), CreateDateTime(NewToDate, 235959T));
     end;
 
     procedure InitRequestFromEnvironment(Environment: Record "D4P BC Environment"; QueryCode: Code[20])

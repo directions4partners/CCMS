@@ -56,7 +56,7 @@ page 62003 "D4P BC Environment List"
                     ToolTip = 'Specifies the current state of the environment.';
                     StyleExpr = StateStyleExpr;
                 }
-                field("Contry/Region"; Rec."Contry/Region")
+                field("Country/Region"; Rec."Country/Region")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the country/region of the environment.';

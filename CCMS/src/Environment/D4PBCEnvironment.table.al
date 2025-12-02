@@ -41,7 +41,7 @@ table 62002 "D4P BC Environment"
             Caption = 'State';
             DataClassification = CustomerContent;
         }
-        field(7; "Contry/Region"; Text[50])
+        field(7; "Country/Region"; Text[50])
         {
             Caption = 'Country/Region';
             DataClassification = CustomerContent;

@@ -65,7 +65,7 @@ codeunit 62000 "D4P BC Environment Mgt"
                 end;
                 if JsonObjectLoop.Get('countryCode', JsonTokenField) then begin
                     JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Contry/Region" := JsonValue.AsText();
+                    BCEnvironment."Country/Region" := JsonValue.AsText();
                 end;
                 if JsonObjectLoop.Get('applicationVersion', JsonTokenField) then begin
                     JsonValue := JsonTokenField.AsValue();
