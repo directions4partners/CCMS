@@ -213,10 +213,7 @@ page 62004 "D4P BC Environment Card"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the connection string for Application Insights. Use the lookup to select from existing configurations or type directly to create new entries.';
-<<<<<<< HEAD
                     MaskType = Concealed;
-=======
->>>>>>> b0094fac265a693ac0a0d7743f99e824cee4b8cb
 
                     trigger OnValidate()
                     var

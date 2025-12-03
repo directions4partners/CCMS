@@ -20,10 +20,7 @@ page 62048 "D4P AppInsights Conn Card"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Application Insights connection string.';
                     ShowMandatory = true;
-<<<<<<< HEAD
                     MaskType = Concealed;
-=======
->>>>>>> b0094fac265a693ac0a0d7743f99e824cee4b8cb
                 }
                 field("Description"; Rec."Description")
                 {

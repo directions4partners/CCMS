@@ -23,10 +23,7 @@ page 62047 "D4P AppInsights Conn List"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Application Insights connection string.';
-<<<<<<< HEAD
                     MaskType = Concealed;
-=======
->>>>>>> b0094fac265a693ac0a0d7743f99e824cee4b8cb
                 }
                 field("Description"; Rec."Description")
                 {

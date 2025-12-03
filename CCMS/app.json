@@ -2,11 +2,7 @@
   "id": "e33746ef-a796-46ca-8a1a-fb3840a42c48",
   "name": "Cloud Customer Management Solution",
   "publisher": "Directions for partners",
-<<<<<<< HEAD
-  "version": "0.0.0.1",
-=======
   "version": "0.0.1.0",
->>>>>>> b0094fac265a693ac0a0d7743f99e824cee4b8cb
   "brief": "PTE for administering Dynamics 365 Business Central environments at scale.",
   "description": "PTE for administering Dynamics 365 Business Central environments at scale.",
   "privacyStatement": "",
@@ -34,8 +30,4 @@
     "NoImplicitWith",
     "TranslationFile"
   ]
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> b0094fac265a693ac0a0d7743f99e824cee4b8cb
