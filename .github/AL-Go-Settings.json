@@ -8,5 +8,6 @@
   "githubRunner": "ubuntu-latest",
   "versioningStrategy": 19,
   "RepoVersion": "0.0.1",
+  "artifact": "///w1/weekly",
   "templateSha": "22b25e31e4ab557dc8b8fe241c6dda851e285151"
 }
