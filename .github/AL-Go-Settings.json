@@ -6,7 +6,7 @@
   "doNotPublishApps": true,
   "runs-on": "ubuntu-latest",
   "githubRunner": "ubuntu-latest",
-  "versioningStrategy": 16,
-  "RepoVersion": "0.1",
+  "versioningStrategy": 19,
+  "RepoVersion": "0.0.1",
   "templateSha": "22b25e31e4ab557dc8b8fe241c6dda851e285151"
 }
