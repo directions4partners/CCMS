@@ -134,6 +134,7 @@ page 62003 "D4P BC Environment List"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the connection string for Application Insights.';
+                    MaskType = Concealed;
                 }
                 field("Friendly Name"; Rec."Friendly Name")
                 {
