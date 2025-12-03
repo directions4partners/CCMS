@@ -9,7 +9,7 @@ page 62014 "D4P BC Environment Backups"
     ApplicationArea = All;
     UsageCategory = None;
     SourceTable = "D4P BC Environment Backup";
-    CaptionML = ENU = 'D365BC Environment Database Exports';
+    Caption = 'D365BC Environment Database Exports';
     ModifyAllowed = false;
 
     layout
@@ -181,14 +181,14 @@ page 62014 "D4P BC Environment Backups"
                 actionref(GetExportMetricsPromoted; GetExportMetrics)
                 {
                 }
+                actionref(DeleteAllPromoted; DeleteAll)
+                {
+                }
             }
             group(Category_Restore)
             {
                 Caption = 'Restore';
                 actionref(PITRestorePromoted; PITRestore)
-                {
-                }
-                actionref(DeleteAllPromoted; DeleteAll)
                 {
                 }
             }

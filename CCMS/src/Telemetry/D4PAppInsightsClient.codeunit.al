@@ -833,7 +833,6 @@ codeunit 62030 "D4P AppInsights Client"
     var
         TempBuffer: Record "Name/Value Buffer" temporary;
         Field: Record Field;
-        //Convert: Codeunit "EOS004 Convert";
         FldRef: FieldRef;
         TextValue: Text;
         FoundFieldNo: Integer;

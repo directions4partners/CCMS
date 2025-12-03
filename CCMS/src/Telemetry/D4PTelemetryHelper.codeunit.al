@@ -13,15 +13,18 @@ codeunit 62032 "D4P Telemetry Helper"
     var
         AIConnectionSetup: Record "D4P AppInsights Connection";
         NoConnectionStringErr: Label 'The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.';
-        SetupNotFoundErr: Label 'Application Insights connection setup not found for environment "%1". Please verify telemetry configuration.';
     begin
         // Verify environment has telemetry configuration
         if Environment."Application Insights String" = '' then
             Error(NoConnectionStringErr, Environment.Name);
 
-        if not AIConnectionSetup.Get(Environment."Application Insights String") then
-            Error(SetupNotFoundErr, Environment.Name);
+        // Optional: Load additional details from setup if it exists
+        // If the connection string is not in the setup table, we'll use the raw connection string
+        if AIConnectionSetup.Get(Environment."Application Insights String") then
+            exit(true);
 
+        // Connection string exists on environment but not in setup table
+        // This is acceptable - we can use the connection string directly
         exit(true);
     end;
 
