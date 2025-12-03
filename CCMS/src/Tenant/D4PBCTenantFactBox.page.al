@@ -1,5 +1,7 @@
 namespace D4P.CCMS.Tenant;
 
+using D4P.CCMS.Auth;
+
 page 62012 "D4P BC Tenant FactBox"
 {
     PageType = CardPart;
@@ -18,9 +20,10 @@ page 62012 "D4P BC Tenant FactBox"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Azure AD application client ID.';
                 }
-                field("Secret Expiration Date"; Rec."Secret Expiration Date")
+                field("Secret Expiration Date"; GetSecretExpirationDate())
                 {
                     ApplicationArea = All;
+                    Caption = 'Secret Expiration Date';
                     ToolTip = 'Specifies when the client secret will expire.';
                 }
             }
@@ -46,4 +49,17 @@ page 62012 "D4P BC Tenant FactBox"
             }
         }
     }
+
+    local procedure GetSecretExpirationDate(): Date
+    var
+        D4PBCAppRegistration: Record "D4P BC App Registration";
+    begin
+        case Rec."App Registration Type" of
+            Rec."App Registration Type"::Shared:
+                if D4PBCAppRegistration.Get(Rec."Client ID") then
+                    exit(D4PBCAppRegistration."Secret Expiration Date");
+            Rec."App Registration Type"::Individual:
+                exit(Rec."Secret Expiration Date");
+        end;
+    end;
 }
