@@ -417,19 +417,30 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Reschedule Update';
                 Image = Timesheet;
-                ToolTip = 'Reschedule the update of the selected environment.';
+                ToolTip = 'Select and schedule an update version for the environment.';
                 trigger OnAction()
                 var
-                    BCTenant: Record "D4P BC Tenant";
+                    TempAvailableUpdate: Record "D4P BC Available Update" temporary;
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
-                    RescheduleMsg: Label 'Are you sure you want to schedule the update of the environment %1 for %2?';
-                    RescheduleErrorMsg: Label 'Target Version is not specified for the environment %1.';
+                    UpdateSelectionDialog: Page "D4P Update Selection Dialog";
+                    TargetVersion: Text[100];
+                    SelectedDate: Date;
+                    ExpectedMonth: Integer;
+                    ExpectedYear: Integer;
+                    NoUpdatesAvailableErr: Label 'No updates available for the environment %1.';
                 begin
-                    if Rec."Target Version" = '' then
-                        Error(RescheduleErrorMsg, Rec.Name);
-                    if Confirm(RescheduleMsg, false, Rec.Name, rec."Selected DateTime") then begin
-                        BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
-                        EnvironmentManagement.RescheduleBCEnvironmentUpgrade(BCTenant, Rec.Name, Rec."Target Version", Rec."Selected DateTime");
+                    // Get available updates from API
+                    EnvironmentManagement.GetAvailableUpdates(Rec, TempAvailableUpdate);
+
+                    if TempAvailableUpdate.IsEmpty() then
+                        Error(NoUpdatesAvailableErr, Rec.Name);
+
+                    // Pass data to selection dialog and show it
+                    UpdateSelectionDialog.SetData(TempAvailableUpdate);
+                    if UpdateSelectionDialog.RunModal() = Action::OK then begin
+                        UpdateSelectionDialog.GetSelectedVersion(TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
+                        EnvironmentManagement.SelectTargetVersion(Rec, TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
+                        CurrPage.Update(false);
                     end;
                 end;
             }
