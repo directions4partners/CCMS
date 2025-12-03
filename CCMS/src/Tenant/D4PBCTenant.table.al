@@ -1,6 +1,7 @@
 namespace D4P.CCMS.Tenant;
 
 using D4P.CCMS.Customer;
+using D4P.CCMS.Auth;
 
 table 62001 "D4P BC Tenant"
 {
@@ -35,6 +36,9 @@ table 62001 "D4P BC Tenant"
         {
             Caption = 'Client Secret';
             DataClassification = CustomerContent;
+            ObsoleteReason = 'Client secrets are now stored in isolated storage. Use GetClientSecret() method instead.';
+            ObsoleteState = Pending;
+            ObsoleteTag = '1.0.0';
         }
         field(6; "Secret Expiration Date"; Date)
         {
@@ -56,6 +60,12 @@ table 62001 "D4P BC Tenant"
             Caption = 'Backup SAS Token Expiration Date';
             DataClassification = CustomerContent;
         }
+        field(10; "App Registration Type"; Enum "D4P BC App Reg. Type")
+        {
+            Caption = 'App Registration Type';
+            DataClassification = CustomerContent;
+            InitValue = Individual;
+        }
     }
 
     keys
@@ -65,4 +75,14 @@ table 62001 "D4P BC Tenant"
             Clustered = true;
         }
     }
+
+    procedure GetClientSecret() ClientSecret: SecretText
+    var
+        AppRegistration: Record "D4P BC App Registration";
+    begin
+        if IsNullGuid("Client ID") then
+            exit;
+
+        ClientSecret := AppRegistration.GetClientSecret("Client ID");
+    end;
 }

@@ -18,12 +18,6 @@ page 62012 "D4P BC Tenant FactBox"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Azure AD application client ID.';
                 }
-                field("Client Secret"; Rec."Client Secret")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the Azure AD application client secret.';
-                    ExtendedDatatype = Masked;
-                }
                 field("Secret Expiration Date"; Rec."Secret Expiration Date")
                 {
                     ApplicationArea = All;

@@ -105,13 +105,16 @@ codeunit 62049 "D4P BC API Helper"
         OAuth2: Codeunit OAuth2;
         Scopes: List of [Text];
         tenantID: Text;
+        ClientSecret: SecretText;
         FailedToGetTokenErr: Label 'Failed to get access token from response\%1';
     begin
         tenantID := BCTenant."Tenant ID".ToText().Replace('{', '');
         tenantID := tenantID.Replace('}', '');
         AccessTokenURL := 'https://login.microsoftonline.com/' + tenantID + '/oauth2/v2.0/token';
         Scopes.Add('https://api.businesscentral.dynamics.com/.default');
-        if not OAuth2.AcquireTokenWithClientCredentials(BCTenant."Client ID", BCTenant."Client Secret", AccessTokenURL, '', Scopes, AuthToken) then
+
+        ClientSecret := BCTenant.GetClientSecret();
+        if not OAuth2.AcquireTokenWithClientCredentials(BCTenant."Client ID", ClientSecret, AccessTokenURL, '', Scopes, AuthToken) then
             Error(FailedToGetTokenErr, GetLastErrorText());
     end;
 

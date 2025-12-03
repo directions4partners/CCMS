@@ -2,6 +2,7 @@ namespace D4P.CCMS.Tenant;
 
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
+using D4P.CCMS.Auth;
 
 page 62011 "D4P BC Tenant Card"
 {
@@ -36,22 +37,56 @@ page 62011 "D4P BC Tenant Card"
             group(Authentication)
             {
                 Caption = 'Authentication';
-                field("Client ID"; Rec."Client ID")
+                field("App Registration Type"; Rec."App Registration Type")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication.';
+                    ToolTip = 'Specifies whether to use an individual or shared app registration.';
                 }
-                field("Client Secret"; Rec."Client Secret")
+                group(SharedAppRegistration)
                 {
-                    ApplicationArea = All;
-                    ExtendedDatatype = Masked;
-                    ToolTip = 'Specifies the Azure AD Application Client Secret for API authentication.';
+                    ShowCaption = false;
+                    Visible = Rec."App Registration Type" = Rec."App Registration Type"::Shared;
+
+                    field("Client ID Lookup"; Rec."Client ID")
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Client ID';
+                        ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication. Select from shared app registrations.';
+                        TableRelation = "D4P BC App Registration"."Client ID";
+
+                        trigger OnValidate()
+                        begin
+                            CurrPage.Update(true);
+                        end;
+                    }
                 }
-                field("Secret Expiration Date"; Rec."Secret Expiration Date")
+                group(IndividualAppRegistration)
                 {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies when the client secret expires. Update the secret before this date.';
-                    StyleExpr = SecretExpirationStyle;
+                    ShowCaption = false;
+                    Visible = Rec."App Registration Type" = Rec."App Registration Type"::Individual;
+                    field("Client ID"; Rec."Client ID")
+                    {
+                        ApplicationArea = All;
+                        ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication.';
+                    }
+                    field("Client Secret Individual"; ClientSecretValue)
+                    {
+                        ApplicationArea = All;
+                        Caption = 'Client Secret';
+                        ExtendedDatatype = Masked;
+                        ToolTip = 'Specifies the Azure AD Application Client Secret for API authentication. This is stored securely in isolated storage.';
+
+                        trigger OnValidate()
+                        begin
+                            StoreClientSecret();
+                        end;
+                    }
+                    field("Secret Expiration Date"; Rec."Secret Expiration Date")
+                    {
+                        ApplicationArea = All;
+                        ToolTip = 'Specifies when the client secret expires. Update the secret before this date.';
+                        StyleExpr = SecretExpirationStyle;
+                    }
                 }
             }
             group(Backup)
@@ -130,30 +165,50 @@ page 62011 "D4P BC Tenant Card"
     var
         SecretExpirationStyle: Text;
         SASTokenExpirationStyle: Text;
+        ClientSecretValue: Text;
 
     trigger OnAfterGetRecord()
     begin
         UpdateSecretExpirationStyle();
         UpdateSASTokenExpirationStyle();
+        LoadClientSecret();
+    end;
+
+    local procedure LoadClientSecret()
+    var
+        AppRegistration: Record "D4P BC App Registration";
+    begin
+        ClientSecretValue := '';
+        if IsNullGuid(Rec."Client ID") then
+            exit;
+
+        if Rec."App Registration Type" <> Rec."App Registration Type"::Individual then
+            exit;
+
+        if AppRegistration.HasClientSecret(Rec."Client ID") then
+            ClientSecretValue := '***'; // Show masked indicator
+    end;
+
+    local procedure StoreClientSecret()
+    var
+        AppRegistration: Record "D4P BC App Registration";
+        SecretText: SecretText;
+    begin
+        if ClientSecretValue = '' then
+            exit;
+
+        if IsNullGuid(Rec."Client ID") then
+            exit;
+
+        SecretText := ClientSecretValue;
+        AppRegistration.SetClientSecret(Rec."Client ID", SecretText);
     end;
 
     local procedure UpdateSecretExpirationStyle()
     var
-        DaysToExpiration: Integer;
+        D4PBCAppRegistration: Record "D4P BC App Registration";
     begin
-        SecretExpirationStyle := '';
-
-        if Rec."Secret Expiration Date" = 0D then
-            exit;
-
-        DaysToExpiration := Rec."Secret Expiration Date" - Today;
-
-        if DaysToExpiration < 0 then
-            SecretExpirationStyle := 'Unfavorable'
-        else if DaysToExpiration <= 30 then
-            SecretExpirationStyle := 'Attention'
-        else
-            SecretExpirationStyle := 'Favorable';
+        SecretExpirationStyle := D4PBCAppRegistration.GetSecretExpirationStyle(Rec."Secret Expiration Date");
     end;
 
     local procedure UpdateSASTokenExpirationStyle()

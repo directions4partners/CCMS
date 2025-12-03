@@ -1,0 +1,81 @@
+namespace D4P.CCMS.Auth;
+
+page 62015 "D4P BC App Registration Card"
+{
+    PageType = Card;
+    ApplicationArea = All;
+    SourceTable = "D4P BC App Registration";
+    Caption = 'App Registration Card';
+
+    layout
+    {
+        area(Content)
+        {
+            group(General)
+            {
+                Caption = 'General';
+                field("Client ID"; Rec."Client ID")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the Azure AD Application (Client) ID.';
+                }
+                field(Description; Rec.Description)
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies a description for this app registration.';
+                }
+                field("Client Secret"; ClientSecretValue)
+                {
+                    ApplicationArea = All;
+                    Caption = 'Client Secret';
+                    ExtendedDatatype = Masked;
+                    ToolTip = 'Specifies the Azure AD Application Client Secret. This is stored securely in isolated storage.';
+
+                    trigger OnValidate()
+                    begin
+                        StoreClientSecret();
+                    end;
+                }
+                field("Secret Expiration Date"; Rec."Secret Expiration Date")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies when the client secret expires. Update the secret before this date.';
+                    StyleExpr = SecretExpirationStyle;
+                }
+            }
+        }
+    }
+
+    var
+        ClientSecretValue, SecretExpirationStyle : Text;
+
+    trigger OnAfterGetRecord()
+    begin
+        LoadClientSecret();
+        SecretExpirationStyle := Rec.GetSecretExpirationStyle(Rec."Secret Expiration Date");
+    end;
+
+    local procedure LoadClientSecret()
+    begin
+        ClientSecretValue := '';
+        if IsNullGuid(Rec."Client ID") then
+            exit;
+
+        if Rec.HasClientSecret(Rec."Client ID") then
+            ClientSecretValue := '***'; // Show masked indicator
+    end;
+
+    local procedure StoreClientSecret()
+    var
+        SecretText: SecretText;
+    begin
+        if ClientSecretValue = '' then
+            exit;
+
+        if IsNullGuid(Rec."Client ID") then
+            exit;
+
+        SecretText := ClientSecretValue;
+        Rec.SetClientSecret(Rec."Client ID", SecretText);
+    end;
+}
