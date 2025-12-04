@@ -1,6 +1,5 @@
 {
   "$schema": "https://raw.githubusercontent.com/Freddy-D4P/AL-Go/main/Actions/.Modules/settings.schema.json",
-  "country": "us",
   "appFolders": [],
   "testFolders": [],
   "bcptTestFolders": []
