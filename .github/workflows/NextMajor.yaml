@@ -2,6 +2,8 @@ name: ' Test Next Major'
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '30 20 * * 0'
 
 permissions:
   actions: read
