@@ -10,6 +10,7 @@ page 62008 "D4P BC Installed Apps List"
     SourceTable = "D4P BC Installed Apps";
     Caption = 'D365BC Installed Apps';
     InsertAllowed = false;
+    ModifyAllowed = false;
 
     layout
     {

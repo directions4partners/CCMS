@@ -326,27 +326,6 @@ page 62003 "D4P BC Environment List"
                     end;
                 end;
             }
-            action(RescheduleUpdate)
-            {
-                ApplicationArea = All;
-                Caption = 'Reschedule Update';
-                Image = Timesheet;
-                ToolTip = 'Reschedule the update of the selected environment.';
-                trigger OnAction()
-                var
-                    BCTenant: Record "D4P BC Tenant";
-                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
-                    RescheduleMsg: Label 'Are you sure you want to schedule the update of the environment %1 for %2?';
-                    RescheduleErrorMsg: Label 'Target Version is not specified for the environment %1.';
-                begin
-                    if Rec."Target Version" = '' then
-                        Error(RescheduleErrorMsg, Rec.Name);
-                    if Confirm(RescheduleMsg, false, Rec.Name, rec."Selected DateTime") then begin
-                        BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
-                        EnvironmentManagement.RescheduleBCEnvironmentUpgrade(BCTenant, Rec.Name, Rec."Target Version", Rec."Selected DateTime");
-                    end;
-                end;
-            }
             action(DeleteAllFetched)
             {
                 ApplicationArea = All;
@@ -396,21 +375,6 @@ page 62003 "D4P BC Environment List"
                             "Environment Name" = field(Name);
                 ToolTip = 'View apps installed in this environment.';
             }
-            action(DatabaseExports)
-            {
-                ApplicationArea = All;
-                Caption = 'Database Exports';
-                Image = Export;
-                ToolTip = 'View database export history and start new exports for this environment.';
-
-                trigger OnAction()
-                var
-                    BackupPage: Page "D4P BC Environment Backups";
-                begin
-                    BackupPage.SetEnvironmentContext(Rec);
-                    BackupPage.RunModal();
-                end;
-            }
             action(RunTelemetryQuery)
             {
                 ApplicationArea = All;
@@ -438,14 +402,6 @@ page 62003 "D4P BC Environment List"
                 begin
                     TelemetryHelper.OpenKQLQueriesPage(Rec);
                 end;
-            }
-            action(Telemetry)
-            {
-                ApplicationArea = All;
-                Caption = 'Telemetry';
-                Image = Log;
-                RunObject = Page "D4P KQL Query Selection";
-                ToolTip = 'View telemetry data for this environment.';
             }
             action(SetAppInsightsConnectionString)
             {
@@ -576,16 +532,7 @@ page 62003 "D4P BC Environment List"
             group(AdvancedTasks)
             {
                 Caption = 'Advanced';
-                actionref(DatabaseExportsPromoted; DatabaseExports)
-                {
-                }
-                actionref(TelemetryPromoted; Telemetry)
-                {
-                }
                 actionref(FeaturesPromoted; Features)
-                {
-                }
-                actionref(BackupsPromoted; Backups)
                 {
                 }
                 actionref(CapacityPromoted; Capacity)
