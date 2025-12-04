@@ -11,7 +11,7 @@
         </trans-unit>
         <trans-unit id="Table 2008748094 - Field 1094872406 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Application Type</source>
-          <target>Art des Ausgleichs</target>
+          <target>Art der Anwendung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Backup - Field Application Type - Property Caption</note>
         </trans-unit>
@@ -42,7 +42,6 @@
         <trans-unit id="Table 2008748094 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Debitorennr.</target>
-          <target>Debitorennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Backup - Field Customer No. - Property Caption</note>
         </trans-unit>
@@ -102,7 +101,6 @@
         </trans-unit>
         <trans-unit id="Table 2008748094 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
-          <target>Mandanten-ID</target>
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Backup - Field Tenant ID - Property Caption</note>
@@ -151,13 +149,13 @@
         </trans-unit>
         <trans-unit id="Codeunit 600449675 - Method 3432654840 - NamedType 3890578749" size-unit="char" translate="yes" xml:space="preserve">
           <source>Backup SAS URI is not configured for this tenant. Please configure it in the tenant settings before starting a database export.</source>
-          <target>Backup-SAS-URI ist für diesen Mandanten nicht konfiguriert. Bitte konfigurieren Sie diese in den Mandanteneinstellungen, bevor Sie einen Datenbankexport starten.</target>
+          <target>Backup-SAS-URI ist für diesen Tenant nicht konfiguriert. Bitte konfigurieren Sie diese in den Tenanteinstellungen, bevor Sie einen Datenbankexport starten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Backup Helper - Method StartEnvironmentDatabaseExport - NamedType NoSASURIErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 600449675 - Method 3432654840 - NamedType 3608737069" size-unit="char" translate="yes" xml:space="preserve">
           <source>Backup Container Name is not configured for this tenant. Please configure it in the tenant settings before starting a database export.</source>
-          <target>Backup-Containername ist für diesen Mandanten nicht konfiguriert. Bitte konfigurieren Sie diesen in den Mandanteneinstellungen, bevor Sie einen Datenbankexport starten.</target>
+          <target>Backup-Containername ist für diesen Tenant nicht konfiguriert. Bitte konfigurieren Sie diesen in den Tenanteinstellungen, bevor Sie einen Datenbankexport starten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Backup Helper - Method StartEnvironmentDatabaseExport - NamedType NoContainerErr</note>
         </trans-unit>
@@ -367,13 +365,12 @@
         </trans-unit>
         <trans-unit id="Enum 4257225132 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <target></target>
+          <target> </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Export Status - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 4257225132 - EnumValue 4069904181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cancelled</source>
-          <target>Storniert</target>
           <target>Abgebrochen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Export Status - EnumValue Cancelled - Property Caption</note>
@@ -386,7 +383,6 @@
         </trans-unit>
         <trans-unit id="Enum 4257225132 - EnumValue 3826689261 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed</source>
-          <target>Fehler</target>
           <target>Fehlgeschlagen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Export Status - EnumValue Failed - Property Caption</note>
@@ -406,7 +402,6 @@
         <trans-unit id="Table 1725541246 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Debitorennr.</target>
-          <target>Debitorennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Capacity Header - Field Customer No. - Property Caption</note>
         </trans-unit>
@@ -508,7 +503,6 @@
         </trans-unit>
         <trans-unit id="Table 1725541246 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
-          <target>Mandanten-ID</target>
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Capacity Header - Field Tenant ID - Property Caption</note>
@@ -540,7 +534,6 @@
         <trans-unit id="Table 2607330341 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Debitorennr.</target>
-          <target>Debitorennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Capacity Line - Field Customer No. - Property Caption</note>
         </trans-unit>
@@ -577,7 +570,6 @@
         <trans-unit id="Table 2607330341 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
           <target>Zeilennr.</target>
-          <target>Lfd. Nr.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Capacity Line - Field Line No. - Property Caption</note>
         </trans-unit>
@@ -589,7 +581,6 @@
         </trans-unit>
         <trans-unit id="Table 2607330341 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
-          <target>Mandanten-ID</target>
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Capacity Line - Field Tenant ID - Property Caption</note>
@@ -668,7 +659,7 @@
         </trans-unit>
         <trans-unit id="Page 614992483 - Control 130221254 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant Information</source>
-          <target>Mandanteninformationen</target>
+          <target>Tenantinformationen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Capacity Card - Control TenantInfo - Property Caption</note>
         </trans-unit>
@@ -680,7 +671,7 @@
         </trans-unit>
         <trans-unit id="Page 614992483 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the tenant ID.</source>
-          <target>Gibt die Mandanten-ID an.</target>
+          <target>Gibt die Tenant-ID an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Capacity Card - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
@@ -813,7 +804,6 @@
         <trans-unit id="Page 3216926189 - Control 1065337893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Production</source>
           <target>Produktion</target>
-          <target>Fertigung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Capacity Worksheet - Control Production - Property Caption</note>
         </trans-unit>
@@ -921,7 +911,7 @@
         </trans-unit>
         <trans-unit id="Page 3216926189 - Control 4293408607 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Org (tenant) default</source>
-          <target>Org (Mandant) Standard</target>
+          <target>Org (Tenant) Standard</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Capacity Worksheet - Control Storage Default GB Display - Property Caption</note>
         </trans-unit>
@@ -934,8 +924,6 @@
         <trans-unit id="Page 3216926189 - Control 2553156568 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Total</source>
           <target>Gesamt</target>
-          <target>Summe</target>
-          <target>Gesamtbetrag</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Capacity Worksheet - Control Storage Total GB Display - Property Caption</note>
         </trans-unit>
@@ -1026,7 +1014,6 @@
         <trans-unit id="Table 4179850407 - Field 4200184881 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No.</source>
           <target>Nr.</target>
-          <target>Anz.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Customer - Field No. - Property Caption</note>
         </trans-unit>
@@ -1056,13 +1043,13 @@
         </trans-unit>
         <trans-unit id="Page 1980217027 - Action 532500578 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View Business Central tenants for this customer.</source>
-          <target>Business Central-Mandanten für diesen Kunden anzeigen.</target>
+          <target>Business Central-Tenants für diesen Kunden anzeigen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Customer Card - Action BCTenants - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1980217027 - Action 532500578 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>BC Tenants</source>
-          <target>BC-Mandanten</target>
+          <target>BC-Tenants</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Customer Card - Action BCTenants - Property Caption</note>
         </trans-unit>
@@ -1086,13 +1073,13 @@
         </trans-unit>
         <trans-unit id="Page 2958958320 - Action 532500578 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View Business Central tenants for this customer.</source>
-          <target>Business Central-Mandanten für diesen Kunden anzeigen.</target>
+          <target>Business Central-Tenants für diesen Kunden anzeigen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Customers List - Action BCTenants - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2958958320 - Action 532500578 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>BC Tenants</source>
-          <target>BC-Mandanten</target>
+          <target>BC-Tenants</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Customers List - Action BCTenants - Property Caption</note>
         </trans-unit>
@@ -1104,7 +1091,7 @@
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 4275512631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>AAD Tenant ID</source>
-          <target>AAD-Mandanten-ID</target>
+          <target>AAD-Tenants-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field AAD Tenant ID - Property Caption</note>
         </trans-unit>
@@ -1147,7 +1134,6 @@
         <trans-unit id="Table 3113203544 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Debitorennr.</target>
-          <target>Debitorennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Customer No. - Property Caption</note>
         </trans-unit>
@@ -1159,7 +1145,7 @@
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 1354107546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Enforced Update Period Start Date</source>
-          <target>Erzwungenes Update-Zeitraum Startdatum</target>
+          <target>Startdatum des erzwungenen Update-Zeitraums</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Enforced Update Period Start - Property Caption</note>
         </trans-unit>
@@ -1189,7 +1175,7 @@
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 1434297100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Hard Delete Pending On</source>
-          <target>Endgültige Löschung ausständig am</target>
+          <target>Endgültige Löschung am</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Hard Delete Pending On - Property Caption</note>
         </trans-unit>
@@ -1255,7 +1241,6 @@
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 269761521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>State</source>
-          <target>Bundesland</target>
           <target>Status</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field State - Property Caption</note>
@@ -1292,13 +1277,12 @@
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 1689409898 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Telemetry Tenant ID</source>
-          <target>Telemetrie-Mandanten-ID</target>
+          <target>Telemetrie-Tenants-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Telemetry Tenant ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
-          <target>Mandanten-ID</target>
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Tenant ID - Property Caption</note>
@@ -1306,7 +1290,6 @@
         <trans-unit id="Table 3113203544 - Field 1878130204 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Type</source>
           <target>Art</target>
-          <target>Typ</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Type - Property Caption</note>
         </trans-unit>
@@ -1564,7 +1547,7 @@
         </trans-unit>
         <trans-unit id="Page 1494117452 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the tenant ID of the environment.</source>
-          <target>Gibt die Mandanten-ID der Umgebung an.</target>
+          <target>Gibt die Tenant-ID der Umgebung an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
@@ -1576,7 +1559,6 @@
         </trans-unit>
         <trans-unit id="Page 1494117452 - Control 3891454143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Location</source>
-          <target>Lagerort</target>
           <target>Ort</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Control Location - Property Caption</note>
@@ -1613,13 +1595,13 @@
         </trans-unit>
         <trans-unit id="Page 1494117452 - Control 531664892 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the API key for telemetry data access (automatically retrieved from AppInsights Connection Setup).</source>
-          <target>Gibt den API-Schlüssel für den Zugriff auf Telemetriedaten an (wird automatisch aus der AppInsights-Verbindungseinrichtung abgerufen).</target>
+          <target>Gibt den API-Schlüssel für den Zugriff auf Telemetriedaten an (wird automatisch aus der Application Insights-Verbindungseinrichtung abgerufen).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Control Telemetry API Key - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1494117452 - Control 2334445236 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Application ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).</source>
-          <target>Gibt die Anwendungs-ID für den Zugriff auf Telemetriedaten an (wird automatisch aus der AppInsights-Verbindungseinrichtung abgerufen).</target>
+          <target>Gibt die Anwendungs-ID für den Zugriff auf Telemetriedaten an (wird automatisch aus der Application Insights-Verbindungseinrichtung abgerufen).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Control Telemetry Application ID - Property ToolTip</note>
         </trans-unit>
@@ -1631,7 +1613,7 @@
         </trans-unit>
         <trans-unit id="Page 1494117452 - Control 1689409898 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Tenant ID for telemetry data access (automatically retrieved from Application Insights Connection Setup).</source>
-          <target>Gibt die Mandanten-ID für den Zugriff auf Telemetriedaten an (wird automatisch aus der Application Insights-Verbindungseinrichtung abgerufen).</target>
+          <target>Gibt die Tenant-ID für den Zugriff auf Telemetriedaten an (wird automatisch aus der Application Insights-Verbindungseinrichtung abgerufen).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Control Telemetry Tenant ID - Property ToolTip</note>
         </trans-unit>
@@ -1806,7 +1788,6 @@
         <trans-unit id="Page 1494117452 - Action 3866562980 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
           <target>Kopieren</target>
-          <target>Kopie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action CopyEnvironment - Property Caption</note>
         </trans-unit>
@@ -2130,13 +2111,13 @@
         </trans-unit>
         <trans-unit id="Page 4116547146 - Control 531664892 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the API key for telemetry data access (automatically retrieved from AppInsights Connection Setup).</source>
-          <target>Gibt den API-Schlüssel für den Zugriff auf Telemetriedaten an (wird automatisch aus der AppInsights-Verbindungseinrichtung abgerufen).</target>
+          <target>Gibt den API-Schlüssel für den Zugriff auf Telemetriedaten an (wird automatisch aus der Application Insights-Verbindungseinrichtung abgerufen).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Control Telemetry API Key - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Control 2334445236 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Application ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).</source>
-          <target>Gibt die Anwendungs-ID für den Zugriff auf Telemetriedaten an (wird automatisch aus der AppInsights-Verbindungseinrichtung abgerufen).</target>
+          <target>Gibt die Anwendungs-ID für den Zugriff auf Telemetriedaten an (wird automatisch aus der Application Insights-Verbindungseinrichtung abgerufen).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Control Telemetry Application ID - Property ToolTip</note>
         </trans-unit>
@@ -2148,13 +2129,13 @@
         </trans-unit>
         <trans-unit id="Page 4116547146 - Control 1689409898 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).</source>
-          <target>Gibt die Mandanten-ID für den Zugriff auf Telemetriedaten an (wird automatisch aus der Application Insights-Verbindungseinrichtung abgerufen).</target>
+          <target>Gibt die Tenant-ID für den Zugriff auf Telemetriedaten an (wird automatisch aus der Application Insights-Verbindungseinrichtung abgerufen).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Control Telemetry Tenant ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the tenant ID of the environment.</source>
-          <target>Gibt die Mandanten-ID der Umgebung an.</target>
+          <target>Gibt die Tenant-ID der Umgebung an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
@@ -2329,7 +2310,6 @@
         <trans-unit id="Page 4116547146 - Action 3866562980 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
           <target>Kopieren</target>
-          <target>Kopie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action CopyEnvironment - Property Caption</note>
         </trans-unit>
@@ -2516,13 +2496,12 @@
         <trans-unit id="Enum 3660222239 - EnumValue 1065337893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Production</source>
           <target>Produktion</target>
-          <target>Fertigung</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Environment Type - EnumValue Production - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 3660222239 - EnumValue 3957778759 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Sandbox</source>
-          <target>Sandkasten</target>
+          <target>Sandbox</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Environment Type - EnumValue Sandbox - Property Caption</note>
         </trans-unit>
@@ -2577,7 +2556,6 @@
         <trans-unit id="Table 2736968941 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Debitorennr.</target>
-          <target>Debitorennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Field Customer No. - Property Caption</note>
         </trans-unit>
@@ -2595,7 +2573,7 @@
         </trans-unit>
         <trans-unit id="Table 2736968941 - Field 77363544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Uninstall Attempt Result</source>
-          <target>Letztes Deinstallationsversuchsergebnis</target>
+          <target>Ergebnis des letzten Deinstallationsversuchs</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Field Last Uninstall Attempt Result - Property Caption</note>
         </trans-unit>
@@ -2607,34 +2585,31 @@
         </trans-unit>
         <trans-unit id="Table 2736968941 - Field 456057361 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Last Update Attempt Result</source>
-          <target>Letztes Updateversuchsergebnis</target>
+          <target>Ergebnis des letzten Updateversuchs</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Field Last Update Attempt Result - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2736968941 - Field 269761521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>State</source>
-          <target>Bundesland</target>
           <target>Status</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Field State - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2736968941 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
-          <target>Mandanten-ID</target>
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Field Tenant ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 348982333 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE Object Range</source>
-          <target></target>
+          <target>PTE Objekt Range</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Debitorennr.</target>
-          <target>Debitorennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Customer No. - Property Caption</note>
         </trans-unit>
@@ -2673,7 +2648,6 @@
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
-          <target>Mandanten-ID</target>
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Tenant ID - Property Caption</note>
@@ -2842,7 +2816,7 @@
         </trans-unit>
         <trans-unit id="Page 3331374484 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the tenant ID.</source>
-          <target>Gibt die Mandanten-ID an.</target>
+          <target>Gibt die Tenant-ID an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
@@ -2973,7 +2947,6 @@
         <trans-unit id="Table 1807623301 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Debitorennr.</target>
-          <target>Debitorennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Features - Field Customer No. - Property Caption</note>
         </trans-unit>
@@ -3051,7 +3024,6 @@
         </trans-unit>
         <trans-unit id="Table 1807623301 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
-          <target>Mandanten-ID</target>
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Features - Field Tenant ID - Property Caption</note>
@@ -3064,7 +3036,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1849445836 - Method 148382111 - NamedType 2797992030" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant not found.</source>
-          <target>Mandant nicht gefunden.</target>
+          <target>Tenant nicht gefunden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Features Helper - Method ActivateFeature - NamedType TenantNotFoundErr</note>
         </trans-unit>
@@ -3094,7 +3066,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1849445836 - Method 2341653616 - NamedType 2797992030" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant not found.</source>
-          <target>Mandant nicht gefunden.</target>
+          <target>Tenant nicht gefunden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Features Helper - Method DeactivateFeature - NamedType TenantNotFoundErr</note>
         </trans-unit>
@@ -3124,7 +3096,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1849445836 - Method 312510131 - NamedType 2797992030" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant not found.</source>
-          <target>Mandant nicht gefunden.</target>
+          <target>Tenant nicht gefunden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Features Helper - Method GetFeatures - NamedType TenantNotFoundErr</note>
         </trans-unit>
@@ -3370,7 +3342,7 @@
         </trans-unit>
         <trans-unit id="Table 795145354 - Field 1661556656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenants</source>
-          <target>Mandanten</target>
+          <target>Tenants</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Admin Center Cue - Field Tenants Count - Property Caption</note>
         </trans-unit>
@@ -3436,13 +3408,13 @@
         </trans-unit>
         <trans-unit id="Page 1192667575 - Control 1661556656 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Number of Entra ID tenants</source>
-          <target>Anzahl der Entra ID-Mandanten</target>
+          <target>Anzahl der Entra ID-Tenants</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Admin Center Cues - Control Tenants Count - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1192667575 - Control 1661556656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenants</source>
-          <target>Mandanten</target>
+          <target>Tenants</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Admin Center Cues - Control Tenants Count - Property Caption</note>
         </trans-unit>
@@ -3527,7 +3499,6 @@
         <trans-unit id="Table 2957340651 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Debitorennr.</target>
-          <target>Debitorennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Sessions - Field Customer No. - Property Caption</note>
         </trans-unit>
@@ -3576,7 +3547,6 @@
         </trans-unit>
         <trans-unit id="Table 2957340651 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
-          <target>Mandanten-ID</target>
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Sessions - Field Tenant ID - Property Caption</note>
@@ -3734,7 +3704,7 @@
         </trans-unit>
         <trans-unit id="Page 1993633906 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the tenant ID.</source>
-          <target>Gibt die Mandanten-ID an.</target>
+          <target>Gibt die Tenant-ID an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Sess Card - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
@@ -4054,7 +4024,7 @@
         </trans-unit>
         <trans-unit id="Table 2167704502 - Field 588430355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant Id</source>
-          <target>Mandanten-ID</target>
+          <target>Tenants-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P AppInsights Connection - Field Tenant Id - Property Caption</note>
         </trans-unit>
@@ -4259,7 +4229,7 @@
         </trans-unit>
         <trans-unit id="Page 1185952584 - Control 588430355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Tenant ID for telemetry data access.</source>
-          <target>Gibt die Mandanten-ID für den Zugriff auf Telemetriedaten an.</target>
+          <target>Gibt die Tenant-ID für den Zugriff auf Telemetriedaten an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P AppInsights Conn Card - Control Tenant Id - Property ToolTip</note>
         </trans-unit>
@@ -4313,7 +4283,7 @@
         </trans-unit>
         <trans-unit id="Page 777859790 - Control 588430355 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Tenant ID for telemetry data access.</source>
-          <target>Gibt die Mandanten-ID für den Zugriff auf Telemetriedaten an.</target>
+          <target>Gibt die Tenant-ID für den Zugriff auf Telemetriedaten an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P AppInsights Conn List - Control Tenant Id - Property ToolTip</note>
         </trans-unit>
@@ -4656,13 +4626,13 @@
         </trans-unit>
         <trans-unit id="Report 2415584498 - Control 2073887921 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Entra Tenant ID for filtering telemetry data.</source>
-          <target>Gibt die Entra-Mandanten-ID zum Filtern von Telemetriedaten an.</target>
+          <target>Gibt die Entra-Tenant-ID zum Filtern von Telemetriedaten an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report D4P Load Data - Control AADTenantIdField - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Report 2415584498 - Control 2073887921 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entra Tenant ID</source>
-          <target>Entra-Mandanten-ID</target>
+          <target>Entra-Tenants-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report D4P Load Data - Control AADTenantIdField - Property Caption</note>
         </trans-unit>
@@ -4752,7 +4722,7 @@
         </trans-unit>
         <trans-unit id="Table 3746675639 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Tenant</source>
-          <target>D365BC Mandant</target>
+          <target>D365BC Tenant</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Tenant - Property Caption</note>
         </trans-unit>
@@ -4790,7 +4760,6 @@
         <trans-unit id="Table 3746675639 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Debitorennr.</target>
-          <target>Debitorennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Tenant - Field Customer No. - Property Caption</note>
         </trans-unit>
@@ -4802,20 +4771,19 @@
         </trans-unit>
         <trans-unit id="Table 3746675639 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
-          <target>Mandanten-ID</target>
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Tenant - Field Tenant ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3746675639 - Field 705672093 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant Name</source>
-          <target>Mandantenname</target>
+          <target>Tenant Name</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Tenant - Field Tenant Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Entra Tenant Card</source>
-          <target>D365BC Entra-Mandantenkarte</target>
+          <target>D365BC Entra-Tenantkarte</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Property Caption</note>
         </trans-unit>
@@ -4875,25 +4843,25 @@
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer number associated with this tenant.</source>
-          <target>Gibt die Kundennummer an, die diesem Mandanten zugeordnet ist.</target>
+          <target>Gibt die Kundennummer an, die diesem Tenants zugeordnet ist.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Customer No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the unique identifier (GUID) of the Microsoft Entra tenant.</source>
-          <target>Gibt die eindeutige Kennung (GUID) des Microsoft Entra-Mandanten an.</target>
+          <target>Gibt die eindeutige Kennung (GUID) des Microsoft Entra-Tenants an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 705672093 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the Business Central tenant.</source>
-          <target>Gibt den Namen des Business Central-Mandanten an.</target>
+          <target>Gibt den Namen des Business Central-Tenants an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Tenant Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Action 1727297074 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View Business Central environments for this tenant.</source>
-          <target>Business Central-Umgebungen für diesen Mandanten anzeigen.</target>
+          <target>Business Central-Umgebungen für diesen Tenants anzeigen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Action Environments - Property ToolTip</note>
         </trans-unit>
@@ -4923,7 +4891,7 @@
         </trans-unit>
         <trans-unit id="Page 3208869332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant Details</source>
-          <target>Mandantendetails</target>
+          <target>Tenantdetails</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Property Caption</note>
         </trans-unit>
@@ -4977,31 +4945,31 @@
         </trans-unit>
         <trans-unit id="Page 1431185537 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Entra Tenants</source>
-          <target>D365BC Entra-Mandanten</target>
+          <target>D365BC Entra-Tenants</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1431185537 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer number associated with this tenant.</source>
-          <target>Gibt die Kundennummer an, die diesem Mandanten zugeordnet ist.</target>
+          <target>Gibt die Kundennummer an, die diesem Tenants zugeordnet ist.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Control Customer No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1431185537 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the unique identifier of the Business Central tenant.</source>
-          <target>Gibt die eindeutige Kennung des Business Central-Mandanten an.</target>
+          <target>Gibt die eindeutige Kennung des Business Central-Tenants an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1431185537 - Control 705672093 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the name of the Business Central tenant.</source>
-          <target>Gibt den Namen des Business Central-Mandanten an.</target>
+          <target>Gibt den Namen des Business Central-Tenants an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Control Tenant Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1431185537 - Action 1727297074 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View Business Central environments for this tenant.</source>
-          <target>Business Central-Umgebungen für diesen Mandanten anzeigen.</target>
+          <target>Business Central-Umgebungen für diesen Tenant anzeigen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Action Environments - Property ToolTip</note>
         </trans-unit>
@@ -5057,13 +5025,12 @@
         <trans-unit id="Page 1431185537 - Action 1850083652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup</source>
           <target>Einrichtung</target>
-          <target>Einrichten</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Action Category_Setup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1847328476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant to Tenant Migration</source>
-          <target>Mandant-zu-Mandant-Migration</target>
+          <target>Tenant-zu-Tenant-Migration</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P Tenant Migration Dialog - Property Caption</note>
         </trans-unit>
@@ -5141,13 +5108,13 @@
         </trans-unit>
         <trans-unit id="Page 1847328476 - Control 1043049200 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the source tenant ID.</source>
-          <target>Gibt die Quellmandanten-ID an.</target>
+          <target>Gibt die Quelltenant-ID an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P Tenant Migration Dialog - Control SourceTenantID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1847328476 - Control 1043049200 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Source Tenant ID</source>
-          <target>Quellmandanten-ID</target>
+          <target>Quelltenants-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P Tenant Migration Dialog - Control SourceTenantID - Property Caption</note>
         </trans-unit>
@@ -5183,13 +5150,13 @@
         </trans-unit>
         <trans-unit id="Page 1847328476 - Control 2190358540 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the target tenant ID.</source>
-          <target>Gibt die Zielmandanten-ID an.</target>
+          <target>Gibt die Zieltenant-ID an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P Tenant Migration Dialog - Control TargetTenantID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1847328476 - Control 2190358540 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Target Tenant ID</source>
-          <target>Zielmandanten-ID</target>
+          <target>Zieltenants-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P Tenant Migration Dialog - Control TargetTenantID - Property Caption</note>
         </trans-unit>
