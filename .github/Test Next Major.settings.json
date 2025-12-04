@@ -1,7 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/Freddy-D4P/AL-Go/main/Actions/.Modules/settings.schema.json",
   "artifact": "////nextmajor",
-  "workflowschedule": "30 20 * * 0",
+  "workflowschedule": {
+    "cron": "30 20 * * 0"
+  },
   "cacheImageName": "",
   "versioningStrategy": 15
 }
