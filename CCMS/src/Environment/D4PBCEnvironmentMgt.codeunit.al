@@ -523,8 +523,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonObject.Add('environmentName', NewEnvironmentName);
         JsonObject.Add('type', Format(NewEnvironmentType));
 
-        if not APIHelper.SendAdminAPIRequest(BCTenant, 'PUT',
-            '/applications/businesscentral/environments/' + SourceEnvironmentName + '/copy/',
+        if not APIHelper.SendAdminAPIRequest(BCTenant, 'POST',
+            '/applications/businesscentral/environments/' + SourceEnvironmentName + '/copy',
             Format(JsonObject), ResponseText) then
             Error(FailedToCreateErr, ResponseText);
 
