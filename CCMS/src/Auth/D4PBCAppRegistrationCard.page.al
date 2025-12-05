@@ -61,7 +61,7 @@ page 62015 "D4P BC App Registration Card"
         if IsNullGuid(Rec."Client ID") then
             exit;
 
-        if Rec.HasClientSecret(Rec."Client ID") then
+        if Rec.HasClientSecret() then
             ClientSecretValue := '***'; // Show masked indicator
     end;
 
@@ -69,9 +69,6 @@ page 62015 "D4P BC App Registration Card"
     var
         SecretText: SecretText;
     begin
-        if ClientSecretValue = '' then
-            exit;
-
         if IsNullGuid(Rec."Client ID") then
             exit;
 
