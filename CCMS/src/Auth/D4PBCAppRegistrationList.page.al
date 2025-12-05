@@ -5,7 +5,7 @@ page 62018 "D4P BC App Registration List"
     PageType = List;
     ApplicationArea = All;
     SourceTable = "D4P BC App Registration";
-    Caption = 'D4P App Registrations';
+    Caption = 'D365BC App Registrations';
     CardPageId = "D4P BC App Registration Card";
     UsageCategory = Lists;
 

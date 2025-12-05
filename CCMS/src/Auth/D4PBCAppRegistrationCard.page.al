@@ -5,7 +5,7 @@ page 62015 "D4P BC App Registration Card"
     PageType = Card;
     ApplicationArea = All;
     SourceTable = "D4P BC App Registration";
-    Caption = 'App Registration Card';
+    Caption = 'D365BC App Registration Card';
 
     layout
     {
