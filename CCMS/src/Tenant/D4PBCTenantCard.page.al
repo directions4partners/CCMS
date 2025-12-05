@@ -166,6 +166,7 @@ page 62011 "D4P BC Tenant Card"
         SecretExpirationStyle: Text;
         SASTokenExpirationStyle: Text;
         ClientSecretValue: Text;
+        SecretPlaceholderLbl: Label 'SECRETPLACEHOLDER', Locked = true;
 
     trigger OnAfterGetRecord()
     begin
@@ -183,7 +184,7 @@ page 62011 "D4P BC Tenant Card"
             exit;
 
         if AppRegistration.HasClientSecret(Rec."Client ID") then
-            ClientSecretValue := '***'; // Show masked indicator
+            ClientSecretValue := SecretPlaceholderLbl;
     end;
 
     local procedure StoreClientSecret()
@@ -192,6 +193,9 @@ page 62011 "D4P BC Tenant Card"
         SecretText: SecretText;
     begin
         if IsNullGuid(Rec."Client ID") then
+            exit;
+
+        if ClientSecretValue = SecretPlaceholderLbl then
             exit;
 
         SecretText := ClientSecretValue;
