@@ -98,7 +98,7 @@ table 62001 "D4P BC Tenant"
 
     /// <summary>
     /// Gets the client secret which has been saved in isolated storage for the client id used by this tenant.
-    ///If the client id is a null guid then an empty SecretText wll be returned.
+    ///If the client id is a null guid then an empty SecretText will be returned.
     /// </summary>
     /// <returns>SecretText containing the client secret</returns>
     procedure GetClientSecret() ClientSecret: SecretText
