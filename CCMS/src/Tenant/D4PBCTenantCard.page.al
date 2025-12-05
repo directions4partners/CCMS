@@ -191,9 +191,6 @@ page 62011 "D4P BC Tenant Card"
         AppRegistration: Record "D4P BC App Registration";
         SecretText: SecretText;
     begin
-        if ClientSecretValue = '' then
-            exit;
-
         if IsNullGuid(Rec."Client ID") then
             exit;
 
