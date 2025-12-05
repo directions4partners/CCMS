@@ -1,6 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/Freddy-D4P/AL-Go/main/Actions/.Modules/settings.schema.json",
   "type": "PTE",
+  "country": "w1",
+  "artifact": "/sandbox/*/w1/latest",
   "templateUrl": "https://github.com/Freddy-D4P/AL-Go@main",
   "useCompilerFolder": true,
   "doNotPublishApps": true,
@@ -8,6 +10,5 @@
   "githubRunner": "ubuntu-latest",
   "versioningStrategy": 19,
   "RepoVersion": "0.0.1",
-  "artifact": "///w1/weekly",
-  "templateSha": "22b25e31e4ab557dc8b8fe241c6dda851e285151"
+  "templateSha": "738a02dcea5cf3117f133904b2ecc7e20835f2f6"
 }
