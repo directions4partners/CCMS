@@ -316,13 +316,13 @@ page 62003 "D4P BC Environment List"
                 trigger OnAction()
                 var
                     BCTenant: Record "D4P BC Tenant";
-                    CopyEnvironmentDialog: Page "D4P Copy Environment Dialog";
+                    RenameEnvironmentDialog: Page "D4P Rename Environment Dialog";
                 begin
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
-                    CopyEnvironmentDialog.SetBCTenant(BCTenant);
-                    CopyEnvironmentDialog.SetCurrentBCEnvironment(Rec.Name);
-                    if CopyEnvironmentDialog.RunModal() = Action::OK then begin
-                        CopyEnvironmentDialog.CopyEnvironment();
+                    RenameEnvironmentDialog.SetBCTenant(BCTenant);
+                    RenameEnvironmentDialog.SetCurrentBCEnvironment(Rec.Name);
+                    if RenameEnvironmentDialog.RunModal() = Action::OK then begin
+                        RenameEnvironmentDialog.RenameEnvironment();
                     end;
                 end;
             }
