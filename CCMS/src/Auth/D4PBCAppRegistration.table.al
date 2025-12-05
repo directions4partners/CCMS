@@ -41,6 +41,11 @@ table 62005 "D4P BC App Registration"
         }
     }
 
+    /// <summary>
+    /// Retrieve the client secret which has been saved in isolated storage for this client id.
+    /// </summary>
+    /// <param name="ClientId">The app registration client id to retrieve the client secret for.</param>
+    /// <returns>SecretText containing the client secret.</returns>
     procedure GetClientSecret(ClientId: Guid) ClientSecret: SecretText
     begin
         if IsNullGuid(ClientId) then
@@ -50,26 +55,57 @@ table 62005 "D4P BC App Registration"
             IsolatedStorage.Get(ClientId, DataScope::Company, ClientSecret);
     end;
 
+    /// <summary>
+    /// Saves the client secret in isolated storage for the specified app registration client id.
+    /// If the secret is empty then any existing secret for the client id will be deleted.
+    /// </summary>
+    /// <param name="ClientId">The client id to save the client secret for.</param>
+    /// <param name="ClientSecret">The client secret to save.</param>
     procedure SetClientSecret(ClientId: Guid; ClientSecret: SecretText)
     begin
         if IsNullGuid(ClientId) then
             exit;
 
-        if ClientSecret.IsEmpty() then
-            if IsolatedStorage.Contains(ClientId, DataScope::Company) then begin
+        if ClientSecret.IsEmpty() then begin
+            if IsolatedStorage.Contains(ClientId, DataScope::Company) then
                 IsolatedStorage.Delete(ClientId, DataScope::Company);
-                exit;
-            end;
+
+            exit;
+        end;
 
         IsolatedStorage.Set(ClientId, ClientSecret, DataScope::Company);
     end;
 
+    /// <summary>
+    /// Test whether this is a client secret saved for this app registration.
+    /// </summary>
+    /// <returns>Boolean indicating whether a client secret exists for this app registration.</returns>
+    procedure HasClientSecret(): Boolean
+    begin
+        exit(HasClientSecret(Rec."Client ID"));
+    end;
+
+    /// <summary>
+    /// Test whether there is a client secret saved for the specified client id.
+    /// </summary>
+    /// <param name="ClientId">The client id to test for the existence of a client secret.</param>
+    /// <returns>Boolean indicating whether a client secret exists for the specified client id.</returns>
     procedure HasClientSecret(ClientId: Guid): Boolean
     begin
         if IsNullGuid(ClientId) then
             exit(false);
 
         exit(IsolatedStorage.Contains(ClientId, DataScope::Company));
+    end;
+
+    procedure GetSecretExpirationStyle(ClientId: Guid; ExpirationDate: Date): Text
+    var
+        D4PBCAppRegistration: Record "D4P BC App Registration";
+    begin
+        if D4PBCAppRegistration.Get(ClientId) then
+            exit(D4PBCAppRegistration.GetSecretExpirationStyle(D4PBCAppRegistration."Secret Expiration Date"))
+        else
+            exit(GetSecretExpirationStyle(ExpirationDate));
     end;
 
     procedure GetSecretExpirationStyle(ExpirationDate: Date): Text
@@ -88,5 +124,28 @@ table 62005 "D4P BC App Registration"
                 exit('Attention')
             else
                 exit('Favorable');
+    end;
+
+    /// <summary>
+    /// Sends a notification to the user warning that no client secret has been set for this app registration.
+    /// The notification includes a link to open the app registration card.
+    /// </summary>
+    procedure SendMissingClientSecretNotification()
+    var
+        MissingSecretNotification: Notification;
+        OpenCardMsg: Label 'Open App Registration';
+        NoSecretMsg: Label 'No client secret has been set for app registration %1. Click here to configure the secret.', Comment = '%1 = Client ID or Description';
+        NotificationIdLbl: Label 'ef2984fd-326b-489c-933f-906617b4fe59', Locked = true;
+    begin
+        MissingSecretNotification.Id := NotificationIdLbl;
+        if Rec.Description <> '' then
+            MissingSecretNotification.Message := StrSubstNo(NoSecretMsg, Rec.Description)
+        else
+            MissingSecretNotification.Message := StrSubstNo(NoSecretMsg, Rec."Client ID");
+
+        MissingSecretNotification.Scope := NotificationScope::LocalScope;
+        MissingSecretNotification.AddAction(OpenCardMsg, Codeunit::"D4P BC App Registration", 'OpenAppRegistrationCard');
+        MissingSecretNotification.SetData('ClientID', Format(Rec."Client ID"));
+        MissingSecretNotification.Send();
     end;
 }
