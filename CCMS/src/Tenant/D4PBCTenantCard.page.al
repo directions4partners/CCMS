@@ -182,9 +182,6 @@ page 62011 "D4P BC Tenant Card"
         if IsNullGuid(Rec."Client ID") then
             exit;
 
-        if Rec."App Registration Type" <> Rec."App Registration Type"::Individual then
-            exit;
-
         if AppRegistration.HasClientSecret(Rec."Client ID") then
             ClientSecretValue := '***'; // Show masked indicator
     end;
