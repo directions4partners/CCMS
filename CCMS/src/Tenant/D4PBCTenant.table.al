@@ -52,7 +52,7 @@ table 62001 "D4P BC Tenant"
             DataClassification = CustomerContent;
             ObsoleteReason = 'Client secrets are now stored in isolated storage. Use GetClientSecret() method instead.';
             ObsoleteState = Pending;
-            ObsoleteTag = '1.0.0';
+            ObsoleteTag = '0.0.1.0';
         }
         field(6; "Secret Expiration Date"; Date)
         {
@@ -79,6 +79,12 @@ table 62001 "D4P BC Tenant"
             Caption = 'App Registration Type';
             DataClassification = CustomerContent;
             InitValue = Individual;
+
+            trigger OnValidate()
+            begin
+                if "App Registration Type" <> xRec."App Registration Type" then
+                    Clear("Client ID");
+            end;
         }
     }
 
@@ -90,6 +96,11 @@ table 62001 "D4P BC Tenant"
         }
     }
 
+    /// <summary>
+    /// Gets the client secret which has been saved in isolated storage for the client id used by this tenant.
+    ///If the client id is a null guid then an empty SecretText wll be returned.
+    /// </summary>
+    /// <returns>SecretText containing the client secret</returns>
     procedure GetClientSecret() ClientSecret: SecretText
     var
         AppRegistration: Record "D4P BC App Registration";
