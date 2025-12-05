@@ -52,7 +52,7 @@ page 62015 "D4P BC App Registration Card"
     trigger OnAfterGetRecord()
     begin
         LoadClientSecret();
-        SecretExpirationStyle := Rec.GetSecretExpirationStyle(Rec."Secret Expiration Date");
+        SecretExpirationStyle := Rec.GetSecretExpirationStyle();
     end;
 
     local procedure LoadClientSecret()

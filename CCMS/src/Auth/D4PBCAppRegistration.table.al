@@ -77,7 +77,7 @@ table 62005 "D4P BC App Registration"
     end;
 
     /// <summary>
-    /// Test whether this is a client secret saved for this app registration.
+    /// Tests whether a client secret exists for this app registration.
     /// </summary>
     /// <returns>Boolean indicating whether a client secret exists for this app registration.</returns>
     procedure HasClientSecret(): Boolean
@@ -98,14 +98,9 @@ table 62005 "D4P BC App Registration"
         exit(IsolatedStorage.Contains(ClientId, DataScope::Company));
     end;
 
-    procedure GetSecretExpirationStyle(ClientId: Guid; ExpirationDate: Date): Text
-    var
-        D4PBCAppRegistration: Record "D4P BC App Registration";
+    procedure GetSecretExpirationStyle(): Text
     begin
-        if D4PBCAppRegistration.Get(ClientId) then
-            exit(D4PBCAppRegistration.GetSecretExpirationStyle(D4PBCAppRegistration."Secret Expiration Date"))
-        else
-            exit(GetSecretExpirationStyle(ExpirationDate));
+        exit(GetSecretExpirationStyle("Secret Expiration Date"));
     end;
 
     procedure GetSecretExpirationStyle(ExpirationDate: Date): Text

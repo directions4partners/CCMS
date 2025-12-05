@@ -202,7 +202,11 @@ page 62011 "D4P BC Tenant Card"
     var
         D4PBCAppRegistration: Record "D4P BC App Registration";
     begin
-        SecretExpirationStyle := D4PBCAppRegistration.GetSecretExpirationStyle(Rec."Client ID", Rec."Secret Expiration Date");
+        if Rec."App Registration Type" = Rec."App Registration Type"::Individual then
+            SecretExpirationStyle := D4PBCAppRegistration.GetSecretExpirationStyle(Rec."Secret Expiration Date")
+        else
+            if D4PBCAppRegistration.Get(Rec."Client ID") then
+                SecretExpirationStyle := D4PBCAppRegistration.GetSecretExpirationStyle();
     end;
 
     local procedure UpdateSASTokenExpirationStyle()

@@ -40,6 +40,6 @@ page 62018 "D4P BC App Registration List"
 
     trigger OnAfterGetRecord()
     begin
-        SecretExpirationStyle := Rec.GetSecretExpirationStyle(Rec."Secret Expiration Date");
+        SecretExpirationStyle := Rec.GetSecretExpirationStyle();
     end;
 }
