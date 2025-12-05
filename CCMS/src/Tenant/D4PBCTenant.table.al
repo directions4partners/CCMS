@@ -31,6 +31,20 @@ table 62001 "D4P BC Tenant"
         {
             Caption = 'Client ID';
             DataClassification = CustomerContent;
+
+            trigger OnValidate()
+            var
+                D4PBCAppRegistration: Record "D4P BC App Registration";
+            begin
+                if IsNullGuid("Client ID") then
+                    exit;
+
+                if "App Registration Type" = "App Registration Type"::Shared then begin
+                    D4PBCAppRegistration.Get("Client ID");
+                    if not D4PBCAppRegistration.HasClientSecret() then
+                        D4PBCAppRegistration.SendMissingClientSecretNotification();
+                end;
+            end;
         }
         field(5; "Client Secret"; Text[100])
         {
