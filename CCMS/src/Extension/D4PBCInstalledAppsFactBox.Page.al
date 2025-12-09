@@ -17,7 +17,7 @@ page 62018 "D4P BC Installed Apps FactBox"
     {
         area(Content)
         {
-            repeater(Environments)
+            repeater(InstalledApps)
             {
                 field("App Name"; Rec."App Name")
                 {

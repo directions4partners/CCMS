@@ -6,9 +6,9 @@ page 62024 "D4P BC Installed App Card"
 {
     PageType = Card;
     ApplicationArea = All;
-    UsageCategory = Lists;
+    UsageCategory = None;
     SourceTable = "D4P BC Installed Apps";
-    Caption = 'D365BC Installed Apps';
+    Caption = 'D365BC Installed App';
     InsertAllowed = false;
     ModifyAllowed = false;
 

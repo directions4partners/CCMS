@@ -47,8 +47,8 @@ page 62002 "D4P BC Tenant List"
             }
             part(EnvironmentsFactBox; "D4P BC Environments FactBox")
             {
-                SubPageLink = "Customer No." = field("Customer No."),
-                            "Tenant ID" = field("Tenant ID");
+                ApplicationArea = All;
+                SubPageLink = "Customer No." = field("Customer No."), "Tenant ID" = field("Tenant ID");
             }
         }
     }
