@@ -84,6 +84,11 @@ page 62011 "D4P BC Tenant Card"
                 SubPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
             }
+            part(EnvironmentsFactBox; "D4P BC Environments FactBox")
+            {
+                SubPageLink = "Customer No." = field("Customer No."),
+                            "Tenant ID" = field("Tenant ID");
+            }
         }
     }
 
