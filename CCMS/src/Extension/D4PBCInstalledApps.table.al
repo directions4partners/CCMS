@@ -6,6 +6,8 @@ table 62003 "D4P BC Installed Apps"
 {
     Caption = 'D365BC Installed Apps';
     DataClassification = CustomerContent;
+    LookupPageId = "D4P BC Installed Apps List";
+    DrillDownPageId = "D4P BC Installed Apps List";
 
     fields
     {
@@ -93,4 +95,3 @@ table 62003 "D4P BC Installed Apps"
         }
     }
 }
-
