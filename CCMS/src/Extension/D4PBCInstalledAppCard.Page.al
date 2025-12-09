@@ -2,23 +2,27 @@ namespace D4P.CCMS.Extension;
 
 using D4P.CCMS.Environment;
 
-page 62008 "D4P BC Installed Apps List"
+page 62024 "D4P BC Installed App Card"
 {
-    PageType = List;
+    PageType = Card;
     ApplicationArea = All;
     UsageCategory = Lists;
     SourceTable = "D4P BC Installed Apps";
     Caption = 'D365BC Installed Apps';
     InsertAllowed = false;
     ModifyAllowed = false;
-    CardPageId = "D4P BC Installed App Card";
 
     layout
     {
         area(Content)
         {
-            repeater(GroupName)
+            group(General)
             {
+                field("App ID"; Rec."App ID")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the unique identifier of the app.';
+                }
                 field("App Name"; Rec."App Name")
                 {
                     ApplicationArea = All;
@@ -45,41 +49,44 @@ page 62008 "D4P BC Installed Apps List"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the type of the app (Global, PTE, DEV).';
                 }
-                field("Can Be Uninstalled"; Rec."Can Be Uninstalled")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies whether the app can be uninstalled.';
-                }
+
+            }
+            group(Update)
+            {
                 field("Last Update Attempt Result"; Rec."Last Update Attempt Result")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the result of the last update attempt.';
                 }
-                field("Last Uninstall Attempt Result"; Rec."Last Uninstall Attempt Result")
-                {
-                    ApplicationArea = All;
-                    ToolTip = 'Specifies the result of the last uninstall attempt.';
-                }
+
                 field("Available Update Version"; Rec."Available Update Version")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the version of the app that is available for update.';
                     StyleExpr = UpdateAvailableStyleExpr;
                 }
+
+            }
+            group(Install)
+            {
                 field("Environment Name"; Rec."Environment Name")
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the environment where the app is installed.';
                 }
-                field("App ID"; Rec."App ID")
+                field("Can Be Uninstalled"; Rec."Can Be Uninstalled")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the unique identifier of the app.';
+                    ToolTip = 'Specifies whether the app can be uninstalled.';
+                }
+                field("Last Uninstall Attempt Result"; Rec."Last Uninstall Attempt Result")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the result of the last uninstall attempt.';
                 }
             }
         }
     }
-
     actions
     {
         area(Processing)
