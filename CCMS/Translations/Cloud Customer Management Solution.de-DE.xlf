@@ -177,6 +177,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Backup Helper - Method StartEnvironmentDatabaseExport - NamedType ExportStartedMsg</note>
         </trans-unit>
+        <trans-unit id="Page 2853562155 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC Environment Database Exports</source>
+          <target>D365BC Umgebungs-Datenbankexporte</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Backups - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 2853562155 - NamedType 690053247" size-unit="char" translate="yes" xml:space="preserve">
           <source>Database Exports - %1 (%2) - %3</source>
           <target>Datenbankexporte - %1 (%2) - %3</target>
@@ -1083,6 +1089,95 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Customers List - Action BCTenants - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 374591603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>BC Available Update</source>
+          <target>BC Verfügbares Update</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 3920084379 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Available</source>
+          <target>Verfügbar</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Available - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Entry No.</source>
+          <target>Lfd. Nr.</target>
+          <target>Postennr.</target>
+          <target>Zeilennr.</target>
+          <target>Postennummer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Entry No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 4127237914 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expected Month</source>
+          <target>Erwarteter Monat</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Expected Month - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 193776283 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Expected Year</source>
+          <target>Erwartetes Jahr</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Expected Year - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 580207727 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Ignore Update Window</source>
+          <target>Update-Fenster ignorieren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Ignore Update Window - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 2538207455 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Latest Selectable Date</source>
+          <target>Letztes wählbares Datum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Latest Selectable Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 2333046473 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Rollout Status</source>
+          <target>Rollout-Status</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Rollout Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 90423963 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected</source>
+          <target>Ausgewählt</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Selected - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 2968407532 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected Date</source>
+          <target>Ausgewähltes Datum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Selected DateTime - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 2437650133 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Target Version</source>
+          <target>Zielversion</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Target Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 1930323085 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Target Version Type</source>
+          <target>Zielversionstyp</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Target Version Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 374591603 - Field 3554884968 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>User Selected Date</source>
+          <target>Benutzerdefiniertes Datum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field User Selected Date - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3113203544 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment</source>
           <target>D365BC Umgebung</target>
@@ -1119,11 +1214,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Available - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3113203544 - Field 366688886 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Table 3113203544 - Field 4148176377 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region</source>
           <target>Land/Region</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Contry/Region - Property Caption</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Country/Region - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 260970101 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Current Version</source>
@@ -1359,6 +1455,30 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method GetAvailableAppUpdates - NamedType NoAvailableUpdatesMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 175239086 - Method 227458231 - NamedType 1078089387" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to fetch available updates: %1</source>
+          <target>Fehler beim Abrufen verfügbarer Updates: %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method GetAvailableUpdates - NamedType FailedToFetchErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 175239086 - Method 227458231 - NamedType 1649369857" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Fetching available updates...</source>
+          <target>Verfügbare Updates werden abgerufen...</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method GetAvailableUpdates - NamedType FetchingUpdatesMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 175239086 - Method 227458231 - NamedType 1506670541" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing update #1#### of #2####: #3####################</source>
+          <target>Verarbeite Update #1#### von #2####: #3####################</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method GetAvailableUpdates - NamedType ProcessingUpdateMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 175239086 - Method 227458231 - NamedType 1842124536" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No updates found in API response for environment %1.</source>
+          <target>Keine Updates in der API-Antwort für Umgebung %1 gefunden.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method GetAvailableUpdates - NamedType NoUpdatesFoundMsg</note>
+        </trans-unit>
         <trans-unit id="Codeunit 175239086 - Method 1977573380 - NamedType 1078089387" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to fetch data from Endpoint: %1</source>
           <target>Fehler beim Abrufen der Daten vom Endpunkt: %1</target>
@@ -1418,6 +1538,24 @@
           <target>Fehler beim Upgrade der Umgebung: %1</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method RescheduleBCEnvironmentUpgrade - NamedType FailedToUpgradeErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 175239086 - Method 1530997565 - NamedType 1126188091" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update to version %1 successfully scheduled for %2.</source>
+          <target>Update auf Version %1 erfolgreich für %2 geplant.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method SelectTargetVersion - NamedType UpdateScheduledMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 175239086 - Method 1530997565 - NamedType 3335021659" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update to version %1 successfully selected. Expected availability: %2/%3.</source>
+          <target>Update auf Version %1 erfolgreich ausgewählt. Erwartete Verfügbarkeit: %2/%3.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method SelectTargetVersion - NamedType UpdateSelectedMsg</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 175239086 - Method 1530997565 - NamedType 3949379519" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to select target version: %1</source>
+          <target>Fehler bei der Auswahl der Zielversion: %1</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method SelectTargetVersion - NamedType FailedToSelectErr</note>
         </trans-unit>
         <trans-unit id="Codeunit 175239086 - Method 3925130490 - NamedType 2347911388" size-unit="char" translate="yes" xml:space="preserve">
           <source>Application Insights connection string successfully removed for environment %1.</source>
@@ -1563,11 +1701,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Control Location - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1494117452 - Control 366688886 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 1494117452 - Control 4148176377 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the country/region of the environment.</source>
           <target>Gibt das Land/die Region der Umgebung an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Control Contry/Region - Property ToolTip</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Control Country/Region - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1494117452 - Control 3894144614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Azure Geo where the environment database is stored.</source>
@@ -1846,7 +1985,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action RenameEnvironment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1494117452 - Action 845002573 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reschedule the update of the selected environment.</source>
+          <source>Select and schedule an update version for the environment.</source>
           <target>Planen Sie das Update der ausgewählten Umgebung neu.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action RescheduleUpdate - Property ToolTip</note>
@@ -1857,17 +1996,11 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action RescheduleUpdate - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 1494117452 - Action 845002573 - Method 1377591017 - NamedType 1352760413" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Are you sure you want to schedule the update of the environment %1 for %2?</source>
-          <target>Möchten Sie das Update der Umgebung %1 für %2 wirklich planen?</target>
+        <trans-unit id="Page 1494117452 - Action 845002573 - Method 1377591017 - NamedType 288981753" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No updates available for the environment %1.</source>
+          <target>Keine Updates für die Umgebung %1 verfügbar.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action RescheduleUpdate - Method OnAction - NamedType RescheduleMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 1494117452 - Action 845002573 - Method 1377591017 - NamedType 598101461" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Target Version is not specified for the environment %1.</source>
-          <target>Zielversion ist für die Umgebung %1 nicht angegeben.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action RescheduleUpdate - Method OnAction - NamedType RescheduleErrorMsg</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action RescheduleUpdate - Method OnAction - NamedType NoUpdatesAvailableErr</note>
         </trans-unit>
         <trans-unit id="Page 1494117452 - Action 859129836 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advanced</source>
@@ -2007,11 +2140,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Control Available - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 4116547146 - Control 366688886 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Page 4116547146 - Control 4148176377 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the country/region of the environment.</source>
           <target>Gibt das Land/die Region der Umgebung an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Control Contry/Region - Property ToolTip</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Control Country/Region - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Control 260970101 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the current version of Business Central.</source>
@@ -2181,18 +2315,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action Capacity - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 145789782 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View database export history and start new exports for this environment.</source>
-          <target>Datenbank-Exportverlauf anzeigen und neue Exporte für diese Umgebung starten.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DatabaseExports - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 145789782 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Database Exports</source>
-          <target>Datenbankexporte</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DatabaseExports - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 4116547146 - Action 3597253033 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View detailed information about this environment.</source>
           <target>Detaillierte Informationen zu dieser Umgebung anzeigen.</target>
@@ -2289,18 +2411,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action SetAppInsightsConnectionString - Method OnAction - NamedType RemoveAppInsightsMsg</note>
         </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 1462872145 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View telemetry data for this environment.</source>
-          <target>Telemetriedaten für diese Umgebung anzeigen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action Telemetry - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 1462872145 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Telemetry</source>
-          <target>Telemetrie</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action Telemetry - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Page 4116547146 - Action 3866562980 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Creates a copy for the selected environment.</source>
           <target>Erstellt eine Kopie für die ausgewählte Umgebung.</target>
@@ -2379,30 +2489,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action RenameEnvironment - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 845002573 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reschedule the update of the selected environment.</source>
-          <target>Planen Sie das Update der ausgewählten Umgebung neu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action RescheduleUpdate - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 845002573 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Reschedule Update</source>
-          <target>Update neu planen</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action RescheduleUpdate - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 845002573 - Method 1377591017 - NamedType 1352760413" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Are you sure you want to schedule the update of the environment %1 for %2?</source>
-          <target>Möchten Sie das Update der Umgebung %1 für %2 wirklich planen?</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action RescheduleUpdate - Method OnAction - NamedType RescheduleMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 845002573 - Method 1377591017 - NamedType 598101461" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Target Version is not specified for the environment %1.</source>
-          <target>Zielversion ist für die Umgebung %1 nicht angegeben.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action RescheduleUpdate - Method OnAction - NamedType RescheduleErrorMsg</note>
-        </trans-unit>
         <trans-unit id="Page 4116547146 - Action 859129836 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Advanced</source>
           <target>Erweitert</target>
@@ -2426,6 +2512,13 @@
           <target>Telemetrie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action TelemetryTasks - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3083617174 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Environments</source>
+          <target>Umgebungen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environments FactBox - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4202705716 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy Environment</source>
@@ -2492,6 +2585,90 @@
           <target>Neuer Umgebungsname</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P Rename Environment Dialog - Control NewEnvironmentName - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select Update Version</source>
+          <target>Update-Version auswählen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - NamedType 77279266" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected date cannot be earlier than current date and time.</source>
+          <target>Das ausgewählte Datum darf nicht vor dem aktuellen Datum und der aktuellen Uhrzeit liegen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - NamedType DateTooEarlyErr</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - NamedType 1752938315" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected date cannot be later than %1.</source>
+          <target>Das ausgewählte Datum darf nicht später als %1 sein.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - NamedType DateTooLateErr</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 2717117345 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Schedule Details</source>
+          <target>Zeitplandetails</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control SelectionGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 4122097326 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Available Updates</source>
+          <target>Verfügbare Updates</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Updates - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 3920084379 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if the version is available.</source>
+          <target>Gibt an, ob die Version verfügbar ist.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Available - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 4127237914 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the expected month for the release.</source>
+          <target>Gibt den erwarteten Monat für die Veröffentlichung an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Expected Month - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 193776283 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the expected year for the release.</source>
+          <target>Gibt das erwartete Jahr für die Veröffentlichung an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Expected Year - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 2538207455 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the latest date for which the update can be scheduled.</source>
+          <target>Gibt das späteste Datum an, für das das Update geplant werden kann.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Latest Selectable Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 2333046473 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the rollout status (Active, UnderMaintenance, Postponed).</source>
+          <target>Gibt den Rollout-Status an (Aktiv, In Wartung, Verschoben).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Rollout Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 90423963 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies if this is the currently selected version.</source>
+          <target>Gibt an, ob dies die aktuell ausgewählte Version ist.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Selected - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 2283085303 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Select the date for the update (between today and latest selectable date).</source>
+          <target>Wählen Sie das Datum für das Update (zwischen heute und dem spätesten wählbaren Datum).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Selected Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 2283085303 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Selected Date</source>
+          <target>Ausgewähltes Datum</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Selected Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2719251283 - Control 2437650133 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the target version.</source>
+          <target>Gibt die Zielversion an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P Update Selection Dialog - Control Target Version - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Enum 3660222239 - EnumValue 1065337893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Production</source>
@@ -2624,25 +2801,25 @@
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 4277803464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE ID</source>
-          <target></target>
+          <target>PTE ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field PTE ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 716423282 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE Name</source>
-          <target></target>
+          <target>PTE Name</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field PTE Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 3359984739 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Range From</source>
-          <target></target>
+          <target>Range von</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Range From - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 1746152936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Range To</source>
-          <target></target>
+          <target>Range bis</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Range To - Property Caption</note>
         </trans-unit>
@@ -2651,6 +2828,173 @@
           <target>Tenant-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Tenant ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC Installed App</source>
+          <target>D365BC Installierte App</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 2766253784 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique identifier of the app.</source>
+          <target>Gibt die eindeutige Kennung der App an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control App ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 1256520770 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the installed app.</source>
+          <target>Gibt den Namen der installierten App an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control App Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 1606374689 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the publisher of the app.</source>
+          <target>Gibt den Herausgeber der App an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control App Publisher - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 4241615531 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of the app (Global, PTE, DEV).</source>
+          <target>Gibt den Typ der App an (Global, PTE, DEV).</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control App Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 2709452997 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of the installed app.</source>
+          <target>Gibt die Version der installierten App an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control App Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 269761521 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the current state of the app.</source>
+          <target>Gibt den aktuellen Status der App an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control State - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 1480014772 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether the app can be uninstalled.</source>
+          <target>Gibt an, ob die App deinstalliert werden kann.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control Can Be Uninstalled - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 1768934958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the environment where the app is installed.</source>
+          <target>Gibt die Umgebung an, in der die App installiert ist.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control Environment Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 77363544 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the result of the last uninstall attempt.</source>
+          <target>Gibt das Ergebnis des letzten Deinstallationsversuchs an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control Last Uninstall Attempt Result - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 362685614 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of the app that is available for update.</source>
+          <target>Gibt die Version der App an, die für ein Update verfügbar ist.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control Available Update Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Control 456057361 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the result of the last update attempt.</source>
+          <target>Gibt das Ergebnis des letzten Updateversuchs an.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Control Last Update Attempt Result - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 389138476 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete all fetched installed apps records.</source>
+          <target>Alle abgerufenen installierten App-Datensätze löschen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action DeleteAll - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 389138476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Delete All</source>
+          <target>Alle löschen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action DeleteAll - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 389138476 - Method 1377591017 - NamedType 407090172" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete all %1 fetched installed apps records?</source>
+          <target>Möchten Sie wirklich alle %1 abgerufenen installierten App-Datensätze löschen?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action DeleteAll - Method OnAction - NamedType DeleteMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 227458231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get the list of available apps updates for the selected environment.</source>
+          <target>Liste der verfügbaren App-Updates für die ausgewählte Umgebung abrufen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action GetAvailableUpdates - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 227458231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Available Updates</source>
+          <target>Verfügbare Updates abrufen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action GetAvailableUpdates - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 4242874840 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get the list of installed apps for the selected environment.</source>
+          <target>Liste der installierten Apps für die ausgewählte Umgebung abrufen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action GetInstalledApps - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 4242874840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Installed Apps</source>
+          <target>Installierte Apps abrufen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action GetInstalledApps - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 544754716 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update the selected app to the latest version.</source>
+          <target>Aktualisieren Sie die ausgewählte App auf die neueste Version.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action UpdateApp - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 544754716 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update App</source>
+          <target>App aktualisieren</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action UpdateApp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2025092546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Installed Apps</source>
+          <target>Installierte Apps</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps FactBox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2025092546 - Action 4242874840 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get the list of installed apps for the selected environment.</source>
+          <target>Liste der installierten Apps für die ausgewählte Umgebung abrufen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps FactBox - Action GetInstalledApps - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2025092546 - Action 4242874840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Installed Apps</source>
+          <target>Installierte Apps abrufen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps FactBox - Action GetInstalledApps - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Installed Apps</source>
@@ -2780,7 +3124,7 @@
         </trans-unit>
         <trans-unit id="Page 3331374484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE Object Ranges</source>
-          <target></target>
+          <target>PTE Objekt Range</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Property Caption</note>
         </trans-unit>
@@ -2792,25 +3136,25 @@
         </trans-unit>
         <trans-unit id="Page 3331374484 - Control 4277803464 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Per Tenant Extension's ID.</source>
-          <target></target>
+          <target>Gibt die Per Tenant Extension ID an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Control PTE ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3331374484 - Control 716423282 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Per Tenant Extension's name.</source>
-          <target></target>
+          <target>Gibt den Per Tenant Extension Namen an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Control PTE Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3331374484 - Control 3359984739 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the starting range.</source>
-          <target></target>
+          <target>Gibt den Beginn der Range an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Control Range From - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3331374484 - Control 1746152936 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the ending range.</source>
-          <target></target>
+          <target>Gibt das Ende der Range an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Control Range To - Property ToolTip</note>
         </trans-unit>
@@ -2822,7 +3166,7 @@
         </trans-unit>
         <trans-unit id="Enum 3693902586 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <target></target>
+          <target> </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P App State - EnumValue   - Property Caption</note>
         </trans-unit>
@@ -2846,7 +3190,7 @@
         </trans-unit>
         <trans-unit id="Enum 266525707 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <target></target>
+          <target> </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P App Type - EnumValue   - Property Caption</note>
         </trans-unit>
@@ -2870,7 +3214,7 @@
         </trans-unit>
         <trans-unit id="Enum 180238450 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <target></target>
+          <target> </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Uninstall Attempt Result - EnumValue   - Property Caption</note>
         </trans-unit>
@@ -2902,7 +3246,7 @@
         </trans-unit>
         <trans-unit id="Enum 2012504679 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source> </source>
-          <target></target>
+          <target> </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Update Attempt Result - EnumValue   - Property Caption</note>
         </trans-unit>
@@ -4179,12 +4523,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P Telemetry Helper - Method ValidateEnvironmentTelemetrySetup - NamedType NoConnectionStringErr</note>
         </trans-unit>
-        <trans-unit id="Codeunit 2149698107 - Method 2876324037 - NamedType 2355372627" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Application Insights connection setup not found for environment "%1". Please verify telemetry configuration.</source>
-          <target>Application Insights-Verbindungseinrichtung für Umgebung „%1“ nicht gefunden. Bitte überprüfen Sie die Telemetriekonfiguration.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P Telemetry Helper - Method ValidateEnvironmentTelemetrySetup - NamedType SetupNotFoundErr</note>
-        </trans-unit>
         <trans-unit id="Page 1185952584 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Application Insights Connection Setup Card</source>
           <target>Application Insights-Verbindungseinrichtungskarte</target>
@@ -4873,13 +5211,13 @@
         </trans-unit>
         <trans-unit id="Page 1913673331 - Action 1190370812 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View PTE object ranges for this customer and tenant.</source>
-          <target></target>
+          <target>Zeige die PTE Objekt Range für diesen Kunden und Tenant an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Action PTEObjectRanges - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Action 1190370812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE Object Ranges</source>
-          <target></target>
+          <target>PTE Objekt Ranges</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Action PTEObjectRanges - Property Caption</note>
         </trans-unit>
@@ -4981,13 +5319,13 @@
         </trans-unit>
         <trans-unit id="Page 1431185537 - Action 1190370812 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View PTE object ranges for this customer and tenant.</source>
-          <target></target>
+          <target>Zeigt die PTE Objekt Range für diesen Kunden und Tenant an.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Action PTEObjectRanges - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1431185537 - Action 1190370812 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE Object Ranges</source>
-          <target></target>
+          <target>PTE Objekt Ranges</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Action PTEObjectRanges - Property Caption</note>
         </trans-unit>
