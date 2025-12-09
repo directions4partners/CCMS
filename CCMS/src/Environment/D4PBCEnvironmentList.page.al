@@ -17,6 +17,7 @@ page 62003 "D4P BC Environment List"
     Caption = 'D365BC Environments';
     InsertAllowed = false;
     DeleteAllowed = false;
+    CardPageId = "D4P BC Environment Card";
 
     layout
     {
@@ -203,6 +204,16 @@ page 62003 "D4P BC Environment List"
                     ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from AppInsights Connection Setup).';
                     Editable = false;
                 }
+            }
+        }
+        area(FactBoxes)
+        {
+            part(InstalledApp; "D4P BC Installed Apps FactBox")
+            {
+                ApplicationArea = All;
+                SubPageLink = "Customer No." = field("Customer No."),
+                            "Tenant ID" = field("Tenant ID"),
+                            "Environment Name" = field(Name);
             }
         }
     }

@@ -320,6 +320,16 @@ page 62004 "D4P BC Environment Card"
                 }
             }
         }
+        area(FactBoxes)
+        {
+            part(InstalledApp; "D4P BC Installed Apps FactBox")
+            {
+                ApplicationArea = All;
+                SubPageLink = "Customer No." = field("Customer No."),
+                            "Tenant ID" = field("Tenant ID"),
+                            "Environment Name" = field(Name);
+            }
+        }
     }
 
     actions
