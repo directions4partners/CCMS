@@ -7,6 +7,8 @@ table 62002 "D4P BC Environment"
 {
     Caption = 'D365BC Environment';
     DataClassification = CustomerContent;
+    LookupPageId = "D4P BC Environment List";
+    DrillDownPageId = "D4P BC Environment List";
 
     fields
     {

@@ -6,6 +6,8 @@ table 62001 "D4P BC Tenant"
 {
     Caption = 'D365BC Tenant';
     DataClassification = CustomerContent;
+    DrillDownPageId = "D4P BC Tenant List";
+    LookupPageId = "D4P BC Tenant List";
 
     fields
     {
