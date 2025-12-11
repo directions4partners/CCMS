@@ -6,10 +6,15 @@
 ## ⚙️ Install
 
 Download the latest release of CCMS here: https://github.com/directions4partners/CCMS/releases and unpack the .zip file.
+
 In Business Central, open Extension Management.
+
 Choose Upload Extension from the action bar.
+
 Select your .app file
+
 Review the version and dependencies, then click Deploy.
+
 Wait for the installation to complete — the extension will appear in the list once deployed.
  
 ## 📌 Project Vision
