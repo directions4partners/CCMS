@@ -9,6 +9,6 @@
   "runs-on": "ubuntu-latest",
   "githubRunner": "ubuntu-latest",
   "versioningStrategy": 19,
-  "RepoVersion": "0.0.1",
+  "RepoVersion": "0.0.2",
   "templateSha": "738a02dcea5cf3117f133904b2ecc7e20835f2f6"
 }
