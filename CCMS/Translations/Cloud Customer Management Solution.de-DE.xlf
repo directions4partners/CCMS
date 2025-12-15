@@ -3398,7 +3398,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1849445836 - Method 148382111 - NamedType 530085140" size-unit="char" translate="yes" xml:space="preserve">
           <source>Feature "%1" activated successfully.</source>
-          <target>Feature „%1“ erfolgreich aktiviert.</target>
+          <target>Feature "%1" erfolgreich aktiviert.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Features Helper - Method ActivateFeature - NamedType FeatureActivatedMsg</note>
         </trans-unit>
@@ -3428,7 +3428,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1849445836 - Method 2341653616 - NamedType 2587314683" size-unit="char" translate="yes" xml:space="preserve">
           <source>Feature "%1" deactivated successfully.</source>
-          <target>Feature „%1“ erfolgreich deaktiviert.</target>
+          <target>Feature "%1" erfolgreich deaktiviert.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Features Helper - Method DeactivateFeature - NamedType FeatureDeactivatedMsg</note>
         </trans-unit>
@@ -4501,7 +4501,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 3578107863 - Method 1024226327 - NamedType 1915816412" size-unit="char" translate="yes" xml:space="preserve">
           <source>The column '%1' does not exist in the dataset.</source>
-          <target>Die Spalte „%1“ ist im Dataset nicht vorhanden.</target>
+          <target>Die Spalte "%1" ist im Dataset nicht vorhanden.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P AppInsights Client - Method GetValue - NamedType ColumnDoesNotExistErr</note>
         </trans-unit>
@@ -4519,7 +4519,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 2149698107 - Method 2876324037 - NamedType 1743548257" size-unit="char" translate="yes" xml:space="preserve">
           <source>The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.</source>
-          <target>Die Umgebung „%1“ hat keine Application Insights-Verbindungszeichenfolge konfiguriert. Bitte konfigurieren Sie zuerst die Telemetrie.</target>
+          <target>Die Umgebung "%1" hat keine Application Insights-Verbindungszeichenfolge konfiguriert. Bitte konfigurieren Sie zuerst die Telemetrie.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P Telemetry Helper - Method ValidateEnvironmentTelemetrySetup - NamedType NoConnectionStringErr</note>
         </trans-unit>
@@ -4765,13 +4765,13 @@
         </trans-unit>
         <trans-unit id="Page 620516318 - Action 2632395477 - Method 1377591017 - NamedType 1743548257" size-unit="char" translate="yes" xml:space="preserve">
           <source>The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.</source>
-          <target>Die Umgebung „%1“ hat keine Application Insights-Verbindungszeichenfolge konfiguriert. Bitte konfigurieren Sie zuerst die Telemetrie.</target>
+          <target>Die Umgebung "%1" hat keine Application Insights-Verbindungszeichenfolge konfiguriert. Bitte konfigurieren Sie zuerst die Telemetrie.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Queries - Action RunQuery - Method OnAction - NamedType NoConnectionStringErr</note>
         </trans-unit>
         <trans-unit id="Page 620516318 - Action 2632395477 - Method 1377591017 - NamedType 2355372627" size-unit="char" translate="yes" xml:space="preserve">
           <source>Application Insights connection setup not found for environment "%1". Please verify telemetry configuration.</source>
-          <target>Application Insights-Verbindungseinrichtung für Umgebung „%1“ nicht gefunden. Bitte überprüfen Sie die Telemetriekonfiguration.</target>
+          <target>Application Insights-Verbindungseinrichtung für Umgebung "%1" nicht gefunden. Bitte überprüfen Sie die Telemetriekonfiguration.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Queries - Action RunQuery - Method OnAction - NamedType SetupNotFoundErr</note>
         </trans-unit>
