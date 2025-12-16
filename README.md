@@ -3,6 +3,20 @@
 
 **CCMS (Cloud Customer Management Solution)** is an open-source Business Central app designed to revolutionize how partners manage and support their customers. Built collaboratively by a consortium of Microsoft Dynamics 365 Business Central partners, CCMS provides a secure, modular, and automated way to handle the entire lifecycle of customer environments — dramatically reducing the need for direct access and manual intervention.
 
+## ⚙️ Installation
+
+Download the latest release of CCMS here: https://github.com/directions4partners/CCMS/releases and unpack the .zip file.
+
+In Business Central, open Extension Management.
+
+Choose Upload Extension from the action bar.
+
+Select your .app file
+
+Review the version and dependencies, then click Deploy.
+
+Wait for the installation to complete — the extension will appear in the list once deployed.
+ 
 ## 📌 Project Vision
 
 In a cloud-first world, partners should not need to log into customer environments for everyday maintenance tasks.  
