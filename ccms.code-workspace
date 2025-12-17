@@ -1,6 +1,9 @@
 {
     "folders": [
         {
+            "path": ".github"
+        },
+        {
             "path": ".AL-Go"
         },
         {

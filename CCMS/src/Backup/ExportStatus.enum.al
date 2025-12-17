@@ -6,7 +6,7 @@ enum 62001 "D4P Export Status"
 
     value(0; " ")
     {
-        Caption = ' ';
+        Caption = ' ', Locked = true;
     }
     value(1; "In Progress")
     {
