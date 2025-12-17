@@ -6,7 +6,7 @@ enum 62002 "D4P App State"
 
     value(0; " ")
     {
-        Caption = ' ';
+        Caption = ' ', Locked = true;
     }
     value(1; Installed)
     {

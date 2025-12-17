@@ -6,7 +6,7 @@ enum 62003 "D4P Update Attempt Result"
 
     value(0; " ")
     {
-        Caption = ' ';
+        Caption = ' ', Locked = true;
     }
     value(1; Failed)
     {
