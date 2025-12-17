@@ -85,8 +85,8 @@ page 62008 "D4P BC Installed Apps List"
                 field("Tenant ID"; Rec."Tenant ID")
                 {
                     ApplicationArea = All;
-                    Visible = false;
                     ToolTip = 'Specifies the tenant identifier associated with the app.';
+                    Visible = false;
                 }
             }
         }
