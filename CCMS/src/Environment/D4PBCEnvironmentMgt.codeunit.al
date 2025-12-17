@@ -462,7 +462,7 @@ codeunit 62000 "D4P BC Environment Mgt"
             Message(NoAvailableUpdatesMsg);
     end;
 
-    procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid)
+    procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid; showNotification: Boolean)
     var
         BCTenant: Record "D4P BC Tenant";
         JsonObject: JsonObject;
@@ -472,6 +472,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         NoUpdateAvailableErr: Label 'No update available for this app';
         FailedToUpdateErr: Label 'Failed to update app: %1';
         AppUpdateScheduledMsg: Label 'App %1 update to version %2 successfully scheduled.';
+        AppUpdateNotification: Notification;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
@@ -491,7 +492,11 @@ codeunit 62000 "D4P BC Environment Mgt"
             Format(JsonObject), ResponseText) then
             Error(FailedToUpdateErr, ResponseText);
 
-        Message(AppUpdateScheduledMsg, BCInstalledApps."App Name", BCInstalledApps."Available Update Version");
+        if showNotification then begin
+            AppUpdateNotification.Message := StrSubstNo(AppUpdateScheduledMsg, BCInstalledApps."App Name", BCInstalledApps."Available Update Version");
+            AppUpdateNotification.Send();
+        end else
+            Message(AppUpdateScheduledMsg, BCInstalledApps."App Name", BCInstalledApps."Available Update Version");
     end;
 
     procedure CreateNewBCEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100]; Localization: Code[2]; EnvironmentType: Enum "D4P Environment Type")

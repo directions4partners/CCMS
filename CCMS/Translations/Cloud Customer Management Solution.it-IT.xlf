@@ -369,12 +369,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P Export History Dialog - Control TimePeriod - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 4257225132 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source> </source>
-          <target> </target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Export Status - EnumValue   - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 4257225132 - EnumValue 4069904181 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Cancelled</source>
           <target>Annullato</target>
@@ -2900,70 +2894,60 @@
           <source>Are you sure you want to delete all %1 fetched installed apps records?</source>
           <target>Sei sicuro di voler eliminare tutti i %1 record delle app installate recuperate?</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action DeleteAll - Method OnAction - NamedType DeleteMsg</note>
         </trans-unit>
         <trans-unit id="Page 3922837368 - Action 227458231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the list of available apps updates for the selected environment.</source>
           <target>Ottieni l'elenco degli aggiornamenti delle app disponibili per l'ambiente selezionato.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action GetAvailableUpdates - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3922837368 - Action 227458231 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Available Updates</source>
           <target>Ottieni Aggiornamenti Disponibili</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action GetAvailableUpdates - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3922837368 - Action 4242874840 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the list of installed apps for the selected environment.</source>
           <target>Ottieni l'elenco delle app installate per l'ambiente selezionato.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action GetInstalledApps - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3922837368 - Action 4242874840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Installed Apps</source>
           <target>Ottieni App Installate</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action GetInstalledApps - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3922837368 - Action 544754716 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update the selected app to the latest version.</source>
           <target>Aggiorna l'app selezionata all'ultima versione.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action UpdateApp - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3922837368 - Action 544754716 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update App</source>
           <target>Aggiorna App</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action UpdateApp - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2025092546 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Installed Apps</source>
           <target>App Installate</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps FactBox - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2025092546 - Action 4242874840 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the list of installed apps for the selected environment.</source>
           <target>Ottieni l'elenco delle app installate per l'ambiente selezionato.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps FactBox - Action GetInstalledApps - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2025092546 - Action 4242874840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get Installed Apps</source>
           <target>Ottieni App Installate</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps FactBox - Action GetInstalledApps - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -3092,6 +3076,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateApp - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 103537446 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update the selected apps (multiple) to the latest version.</source>
+          <target>Aggiorna le app selezionate (multiple) all'ultima versione.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 103537446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Selected App</source>
+          <target>Aggiorna le app selezionate</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 3331374484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE Object Ranges</source>
           <target>PTE Object Ranges</target>
@@ -3134,12 +3130,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Enum 3693902586 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source> </source>
-          <target> </target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P App State - EnumValue   - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 3693902586 - EnumValue 4140905748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Installed</source>
           <target>Installato</target>
@@ -3158,12 +3148,6 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P App State - EnumValue Updating - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 266525707 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source> </source>
-          <target></target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P App Type - EnumValue   - Property Caption</note>
-        </trans-unit>
         <trans-unit id="Enum 266525707 - EnumValue 1926753897 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>DEV</source>
           <target>DEV</target>
@@ -3181,12 +3165,6 @@
           <target>PTE</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P App Type - EnumValue PTE - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 180238450 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source> </source>
-          <target></target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Uninstall Attempt Result - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 180238450 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
@@ -3211,12 +3189,6 @@
           <target>Riuscito</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Uninstall Attempt Result - EnumValue Succeeded - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Enum 2012504679 - EnumValue 1371923692 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source> </source>
-          <target></target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Update Attempt Result - EnumValue   - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2012504679 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
