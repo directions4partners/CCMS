@@ -6,7 +6,7 @@ enum 62005 "D4P App Type"
 
     value(0; " ")
     {
-        Caption = ' ';
+        Caption = ' ', Locked = true;
     }
     value(1; Global)
     {
