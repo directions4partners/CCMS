@@ -1200,7 +1200,6 @@
         <trans-unit id="Table 3113203544 - Field 4148176377 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Country/Region</source>
           <target>Paese/Regione</target>
-          <target>Paese/area geografica</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Country/Region - Property Caption</note>
         </trans-unit>

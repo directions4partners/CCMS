@@ -6,26 +6,43 @@ on:
 
 jobs:
   require-linked-issue:
+    if: github.event.pull_request.base.repo.full_name == 'directions4partners/CCMS' && github.event.pull_request.base.ref == 'main'
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check PR body for linked issue
+      - name: Check PR for linked issues (metadata)
         env:
-          PR_BODY: ${{ github.event.pull_request.body }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          REPO: ${{ github.repository }}
         run: |
-          echo "Checking PR description for linked issues…"
-          
-          if [ -z "$PR_BODY" ]; then
-            echo "❌ PR description is empty. Please add a description with a linked issue (e.g. 'Closes #123')."
-            exit 1
-          fi
-          
-          # Look for standard closing keywords followed by an issue reference: #<number>
-          if echo "$PR_BODY" | grep -Ei '(close[sd]?|fix(e[sd])?|resolve[sd]?) #[0-9]+' > /dev/null; then
-            echo "✅ Found a linked issue in the PR description."
-            exit 0
+          echo "Checking linked issues via GraphQL..."
+
+          QUERY=$(cat <<EOF
+          query {
+            repository(owner: "$(echo $REPO | cut -d/ -f1)", name: "$(echo $REPO | cut -d/ -f2)") {
+              pullRequest(number: $PR_NUMBER) {
+                closingIssuesReferences(first: 10) {
+                  totalCount
+                }
+              }
+            }
+          }
+          EOF
+          )
+
+          RESPONSE=$(curl -s \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d "{\"query\": \"$QUERY\"}" \
+            https://api.github.com/graphql)
+
+          COUNT=$(echo "$RESPONSE" | jq -r '.data.repository.pullRequest.closingIssuesReferences.totalCount')
+
+          if [ "$COUNT" -gt 0 ]; then
+            echo "✅ Found $COUNT linked issue(s) in PR metadata."
           else
-            echo "❌ No linked issue found in PR description."
-            echo "   Please add something like: 'Closes #123', 'Fixes #456', or 'Resolves #789'."
+            echo "❌ No linked issues found in PR metadata."
+            echo "Please link an issue using the PR sidebar or issue keywords."
             exit 1
           fi

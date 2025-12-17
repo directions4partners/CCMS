@@ -1097,10 +1097,7 @@
         </trans-unit>
         <trans-unit id="Table 374591603 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>Lfd. Nr.</target>
           <target>Postennr.</target>
-          <target>Zeilennr.</target>
-          <target>Postennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Entry No. - Property Caption</note>
         </trans-unit>
@@ -2774,10 +2771,7 @@
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>Lfd. Nr.</target>
           <target>Postennr.</target>
-          <target>Zeilennr.</target>
-          <target>Postennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Entry No. - Property Caption</note>
         </trans-unit>
@@ -3173,14 +3167,12 @@
         </trans-unit>
         <trans-unit id="Enum 180238450 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
-          <target>Storniert</target>
           <target>Abgebrochen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Uninstall Attempt Result - EnumValue Canceled - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 180238450 - EnumValue 3826689261 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed</source>
-          <target>Fehler</target>
           <target>Fehlgeschlagen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Uninstall Attempt Result - EnumValue Failed - Property Caption</note>
@@ -3199,14 +3191,12 @@
         </trans-unit>
         <trans-unit id="Enum 2012504679 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
-          <target>Storniert</target>
           <target>Abgebrochen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Update Attempt Result - EnumValue Canceled - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 2012504679 - EnumValue 3826689261 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed</source>
-          <target>Fehler</target>
           <target>Fehlgeschlagen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Update Attempt Result - EnumValue Failed - Property Caption</note>
@@ -3831,7 +3821,6 @@
         </trans-unit>
         <trans-unit id="Table 2957340651 - Field 1829104285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Session ID</source>
-          <target>Sitzungs-ID</target>
           <target>Session-ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Sessions - Field Session ID - Property Caption</note>
@@ -3947,7 +3936,6 @@
         <trans-unit id="Page 1993633906 - Control 1134198612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry Point</source>
           <target>Einstiegspunkt</target>
-          <target>Entladehafen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Sess Card - Control EntryPoint - Property Caption</note>
         </trans-unit>
@@ -4098,7 +4086,6 @@
         <trans-unit id="Page 2957340651 - Control 1637095154 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Duration</source>
           <target>Dauer</target>
-          <target>Termine</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Sessions - Control Duration - Property Caption</note>
         </trans-unit>
@@ -4297,7 +4284,6 @@
         <trans-unit id="Table 2167704502 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
           <target>Beschreibung</target>
-          <target>Description</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P AppInsights Connection - Field Description - Property Caption</note>
         </trans-unit>
@@ -4321,10 +4307,7 @@
         </trans-unit>
         <trans-unit id="Table 3334581875 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>Lfd. Nr.</target>
           <target>Postennr.</target>
-          <target>Zeilennr.</target>
-          <target>Postennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Extension Lifecycle - Field Entry No. - Property Caption</note>
         </trans-unit>
@@ -4342,10 +4325,7 @@
         </trans-unit>
         <trans-unit id="Table 1421532761 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>Lfd. Nr.</target>
           <target>Postennr.</target>
-          <target>Zeilennr.</target>
-          <target>Postennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Page Execution - Field Entry No. - Property Caption</note>
         </trans-unit>
@@ -4376,7 +4356,6 @@
         <trans-unit id="Table 1193822405 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
           <target>Beschreibung</target>
-          <target>Description</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Query Store - Field Description - Property Caption</note>
         </trans-unit>
@@ -4406,10 +4385,7 @@
         </trans-unit>
         <trans-unit id="Table 1057598758 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>Lfd. Nr.</target>
           <target>Postennr.</target>
-          <target>Zeilennr.</target>
-          <target>Postennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Report Execution - Field Entry No. - Property Caption</note>
         </trans-unit>
@@ -4427,10 +4403,7 @@
         </trans-unit>
         <trans-unit id="Table 235033957 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>Lfd. Nr.</target>
           <target>Postennr.</target>
-          <target>Zeilennr.</target>
-          <target>Postennummer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Slow AL Method - Field Entry No. - Property Caption</note>
         </trans-unit>
@@ -4797,7 +4770,6 @@
         <trans-unit id="Page 4071760968 - Control 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
           <target>Beschreibung</target>
-          <target>Description</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Query Selection - Control Description - Property Caption</note>
         </trans-unit>
@@ -5037,7 +5009,6 @@
         </trans-unit>
         <trans-unit id="Table 3746675639 - Field 2529110793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client Secret</source>
-          <target>Geheimer Clientschlüssel</target>
           <target>Clientgeheimnis</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Tenant - Field Client Secret - Property Caption</note>
@@ -5284,7 +5255,6 @@
         </trans-unit>
         <trans-unit id="Page 1431185537 - Action 1514883969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup</source>
-          <target>Einrichtung</target>
           <target>Einrichten</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Action Setup - Property Caption</note>
