@@ -6,7 +6,7 @@ enum 62004 "D4P Uninstall Attempt Result"
 
     value(0; " ")
     {
-        Caption = ' ';
+        Caption = ' ', Locked = true;
     }
     value(1; Failed)
     {
