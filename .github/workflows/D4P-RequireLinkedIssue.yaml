@@ -37,6 +37,7 @@ jobs:
             -d "{\"query\": \"$QUERY\"}" \
             https://api.github.com/graphql)
 
+          echo "$RESPONSE"
           COUNT=$(echo "$RESPONSE" | jq -r '.data.repository.pullRequest.closingIssuesReferences.totalCount')
 
           if [ "$COUNT" -gt 0 ]; then
