@@ -659,7 +659,7 @@
         </trans-unit>
         <trans-unit id="Page 614992483 - Control 130221254 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant Information</source>
-          <target>tenantoplysninger</target>
+          <target>Tenantoplysninger</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Capacity Card - Control TenantInfo - Property Caption</note>
         </trans-unit>
@@ -3305,7 +3305,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1849445836 - Method 148382111 - NamedType 2797992030" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant not found.</source>
-          <target>tenant blev ikke fundet.</target>
+          <target>Tenant blev ikke fundet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Features Helper - Method ActivateFeature - NamedType TenantNotFoundErr</note>
         </trans-unit>
@@ -3335,7 +3335,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1849445836 - Method 2341653616 - NamedType 2797992030" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant not found.</source>
-          <target>tenant blev ikke fundet.</target>
+          <target>Tenant blev ikke fundet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Features Helper - Method DeactivateFeature - NamedType TenantNotFoundErr</note>
         </trans-unit>
@@ -3365,7 +3365,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 1849445836 - Method 312510131 - NamedType 2797992030" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant not found.</source>
-          <target>tenant blev ikke fundet.</target>
+          <target>Tenant blev ikke fundet.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Features Helper - Method GetFeatures - NamedType TenantNotFoundErr</note>
         </trans-unit>
@@ -3611,7 +3611,7 @@
         </trans-unit>
         <trans-unit id="Table 795145354 - Field 1661556656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenants</source>
-          <target>tenante</target>
+          <target>Tenants</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Admin Center Cue - Field Tenants Count - Property Caption</note>
         </trans-unit>
@@ -3683,7 +3683,7 @@
         </trans-unit>
         <trans-unit id="Page 1192667575 - Control 1661556656 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenants</source>
-          <target>tenante</target>
+          <target>Tenants</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Admin Center Cues - Control Tenants Count - Property Caption</note>
         </trans-unit>
@@ -4289,7 +4289,7 @@
         </trans-unit>
         <trans-unit id="Table 2167704502 - Field 588430355 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant Id</source>
-          <target>tenant-id</target>
+          <target>Tenant-id</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P AppInsights Connection - Field Tenant Id - Property Caption</note>
         </trans-unit>
@@ -5135,7 +5135,7 @@
         </trans-unit>
         <trans-unit id="Page 3208869332 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant Details</source>
-          <target>tenantdetaljer</target>
+          <target>Tenantdetaljer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Property Caption</note>
         </trans-unit>
@@ -5273,7 +5273,7 @@
         </trans-unit>
         <trans-unit id="Page 1847328476 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant to Tenant Migration</source>
-          <target>tenant til tenant-overførsel</target>
+          <target>Tenant til tenant-overførsel</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P Tenant Migration Dialog - Property Caption</note>
         </trans-unit>
