@@ -6,44 +6,52 @@ on:
 
 jobs:
   require-linked-issue:
-    if: github.event.pull_request.base.repo.full_name == 'directions4partners/CCMS' && github.event.pull_request.base.ref == 'main'
+    if: github.event.pull_request.base.repo.full_name == 'directions4partners/CCMS'
     runs-on: ubuntu-latest
 
     steps:
       - name: Check PR for linked issues (metadata)
+        shell: pwsh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO_NAME: ${{ github.event.repository.name }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
-          REPO: ${{ github.repository }}
         run: |
-          echo "Checking linked issues via GraphQL..."
+          Write-Host "Checking linked issues via GraphQL..."
+          Write-Host "Repo: $env:OWNER/$env:REPO_NAME  PR: #$env:PR_NUMBER"
 
-          QUERY=$(cat <<EOF
+          $query = @"
           query {
-            repository(owner: "$(echo $REPO | cut -d/ -f1)", name: "$(echo $REPO | cut -d/ -f2)") {
-              pullRequest(number: $PR_NUMBER) {
+            repository(owner: "$($env:OWNER)", name: "$($env:REPO_NAME)") {
+              pullRequest(number: $($env:PR_NUMBER)) {
                 closingIssuesReferences(first: 10) {
                   totalCount
                 }
               }
             }
           }
-          EOF
-          )
+          "@
 
-          RESPONSE=$(curl -s \
-            -H "Authorization: Bearer $GH_TOKEN" \
-            -H "Content-Type: application/json" \
-            -d "{\"query\": \"$QUERY\"}" \
-            https://api.github.com/graphql)
+          $body = @{ query = $query } | ConvertTo-Json -Compress
 
-          echo "$RESPONSE"
-          COUNT=$(echo "$RESPONSE" | jq -r '.data.repository.pullRequest.closingIssuesReferences.totalCount')
+          $headers = @{
+            Authorization  = "Bearer $env:GH_TOKEN"
+            "Content-Type" = "application/json"
+          }
 
-          if [ "$COUNT" -gt 0 ]; then
-            echo "✅ Found $COUNT linked issue(s) in PR metadata."
-          else
-            echo "❌ No linked issues found in PR metadata."
-            echo "Please link an issue using the PR sidebar or issue keywords."
-            exit 1
-          fi
+          $response = Invoke-RestMethod `
+            -Uri "https://api.github.com/graphql" `
+            -Method Post `
+            -Headers $headers `
+            -Body $body
+
+          $count = $response.data.repository.pullRequest.closingIssuesReferences.totalCount
+
+          if ($count -gt 0) {
+            Write-Host "✅ Found $count linked issue(s) in PR metadata."
+            exit 0
+          }
+
+          Write-Error "❌ No linked issues found in PR metadata. Please link an issue using the PR sidebar or closing keywords (e.g., 'Fixes #123')."
+          exit 1
