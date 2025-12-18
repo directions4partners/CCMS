@@ -10,6 +10,5 @@ if ($appType -eq 'app') {
 else {
     return
 }
-$compilationParams | ForEach-Object {
-    Write-Host "Parameter: $($_.Key) = $($_.Value)"
-}
+$compilationParams | ConvertTo-Json | Out-Host
+
