@@ -133,7 +133,7 @@ page 62024 "D4P BC Installed App Card"
                     BCEnvironment: Record "D4P BC Environment";
                 begin
                     BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID");
+                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false);
                 end;
             }
             action(DeleteAll)
