@@ -114,5 +114,8 @@ else {
 
 Get-ChildItem -path (Join-Path $compilationParams.appProjectFolder "Translations") -Filter *.xlf -Recurse | ForEach-Object {
     Write-Host "Found translation file: $($_.FullName)"
+    if ($_.FullName -like '*.g.xlf') {
+        Get-Content $_.FullName | Out-Host
+    }
 }
 CheckTranslations -appFolderPath $compilationParams.appProjectFolder -preRelease
