@@ -88,9 +88,6 @@ function CheckTranslations([string] $appFolderPath, [string] $workspaceFilePath 
         Invoke-Expression $cmdLine
         $exitCode = $LASTEXITCODE
 
-        # Output results
-        # $output | ForEach-Object { Write-Host $_ }
-
         if ($exitCode -ne 0) {
             HandleError "RefreshXLF.js failed with exit code $exitCode"
             return
@@ -114,8 +111,5 @@ else {
 
 Get-ChildItem -path (Join-Path $compilationParams.appProjectFolder "Translations") -Filter *.xlf -Recurse | ForEach-Object {
     Write-Host "Found translation file: $($_.FullName)"
-    if ($_.FullName -like '*.g.xlf') {
-        Get-Content $_.FullName | Out-Host
-    }
 }
 CheckTranslations -appFolderPath $compilationParams.appProjectFolder -preRelease
