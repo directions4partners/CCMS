@@ -21,7 +21,7 @@ page 62001 "D4P BC Customer Card"
                 field("No."; Rec."No.")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the customer number.';
+                    ToolTip = 'Specifies the vendor number.';
                 }
                 field(Name; Rec.Name)
                 {
