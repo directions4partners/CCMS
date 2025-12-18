@@ -29,13 +29,11 @@ codeunit 62000 "D4P BC Environment Mgt"
         ResponseText: Text;
         BCEnvironment: Record "D4P BC Environment";
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
-        NewText: Label 'This is a new text, not translated to any language';
     begin
         BCEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
         BCEnvironment.SetRange("Tenant ID", BCTenant."Tenant ID");
         BCEnvironment.DeleteAll();
 
-        Message(NewText);
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'GET', '/applications/businesscentral/environments', '', ResponseText) then
             Error(FailedToFetchErr, ResponseText);
 
