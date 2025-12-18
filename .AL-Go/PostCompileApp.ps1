@@ -85,7 +85,7 @@ function CheckTranslations([string] $appFolderPath, [string] $workspaceFilePath 
         Write-Host "Running RefreshXLF.js..."
         $cmdLine = "node " + ($arguments -join " ")
 
-        Invoke-Expression $cmdLine
+        Invoke-Expression $cmdLine | Out-Host
         $exitCode = $LASTEXITCODE
 
         if ($exitCode -ne 0) {
