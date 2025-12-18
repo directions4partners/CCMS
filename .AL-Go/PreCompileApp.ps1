@@ -1,6 +1,6 @@
 Param(
     [string] $appType,
-    [ref] [hashtable] $compilationParams
+    [ref] $compilationParams
 )
 
 if ($appType -eq 'app') {
@@ -9,4 +9,4 @@ if ($appType -eq 'app') {
 else {
     return
 }
-$compilationParams.Value.features += "TranslationFile"
+$compilationParams.Value["features"] += "TranslationFile"
