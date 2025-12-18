@@ -3,6 +3,6 @@ Param(
     [ref] $compilationParams
 )
 
-if ($appType -eq 'app') {
+if ($appType -eq 'appxxx') {
     $compilationParams.Value["features"] += "TranslationFile"
 }
