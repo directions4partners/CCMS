@@ -112,4 +112,7 @@ else {
     return
 }
 
+Get-ChildItem -path (Join-Path $compilationParams.appProjectFolder "Translations") -Filter *.xlf -Recurse | ForEach-Object {
+    Write-Host "Found translation file: $($_.FullName)"
+}
 CheckTranslations -appFolderPath $compilationParams.appProjectFolder -preRelease
