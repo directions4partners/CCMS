@@ -79,11 +79,13 @@ page 62008 "D4P BC Installed Apps List"
                 field("Customer No."; Rec."Customer No.")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the customer associated with the installed app.';
                     Visible = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
                     ApplicationArea = All;
+                    ToolTip = 'Specifies the tenant identifier associated with the app.';
                     Visible = false;
                 }
             }

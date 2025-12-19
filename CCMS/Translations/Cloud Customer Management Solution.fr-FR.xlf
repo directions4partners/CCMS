@@ -41,7 +41,6 @@
         </trans-unit>
         <trans-unit id="Table 2008748094 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <target>N° client</target>
           <target>N° de client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Backup - Field Customer No. - Property Caption</note>
@@ -378,7 +377,6 @@
         </trans-unit>
         <trans-unit id="Enum 4257225132 - EnumValue 3665605423 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Completed</source>
-          <target>Terminé</target>
           <target>Réalisé</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Export Status - EnumValue Completed - Property Caption</note>
@@ -403,7 +401,6 @@
         </trans-unit>
         <trans-unit id="Table 1725541246 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <target>N° client</target>
           <target>N° de client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Capacity Header - Field Customer No. - Property Caption</note>
@@ -536,7 +533,6 @@
         </trans-unit>
         <trans-unit id="Table 2607330341 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <target>N° client</target>
           <target>N° de client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Capacity Line - Field Customer No. - Property Caption</note>
@@ -573,7 +569,6 @@
         </trans-unit>
         <trans-unit id="Table 2607330341 - Field 3320823955 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Line No.</source>
-          <target>N° ligne</target>
           <target>Numéro de ligne</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Capacity Line - Field Line No. - Property Caption</note>
@@ -808,7 +803,6 @@
         </trans-unit>
         <trans-unit id="Page 3216926189 - Control 1065337893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Production</source>
-          <target>Production</target>
           <target>Fabrication</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Capacity Worksheet - Control Production - Property Caption</note>
@@ -1103,9 +1097,6 @@
         </trans-unit>
         <trans-unit id="Table 374591603 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>N° séquence</target>
-          <target>N° écriture</target>
-          <target>N° d’écriture</target>
           <target>N° séquence </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Available Update - Field Entry No. - Property Caption</note>
@@ -1220,7 +1211,6 @@
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <target>N° client</target>
           <target>N° de client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Customer No. - Property Caption</note>
@@ -1287,7 +1277,6 @@
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 390917702 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Location Name</source>
-          <target>Nom de l'emplacement</target>
           <target>Nom du magasin</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field Location Name - Property Caption</note>
@@ -1330,7 +1319,6 @@
         </trans-unit>
         <trans-unit id="Table 3113203544 - Field 269761521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>State</source>
-          <target>État</target>
           <target>État</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment - Field State - Property Caption</note>
@@ -1691,7 +1679,6 @@
         </trans-unit>
         <trans-unit id="Page 1494117452 - Control 3891454143 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Location</source>
-          <target>Magasin</target>
           <target>Emplacement</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Control Location - Property Caption</note>
@@ -1920,7 +1907,6 @@
         </trans-unit>
         <trans-unit id="Page 1494117452 - Action 3866562980 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
-          <target>Copier</target>
           <target>Copie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action CopyEnvironment - Property Caption</note>
@@ -2413,7 +2399,6 @@
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 3866562980 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Copy</source>
-          <target>Copier</target>
           <target>Copie</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action CopyEnvironment - Property Caption</note>
@@ -2426,7 +2411,6 @@
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 2780151791 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>New</source>
-          <target>Nouveau</target>
           <target>Créer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action CreateNewEnvironment - Property Caption</note>
@@ -2667,7 +2651,6 @@
         </trans-unit>
         <trans-unit id="Enum 3660222239 - EnumValue 1065337893 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Production</source>
-          <target>Production</target>
           <target>Fabrication</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Environment Type - EnumValue Production - Property Caption</note>
@@ -2686,15 +2669,12 @@
         </trans-unit>
         <trans-unit id="Table 2736968941 - Field 2766253784 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>App ID</source>
-          <target>ID appli</target>
-          <target>ID application</target>
           <target>ID d’application</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Field App ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2736968941 - Field 1256520770 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>App Name</source>
-          <target>Nom de l’application</target>
           <target>Nom de l'application</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Field App Name - Property Caption</note>
@@ -2731,7 +2711,6 @@
         </trans-unit>
         <trans-unit id="Table 2736968941 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <target>N° client</target>
           <target>N° de client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Field Customer No. - Property Caption</note>
@@ -2768,7 +2747,6 @@
         </trans-unit>
         <trans-unit id="Table 2736968941 - Field 269761521 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>State</source>
-          <target>Région/État</target>
           <target>État</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Field State - Property Caption</note>
@@ -2787,16 +2765,12 @@
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <target>N° client</target>
           <target>N° de client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Customer No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>N° séquence</target>
-          <target>N° écriture</target>
-          <target>N° d’écriture</target>
           <target>N° séquence </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Entry No. - Property Caption</note>
@@ -3195,7 +3169,6 @@
         </trans-unit>
         <trans-unit id="Enum 180238450 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
-          <target>Annulé</target>
           <target>Annulée</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Uninstall Attempt Result - EnumValue Canceled - Property Caption</note>
@@ -3208,7 +3181,6 @@
         </trans-unit>
         <trans-unit id="Enum 180238450 - EnumValue 2791901420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Skipped</source>
-          <target>Ignoré</target>
           <target>Ignoré(e)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Uninstall Attempt Result - EnumValue Skipped - Property Caption</note>
@@ -3221,7 +3193,6 @@
         </trans-unit>
         <trans-unit id="Enum 2012504679 - EnumValue 3844911025 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Canceled</source>
-          <target>Annulé</target>
           <target>Annulée</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Update Attempt Result - EnumValue Canceled - Property Caption</note>
@@ -3234,7 +3205,6 @@
         </trans-unit>
         <trans-unit id="Enum 2012504679 - EnumValue 2791901420 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Skipped</source>
-          <target>Ignoré</target>
           <target>Ignoré(e)</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P Update Attempt Result - EnumValue Skipped - Property Caption</note>
@@ -3259,7 +3229,6 @@
         </trans-unit>
         <trans-unit id="Table 1807623301 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <target>N° client</target>
           <target>N° de client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Features - Field Customer No. - Property Caption</note>
@@ -3812,7 +3781,6 @@
         </trans-unit>
         <trans-unit id="Table 2957340651 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <target>N° client</target>
           <target>N° de client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Sessions - Field Customer No. - Property Caption</note>
@@ -3867,10 +3835,7 @@
         </trans-unit>
         <trans-unit id="Table 2957340651 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User ID</source>
-          <target>Code utilisateur</target>
           <target>ID utilisateur</target>
-          <target>Identificateur d’utilisateur</target>
-          <target>Identifiant utilisateur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Sessions - Field User ID - Property Caption</note>
         </trans-unit>
@@ -3972,7 +3937,6 @@
         </trans-unit>
         <trans-unit id="Page 1993633906 - Control 1134198612 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry Point</source>
-          <target>Pays provenance</target>
           <target>Point d'entrée</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Sess Card - Control EntryPoint - Property Caption</note>
@@ -4321,7 +4285,6 @@
         </trans-unit>
         <trans-unit id="Table 2167704502 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target>Description</target>
           <target>Désignation</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P AppInsights Connection - Field Description - Property Caption</note>
@@ -4346,9 +4309,6 @@
         </trans-unit>
         <trans-unit id="Table 3334581875 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>N° séquence</target>
-          <target>N° écriture</target>
-          <target>N° d’écriture</target>
           <target>N° séquence </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Extension Lifecycle - Field Entry No. - Property Caption</note>
@@ -4361,18 +4321,12 @@
         </trans-unit>
         <trans-unit id="Table 3334581875 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User ID</source>
-          <target>Code utilisateur</target>
           <target>ID utilisateur</target>
-          <target>Identificateur d’utilisateur</target>
-          <target>Identifiant utilisateur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Extension Lifecycle - Field User ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 1421532761 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>N° séquence</target>
-          <target>N° écriture</target>
-          <target>N° d’écriture</target>
           <target>N° séquence </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Page Execution - Field Entry No. - Property Caption</note>
@@ -4385,10 +4339,7 @@
         </trans-unit>
         <trans-unit id="Table 1421532761 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User ID</source>
-          <target>Code utilisateur</target>
           <target>ID utilisateur</target>
-          <target>Identificateur d’utilisateur</target>
-          <target>Identifiant utilisateur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Page Execution - Field User ID - Property Caption</note>
         </trans-unit>
@@ -4406,7 +4357,6 @@
         </trans-unit>
         <trans-unit id="Table 1193822405 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target>Description</target>
           <target>Désignation</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Query Store - Field Description - Property Caption</note>
@@ -4437,9 +4387,6 @@
         </trans-unit>
         <trans-unit id="Table 1057598758 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>N° séquence</target>
-          <target>N° écriture</target>
-          <target>N° d’écriture</target>
           <target>N° séquence </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Report Execution - Field Entry No. - Property Caption</note>
@@ -4452,18 +4399,12 @@
         </trans-unit>
         <trans-unit id="Table 1057598758 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User ID</source>
-          <target>Code utilisateur</target>
           <target>ID utilisateur</target>
-          <target>Identificateur d’utilisateur</target>
-          <target>Identifiant utilisateur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Report Execution - Field User ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 235033957 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
-          <target>N° séquence</target>
-          <target>N° écriture</target>
-          <target>N° d’écriture</target>
           <target>N° séquence </target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Slow AL Method - Field Entry No. - Property Caption</note>
@@ -4476,10 +4417,7 @@
         </trans-unit>
         <trans-unit id="Table 235033957 - Field 2708250016 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>User ID</source>
-          <target>Code utilisateur</target>
           <target>ID utilisateur</target>
-          <target>Identificateur d’utilisateur</target>
-          <target>Identifiant utilisateur</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P KQL Slow AL Method - Field User ID - Property Caption</note>
         </trans-unit>
@@ -4629,7 +4567,6 @@
         </trans-unit>
         <trans-unit id="Page 777859790 - Action 4137051400 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>New</source>
-          <target>Nouveau</target>
           <target>Créer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P AppInsights Conn List - Action New - Property Caption</note>
@@ -4649,8 +4586,6 @@
         <trans-unit id="Page 3334581875 - Action 1786049364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Load</source>
           <target>Charger</target>
-          <target>% charge</target>
-          <target>Charger</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Extension Lifecycle - Action LoadDataAction - Property Caption</note>
         </trans-unit>
@@ -4668,8 +4603,6 @@
         </trans-unit>
         <trans-unit id="Page 2698422480 - Action 1786049364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Load</source>
-          <target>Charger</target>
-          <target>% charge</target>
           <target>Charger</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Page Executions - Action LoadDataAction - Property Caption</note>
@@ -4838,7 +4771,6 @@
         </trans-unit>
         <trans-unit id="Page 4071760968 - Control 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target>Description</target>
           <target>Désignation</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Query Selection - Control Description - Property Caption</note>
@@ -4858,8 +4790,6 @@
         <trans-unit id="Page 1245323123 - Action 1786049364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Load</source>
           <target>Charger</target>
-          <target>% charge</target>
-          <target>Charger</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Report Executions - Action LoadDataAction - Property Caption</note>
         </trans-unit>
@@ -4877,8 +4807,6 @@
         </trans-unit>
         <trans-unit id="Page 2745886620 - Action 1786049364 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Load</source>
-          <target>Charger</target>
-          <target>% charge</target>
           <target>Charger</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Slow AL Methods - Action LoadDataAction - Property Caption</note>
@@ -5089,7 +5017,6 @@
         </trans-unit>
         <trans-unit id="Table 3746675639 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
-          <target>N° client</target>
           <target>N° de client</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Tenant - Field Customer No. - Property Caption</note>
@@ -5330,7 +5257,6 @@
         </trans-unit>
         <trans-unit id="Page 1431185537 - Action 1514883969 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup</source>
-          <target>Configuration</target>
           <target>Paramètres</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Action Setup - Property Caption</note>
@@ -5355,7 +5281,6 @@
         </trans-unit>
         <trans-unit id="Page 1431185537 - Action 1850083652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Setup</source>
-          <target>Configuration</target>
           <target>Paramètres</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant List - Action Category_Setup - Property Caption</note>
