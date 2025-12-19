@@ -361,7 +361,6 @@ page 62003 "D4P BC Environment List"
 
                     if Confirm(DeleteMsg, false, RecordCount) then begin
                         Environment.DeleteAll();
-                        EnvironmentMgt.CleanEnvironmentRecords(Environment);
                         CurrPage.Update(false);
                         Message(DeletedSuccessMsg, RecordCount);
                     end;
