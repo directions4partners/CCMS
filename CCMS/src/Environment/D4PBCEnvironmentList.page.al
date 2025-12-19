@@ -3,6 +3,7 @@ namespace D4P.CCMS.Environment;
 using D4P.CCMS.Backup;
 using D4P.CCMS.Capacity;
 using D4P.CCMS.Tenant;
+using CCMS.CCMS;
 using D4P.CCMS.Extension;
 using D4P.CCMS.Features;
 using D4P.CCMS.Telemetry;
@@ -340,24 +341,31 @@ page 62003 "D4P BC Environment List"
             action(DeleteAllFetched)
             {
                 ApplicationArea = All;
-                Caption = 'Delete All Fetched';
+                Caption = 'Delete Selected';
                 Image = Delete;
-                ToolTip = 'Delete all fetched environment records from the local database.';
+                ToolTip = 'Delete selected environment records and related data from the local database.';
                 trigger OnAction()
                 var
                     Environment: Record "D4P BC Environment";
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched environment records from the local database?\This will NOT delete the actual environments in Business Central.';
+                    EnvironmentHelper: Codeunit "D4P BC Environment Helper";
+                    DeleteQst: Label 'Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.';
+                    EnvironmentRecordsDeletedMsg: Label '%1 environment record(s) and related data deleted from local database.';
+                    SelectionFilter: Text;
                     RecordCount: Integer;
                 begin
-                    Environment.CopyFilters(Rec);
-                    RecordCount := Environment.Count;
+                    CurrPage.SetSelectionFilter(Environment);
+                    RecordCount := Environment.Count();
                     if RecordCount = 0 then
                         exit;
 
-                    if Confirm(DeleteMsg, false, RecordCount) then begin
-                        Environment.DeleteAll();
+                    if Confirm(DeleteQst, false, RecordCount) then begin
+                        if Environment.FindSet() then
+                            repeat
+                                EnvironmentHelper.DeleteLocalEnvironmentData(Environment);
+                                Commit(); // Write changes so we keep each deletion even if something fails
+                            until Environment.Next() = 0;
                         CurrPage.Update(false);
-                        Message('%1 environment records deleted from local database.', RecordCount);
+                        Message(EnvironmentRecordsDeletedMsg, RecordCount);
                     end;
                 end;
             }

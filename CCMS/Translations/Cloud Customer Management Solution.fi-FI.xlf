@@ -2416,22 +2416,28 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action CreateNewEnvironment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 736008119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete all fetched environment records from the local database.</source>
-          <target>Poista kaikki haetut ympäristötietueet paikallisesta tietokannasta.</target>
+          <source>Delete selected environment records and related data from the local database.</source>
+          <target>Poista kaikki haetut ympäristöt paikallisesta tietokannasta.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 736008119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete All Fetched</source>
-          <target>Poista kaikki haetut</target>
+          <source>Delete Selected</source>
+          <target>Poista valitut</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 407090172" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Are you sure you want to delete all %1 fetched environment records from the local database?\This will NOT delete the actual environments in Business Central.</source>
-          <target>Haluatko varmasti poistaa kaikki %1 haetut ympäristötietueet paikallisesta tietokannasta?\Tämä EI poista todellisia ympäristöjä Business Centralista.</target>
+        <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 2367821945" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.</source>
+          <target>Haluatko varmasti poistaa valitut %1 ympäristöä ja kaikki tietue relaatiot lokaalista tietokannasta?\Tämä EI poista oikeita ympäristöjä Business Centralista.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeleteMsg</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeleteQst</note>
+        </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 1221066665" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 environment record(s) and related data deleted from local database.</source>
+          <target>%1 ympäristöä ja sen relaatio tietueita poistettu lokaalista tietokannasta.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType EnvironmentRecordsDeletedMsg</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 1977573380 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the list of environments.</source>
@@ -2997,6 +3003,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Can Be Uninstalled - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1896412547 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer associated with the installed app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Customer No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1896412547 - Control 1768934958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the environment where the app is installed.</source>
           <target>Määrittää ympäristön, johon sovellus on asennettu.</target>
@@ -3020,6 +3033,13 @@
           <target>Määrittää sovelluksen nykyisen tilan.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control State - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tenant identifier associated with the app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 389138476 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete all fetched installed apps records.</source>
@@ -3074,6 +3094,20 @@
           <target>Päivitä sovellus</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateApp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 103537446 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update the selected apps (multiple) to the latest version.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 103537446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Selected Apps</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3331374484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE Object Ranges</source>
