@@ -1,6 +1,5 @@
 namespace D4P.CCMS.Environment;
 
-using D4P.CCMS.Environment;
 using D4P.CCMS.Backup;
 using D4P.CCMS.Session;
 using D4P.CCMS.Features;
