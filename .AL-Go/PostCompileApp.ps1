@@ -76,6 +76,7 @@ function CheckTranslations([string] $appFolderPath, [string] $workspaceFilePath 
         }
 
         $arguments += "--github-message"
+        $arguments += "--check-only"
 
         if ($writeErrors) {
             $arguments += "--fail-changed"
