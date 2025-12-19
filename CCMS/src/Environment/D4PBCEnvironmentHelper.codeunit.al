@@ -82,17 +82,16 @@ codeunit 62002 "D4P BC Environment Helper"
         CapacityHeader: Record "D4P BC Capacity Header";
         CapacityLine: Record "D4P BC Capacity Line";
     begin
-        //TODO: Should we delete capacity header too?
-        /*CapacityHeader.SetRange("Customer No.", Environment."Customer No.");
+        CapacityHeader.SetRange("Customer No.", Environment."Customer No.");
         CapacityHeader.SetRange("Tenant ID", Format(Environment."Tenant ID"));
         if not CapacityHeader.IsEmpty() then begin
-            CapacityHeader.DeleteAll(true);*/
+            CapacityHeader.DeleteAll(true);
 
-        CapacityLine.SetRange("Customer No.", Environment."Customer No.");
-        CapacityLine.SetRange("Tenant ID", Format(Environment."Tenant ID"));
-        CapacityLine.SetRange("Environment Name", Environment.Name);
-        if not CapacityLine.IsEmpty() then
-            CapacityLine.DeleteAll(true);
-        //end;
+            CapacityLine.SetRange("Customer No.", Environment."Customer No.");
+            CapacityLine.SetRange("Tenant ID", Format(Environment."Tenant ID"));
+            CapacityLine.SetRange("Environment Name", Environment.Name);
+            if not CapacityLine.IsEmpty() then
+                CapacityLine.DeleteAll(true);
+        end;
     end;
 }
