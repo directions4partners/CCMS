@@ -833,4 +833,26 @@ codeunit 62000 "D4P BC Environment Mgt"
             Error(FailedToSetKeyErr, ResponseText);
     end;
 
+
+    procedure CleanEnvironmentRecords(var Environment: Record "D4P BC Environment")
+    var
+        InstalledApps: Record "D4P BC Installed Apps"
+        PTEObjectRange: Record "D4P PTE Object Range";
+        EnvironmentFeatures: Record "D4P BC Environment Features";
+        EnvironmentSessions: Record "D4P BC Environment Sessions";
+    begin
+        InstalledApps.SetRange("Customer No.", Rec."Customer No.");
+        InstalledApps.SetRange("Tenant ID", Rec."Tenant ID");
+        InstalledApps.DeleteAll();
+        PTEObjectRange.SetRange("Customer No.", Rec."Customer No.");
+        PTEObjectRange.SetRange("Tenant ID", Rec."Tenant ID");
+        PTEObjectRange.DeleteAll();
+        EnvironmentFeatures.SetRange("Customer No.", Rec."Customer No.");
+        EnvironmentFeatures.SetRange("Tenant ID", Rec."Tenant ID");
+        EnvironmentFeatures.DeleteAll();
+        EnvironmentSessions.SetRange("Customer No.", Rec."Customer No.");
+        EnvironmentSessions.SetRange("Tenant ID", Rec."Tenant ID");
+        EnvironmentSessions.DeleteAll();
+    end;
+
 }
