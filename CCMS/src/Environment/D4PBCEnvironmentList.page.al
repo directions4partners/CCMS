@@ -349,16 +349,19 @@ page 62003 "D4P BC Environment List"
                 trigger OnAction()
                 var
                     Environment: Record "D4P BC Environment";
+                    EnvironmentMgt: Codeunit "D4P BC Environment Mgt";
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched environment records from the local database?\This will NOT delete the actual environments in Business Central.';
                     DeletedSuccessMsg: Label '%1 environment records deleted from local database.';
                     RecordCount: Integer;
                 begin
-                    RecordCount := Environment.Count;
+                    Environment.CopyFilters(Rec);
+                    RecordCount := Environment.Count();
                     if RecordCount = 0 then
                         exit;
 
                     if Confirm(DeleteMsg, false, RecordCount) then begin
                         Environment.DeleteAll();
+                        EnvironmentMgt.CleanEnvironmentRecords(Environment);
                         CurrPage.Update(false);
                         Message(DeletedSuccessMsg, RecordCount);
                     end;
