@@ -81,16 +81,13 @@ codeunit 62002 "D4P BC Environment Helper"
         CapacityHeader: Record "D4P BC Capacity Header";
         CapacityLine: Record "D4P BC Capacity Line";
     begin
-        CapacityHeader.SetRange("Customer No.", Environment."Customer No.");
-        CapacityHeader.SetRange("Tenant ID", Format(Environment."Tenant ID"));
-        if not CapacityHeader.IsEmpty() then begin
-            CapacityHeader.DeleteAll(true);
-
+        if CapacityHeader.Get(Environment."Customer No.", Format(Environment."Tenant ID")) then begin
             CapacityLine.SetRange("Customer No.", Environment."Customer No.");
             CapacityLine.SetRange("Tenant ID", Format(Environment."Tenant ID"));
-            CapacityLine.SetRange("Environment Name", Environment.Name);
             if not CapacityLine.IsEmpty() then
                 CapacityLine.DeleteAll(true);
+
+            CapacityHeader.DeleteAll(true);
         end;
     end;
 }
