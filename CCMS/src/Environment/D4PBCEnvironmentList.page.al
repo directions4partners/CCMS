@@ -15,8 +15,7 @@ page 62003 "D4P BC Environment List"
     UsageCategory = Lists;
     SourceTable = "D4P BC Environment";
     Caption = 'D365BC Environments';
-    InsertAllowed = false;
-    DeleteAllowed = false;
+    Editable = false;
     CardPageId = "D4P BC Environment Card";
 
     layout
@@ -251,18 +250,22 @@ page 62003 "D4P BC Environment List"
                     ProcessedCount: Integer;
                     ProgressDialog: Dialog;
                     TotalCount: Integer;
+                    NoEnvironmentsToUpdateMsg: Label 'No environments to update.';
+                    ConfirmMsg: Label 'This will get update information for %1 environment(s). Continue?';
+                    ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@';
+                    SuccessMsg: Label 'Successfully processed %1 environment(s).';
                 begin
                     // Copy filter from current view
                     BCEnvironment.CopyFilters(Rec);
                     TotalCount := BCEnvironment.Count();
 
                     if TotalCount = 0 then
-                        Error('No environments to update.');
+                        Error(NoEnvironmentsToUpdateMsg);
 
-                    if not Confirm('This will get update information for %1 environment(s). Continue?', true, TotalCount) then
+                    if not Confirm(ConfirmMsg, true, TotalCount) then
                         exit;
 
-                    ProgressDialog.Open('Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@');
+                    ProgressDialog.Open(ProcessingMsg);
 
                     BCEnvironment.ReadIsolation := IsolationLevel::ReadUncommitted;
                     if BCEnvironment.FindSet() then
@@ -277,7 +280,7 @@ page 62003 "D4P BC Environment List"
                         until BCEnvironment.Next() = 0;
 
                     ProgressDialog.Close();
-                    Message('Successfully processed %1 environment(s).', ProcessedCount);
+                    Message(SuccessMsg, ProcessedCount);
                     CurrPage.Update(false);
                 end;
             }
@@ -347,9 +350,9 @@ page 62003 "D4P BC Environment List"
                 var
                     Environment: Record "D4P BC Environment";
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched environment records from the local database?\This will NOT delete the actual environments in Business Central.';
+                    DeletedSuccessMsg: Label '%1 environment records deleted from local database.';
                     RecordCount: Integer;
                 begin
-                    Environment.CopyFilters(Rec);
                     RecordCount := Environment.Count;
                     if RecordCount = 0 then
                         exit;
@@ -357,7 +360,7 @@ page 62003 "D4P BC Environment List"
                     if Confirm(DeleteMsg, false, RecordCount) then begin
                         Environment.DeleteAll();
                         CurrPage.Update(false);
-                        Message('%1 environment records deleted from local database.', RecordCount);
+                        Message(DeletedSuccessMsg, RecordCount);
                     end;
                 end;
             }

@@ -6,7 +6,6 @@ page 62021 "D4P BC Capacity Worksheet"
 {
     PageType = Document;
     ApplicationArea = All;
-    UsageCategory = Lists;
     SourceTable = "D4P BC Capacity Header";
     Caption = 'D365BC Capacity';
     InsertAllowed = false;
