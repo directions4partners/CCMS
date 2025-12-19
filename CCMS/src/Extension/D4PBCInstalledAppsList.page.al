@@ -142,7 +142,7 @@ page 62008 "D4P BC Installed Apps List"
             action(UpdateSelectedApps)
             {
                 ApplicationArea = All;
-                Caption = 'Update Selected App';
+                Caption = 'Update Selected Apps';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected apps (multiple) to the latest version.';
                 trigger OnAction()
