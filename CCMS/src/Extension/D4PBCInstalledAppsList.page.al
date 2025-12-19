@@ -76,6 +76,18 @@ page 62008 "D4P BC Installed Apps List"
                     ApplicationArea = All;
                     ToolTip = 'Specifies the unique identifier of the app.';
                 }
+                field("Customer No."; Rec."Customer No.")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the customer associated with the installed app.';
+                    Visible = false;
+                }
+                field("Tenant ID"; Rec."Tenant ID")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the tenant identifier associated with the app.';
+                    Visible = false;
+                }
             }
         }
     }
@@ -126,7 +138,26 @@ page 62008 "D4P BC Installed Apps List"
                     BCEnvironment: Record "D4P BC Environment";
                 begin
                     BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID");
+                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false);
+                end;
+            }
+            action(UpdateSelectedApps)
+            {
+                ApplicationArea = All;
+                Caption = 'Update Selected Apps';
+                Image = UpdateXML;
+                ToolTip = 'Update the selected apps (multiple) to the latest version.';
+                trigger OnAction()
+                var
+                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                    BCEnvironment: Record "D4P BC Environment";
+                begin
+                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
+                    CurrPage.SetSelectionFilter(Rec);
+                    if Rec.FindSet() then
+                        repeat
+                            EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", true);
+                        until Rec.Next() = 0;
                 end;
             }
             action(DeleteAll)
@@ -164,6 +195,9 @@ page 62008 "D4P BC Installed Apps List"
             {
             }
             actionref(UpdateAppPromoted; UpdateApp)
+            {
+            }
+            actionref(UpdateSelectedAppsPromoted; UpdateSelectedApps)
             {
             }
             actionref(DeleteAllPromoted; DeleteAll)
