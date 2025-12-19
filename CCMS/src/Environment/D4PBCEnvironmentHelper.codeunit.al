@@ -1,4 +1,4 @@
-namespace CCMS.CCMS;
+namespace D4P.CCMS.Environment;
 
 using D4P.CCMS.Environment;
 using D4P.CCMS.Backup;

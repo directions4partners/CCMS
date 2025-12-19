@@ -3,7 +3,6 @@ namespace D4P.CCMS.Environment;
 using D4P.CCMS.Backup;
 using D4P.CCMS.Capacity;
 using D4P.CCMS.Tenant;
-using CCMS.CCMS;
 using D4P.CCMS.Extension;
 using D4P.CCMS.Features;
 using D4P.CCMS.Telemetry;
@@ -350,7 +349,6 @@ page 62003 "D4P BC Environment List"
                     EnvironmentHelper: Codeunit "D4P BC Environment Helper";
                     DeleteQst: Label 'Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.';
                     EnvironmentRecordsDeletedMsg: Label '%1 environment record(s) and related data deleted from local database.';
-                    SelectionFilter: Text;
                     RecordCount: Integer;
                 begin
                     CurrPage.SetSelectionFilter(Environment);
