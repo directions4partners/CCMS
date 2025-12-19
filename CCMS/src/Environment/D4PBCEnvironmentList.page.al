@@ -353,6 +353,7 @@ page 62003 "D4P BC Environment List"
                     DeletedSuccessMsg: Label '%1 environment records deleted from local database.';
                     RecordCount: Integer;
                 begin
+                    Environment.CopyFilters(Rec);
                     RecordCount := Environment.Count;
                     if RecordCount = 0 then
                         exit;
