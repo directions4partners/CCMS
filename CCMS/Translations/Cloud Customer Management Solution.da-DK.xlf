@@ -2434,22 +2434,32 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action CreateNewEnvironment - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 736008119 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete all fetched environment records from the local database.</source>
-          <target>Slet alle hentede miljøposter fra den lokale database.</target>
+          <source>Delete selected environment records and related data from the local database.</source>
+          <target>[NAB: REVIEW]Slet alle hentede miljøposter fra den lokale database.</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 736008119 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete All Fetched</source>
-          <target>Slet alle hentede</target>
+          <source>Delete Selected</source>
+          <target>[NAB: REVIEW]Slet alle hentede</target>
           <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 407090172" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Are you sure you want to delete all %1 fetched environment records from the local database?\This will NOT delete the actual environments in Business Central.</source>
-          <target>Er du sikker på, at du vil slette alle %1 hentede miljøposter fra den lokale database?\Dette vil IKKE slette de faktiske miljøer i Business Central.</target>
+        <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 2367821945" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeleteMsg</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeleteQst</note>
+        </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 1221066665" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 environment record(s) and related data deleted from local database.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType EnvironmentRecordsDeletedMsg</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 1684716017" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 environment records deleted from local database.</source>

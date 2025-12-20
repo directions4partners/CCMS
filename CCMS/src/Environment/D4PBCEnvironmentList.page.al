@@ -343,25 +343,30 @@ page 62003 "D4P BC Environment List"
             action(DeleteAllFetched)
             {
                 ApplicationArea = All;
-                Caption = 'Delete All Fetched';
+                Caption = 'Delete Selected';
                 Image = Delete;
-                ToolTip = 'Delete all fetched environment records from the local database.';
+                ToolTip = 'Delete selected environment records and related data from the local database.';
                 trigger OnAction()
                 var
                     Environment: Record "D4P BC Environment";
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched environment records from the local database?\This will NOT delete the actual environments in Business Central.';
-                    DeletedSuccessMsg: Label '%1 environment records deleted from local database.';
+                    EnvironmentHelper: Codeunit "D4P BC Environment Helper";
+                    DeleteQst: Label 'Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.';
+                    EnvironmentRecordsDeletedMsg: Label '%1 environment record(s) and related data deleted from local database.';
                     RecordCount: Integer;
                 begin
-                    Environment.CopyFilters(Rec);
+                    CurrPage.SetSelectionFilter(Environment);
                     RecordCount := Environment.Count();
                     if RecordCount = 0 then
                         exit;
 
-                    if Confirm(DeleteMsg, false, RecordCount) then begin
-                        Environment.DeleteAll();
+                    if Confirm(DeleteQst, false, RecordCount) then begin
+                        if Environment.FindSet() then
+                            repeat
+                                EnvironmentHelper.DeleteLocalEnvironmentData(Environment);
+                                Commit(); // Write changes so we keep each deletion even if something fails
+                            until Environment.Next() = 0;
                         CurrPage.Update(false);
-                        Message(DeletedSuccessMsg, RecordCount);
+                        Message(EnvironmentRecordsDeletedMsg, RecordCount);
                     end;
                 end;
             }
