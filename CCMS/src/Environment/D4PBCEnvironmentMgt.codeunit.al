@@ -824,7 +824,7 @@ codeunit 62000 "D4P BC Environment Mgt"
 
         // Call Admin API to set Application Insights key
         Endpoint := '/applications/businesscentral/environments/' + BCEnvironment.Name + '/settings/appinsightskey';
-        if APIHelper.SendAdminAPIRequest(BCTenant, 'PUT', Endpoint, RequestBody, ResponseText) then begin
+        if APIHelper.SendAdminAPIRequest(BCTenant, 'POST', Endpoint, RequestBody, ResponseText) then begin
             if IsRemoving then
                 Message(ConnectionStringRemovedMsg, BCEnvironment.Name)
             else
