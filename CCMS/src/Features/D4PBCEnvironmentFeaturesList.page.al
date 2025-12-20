@@ -4,7 +4,6 @@ page 62013 "D4P BC Environment Features"
 {
     PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
     SourceTable = "D4P BC Environment Features";
     Caption = 'D365BC Environment Features';
     InsertAllowed = false;
@@ -95,9 +94,10 @@ page 62013 "D4P BC Environment Features"
                 trigger OnAction()
                 var
                     FeaturesHelper: Codeunit "D4P BC Features Helper";
+                    SuccessMsg: Label 'Features retrieved successfully.';
                 begin
                     FeaturesHelper.GetFeatures(Rec);
-                    Message('Features retrieved successfully.');
+                    Message(SuccessMsg);
                     CurrPage.Update(false);
                 end;
             }
@@ -113,8 +113,9 @@ page 62013 "D4P BC Environment Features"
                     FeaturesHelper: Codeunit "D4P BC Features Helper";
                     UpdateInBackground: Boolean;
                     StartDateTime: DateTime;
+                    ConfirmMsg: Label 'Do you want to activate feature "%1"?';
                 begin
-                    if not Confirm('Do you want to activate feature "%1"?', false, Rec."Feature Name") then
+                    if not Confirm(ConfirmMsg, false, Rec."Feature Name") then
                         exit;
 
                     UpdateInBackground := true;
@@ -134,8 +135,9 @@ page 62013 "D4P BC Environment Features"
                 trigger OnAction()
                 var
                     FeaturesHelper: Codeunit "D4P BC Features Helper";
+                    ConfirmMsg: Label 'Do you want to deactivate feature "%1"?';
                 begin
-                    if not Confirm('Do you want to deactivate feature "%1"?', false, Rec."Feature Name") then
+                    if not Confirm(ConfirmMsg, false, Rec."Feature Name") then
                         exit;
 
                     FeaturesHelper.DeactivateFeature(Rec);
@@ -152,6 +154,7 @@ page 62013 "D4P BC Environment Features"
                 var
                     Feature: Record "D4P BC Environment Features";
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched feature records?';
+                    DeletedSuccessMsg: Label '%1 feature records deleted.';
                     RecordCount: Integer;
                 begin
                     Feature.CopyFilters(Rec);
@@ -162,7 +165,7 @@ page 62013 "D4P BC Environment Features"
                     if Confirm(DeleteMsg, false, RecordCount) then begin
                         Feature.DeleteAll();
                         CurrPage.Update(false);
-                        Message('%1 feature records deleted.', RecordCount);
+                        Message(DeletedSuccessMsg, RecordCount);
                     end;
                 end;
             }

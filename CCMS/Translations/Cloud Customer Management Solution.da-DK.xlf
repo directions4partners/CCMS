@@ -261,6 +261,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Backups - Action DeleteAll - Method OnAction - NamedType DeleteMsg</note>
         </trans-unit>
+        <trans-unit id="Page 2853562155 - Action 389138476 - Method 1377591017 - NamedType 1684716017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 backup records deleted.</source>
+          <target>%1 sikkerhedskopiposter blev slettet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Backups - Action DeleteAll - Method OnAction - NamedType DeletedSuccessMsg</note>
+        </trans-unit>
         <trans-unit id="Page 2853562155 - Action 1954256316 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retrieve the history of database exports.</source>
           <target>Hent historikken over databaseeksporter.</target>
@@ -1863,6 +1869,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action Capacity - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1494117452 - Action 3676636176 - Method 1377591017 - NamedType 4009389851" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Capacity data not available for this environment. Please refresh capacity data from the tenant.</source>
+          <target>Kapacitetsdata er ikke tilgængelige for dette miljø. Opdater kapacitetsdata fra tenanten.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action Capacity - Method OnAction - NamedType CapacityNotAvailableMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1494117452 - Action 3650642145 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View and manage features for this environment.</source>
           <target>Få vist og administrer funktioner for dette miljø.</target>
@@ -2030,6 +2042,12 @@
           <target>Rediger aktuel Application Insights-forbindelse</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action EditCurrentAIConnection - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1494117452 - Action 39140341 - Method 1377591017 - NamedType 3882294411" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No Application Insights connection setup found for the current connection string.</source>
+          <target>Der blev ikke fundet nogen Application Insights-forbindelsesopsætning for den aktuelle forbindelsesstreng.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action EditCurrentAIConnection - Method OnAction - NamedType NoAIConnectionSetupMsg</note>
         </trans-unit>
         <trans-unit id="Page 1494117452 - Action 1544630875 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Select and run a telemetry query directly using this environment's configuration.</source>
@@ -2433,6 +2451,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeleteMsg</note>
         </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 1684716017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 environment records deleted from local database.</source>
+          <target>%1 miljøposter blev slettet fra lokal database.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeletedSuccessMsg</note>
+        </trans-unit>
         <trans-unit id="Page 4116547146 - Action 1977573380 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the list of environments.</source>
           <target>Hent listen over miljøer.</target>
@@ -2456,6 +2480,30 @@
           <target>Hent opdateringer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action GetEnvironmentUpdateInfo - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 1611320824 - Method 1377591017 - NamedType 4076301008" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No environments to update.</source>
+          <target>Ingen miljøer at opdatere.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action GetEnvironmentUpdateInfo - Method OnAction - NamedType NoEnvironmentsToUpdateMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 1611320824 - Method 1377591017 - NamedType 2294662597" size-unit="char" translate="yes" xml:space="preserve">
+          <source>This will get update information for %1 environment(s). Continue?</source>
+          <target>Dette vil hente opdateringsoplysninger for %1 miljø(er). Fortsæt?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action GetEnvironmentUpdateInfo - Method OnAction - NamedType ConfirmMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 1611320824 - Method 1377591017 - NamedType 1305737990" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@</source>
+          <target>Behandler miljø #1#### af #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action GetEnvironmentUpdateInfo - Method OnAction - NamedType ProcessingMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 1611320824 - Method 1377591017 - NamedType 1556380518" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Successfully processed %1 environment(s).</source>
+          <target>%1 miljø(er) blev behandlet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action GetEnvironmentUpdateInfo - Method OnAction - NamedType SuccessMsg</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 891591231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Renames selected environment.</source>
@@ -2895,6 +2943,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action DeleteAll - Method OnAction - NamedType DeleteMsg</note>
         </trans-unit>
+        <trans-unit id="Page 3922837368 - Action 389138476 - Method 1377591017 - NamedType 1684716017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 installed apps records deleted.</source>
+          <target>%1 poster for installerede apps blev slettet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Action DeleteAll - Method OnAction - NamedType DeletedSuccessMsg</note>
+        </trans-unit>
         <trans-unit id="Page 3922837368 - Action 227458231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the list of available apps updates for the selected environment.</source>
           <target>Hent listen over tilgængelige appopdateringer for det valgte miljø.</target>
@@ -2997,6 +3051,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Can Be Uninstalled - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1896412547 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer associated with the installed app.</source>
+          <target>Angiver kunden, der er knyttet til den installerede app.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Customer No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1896412547 - Control 1768934958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the environment where the app is installed.</source>
           <target>Angiver det miljø, hvor appen er installeret.</target>
@@ -3021,6 +3081,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control State - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 1896412547 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tenant identifier associated with the app.</source>
+          <target>Angiver tenant-id'et, der er knyttet til appen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Tenant ID - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1896412547 - Action 389138476 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete all fetched installed apps records.</source>
           <target>Slet alle hentede poster for installerede apps.</target>
@@ -3038,6 +3104,12 @@
           <target>Er du sikker på, at du vil slette alle %1 hentede poster for installerede apps?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action DeleteAll - Method OnAction - NamedType DeleteMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 389138476 - Method 1377591017 - NamedType 1684716017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 installed apps records deleted.</source>
+          <target>%1 poster for installerede apps blev slettet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action DeleteAll - Method OnAction - NamedType DeletedSuccessMsg</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 227458231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the list of available apps updates for the selected environment.</source>
@@ -3074,6 +3146,18 @@
           <target>Opdater app</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateApp - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 103537446 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update the selected apps (multiple) to the latest version.</source>
+          <target>Opdater de valgte apps (flere) til den seneste version.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 103537446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Update Selected Apps</source>
+          <target>Opdater valgte apps</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3331374484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE Object Ranges</source>
@@ -3543,6 +3627,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Action ActivateFeature - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1807623301 - Action 148382111 - Method 1377591017 - NamedType 2294662597" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to activate feature "%1"?</source>
+          <target>Vil du aktivere funktionen "%1"?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Action ActivateFeature - Method OnAction - NamedType ConfirmMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1807623301 - Action 2341653616 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Deactivate the selected feature.</source>
           <target>Deaktiver den valgte funktion.</target>
@@ -3554,6 +3644,12 @@
           <target>Deaktivér funktion</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Action DeactivateFeature - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1807623301 - Action 2341653616 - Method 1377591017 - NamedType 2294662597" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to deactivate feature "%1"?</source>
+          <target>Vil du deaktivere funktionen "%1"?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Action DeactivateFeature - Method OnAction - NamedType ConfirmMsg</note>
         </trans-unit>
         <trans-unit id="Page 1807623301 - Action 389138476 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Delete all fetched feature records.</source>
@@ -3573,6 +3669,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Action DeleteAll - Method OnAction - NamedType DeleteMsg</note>
         </trans-unit>
+        <trans-unit id="Page 1807623301 - Action 389138476 - Method 1377591017 - NamedType 1684716017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 feature records deleted.</source>
+          <target>%1 funktionsposter blev slettet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Action DeleteAll - Method OnAction - NamedType DeletedSuccessMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1807623301 - Action 312510131 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retrieve the list of available features for this environment.</source>
           <target>Hent listen over tilgængelige funktioner for dette miljø.</target>
@@ -3584,6 +3686,12 @@
           <target>Hent funktioner</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Action GetFeatures - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1807623301 - Action 312510131 - Method 1377591017 - NamedType 1556380518" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Features retrieved successfully.</source>
+          <target>Funktioner blev hentet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Action GetFeatures - Method OnAction - NamedType SuccessMsg</note>
         </trans-unit>
         <trans-unit id="Page 1807623301 - Action 1664397132 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Features</source>
@@ -4131,6 +4239,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Sessions - Action DeleteAll - Method OnAction - NamedType DeleteMsg</note>
         </trans-unit>
+        <trans-unit id="Page 2957340651 - Action 389138476 - Method 1377591017 - NamedType 1684716017" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 session records deleted.</source>
+          <target>%1 sessionsposter blev slettet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Sessions - Action DeleteAll - Method OnAction - NamedType DeletedSuccessMsg</note>
+        </trans-unit>
         <trans-unit id="Page 2957340651 - Action 3612961501 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Retrieve current session information for this environment.</source>
           <target>Hent aktuelle sessionsoplysninger for dette miljø.</target>
@@ -4209,6 +4323,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Debug Helper - Method TestDebugMode - NamedType TestMsg</note>
         </trans-unit>
+        <trans-unit id="Codeunit 2097893858 - Method 2791522152 - NamedType 1041243637" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Debug Mode is currently disabled. Enable it in Setup to see debug messages.</source>
+          <target>Fejlfindingstilstand er aktuelt deaktiveret. Aktivér den i opsætningen for at se fejlfindingsmeddelelser.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Debug Helper - Method TestDebugMode - NamedType DebugModeDisabledMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1013162530 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Admin Center Application Setup</source>
           <target>D365BC-admincenter programopsætning</target>
@@ -4256,6 +4376,18 @@
           <target>Gendan standardværdier</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Setup - Action RestoreDefaults - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1013162530 - Action 1583998716 - Method 1377591017 - NamedType 3009573499" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to restore default API configuration values?</source>
+          <target>Vil du gendanne standard-API-konfigurationsværdier?</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Setup - Action RestoreDefaults - Method OnAction - NamedType RestoreDefaultsMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 1013162530 - Action 1583998716 - Method 1377591017 - NamedType 3823245202" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default values have been restored.</source>
+          <target>Standardværdier er blevet gendannet.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Setup - Action RestoreDefaults - Method OnAction - NamedType RestoredSuccessMsg</note>
         </trans-unit>
         <trans-unit id="Table 2167704502 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Application Insights Connection Setup</source>
@@ -4491,6 +4623,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P AppInsights Conn Card - Action TestConnection - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1185952584 - Action 4263468516 - Method 1377591017 - NamedType 3067191859" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Connection test functionality will be implemented in future versions.</source>
+          <target>Funktionalitet til forbindelsestest implementeres i fremtidige versioner.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P AppInsights Conn Card - Action TestConnection - Method OnAction - NamedType ConnectionTestMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1185952584 - Action 1950770918 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Actions</source>
           <target>Handlinger</target>
@@ -4658,6 +4796,12 @@
           <target>Initialiser standardforespørgsler</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Queries - Action InitializeQueries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 620516318 - Action 2792699792 - Method 1377591017 - NamedType 2216940919" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Default KQL queries have been initialized.</source>
+          <target>Standard-KQL-forespørgsler er blevet initialiseret.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P KQL Queries - Action InitializeQueries - Method OnAction - NamedType InitializedMsg</note>
         </trans-unit>
         <trans-unit id="Page 620516318 - Action 2632395477 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Run Query</source>

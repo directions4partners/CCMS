@@ -138,6 +138,7 @@ page 62016 "D4P BC Environment Sessions"
                 var
                     Session: Record "D4P BC Environment Sessions";
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched session records?';
+                    DeletedSuccessMsg: Label '%1 session records deleted.';
                     RecordCount: Integer;
                 begin
                     Session.CopyFilters(Rec);
@@ -148,7 +149,7 @@ page 62016 "D4P BC Environment Sessions"
                     if Confirm(DeleteMsg, false, RecordCount) then begin
                         Session.DeleteAll();
                         CurrPage.Update(false);
-                        Message('%1 session records deleted.', RecordCount);
+                        Message(DeletedSuccessMsg, RecordCount);
                     end;
                 end;
             }

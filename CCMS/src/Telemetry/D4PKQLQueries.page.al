@@ -114,9 +114,10 @@ page 62040 "D4P KQL Queries"
                 trigger OnAction()
                 var
                     Init: Codeunit "D4P KQL Query Store Init";
+                    InitializedMsg: Label 'Default KQL queries have been initialized.';
                 begin
                     Init.InitializeKQLQueries();
-                    Message('Default KQL queries have been initialized.');
+                    Message(InitializedMsg);
                     CurrPage.Update(false);
                 end;
             }
