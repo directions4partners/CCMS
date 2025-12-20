@@ -2353,7 +2353,6 @@
           <source>Operations</source>
           <target>Toiminnot</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action Operations - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 3860714960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3746,7 +3745,6 @@
           <source>AAD Tenant ID</source>
           <target>AAD-tenantin tunnus</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field AAD Tenant ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 3508346432 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3759,7 +3757,6 @@
           <source>Completed On</source>
           <target>Valmistunut</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Completed On - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 2369664869 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3772,7 +3769,6 @@
           <source>Created By</source>
           <target>Luonut</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created By - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 2389018819 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3785,35 +3781,30 @@
           <source>Created On</source>
           <target>Luontipvm</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created On - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer number.</source>
           <target>Määrittää asiakasnumeron.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Customer No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Customer No.</source>
           <target>Asiakasnro</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Customer No. - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 1768934958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the environment name.</source>
           <target>Määrittää ympäristön nimen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Name - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 1768934958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Environment Name</source>
           <target>Ympäristön nimi</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Name - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 1436111935 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3826,7 +3817,6 @@
           <source>Environment Type</source>
           <target>Ympäristötyyppi</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 2852966117 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3839,7 +3829,6 @@
           <source>Error Message</source>
           <target>Virhesanoma</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Error Message - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 1848808116 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3852,14 +3841,12 @@
           <source>Operation ID</source>
           <target>Toiminnon tunnus</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 3156524383 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the type of operation.</source>
           <target>Määrittää operaation tyypin.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 3156524383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -3896,7 +3883,6 @@
           <source>Started On</source>
           <target>Aloitettu</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Started On - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3909,21 +3895,18 @@
           <source>Status</source>
           <target>Tila</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Status - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the tenant ID.</source>
           <target>Määrittää tenant id:n.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Tenant ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 3263097707 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Tenant ID</source>
           <target>Tenant ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Tenant ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Codeunit 4214262675 - Method 2647952887 - NamedType 1558719015" size-unit="char" translate="yes" xml:space="preserve">
@@ -3996,7 +3979,6 @@
           <source>Process</source>
           <target>Prosessi</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 192857266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
