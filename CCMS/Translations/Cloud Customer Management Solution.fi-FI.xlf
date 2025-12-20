@@ -2999,9 +2999,8 @@
         </trans-unit>
         <trans-unit id="Page 1896412547 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer associated with the installed app.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää asennetun sovelluksen asiakkaan.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Customer No. - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Control 1768934958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3030,9 +3029,8 @@
         </trans-unit>
         <trans-unit id="Page 1896412547 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the tenant identifier associated with the app.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää asennetun sovelluksen asiakkaan Tenant-ID:n.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 389138476 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -3091,16 +3089,14 @@
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 103537446 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update the selected apps (multiple) to the latest version.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Päivitä valitut sovellukset (useita) uusimpaan versioon.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 103537446 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update Selected Apps</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Päivitä valitut sovellukset</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3331374484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
