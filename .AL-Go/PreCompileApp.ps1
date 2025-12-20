@@ -1,9 +1,9 @@
 Param(
     [string] $appType,
-    [hashtable] $compilationParams
+    [ref] $compilationParams
 )
 
-Get-ChildItem -path (Join-Path $compilationParams.appProjectFolder "Translations") -Filter *.xlf -Recurse | ForEach-Object {
+Get-ChildItem -path (Join-Path $compilationParams.Value.appProjectFolder "Translations") -Filter *.xlf -Recurse | ForEach-Object {
     Write-Host "Found translation file: $($_.FullName)"
     Write-Host "---------------------------------------------- BEFORE -----------------------------------------------"
     Get-Content -Path $_.FullName | Out-Host
