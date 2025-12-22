@@ -7,6 +7,7 @@ using D4P.CCMS.Extension;
 using D4P.CCMS.Features;
 using D4P.CCMS.Telemetry;
 using D4P.CCMS.Session;
+using D4P.CCMS.Operations;
 
 page 62003 "D4P BC Environment List"
 {
@@ -504,6 +505,21 @@ page 62003 "D4P BC Environment List"
                     SessionsPage.Run();
                 end;
             }
+            action(Operations)
+            {
+                ApplicationArea = All;
+                Caption = 'Operations';
+                Image = TaskList;
+                ToolTip = 'View operations history for this environment.';
+
+                trigger OnAction()
+                var
+                    OperationsPage: Page "D4P BC Environment Operations";
+                begin
+                    OperationsPage.SetEnvironmentContext(Rec);
+                    OperationsPage.Run();
+                end;
+            }
         }
         area(Promoted)
         {
@@ -559,6 +575,9 @@ page 62003 "D4P BC Environment List"
                 {
                 }
                 actionref(SessionsPromoted; Sessions)
+                {
+                }
+                actionref(OperationsPromoted; Operations)
                 {
                 }
                 actionref(DeleteAllFetchedPromoted; DeleteAllFetched)
