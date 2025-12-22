@@ -3873,8 +3873,7 @@
         </trans-unit>
         <trans-unit id="Table 2648630731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC PTE App</source>
-          <target>D365BC PTE App
-</target>
+          <target>D365BC PTE App</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Property Caption</note>
         </trans-unit>
