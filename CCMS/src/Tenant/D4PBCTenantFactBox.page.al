@@ -56,10 +56,10 @@ page 62012 "D4P BC Tenant FactBox"
     begin
         case Rec."App Registration Type" of
             Rec."App Registration Type"::Shared:
-                begin
-                    D4PBCAppRegistration.Get(Rec."Client ID");
-                    exit(D4PBCAppRegistration."Secret Expiration Date");
-                end;
+                if D4PBCAppRegistration.Get(Rec."Client ID") then
+                    exit(D4PBCAppRegistration."Secret Expiration Date")
+                else
+                    exit(0D);
             Rec."App Registration Type"::Individual:
                 exit(Rec."Secret Expiration Date");
         end;
