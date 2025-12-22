@@ -4050,8 +4050,7 @@
         </trans-unit>
         <trans-unit id="Page 571158911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC PTE Apps Card</source>
-          <target>D365BC PTE Apps Kort
-</target>
+          <target>D365BC PTE Apps Kort</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Card - Property Caption</note>
         </trans-unit>
