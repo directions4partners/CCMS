@@ -152,6 +152,7 @@ page 62014 "D4P BC Environment Backups"
                 var
                     Backup: Record "D4P BC Environment Backup";
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched backup records?';
+                    DeletedSuccessMsg: Label '%1 backup records deleted.';
                     RecordCount: Integer;
                 begin
                     Backup.CopyFilters(Rec);
@@ -162,7 +163,7 @@ page 62014 "D4P BC Environment Backups"
                     if Confirm(DeleteMsg, false, RecordCount) then begin
                         Backup.DeleteAll();
                         CurrPage.Update(false);
-                        Message('%1 backup records deleted.', RecordCount);
+                        Message(DeletedSuccessMsg, RecordCount);
                     end;
                 end;
             }

@@ -146,6 +146,7 @@ page 62024 "D4P BC Installed App Card"
                 var
                     InstalledApp: Record "D4P BC Installed Apps";
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?';
+                    DeletedSuccessMsg: Label '%1 installed apps records deleted.';
                     RecordCount: Integer;
                 begin
                     InstalledApp.CopyFilters(Rec);
@@ -156,7 +157,7 @@ page 62024 "D4P BC Installed App Card"
                     if Confirm(DeleteMsg, false, RecordCount) then begin
                         InstalledApp.DeleteAll();
                         CurrPage.Update(false);
-                        Message('%1 installed apps records deleted.', RecordCount);
+                        Message(DeletedSuccessMsg, RecordCount);
                     end;
                 end;
             }

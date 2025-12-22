@@ -1,6 +1,7 @@
 namespace D4P.CCMS.Session;
 
 using System.Security.Authentication;
+using System.Reflection;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Tenant;
 using D4P.CCMS.Setup;
@@ -181,9 +182,8 @@ codeunit 62017 "D4P BC Session Helper"
 
         if JsonObject.Get('logOnDate', JsonToken) then begin
             JsonValue := JsonToken.AsValue();
-            // The API returns UTC time, convert to local time
-            if Evaluate(BCSession."Login Date", JsonValue.AsText()) then
-                BCSession."Login Date" := BCSession."Login Date" + (CurrentDateTime - System.CurrentDateTime);
+            // The API returns UTC time in format "12/18/2025 3:44:21 PM", convert to local time
+            BCSession."Login Date" := ParseDateTimeFromAPI(JsonValue.AsText());
         end;
 
         if JsonObject.Get('entryPointOperation', JsonToken) then begin
@@ -225,5 +225,19 @@ codeunit 62017 "D4P BC Session Helper"
             JsonValue := JsonToken.AsValue();
             BCSession."Current Operation Duration" := JsonValue.AsInteger();
         end;
+    end;
+
+    local procedure ParseDateTimeFromAPI(DateTimeText: Text): DateTime
+    var
+        TypeHelper: Codeunit "Type Helper";
+        DateTimeValue: Variant;
+        ParsedDateTime: DateTime;
+    begin
+        DateTimeValue := ParsedDateTime;
+        if TypeHelper.Evaluate(DateTimeValue, DateTimeText, 'M/d/yyyy h:mm:ss tt', 'en-US') then begin
+            ParsedDateTime := DateTimeValue;
+            exit(TypeHelper.ConvertDateTimeFromInputTimeZoneToClientTimezone(ParsedDateTime, 'UTC'));
+        end;
+        exit(0DT);
     end;
 }
