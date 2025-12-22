@@ -74,7 +74,7 @@ page 62026 "D4P BC App Registration Card"
         if IsNullGuid(Rec."Client ID") then
             exit;
 
-        SecretText := ClientSecretValue;
+        SecretText := ClientSecretValue.Trim();
         Rec.SetClientSecret(Rec."Client ID", SecretText);
     end;
 }
