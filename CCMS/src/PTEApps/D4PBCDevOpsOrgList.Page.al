@@ -38,7 +38,7 @@ page 62030 "D4P BC DevOps Org. List"
                     InputToken: Page "D4P BC Input Token";
                 begin
                     if InputToken.RunModal() = Action::OK then begin
-                        IsolatedStorage.Set(Rec.ID, InputToken.GetToken())
+                        IsolatedStorage.Set(Rec.ID, InputToken.GetToken());
                     end;
                 end;
             }
