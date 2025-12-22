@@ -1,6 +1,6 @@
 namespace D4P.CCMS.Auth;
 
-page 62015 "D4P BC App Registration Card"
+page 62026 "D4P BC App Registration Card"
 {
     PageType = Card;
     ApplicationArea = All;

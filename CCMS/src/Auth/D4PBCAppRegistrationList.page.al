@@ -1,6 +1,6 @@
 namespace D4P.CCMS.Auth;
 
-page 62018 "D4P BC App Registration List"
+page 62027 "D4P BC App Registration List"
 {
     PageType = List;
     ApplicationArea = All;
