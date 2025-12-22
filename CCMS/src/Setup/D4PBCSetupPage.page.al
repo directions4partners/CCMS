@@ -52,11 +52,14 @@ page 62010 "D4P BC Setup"
                 ToolTip = 'Restore default values for API configuration.';
 
                 trigger OnAction()
+                var
+                    RestoreDefaultsMsg: Label 'Do you want to restore default API configuration values?';
+                    RestoredSuccessMsg: Label 'Default values have been restored.';
                 begin
-                    if Confirm('Do you want to restore default API configuration values?', false) then begin
+                    if Confirm(RestoreDefaultsMsg, false) then begin
                         Rec.RestoreDefaults();
                         CurrPage.Update(false);
-                        Message('Default values have been restored.');
+                        Message(RestoredSuccessMsg);
                     end;
                 end;
             }

@@ -506,6 +506,7 @@ page 62004 "D4P BC Environment Card"
                 trigger OnAction()
                 var
                     CapacityLine: Record "D4P BC Capacity Line";
+                    CapacityNotAvailableMsg: Label 'Capacity data not available for this environment. Please refresh capacity data from the tenant.';
                 begin
                     CapacityLine.SetRange("Customer No.", Rec."Customer No.");
                     CapacityLine.SetRange("Tenant ID", Format(Rec."Tenant ID"));
@@ -513,7 +514,7 @@ page 62004 "D4P BC Environment Card"
                     if CapacityLine.FindFirst() then
                         Page.Run(Page::"D4P BC Capacity Card", CapacityLine)
                     else
-                        Message('Capacity data not available for this environment. Please refresh capacity data from the tenant.');
+                        Message(CapacityNotAvailableMsg);
                 end;
             }
             action(Sessions)
@@ -554,6 +555,7 @@ page 62004 "D4P BC Environment Card"
                 var
                     AIConnectionSetup: Record "D4P AppInsights Connection";
                     AIConnectionSetupCard: Page "D4P AppInsights Conn Card";
+                    NoAIConnectionSetupMsg: Label 'No Application Insights connection setup found for the current connection string.';
                 begin
                     if AIConnectionSetup.Get(Rec."Application Insights String") then begin
                         AIConnectionSetupCard.SetRecord(AIConnectionSetup);
@@ -563,7 +565,7 @@ page 62004 "D4P BC Environment Card"
                         end;
                         CurrPage.Update();
                     end else
-                        Message('No Application Insights connection setup found for the current connection string.');
+                        Message(NoAIConnectionSetupMsg);
                 end;
             }
             action(TelemetryInstalledApps)

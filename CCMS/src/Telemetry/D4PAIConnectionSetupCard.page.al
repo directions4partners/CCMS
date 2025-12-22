@@ -63,8 +63,10 @@ page 62048 "D4P AppInsights Conn Card"
                 ToolTip = 'Test the Application Insights connection with the specified parameters.';
 
                 trigger OnAction()
+                var
+                    ConnectionTestMsg: Label 'Connection test functionality will be implemented in future versions.';
                 begin
-                    Message('Connection test functionality will be implemented in future versions.');
+                    Message(ConnectionTestMsg);
                 end;
             }
         }
