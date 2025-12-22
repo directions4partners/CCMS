@@ -4017,8 +4017,7 @@
         </trans-unit>
         <trans-unit id="Page 3505232960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC DevOps Organization List</source>
-          <target>D365BC DevOps Organsisasjons liste
-</target>
+          <target>D365BC DevOps Organisasjons liste</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC DevOps Org. List - Property Caption</note>
         </trans-unit>
