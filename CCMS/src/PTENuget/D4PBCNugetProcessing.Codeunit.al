@@ -10,14 +10,14 @@ codeunit 62005 "D4P BC Nuget Processing"
         ServiceTypeUrl: Text;
         ServiceType: Label 'SearchQueryService', Locked = true;
     begin
-        DevopsUpdateFactory(BCDevOpsUpdate, PTEApp.DevOps);
+        DevOpsUpdateFactory(BCDevOpsUpdate, PTEApp.DevOps);
         if not BCDevOpsUpdate.IsEnabled() then
             exit;
         ServiceTypeUrl := BCDevOpsUpdate.GetNugetServiceTypeUrl(PTEApp, ServiceType);
         GetAppVersions(PTEApp, BCDevOpsUpdate, ServiceTypeUrl);
     end;
 
-    local procedure DevopsUpdateFactory(var BCDevOpsUpdateInterface: Interface "D4P BC DevOps Update"; BCDevOpsEnvironments: Enum "D4P BC DevOps Environments")
+    local procedure DevOpsUpdateFactory(var BCDevOpsUpdateInterface: Interface "D4P BC DevOps Update"; BCDevOpsEnvironments: Enum "D4P BC DevOps Environments")
     begin
         BCDevOpsUpdateInterface := BCDevOpsEnvironments;
     end;
@@ -88,7 +88,7 @@ codeunit 62005 "D4P BC Nuget Processing"
         Instream: InStream;
         FileName: Text;
     begin
-        DevopsUpdateFactory(BCDevOpsUpdate, PTEAppVersion.GetPTEAppDevOps());
+        DevOpsUpdateFactory(BCDevOpsUpdate, PTEAppVersion.GetPTEAppDevOps());
         RestClient.SetAuthorizationHeader(BCDevOpsUpdate.GetToken(PTEAppVersion.GetPTEOrganizationName()));
         Response := RestClient.Get(PTEAppVersion."Package Content Url");
         if not Response.GetIsSuccessStatusCode() then

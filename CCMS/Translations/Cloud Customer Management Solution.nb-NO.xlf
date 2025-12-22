@@ -2841,7 +2841,7 @@
         </trans-unit>
         <trans-unit id="Table 348982333 - Field 3359984739 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Range From</source>
-          <target> Område fra</target>
+          <target>Område fra</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Range From - Property Caption</note>
         </trans-unit>
@@ -3811,11 +3811,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Profile D4P BC Admin - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 578315456 - EnumValue 3666603822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Enum 578315456 - EnumValue 119067982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No DevOps</source>
-          <target>Ingen DevOps</target>
+          <target>[NAB: SUGGESTION]Ingen DevOps</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC DevOps Environments - EnumValue NoDevops - Property Caption</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC DevOps Environments - EnumValue NoDevOps - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 192857266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Admin Center - Full Access</source>
@@ -3891,7 +3892,7 @@
         </trans-unit>
         <trans-unit id="Table 2648630731 - Field 3385472603 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the feed associated with the PTE app.</source>
-          <target>Angri feeden tilknyttet denne PTE appen (Azure Devops).</target>
+          <target>Angri feeden tilknyttet denne PTE appen (Azure DevOps).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Feed - Property ToolTip</note>
         </trans-unit>
@@ -4017,8 +4018,7 @@
         </trans-unit>
         <trans-unit id="Page 3505232960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC DevOps Organization List</source>
-          <target>D365BC DevOps Organsisasjons liste
-</target>
+          <target>D365BC DevOps Organisasjonsliste</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC DevOps Org. List - Property Caption</note>
         </trans-unit>
@@ -4030,8 +4030,7 @@
         </trans-unit>
         <trans-unit id="Page 2134193840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Input Token</source>
-          <target>D365BC Sett inn Token
-</target>
+          <target>D365BC Sett inn Token</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Input Token - Property Caption</note>
         </trans-unit>

@@ -3807,12 +3807,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Profile D4P BC Admin - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Enum 578315456 - EnumValue 3666603822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+        <trans-unit id="Enum 578315456 - EnumValue 119067982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>No DevOps</source>
           <target>[NAB: NOT TRANSLATED]</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
-          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC DevOps Environments - EnumValue NoDevops - Property Caption</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC DevOps Environments - EnumValue NoDevOps - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 192857266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Admin Center - Full Access</source>
@@ -3854,10 +3854,8 @@
         </trans-unit>
         <trans-unit id="Table 4174934779 - Field 3641927271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>ID</source>
-          <target>[NAB: SUGGESTION]Tunnus</target>
-          <target>[NAB: SUGGESTION]ID</target>
+          <target>ID</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4174934779 - Field 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">

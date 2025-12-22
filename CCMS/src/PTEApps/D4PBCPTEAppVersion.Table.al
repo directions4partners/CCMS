@@ -44,18 +44,16 @@ table 62005 "D4P BC PTE App Version"
     var
         PTEAppVersion: Record "D4P BC PTE App Version";
     begin
-        PTEAppVersion.SetRange("PTE ID", Rec."PTE ID");
-        PTEAppVersion.SetRange("App Version", Rec."App Version");
-        exit(not PTEAppVersion.IsEmpty);
+        exit(PTEAppVersion.Get(Rec."PTE ID", Rec."App Version"));
     end;
 
-    procedure GetPTEAppDevOps() Devops: Enum "D4P BC DevOps Environments"
+    procedure GetPTEAppDevOps() DevOps: Enum "D4P BC DevOps Environments"
     var
         PTEApps: Record "D4P BC PTE App";
     begin
         if not PTEApps.Get(Rec."PTE ID") then
-            exit(Devops);
-        Devops := PTEApps.DevOps;
+            exit(DevOps);
+        DevOps := PTEApps.DevOps;
     end;
 
     procedure GetPTEAppName(): Text[100]

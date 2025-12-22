@@ -46,7 +46,7 @@ page 62028 "D4P BC PTE App Card"
                 }
                 field("DevOps Feed"; Rec."DevOps Feed")
                 {
-                    Visible = DevopsFeedVisible;
+                    Visible = DevOpsFeedVisible;
                 }
                 field("NuGet Package Name"; Rec."NuGet Package Name")
                 {
@@ -74,14 +74,14 @@ page 62028 "D4P BC PTE App Card"
     begin
         if Rec.DevOps = Rec.DevOps::Azure then begin
             DevOpsPackageVisible := true;
-            DevopsFeedVisible := true;
+            DevOpsFeedVisible := true;
         end else begin
             DevOpsPackageVisible := false;
-            DevopsFeedVisible := false;
+            DevOpsFeedVisible := false;
         end;
     end;
 
     var
         DevOpsPackageVisible: Boolean;
-        DevopsFeedVisible: Boolean;
+        DevOpsFeedVisible: Boolean;
 }

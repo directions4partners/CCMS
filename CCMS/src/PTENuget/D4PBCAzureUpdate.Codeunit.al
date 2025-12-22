@@ -3,7 +3,7 @@ namespace D4P.CCMS.Nuget;
 using D4P.CCMS.PTEApps;
 using System.RestClient;
 
-codeunit 62004 "D4P BC Azure Update" implements "D4P BC Devops Update"
+codeunit 62004 "D4P BC Azure Update" implements "D4P BC DevOps Update"
 {
     procedure GetNugetServiceTypeUrl(PTEApp: Record "D4P BC PTE App"; ServiceType: Text[100]): Text
     var
@@ -36,6 +36,8 @@ codeunit 62004 "D4P BC Azure Update" implements "D4P BC Devops Update"
     procedure IsEnabled(): Boolean
     begin
         exit(false);
+        // Azure DevOps support is intentionally disabled by default
+        // pending final testing/completion of this implementation.
     end;
 
     local procedure ProcessServices(JsonToken: JsonToken; ServiceType: Text[100]): Text
