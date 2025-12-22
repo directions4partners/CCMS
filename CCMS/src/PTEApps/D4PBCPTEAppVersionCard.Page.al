@@ -23,7 +23,7 @@ page 62026 "D4P BC PTE App Version Card"
                 }
                 field("App Version"; Rec."App Version")
                 {
-                    ToolTip = 'Specifies the value of the App Version field.', Comment = '%';
+                    ToolTip = 'Specifies the version number of this PTE app package.', Comment = '%';
                 }
                 field("Package Content Url"; Rec."Package Content Url")
                 {
