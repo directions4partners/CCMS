@@ -3891,7 +3891,7 @@
         </trans-unit>
         <trans-unit id="Table 2648630731 - Field 3385472603 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the feed associated with the PTE app.</source>
-          <target>Angri feeden tilknyttet denne PTE appen (Azure Devops).</target>
+          <target>Angir feeden tilknyttet denne PTE appen (Azure Devops).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Feed - Property ToolTip</note>
         </trans-unit>
