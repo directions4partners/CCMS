@@ -4036,7 +4036,7 @@
         </trans-unit>
         <trans-unit id="Page 2134193840 - Control 4146460525 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Personal Access Token for DevOps organization access.</source>
-          <target>Angir det personlige aksess token (PAT) for tilgang til denne organsisasjonen</target>
+          <target>Angir det personlige aksess token (PAT) for tilgang til denne organisasjonen</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Input Token - Control Token - Property ToolTip</note>
         </trans-unit>
