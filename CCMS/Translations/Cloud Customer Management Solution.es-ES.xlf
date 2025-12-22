@@ -2461,12 +2461,6 @@
           <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType EnvironmentRecordsDeletedMsg</note>
         </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 1684716017" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 environment records deleted from local database.</source>
-          <target>%1 registros de entorno eliminados de la base de datos local.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeletedSuccessMsg</note>
-        </trans-unit>
         <trans-unit id="Page 4116547146 - Action 1977573380 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the list of environments.</source>
           <target>Obtener la lista de entornos.</target>
@@ -3167,7 +3161,6 @@
           <source>Update Selected Apps</source>
           <target>Actualizar las aplicaciones seleccionadas</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Source has been modified.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3331374484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -3818,6 +3811,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Profile D4P BC Admin - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Enum 578315456 - EnumValue 3666603822 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No DevOps</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC DevOps Environments - EnumValue NoDevops - Property Caption</note>
+        </trans-unit>
         <trans-unit id="PermissionSet 192857266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Admin Center - Full Access</source>
           <target>Centro de administración de D365BC - Acceso completo</target>
@@ -3841,6 +3841,335 @@
           <target>Centro de administración de D365BC - Solo telemetría</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet D4P BC TELEMETRY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC DevOps Organization</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Field 3641927271 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique identifier for the DevOps organization.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Field 3641927271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ID</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Field 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the DevOps organization.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target>[NAB: SUGGESTION]Nombre</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE App</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 2108067845 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the DevOps environment associated with the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 2108067845 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DevOps Environment</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3385472603 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the feed associated with the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Feed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3385472603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Feed</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Feed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1416140780 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the organization associated with the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Organization - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1416140780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Organization</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Organization - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1997329075 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the repository associated with the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Package - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1997329075 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Repository</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Package - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3111762196 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the latest version of the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field Latest App Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3111762196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Version</source>
+          <target>[NAB: SUGGESTION]Versión de aplicación</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field Latest App Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3822533900 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the NuGet package name of the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field NuGet Package Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3822533900 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NuGet Package Name</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field NuGet Package Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 4277803464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PTE ID</source>
+          <target>[NAB: SUGGESTION]ID de PTE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field PTE ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 716423282 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PTE Name</source>
+          <target>[NAB: SUGGESTION]Nombre de PTE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field PTE Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3359984739 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Range From</source>
+          <target>[NAB: SUGGESTION]Rango desde</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field Range From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1746152936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Range To</source>
+          <target>[NAB: SUGGESTION]Rango hasta</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field Range To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE App Version</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 2709452997 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field App Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 2709452997 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Version</source>
+          <target>[NAB: SUGGESTION]Versión de aplicación</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field App Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 1683934100 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the URL to the package content.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field Package Content Url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 1683934100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package Content Url</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field Package Content Url - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 4277803464 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Per Tenant Extension's ID.</source>
+          <target>[NAB: SUGGESTION]Especifica el ID de la extensión por inquilino.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field PTE ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 4277803464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PTE ID</source>
+          <target>[NAB: SUGGESTION]ID de PTE</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field PTE ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3505232960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC DevOps Organization List</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC DevOps Org. List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3505232960 - Action 2211637354 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Token</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC DevOps Org. List - Action ImportToken - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2134193840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC Input Token</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Input Token - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2134193840 - Control 4146460525 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Personal Access Token for DevOps organization access.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Input Token - Control Token - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2134193840 - Control 4146460525 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Personal Access Token</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Input Token - Control Token - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 571158911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE Apps Card</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 571158911 - Control 3604674248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DevOps</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Card - Control DevOpsGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 571158911 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target>[NAB: SUGGESTION]General</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 571158911 - Control 1819982392 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Versions</source>
+          <target>[NAB: SUGGESTION]Versiones</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Card - Control PTEAppVersionsFactBox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE App Versions Card</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target>[NAB: SUGGESTION]General</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Control 2709452997 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the App Version field.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Control App Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Control 1683934100 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the Package Content Url field.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Control Package Content Url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Control 4277803464 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the value of the PTE ID field.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2">%</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Control PTE ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Action 1736997633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Download App Package</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Action DownloadAppPackage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2176551060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE Apps List</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE Apps List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2176551060 - Action 684531328 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Latest Versions</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE Apps List - Action GetLatestVersions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1074736624 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC Versions</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE App Versions FactBox - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2957340651 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment Sessions</source>

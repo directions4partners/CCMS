@@ -1,0 +1,21 @@
+namespace D4P.CCMS.Nuget;
+enum 62009 "D4P BC DevOps Environments" implements "D4P BC Devops Update"
+{
+    Extensible = true;
+
+    value(0; NoDevops)
+    {
+        Caption = 'No DevOps';
+        Implementation = "D4P BC Devops Update" = "D4P BC NoDevops Update";
+    }
+    value(1; GitHub)
+    {
+        Caption = 'GitHub', Locked = true;
+        Implementation = "D4P BC Devops Update" = "D4P BC GitHub Update";
+    }
+    value(2; Azure)
+    {
+        Caption = 'Azure', Locked = true;
+        Implementation = "D4P BC Devops Update" = "D4P BC Azure Update";
+    }
+}

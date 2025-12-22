@@ -2,6 +2,7 @@ namespace D4P.CCMS.Extension;
 
 using D4P.CCMS.Customer;
 using D4P.CCMS.Tenant;
+using D4P.CCMS.PTEApps;
 table 62004 "D4P PTE Object Range"
 {
     Caption = 'PTE Object Range';
@@ -56,4 +57,15 @@ table 62004 "D4P PTE Object Range"
             Clustered = true;
         }
     }
+
+    procedure CopyValuesFromApp(PTEID: Guid)
+    var
+        PTEApp: Record "D4P BC PTE App";
+    begin
+        if not PTEApp.Get(PTEID) then
+            exit;
+        Rec."PTE Name" := PTEApp."PTE Name";
+        Rec."Range From" := PTEApp."Range From";
+        Rec."Range To" := PTEApp."Range To";
+    end;
 }
