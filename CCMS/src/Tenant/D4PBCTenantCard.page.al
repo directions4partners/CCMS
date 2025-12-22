@@ -41,6 +41,11 @@ page 62011 "D4P BC Tenant Card"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies whether to use an individual or shared app registration.';
+
+                    trigger OnValidate()
+                    begin
+                        CurrPage.Update();
+                    end;
                 }
                 group(SharedAppRegistration)
                 {
@@ -53,6 +58,7 @@ page 62011 "D4P BC Tenant Card"
                         Caption = 'Client ID';
                         ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication. Select from shared app registrations.';
                         TableRelation = "D4P BC App Registration"."Client ID";
+                        ShowMandatory = true;
 
                         trigger OnValidate()
                         begin
@@ -68,6 +74,7 @@ page 62011 "D4P BC Tenant Card"
                     {
                         ApplicationArea = All;
                         ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication.';
+                        ShowMandatory = true;
                     }
                     field("Client Secret Individual"; ClientSecretValue)
                     {
@@ -79,6 +86,7 @@ page 62011 "D4P BC Tenant Card"
                         trigger OnValidate()
                         begin
                             StoreClientSecret();
+                            CurrPage.Update(true);
                         end;
                     }
                     field("Secret Expiration Date"; Rec."Secret Expiration Date")
@@ -198,8 +206,7 @@ page 62011 "D4P BC Tenant Card"
         AppRegistration: Record "D4P BC App Registration";
         SecretText: SecretText;
     begin
-        if IsNullGuid(Rec."Client ID") then
-            exit;
+        Rec.TestField("Client ID");
 
         if ClientSecretValue = SecretPlaceholderLbl then
             exit;
