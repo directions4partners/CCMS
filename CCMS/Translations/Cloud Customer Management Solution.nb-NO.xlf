@@ -4075,8 +4075,7 @@
         </trans-unit>
         <trans-unit id="Page 1639015937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC PTE App Versions Card</source>
-          <target>D365BC PTE App Versjonskort
-</target>
+          <target>D365BC PTE App Versjonskort</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Property Caption</note>
         </trans-unit>
