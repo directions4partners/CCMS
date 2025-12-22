@@ -56,13 +56,15 @@ page 62026 "D4P BC App Registration Card"
     end;
 
     local procedure LoadClientSecret()
+    var
+        SecretPlaceholderLbl: Label 'SECRETPLACEHOLDER', Locked = true;
     begin
         ClientSecretValue := '';
         if IsNullGuid(Rec."Client ID") then
             exit;
 
         if Rec.HasClientSecret() then
-            ClientSecretValue := '***'; // Show masked indicator
+            ClientSecretValue := SecretPlaceholderLbl;
     end;
 
     local procedure StoreClientSecret()
