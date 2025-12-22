@@ -27,7 +27,7 @@ codeunit 62003 "D4P BC GitHub Update" implements "D4P BC DevOps Update"
         Token: SecretText;
     begin
         if not IsolatedStorage.Contains(OrganizationName) then
-            exit(Token); //Token is empty here.
+            exit(Token); // Return empty token when no value is stored; caller must handle missing token (e.g., anonymous access or error).
         IsolatedStorage.Get(OrganizationName, Token);
         exit(SecretText.SecretStrSubstNo(BearerLbl, Token));
     end;
