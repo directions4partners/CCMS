@@ -11,6 +11,7 @@ using D4P.CCMS.Backup;
 using D4P.CCMS.Capacity;
 using D4P.CCMS.Session;
 using D4P.CCMS.Telemetry;
+using D4P.CCMS.Auth;
 
 permissionset 62000 "D4P BC ADMIN"
 {
@@ -21,6 +22,7 @@ permissionset 62000 "D4P BC ADMIN"
         // Tables
         tabledata "D4P BC Customer" = RIMD,
         tabledata "D4P BC Tenant" = RIMD,
+        tabledata "D4P BC App Registration" = RIMD,
         tabledata "D4P BC Environment" = RIMD,
         tabledata "D4P BC Installed Apps" = RIMD,
         tabledata "D4P BC Setup" = RIMD,
@@ -41,6 +43,7 @@ permissionset 62000 "D4P BC ADMIN"
         // Table Objects
         table "D4P BC Customer" = X,
         table "D4P BC Tenant" = X,
+        table "D4P BC App Registration" = X,
         table "D4P BC Environment" = X,
         table "D4P BC Installed Apps" = X,
         table "D4P BC Setup" = X,
@@ -62,6 +65,8 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P BC Customers List" = X,
         page "D4P BC Customer Card" = X,
         page "D4P BC Tenant List" = X,
+        page "D4P BC App Registration List" = X,
+        page "D4P BC App Registration Card" = X,
         page "D4P BC Environment List" = X,
         page "D4P BC Environment Card" = X,
         page "D4P New Environment Dialog" = X,

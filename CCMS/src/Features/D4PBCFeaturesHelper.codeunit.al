@@ -32,7 +32,7 @@ codeunit 62014 "D4P BC Features Helper"
             Error(TenantNotFoundErr);
 
         // Get OAuth token using the AAD Tenant ID (Entra ID) from the environment
-        AuthToken := APIHelper.GetAutomationApiOAuthToken(BCEnvironment."AAD Tenant ID", BCTenant."Client ID", BCTenant."Client Secret");
+        AuthToken := APIHelper.GetAutomationApiOAuthToken(BCEnvironment."AAD Tenant ID", BCTenant."Client ID", BCTenant.GetClientSecret());
         if AuthToken.IsEmpty() then
             Error(FailedToObtainTokenErr);
 
@@ -247,7 +247,7 @@ codeunit 62014 "D4P BC Features Helper"
             Error(TenantNotFoundErr);
 
         // Get OAuth token
-        AuthToken := APIHelper.GetAutomationApiOAuthToken(BCEnvironment."AAD Tenant ID", BCTenant."Client ID", BCTenant."Client Secret");
+        AuthToken := APIHelper.GetAutomationApiOAuthToken(BCEnvironment."AAD Tenant ID", BCTenant."Client ID", BCTenant.GetClientSecret());
         if AuthToken.IsEmpty() then
             Error(FailedToObtainTokenErr);
 
@@ -307,7 +307,7 @@ codeunit 62014 "D4P BC Features Helper"
             Error(TenantNotFoundErr);
 
         // Get OAuth token
-        AuthToken := APIHelper.GetAutomationApiOAuthToken(BCEnvironment."AAD Tenant ID", BCTenant."Client ID", BCTenant."Client Secret");
+        AuthToken := APIHelper.GetAutomationApiOAuthToken(BCEnvironment."AAD Tenant ID", BCTenant."Client ID", BCTenant.GetClientSecret());
         if AuthToken.IsEmpty() then
             Error(FailedToObtainTokenErr);
 
