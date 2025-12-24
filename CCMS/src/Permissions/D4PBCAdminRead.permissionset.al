@@ -1,6 +1,7 @@
 namespace D4P.CCMS.Permissions;
 
 using D4P.CCMS.Customer;
+using D4P.CCMS.General;
 using D4P.CCMS.Tenant;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
@@ -35,6 +36,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         tabledata "D4P KQL Slow AL Method" = RIMD,
         tabledata "D4P AppInsights Connection" = R,
         tabledata "D4P PTE Object Range" = R,
+        tabledata "D4P BC Available Update" = R,
 
         // Table Objects
         table "D4P BC Customer" = X,
@@ -54,6 +56,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         table "D4P KQL Slow AL Method" = X,
         table "D4P AppInsights Connection" = X,
         table "D4P PTE Object Range" = X,
+        table "D4P BC Available Update" = X,
 
         // Pages - List and Card pages for viewing
         page "D4P BC Customers List" = X,
@@ -78,6 +81,14 @@ permissionset 62001 "D4P BC ADMIN READ"
         page "D4P AppInsights Conn List" = X,
         page "D4P AppInsights Conn Card" = X,
         page "D4P PTE Object Ranges" = X,
+        page "D4P Export History Dialog" = X,
+        page "D4P BC Environments FactBox" = X,
+        page "D4P BC Installed App Card" = X,
+        page "D4P BC Installed Apps FactBox" = X,
+        page "D4P BC Admin Center Cues" = X,
+        page "D4P BC Admin Role Center" = X,
+        page "D4P BC Tenant Card" = X,
+        page "D4P BC Tenant FactBox" = X,
 
         // Codeunit for reading data
         codeunit "D4P BC Environment Mgt" = X,
