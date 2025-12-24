@@ -39,6 +39,7 @@ permissionset 62000 "D4P BC ADMIN"
         tabledata "D4P AppInsights Connection" = RIMD,
         tabledata "D4P BC Admin Center Cue" = RIMD,
         tabledata "D4P PTE Object Range" = RIMD,
+        tabledata "D4P BC Available Update" = RIMD,
 
         // Table Objects
         table "D4P BC Customer" = X,
@@ -60,6 +61,7 @@ permissionset 62000 "D4P BC ADMIN"
         table "D4P AppInsights Connection" = X,
         table "D4P BC Admin Center Cue" = X,
         table "D4P PTE Object Range" = X,
+        table "D4P BC Available Update" = X,
 
         // Pages
         page "D4P BC Customers List" = X,
@@ -92,6 +94,15 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P AppInsights Conn List" = X,
         page "D4P AppInsights Conn Card" = X,
         page "D4P PTE Object Ranges" = X,
+        page "D4P Export History Dialog" = X,
+        page "D4P BC Environments FactBox" = X,
+        page "D4P Update Selection Dialog" = X,
+        page "D4P BC Installed App Card" = X,
+        page "D4P BC Installed Apps FactBox" = X,
+        page "D4P BC Admin Center Cues" = X,
+        page "D4P BC Admin Role Center" = X,
+        page "D4P BC Tenant Card" = X,
+        page "D4P BC Tenant FactBox" = X,
 
         // Codeunits
         codeunit "D4P BC Environment Mgt" = X,
@@ -101,6 +112,11 @@ permissionset 62000 "D4P BC ADMIN"
         codeunit "D4P AppInsights Client" = X,
         codeunit "D4P KQL Query Store Init" = X,
         codeunit "D4P Telemetry Helper" = X,
+        codeunit "D4P BC Environment Helper" = X,
+        codeunit "D4P BC App Registration" = X,
+        codeunit "D4P BC Backup Helper" = X,
+        codeunit "D4P BC Features Helper" = X,
+        codeunit "D4P BC API Helper" = X,
 
         // Reports
         report "D4P Load Data" = X;
