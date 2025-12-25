@@ -80,6 +80,6 @@ table 62007 "D4P BC PTE App"
     begin
         PTEAppVersion.SetRange("PTE ID", Rec."PTE ID");
         if not PTEAppVersion.IsEmpty() then
-            PTEAppVersion.DeleteAll();
+            PTEAppVersion.DeleteAll(true);
     end;
 }
