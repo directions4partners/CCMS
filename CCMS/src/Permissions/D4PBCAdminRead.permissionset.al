@@ -10,6 +10,7 @@ using D4P.CCMS.Backup;
 using D4P.CCMS.Capacity;
 using D4P.CCMS.Session;
 using D4P.CCMS.Telemetry;
+using D4P.CCMS.PTEApps;
 
 permissionset 62001 "D4P BC ADMIN READ"
 {
@@ -35,6 +36,9 @@ permissionset 62001 "D4P BC ADMIN READ"
         tabledata "D4P KQL Slow AL Method" = RIMD,
         tabledata "D4P AppInsights Connection" = R,
         tabledata "D4P PTE Object Range" = R,
+        tabledata "D4P BC PTE App" = R,
+        tabledata "D4P BC PTE App Version" = R,
+        tabledata "D4P BC DevOps Organization" = R,
 
         // Table Objects
         table "D4P BC Customer" = X,
@@ -54,6 +58,9 @@ permissionset 62001 "D4P BC ADMIN READ"
         table "D4P KQL Slow AL Method" = X,
         table "D4P AppInsights Connection" = X,
         table "D4P PTE Object Range" = X,
+        table "D4P BC PTE App" = X,
+        table "D4P BC PTE App Version" = X,
+        table "D4P BC DevOps Organization" = X,
 
         // Pages - List and Card pages for viewing
         page "D4P BC Customers List" = X,

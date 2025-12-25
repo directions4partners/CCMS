@@ -1,4 +1,6 @@
 namespace D4P.CCMS.Extension;
+
+using D4P.CCMS.PTEApps;
 page 62009 "D4P PTE Object Ranges"
 {
     PageType = List;
@@ -28,6 +30,13 @@ page 62009 "D4P PTE Object Ranges"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the Per Tenant Extension''s ID.';
+                    TableRelation = "D4P BC PTE App"."PTE ID";
+
+                    trigger OnValidate()
+                    begin
+                        if not IsNullGuid(Rec."PTE ID") then
+                            Rec.CopyValuesFromApp(Rec."PTE ID");
+                    end;
                 }
                 field("PTE Name"; Rec."PTE Name")
                 {
