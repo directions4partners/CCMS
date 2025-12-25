@@ -2,7 +2,7 @@ namespace D4P.CCMS.Nuget;
 
 using D4P.CCMS.PTEApps;
 using System.RestClient;
-codeunit 62005 "D4P BC Nuget Processing"
+codeunit 62008 "D4P BC Nuget Processing"
 {
     procedure GetPTEAppVersions(var PTEApp: Record "D4P BC PTE App")
     var
