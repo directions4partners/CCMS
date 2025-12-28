@@ -2,7 +2,7 @@ namespace D4P.CCMS.Features;
 
 using D4P.CCMS.Customer;
 
-table 62013 "D4P BC Environment Features"
+table 62013 "D4P BC Environment Feature"
 {
     Caption = 'D365BC Environment Features';
     DataClassification = SystemMetadata;

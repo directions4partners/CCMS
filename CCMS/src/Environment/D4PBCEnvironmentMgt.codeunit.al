@@ -161,7 +161,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonObjectLoop: JsonObject;
         ResponseText: Text;
         BCTenant: Record "D4P BC Tenant";
-        BCInstalledApps: Record "D4P BC Installed Apps";
+        BCInstalledApps: Record "D4P BC Installed App";
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
@@ -414,7 +414,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonObjectLoop: JsonObject;
         ResponseText: Text;
         BCTenant: Record "D4P BC Tenant";
-        BCInstalledApps: Record "D4P BC Installed Apps";
+        BCInstalledApps: Record "D4P BC Installed App";
         appId: guid;
         appVersion: Text;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
@@ -466,7 +466,7 @@ codeunit 62000 "D4P BC Environment Mgt"
     var
         BCTenant: Record "D4P BC Tenant";
         JsonObject: JsonObject;
-        BCInstalledApps: Record "D4P BC Installed Apps";
+        BCInstalledApps: Record "D4P BC Installed App";
         ResponseText: Text;
         AppNotFoundErr: Label 'App not found';
         NoUpdateAvailableErr: Label 'No update available for this app';

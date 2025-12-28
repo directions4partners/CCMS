@@ -2,7 +2,7 @@ namespace D4P.CCMS.Extension;
 
 using D4P.CCMS.Customer;
 
-table 62003 "D4P BC Installed Apps"
+table 62003 "D4P BC Installed App"
 {
     Caption = 'D365BC Installed Apps';
     DataClassification = CustomerContent;

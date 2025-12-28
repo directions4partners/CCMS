@@ -8,7 +8,7 @@ using D4P.CCMS.General;
 
 codeunit 62014 "D4P BC Features Helper"
 {
-    procedure GetFeatures(var EnvironmentFeatures: Record "D4P BC Environment Features")
+    procedure GetFeatures(var EnvironmentFeatures: Record "D4P BC Environment Feature")
     var
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";
@@ -53,7 +53,7 @@ codeunit 62014 "D4P BC Features Helper"
         GetFeaturesForCompany(ResponseText, AuthToken, BCEnvironment, EnvironmentFeatures);
     end;
 
-    local procedure GetFeaturesForCompany(CompaniesResponse: Text; AuthToken: SecretText; BCEnvironment: Record "D4P BC Environment"; var EnvironmentFeatures: Record "D4P BC Environment Features")
+    local procedure GetFeaturesForCompany(CompaniesResponse: Text; AuthToken: SecretText; BCEnvironment: Record "D4P BC Environment"; var EnvironmentFeatures: Record "D4P BC Environment Feature")
     var
         APIHelper: Codeunit "D4P BC API Helper";
         JObject: JsonObject;
@@ -107,13 +107,13 @@ codeunit 62014 "D4P BC Features Helper"
         ProcessFeaturesResponse(ResponseText, EnvironmentFeatures);
     end;
 
-    local procedure ProcessFeaturesResponse(ResponseText: Text; var EnvironmentFeatures: Record "D4P BC Environment Features")
+    local procedure ProcessFeaturesResponse(ResponseText: Text; var EnvironmentFeatures: Record "D4P BC Environment Feature")
     var
         JToken: JsonToken;
         JObject: JsonObject;
         JArray: JsonArray;
         JValue: JsonValue;
-        Feature: Record "D4P BC Environment Features";
+        Feature: Record "D4P BC Environment Feature";
         i: Integer;
         FailedToParseErr: Label 'Failed to parse features JSON response.';
         NoValueArrayErr: Label 'No value array found in features response.';
@@ -219,7 +219,7 @@ codeunit 62014 "D4P BC Features Helper"
             Message(DebugMsg, ActionName, ResponseText);
     end;
 
-    procedure ActivateFeature(var Feature: Record "D4P BC Environment Features"; UpdateInBackground: Boolean; StartDateTime: DateTime)
+    procedure ActivateFeature(var Feature: Record "D4P BC Environment Feature"; UpdateInBackground: Boolean; StartDateTime: DateTime)
     var
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";
@@ -280,7 +280,7 @@ codeunit 62014 "D4P BC Features Helper"
         Message(FeatureActivatedMsg, Feature."Feature Name");
     end;
 
-    procedure DeactivateFeature(var Feature: Record "D4P BC Environment Features")
+    procedure DeactivateFeature(var Feature: Record "D4P BC Environment Feature")
     var
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";

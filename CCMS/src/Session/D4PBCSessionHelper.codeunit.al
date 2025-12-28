@@ -64,7 +64,7 @@ codeunit 62017 "D4P BC Session Helper"
         JsonResponse: JsonObject;
         ResponseText: Text;
         BCTenant: Record "D4P BC Tenant";
-        BCSession: Record "D4P BC Environment Sessions";
+        BCSession: Record "D4P BC Environment Session";
         Endpoint: Text;
         SessionDetailsRefreshedMsg: Label 'Session details refreshed.';
         SessionDetailsRetrievedMsg: Label 'Session details retrieved.';
@@ -93,7 +93,7 @@ codeunit 62017 "D4P BC Session Helper"
     var
         ResponseText: Text;
         BCTenant: Record "D4P BC Tenant";
-        BCSession: Record "D4P BC Environment Sessions";
+        BCSession: Record "D4P BC Environment Session";
         ConfirmMsg: Label 'Are you sure you want to terminate session %1 for user %2?';
         Endpoint: Text;
         SessionNotFoundErr: Label 'Session %1 not found.';
@@ -123,7 +123,7 @@ codeunit 62017 "D4P BC Session Helper"
 
     local procedure DeleteSessionsForEnvironment(var BCEnvironment: Record "D4P BC Environment")
     var
-        BCSession: Record "D4P BC Environment Sessions";
+        BCSession: Record "D4P BC Environment Session";
         TenantIdGuid: Guid;
     begin
         TenantIdGuid := BCEnvironment."Tenant ID";
@@ -137,7 +137,7 @@ codeunit 62017 "D4P BC Session Helper"
     var
         JsonToken: JsonToken;
         JsonObject: JsonObject;
-        BCSession: Record "D4P BC Environment Sessions";
+        BCSession: Record "D4P BC Environment Session";
     begin
         foreach JsonToken in JsonArray do begin
             JsonObject := JsonToken.AsObject();
@@ -147,7 +147,7 @@ codeunit 62017 "D4P BC Session Helper"
         end;
     end;
 
-    local procedure ProcessSessionObject(var BCEnvironment: Record "D4P BC Environment"; JsonObject: JsonObject; var BCSession: Record "D4P BC Environment Sessions")
+    local procedure ProcessSessionObject(var BCEnvironment: Record "D4P BC Environment"; JsonObject: JsonObject; var BCSession: Record "D4P BC Environment Session")
     var
         JsonToken: JsonToken;
         JsonValue: JsonValue;

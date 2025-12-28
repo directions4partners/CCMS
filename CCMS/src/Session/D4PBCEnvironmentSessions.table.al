@@ -2,7 +2,7 @@ namespace D4P.CCMS.Session;
 
 using D4P.CCMS.Customer;
 
-table 62016 "D4P BC Environment Sessions"
+table 62016 "D4P BC Environment Session"
 {
     Caption = 'D365BC Environment Sessions';
     DataClassification = SystemMetadata;

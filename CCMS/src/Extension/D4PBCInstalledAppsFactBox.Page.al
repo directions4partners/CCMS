@@ -7,7 +7,7 @@ page 62018 "D4P BC Installed Apps FactBox"
     Caption = 'Installed Apps';
     PageType = ListPart;
     ApplicationArea = All;
-    SourceTable = "D4P BC Installed Apps";
+    SourceTable = "D4P BC Installed App";
     CardPageId = "D4P BC Installed App Card";
     Editable = false;
     InsertAllowed = false;

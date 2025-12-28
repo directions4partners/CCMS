@@ -45,7 +45,7 @@ codeunit 62002 "D4P BC Environment Helper"
 
     local procedure DeleteEnvironmentSessions(Environment: Record "D4P BC Environment")
     var
-        EnvironmentSessions: Record "D4P BC Environment Sessions";
+        EnvironmentSessions: Record "D4P BC Environment Session";
     begin
         EnvironmentSessions.SetRange("Customer No.", Environment."Customer No.");
         EnvironmentSessions.SetRange("Tenant ID", Format(Environment."Tenant ID"));
@@ -56,7 +56,7 @@ codeunit 62002 "D4P BC Environment Helper"
 
     local procedure DeleteEnvironmentFeatures(Environment: Record "D4P BC Environment")
     var
-        EnvironmentFeatures: Record "D4P BC Environment Features";
+        EnvironmentFeatures: Record "D4P BC Environment Feature";
     begin
         EnvironmentFeatures.SetRange("Customer No.", Environment."Customer No.");
         EnvironmentFeatures.SetRange("Tenant ID", Format(Environment."Tenant ID"));
@@ -67,7 +67,7 @@ codeunit 62002 "D4P BC Environment Helper"
 
     local procedure DeleteEnvironmentInstalledApps(Environment: Record "D4P BC Environment")
     var
-        InstalledApps: Record "D4P BC Installed Apps";
+        InstalledApps: Record "D4P BC Installed App";
     begin
         InstalledApps.SetRange("Customer No.", Environment."Customer No.");
         InstalledApps.SetRange("Tenant ID", Environment."Tenant ID");
