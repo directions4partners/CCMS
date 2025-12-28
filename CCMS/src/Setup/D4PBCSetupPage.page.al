@@ -29,7 +29,7 @@ page 62010 "D4P BC Setup"
                 field("Admin API Base URL"; Rec."Admin API Base URL")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Base URL for Business Central Admin API calls. Default: https://api.businesscentral.dynamics.com/admin/v2.24';
+                    ToolTip = 'Base URL for Business Central Admin API calls. Default: https://api.businesscentral.dynamics.com/admin/v2.28';
                 }
                 field("Automation API Base URL"; Rec."Automation API Base URL")
                 {
