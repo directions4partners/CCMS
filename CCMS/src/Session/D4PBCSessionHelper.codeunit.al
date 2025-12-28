@@ -42,7 +42,7 @@ codeunit 62017 "D4P BC Session Helper"
 
             if JsonResponse.Get('value', JsonToken) then begin
                 JsonArray := JsonToken.AsArray();
-                SessionCount := JsonArray.Count;
+                SessionCount := JsonArray.Count();
                 ProcessSessionsArray(BCEnvironment, JsonArray);
                 ProgressDialog.Close();
                 if SessionCount > 0 then

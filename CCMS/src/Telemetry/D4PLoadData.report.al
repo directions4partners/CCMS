@@ -300,10 +300,10 @@ report 62032 "D4P Load Data"
         ExecutionDate: Date;
     begin
         // Handle Page Execution specific calculation
-        if RecRef.Number = Database::"D4P KQL Page Execution" then begin
+        if RecRef.Number() = Database::"D4P KQL Page Execution" then begin
             if RecRef.FieldExist(30) and RecRef.FieldExist(31) then begin // Execution Date and Execution Date/Time
                 ExecutionDateTimeFieldRef := RecRef.Field(31);
-                ExecutionDateTime := ExecutionDateTimeFieldRef.Value;
+                ExecutionDateTime := ExecutionDateTimeFieldRef.Value();
                 if ExecutionDateTime <> 0DT then begin
                     ExecutionDate := DT2Date(ExecutionDateTime);
                     ExecutionDateFieldRef := RecRef.Field(30);
@@ -313,10 +313,10 @@ report 62032 "D4P Load Data"
         end;
 
         // Handle Report Execution specific calculation
-        if RecRef.Number = Database::"D4P KQL Report Execution" then begin
+        if RecRef.Number() = Database::"D4P KQL Report Execution" then begin
             if RecRef.FieldExist(30) and RecRef.FieldExist(31) then begin // Execution Date and Execution Date/Time
                 ExecutionDateTimeFieldRef := RecRef.Field(31);
-                ExecutionDateTime := ExecutionDateTimeFieldRef.Value;
+                ExecutionDateTime := ExecutionDateTimeFieldRef.Value();
                 if ExecutionDateTime <> 0DT then begin
                     ExecutionDate := DT2Date(ExecutionDateTime);
                     ExecutionDateFieldRef := RecRef.Field(30);
@@ -326,10 +326,10 @@ report 62032 "D4P Load Data"
         end;
 
         // Handle Slow AL Method specific calculation
-        if RecRef.Number = Database::"D4P KQL Slow AL Method" then begin
+        if RecRef.Number() = Database::"D4P KQL Slow AL Method" then begin
             if RecRef.FieldExist(20) and RecRef.FieldExist(21) then begin // Execution Date and Execution Date/Time
                 ExecutionDateTimeFieldRef := RecRef.Field(21);
-                ExecutionDateTime := ExecutionDateTimeFieldRef.Value;
+                ExecutionDateTime := ExecutionDateTimeFieldRef.Value();
                 if ExecutionDateTime <> 0DT then begin
                     ExecutionDate := DT2Date(ExecutionDateTime);
                     ExecutionDateFieldRef := RecRef.Field(20);

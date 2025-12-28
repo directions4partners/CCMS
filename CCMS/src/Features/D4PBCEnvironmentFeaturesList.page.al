@@ -147,7 +147,7 @@ page 62013 "D4P BC Environment Features"
                     RecordCount: Integer;
                 begin
                     Feature.CopyFilters(Rec);
-                    RecordCount := Feature.Count;
+                    RecordCount := Feature.Count();
                     if RecordCount = 0 then
                         exit;
 

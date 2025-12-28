@@ -160,7 +160,7 @@ page 62008 "D4P BC Installed Apps List"
                     RecordCount: Integer;
                 begin
                     InstalledApp.CopyFilters(Rec);
-                    RecordCount := InstalledApp.Count;
+                    RecordCount := InstalledApp.Count();
                     if RecordCount = 0 then
                         exit;
 

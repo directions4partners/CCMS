@@ -156,7 +156,7 @@ page 62025 "D4P Update Selection Dialog"
             exit;
 
         // Validate that selected date is not in the past
-        if Rec."User Selected Date" < Today then
+        if Rec."User Selected Date" < Today() then
             Error(DateTooEarlyErr);
 
         // Validate that selected date is not later than Latest Selectable Date

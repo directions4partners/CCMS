@@ -147,7 +147,7 @@ page 62014 "D4P BC Environment Backups"
                     RecordCount: Integer;
                 begin
                     Backup.CopyFilters(Rec);
-                    RecordCount := Backup.Count;
+                    RecordCount := Backup.Count();
                     if RecordCount = 0 then
                         exit;
 

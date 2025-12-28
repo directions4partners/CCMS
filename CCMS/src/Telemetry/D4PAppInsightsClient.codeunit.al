@@ -230,9 +230,9 @@ codeunit 62030 "D4P AppInsights Client"
         jw.WriteStringProperty('severityLevel', GetSeverity(Verbosity));
 
         jw.WriteStartObject('properties');
-        jw.WriteStringProperty('companyName', CompanyName);
-        jw.WriteStringProperty('clientType', Format(CurrentClientType));
-        foreach k in Properties.Keys do
+        jw.WriteStringProperty('companyName', CompanyName());
+        jw.WriteStringProperty('clientType', Format(CurrentClientType()));
+        foreach k in Properties.Keys() do
             jw.WriteStringProperty(k, Properties.Get(k));
         jw.WriteEndObject(); // properties
 
@@ -287,12 +287,12 @@ codeunit 62030 "D4P AppInsights Client"
         // Send the HTTP request
         if HttpClient.Send(HttpRequestMessage, HttpResponseMessage) then begin
             if HttpResponseMessage.IsSuccessStatusCode() then begin
-                HttpResponseMessage.Content.ReadAs(ResponseText);
+                HttpResponseMessage.Content().ReadAs(ResponseText);
                 //Message(ResponseText);
                 LastResponse := ResponseText;
             end else begin
                 //Report errors!
-                HttpResponseMessage.Content.ReadAs(ResponseText);
+                HttpResponseMessage.Content().ReadAs(ResponseText);
                 Error(FailedToFetchErr, HttpResponseMessage.HttpStatusCode(), ResponseText);
             end;
         end else
@@ -338,7 +338,7 @@ codeunit 62030 "D4P AppInsights Client"
 
         if (not currTable.Get('rows', jt)) then exit(false);
         Rows := jt.AsArray();
-        TotalRowCount := Rows.Count;
+        TotalRowCount := Rows.Count();
         if not GetRow(0) then exit(false);
 
         exit(true);
@@ -839,7 +839,7 @@ codeunit 62030 "D4P AppInsights Client"
         IsHandled: Boolean;
     begin
         //Convert.FromXMLFormat(); //TBD
-        Field.SetRange(TableNo, RecRef.Number);
+        Field.SetRange(TableNo, RecRef.Number());
         GetFields(TempBuffer);
         if TempBuffer.FindSet() then
             repeat
@@ -867,7 +867,7 @@ codeunit 62030 "D4P AppInsights Client"
                     Clear(IsHandled);
                     OnDeserializeToRecordRefBeforeSetFieldValue(TempBuffer.Name, RecRef, FldRef, TextValue, IsHandled);
                     if (not IsHandled) then
-                        if (FldRef.Type = FldRef.Type::Blob) then begin
+                        if (FldRef.Type() = FldRef.Type::Blob) then begin
                             Clear(IsHandled);
                             OnDeserializeToRecordRefSetBlobValue(TempBuffer.Name, RecRef, FldRef, TextValue, IsHandled);
                             FldRef := RecRef.Field(FoundFieldNo);
@@ -876,7 +876,7 @@ codeunit 62030 "D4P AppInsights Client"
                                (Field.Type in [Field.Type::Text, Field.Type::Code])
                             then
                                 TextValue := CopyStr(TextValue, 1, Field.Len);
-                            if (FldRef.Type = FldRef.Type::Guid) and (TextValue = '') then
+                            if (FldRef.Type() = FldRef.Type::Guid) and (TextValue = '') then
                                 TextValue := Format(EmptyGuid);
                             ConvertToFieldRef(TextValue, FldRef);
                         end;
@@ -1000,7 +1000,7 @@ codeunit 62030 "D4P AppInsights Client"
         TempGuid: Guid;
     begin
         if TextValue = '' then begin
-            case FldRef.Type of
+            case FldRef.Type() of
                 FldRef.Type::Date:
                     FldRef.Value := 0D;
                 FldRef.Type::DateTime:
@@ -1021,7 +1021,7 @@ codeunit 62030 "D4P AppInsights Client"
             exit;
         end;
 
-        case FldRef.Type of
+        case FldRef.Type() of
             FldRef.Type::Date:
                 if Evaluate(TempDate, TextValue, 9) then
                     FldRef.Value := TempDate

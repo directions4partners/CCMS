@@ -76,7 +76,7 @@ page 62041 "D4P KQL Query Preview"
             exit;
 
         // Read entire file content
-        while not InStr.EOS do begin
+        while not InStr.EOS() do begin
             InStr.ReadText(Line);
             if QueryText = '' then
                 QueryText := Line
@@ -136,7 +136,7 @@ page 62041 "D4P KQL Query Preview"
         if Rec.Query.HasValue() then begin
             Rec.CalcFields(Query);
             Rec.Query.CreateInStream(InStr, TEXTENCODING::UTF8);
-            while not InStr.EOS do begin
+            while not InStr.EOS() do begin
                 InStr.ReadText(Line);
                 if Txt = '' then
                     Txt := Line

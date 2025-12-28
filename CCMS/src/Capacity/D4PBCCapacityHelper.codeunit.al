@@ -49,7 +49,7 @@ codeunit 62018 "D4P BC Capacity Helper"
         CapacityHeader.Init();
         CapacityHeader."Customer No." := CustomerNo;
         CapacityHeader."Tenant ID" := TenantIdText;
-        CapacityHeader."Last Update Date" := CurrentDateTime;
+        CapacityHeader."Last Update Date" := CurrentDateTime();
         CapacityHeader.Insert();
 
         // Get quotas
@@ -131,7 +131,7 @@ codeunit 62018 "D4P BC Capacity Helper"
 
         if JsonResponse.Get('value', JsonToken) then begin
             JsonArray := JsonToken.AsArray();
-            for i := 0 to JsonArray.Count - 1 do begin
+            for i := 0 to JsonArray.Count() - 1 do begin
                 JsonArray.Get(i, JsonToken);
                 ProcessStorageObject(CapacityHeader, JsonToken.AsObject(), i + 1);
             end;
@@ -149,7 +149,7 @@ codeunit 62018 "D4P BC Capacity Helper"
         CapacityLine."Customer No." := CapacityHeader."Customer No.";
         CapacityLine."Tenant ID" := CapacityHeader."Tenant ID";
         CapacityLine."Line No." := LineNo;
-        CapacityLine."Measurement Date" := CurrentDateTime;
+        CapacityLine."Measurement Date" := CurrentDateTime();
 
         if JsonObj.Get('environmentName', JsonToken) then begin
             JsonValue := JsonToken.AsValue();

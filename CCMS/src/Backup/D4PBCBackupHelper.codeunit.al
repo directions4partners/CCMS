@@ -35,7 +35,7 @@ codeunit 62015 "D4P BC Backup Helper"
             Error(NoContainerErr);
 
         // Generate blob name with timestamp
-        BlobName := StrSubstNo('%1_%2.bacpac', BCEnvironment.Name, Format(CurrentDateTime, 0, '<Year4><Month,2><Day,2>_<Hours24><Minutes,2><Seconds,2>'));
+        BlobName := StrSubstNo('%1_%2.bacpac', BCEnvironment.Name, Format(CurrentDateTime(), 0, '<Year4><Month,2><Day,2>_<Hours24><Minutes,2><Seconds,2>'));
 
         // Show confirmation with storage details
         if not Confirm(ConfirmMsg, false, BCEnvironment.Name, BCTenant."Backup Container Name", BlobName) then

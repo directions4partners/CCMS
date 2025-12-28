@@ -45,7 +45,7 @@ codeunit 62049 "D4P BC API Helper"
         if not HttpClient.Send(HttpRequestMessage, HttpResponseMessage) then
             Error(FailedToSendRequestErr);
 
-        HttpResponseMessage.Content.ReadAs(ResponseText);
+        HttpResponseMessage.Content().ReadAs(ResponseText);
         ShowDebugMessage(ResponseText, Method + ' ' + Endpoint);
 
         exit(HttpResponseMessage.IsSuccessStatusCode());
@@ -93,7 +93,7 @@ codeunit 62049 "D4P BC API Helper"
         if not HttpClient.Send(HttpRequestMessage, HttpResponseMessage) then
             Error(FailedToConnectErr);
 
-        HttpResponseMessage.Content.ReadAs(ResponseText);
+        HttpResponseMessage.Content().ReadAs(ResponseText);
         ShowDebugMessage(ResponseText, Method + ' ' + Endpoint);
 
         exit(HttpResponseMessage.IsSuccessStatusCode());

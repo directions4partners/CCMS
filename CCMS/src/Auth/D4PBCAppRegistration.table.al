@@ -110,7 +110,7 @@ table 62005 "D4P BC App Registration"
         if ExpirationDate = 0D then
             exit;
 
-        DaysToExpiration := ExpirationDate - Today;
+        DaysToExpiration := ExpirationDate - Today();
 
         if DaysToExpiration < 0 then
             exit('Unfavorable')

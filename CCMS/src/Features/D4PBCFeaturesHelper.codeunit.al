@@ -76,7 +76,7 @@ codeunit 62014 "D4P BC Features Helper"
             Error(NoValueArrayErr);
 
         JArray := JToken.AsArray();
-        if JArray.Count = 0 then
+        if JArray.Count() = 0 then
             Error(NoCompaniesErr);
 
         // Get the first company ID
@@ -134,7 +134,7 @@ codeunit 62014 "D4P BC Features Helper"
         JArray := JToken.AsArray();
 
         // Process each feature
-        for i := 0 to JArray.Count - 1 do begin
+        for i := 0 to JArray.Count() - 1 do begin
             JArray.Get(i, JToken);
             JObject := JToken.AsObject();
 
@@ -369,7 +369,7 @@ codeunit 62014 "D4P BC Features Helper"
             Error(NoValueArrayErr);
 
         JArray := JToken.AsArray();
-        if JArray.Count = 0 then
+        if JArray.Count() = 0 then
             Error(NoCompaniesErr);
 
         // Get the first company ID

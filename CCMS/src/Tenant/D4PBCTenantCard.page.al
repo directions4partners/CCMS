@@ -222,7 +222,7 @@ page 62011 "D4P BC Tenant Card"
         if Rec."Backup SAS Token Exp. Date" = 0D then
             exit;
 
-        DaysToExpiration := Rec."Backup SAS Token Exp. Date" - Today;
+        DaysToExpiration := Rec."Backup SAS Token Exp. Date" - Today();
 
         if DaysToExpiration < 0 then
             SASTokenExpirationStyle := 'Unfavorable'

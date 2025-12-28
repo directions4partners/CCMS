@@ -131,7 +131,7 @@ page 62016 "D4P BC Environment Sessions"
                     RecordCount: Integer;
                 begin
                     Session.CopyFilters(Rec);
-                    RecordCount := Session.Count;
+                    RecordCount := Session.Count();
                     if RecordCount = 0 then
                         exit;
 
@@ -170,7 +170,7 @@ page 62016 "D4P BC Environment Sessions"
 
     trigger OnAfterGetRecord()
     begin
-        SessionDuration := CurrentDateTime - Rec."Login Date";
+        SessionDuration := CurrentDateTime() - Rec."Login Date";
     end;
 
     procedure SetEnvironmentContext(Environment: Record "D4P BC Environment")
