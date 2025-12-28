@@ -18,6 +18,8 @@ page 62024 "D4P BC Installed App Card"
         {
             group(General)
             {
+                Caption = 'General';
+
                 field("App ID"; Rec."App ID")
                 {
                     ToolTip = 'Specifies the unique identifier of the app.';
@@ -47,6 +49,8 @@ page 62024 "D4P BC Installed App Card"
             }
             group(Update)
             {
+                Caption = 'Update';
+
                 field("Last Update Attempt Result"; Rec."Last Update Attempt Result")
                 {
                     ToolTip = 'Specifies the result of the last update attempt.';
@@ -59,6 +63,8 @@ page 62024 "D4P BC Installed App Card"
             }
             group(Install)
             {
+                Caption = 'Install';
+
                 field("Environment Name"; Rec."Environment Name")
                 {
                     ToolTip = 'Specifies the environment where the app is installed.';

@@ -13,10 +13,12 @@ table 62003 "D4P BC Installed Apps"
     {
         field(1; "Customer No."; Code[20])
         {
+            Caption = 'Customer No.';
             TableRelation = "D4P BC Customer";
         }
         field(2; "Tenant ID"; Guid)
         {
+            Caption = 'Tenant ID';
         }
         field(3; "Environment Name"; Text[30])
         {

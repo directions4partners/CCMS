@@ -14,6 +14,8 @@ page 62041 "D4P KQL Query Preview"
         {
             group(General)
             {
+                ShowCaption = false;
+
                 field(QueryText; GetQueryText())
                 {
                     ApplicationArea = All;

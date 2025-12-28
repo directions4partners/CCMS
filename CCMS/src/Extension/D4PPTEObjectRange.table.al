@@ -13,10 +13,12 @@ table 62004 "D4P PTE Object Range"
     {
         field(1; "Customer No."; Code[20])
         {
+            Caption = 'Customer No.';
             TableRelation = "D4P BC Customer";
         }
         field(2; "Tenant ID"; Guid)
         {
+            Caption = 'Tenant ID';
             TableRelation = "D4P BC Tenant"."Tenant ID" where("Customer No." = field("Customer No."));
         }
         field(3; "Entry No."; Integer)

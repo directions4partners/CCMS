@@ -20,6 +20,8 @@ report 62032 "D4P Load Data"
             {
                 group(GroupName)
                 {
+                    ShowCaption = false;
+
                     field(EnvironmentCodeField; EnvironmentCode)
                     {
                         Caption = 'Environment Code';

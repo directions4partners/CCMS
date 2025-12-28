@@ -12,6 +12,8 @@ page 62049 "D4P BC Admin Role Center"
         {
             group(Group)
             {
+                ShowCaption = false;
+
                 part(AdminCenterCues; "D4P BC Admin Center Cues")
                 {
                 }
