@@ -65,9 +65,7 @@ page 62020 "D4P Export History Dialog"
                     StartDateTime := CreateDateTime(FirstDayOfMonth, 0T);
                 end;
             TimePeriodOption::"Last 12 Months":
-                begin
-                    StartDateTime := CreateDateTime(CalcDate('<-12M>', Today()), 0T);
-                end;
+                StartDateTime := CreateDateTime(CalcDate('<-12M>', Today()), 0T);
             TimePeriodOption::Custom:
                 begin
                     // User can edit manually

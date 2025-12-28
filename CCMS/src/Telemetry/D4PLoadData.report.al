@@ -302,7 +302,7 @@ report 62032 "D4P Load Data"
         ExecutionDate: Date;
     begin
         // Handle Page Execution specific calculation
-        if RecRef.Number() = Database::"D4P KQL Page Execution" then begin
+        if RecRef.Number() = Database::"D4P KQL Page Execution" then
             if RecRef.FieldExist(30) and RecRef.FieldExist(31) then begin // Execution Date and Execution Date/Time
                 ExecutionDateTimeFieldRef := RecRef.Field(31);
                 ExecutionDateTime := ExecutionDateTimeFieldRef.Value();
@@ -312,10 +312,9 @@ report 62032 "D4P Load Data"
                     ExecutionDateFieldRef.Value := ExecutionDate;
                 end;
             end;
-        end;
 
         // Handle Report Execution specific calculation
-        if RecRef.Number() = Database::"D4P KQL Report Execution" then begin
+        if RecRef.Number() = Database::"D4P KQL Report Execution" then
             if RecRef.FieldExist(30) and RecRef.FieldExist(31) then begin // Execution Date and Execution Date/Time
                 ExecutionDateTimeFieldRef := RecRef.Field(31);
                 ExecutionDateTime := ExecutionDateTimeFieldRef.Value();
@@ -325,10 +324,9 @@ report 62032 "D4P Load Data"
                     ExecutionDateFieldRef.Value := ExecutionDate;
                 end;
             end;
-        end;
 
         // Handle Slow AL Method specific calculation
-        if RecRef.Number() = Database::"D4P KQL Slow AL Method" then begin
+        if RecRef.Number() = Database::"D4P KQL Slow AL Method" then
             if RecRef.FieldExist(20) and RecRef.FieldExist(21) then begin // Execution Date and Execution Date/Time
                 ExecutionDateTimeFieldRef := RecRef.Field(21);
                 ExecutionDateTime := ExecutionDateTimeFieldRef.Value();
@@ -338,7 +336,6 @@ report 62032 "D4P Load Data"
                     ExecutionDateFieldRef.Value := ExecutionDate;
                 end;
             end;
-        end;
     end;
 
     local procedure ShowResultsPage()

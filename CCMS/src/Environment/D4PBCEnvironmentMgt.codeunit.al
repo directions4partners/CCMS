@@ -131,7 +131,7 @@ codeunit 62000 "D4P BC Environment Mgt"
                     BCEnvironment."Linked PowerPlatform Env ID" := JsonValue.AsText();
                 end;
                 // Handle nested versionDetails object
-                if JsonObjectLoop.Get('versionDetails', JsonTokenField) then begin
+                if JsonObjectLoop.Get('versionDetails', JsonTokenField) then
                     if JsonTokenField.IsObject() then begin
                         JsonVersionDetails := JsonTokenField.AsObject();
                         if JsonVersionDetails.Get('gracePeriodStartDate', JsonTokenField) then begin
@@ -145,7 +145,7 @@ codeunit 62000 "D4P BC Environment Mgt"
                                 BCEnvironment."Enforced Update Period Start" := 0DT; // Clear if evaluation fails
                         end;
                     end;
-                end;
+
                 BCEnvironment.Insert();
             end;
         end;
@@ -398,10 +398,9 @@ codeunit 62000 "D4P BC Environment Mgt"
             else
                 if ShowMessage then
                     Message(NoAvailableUpdatesMsg);
-        end else begin
+        end else
             if ShowMessage then
                 Error(FailedToFetchErr, ResponseText);
-        end;
     end;
 
     procedure GetAvailableAppUpdates(var BCEnvironment: Record "D4P BC Environment")

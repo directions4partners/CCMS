@@ -116,10 +116,9 @@ codeunit 62030 "D4P AppInsights Client"
         TelemetryTenantId := TenantId;
         AIConnectionString := ConnectionString;
 
-        if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then begin
+        if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then
             // Use the actual connection string for initialization
             InitializeForPost(AIConnectionString);
-        end;
     end;
 
     procedure InitializeFromEnvironment(Environment: Record "D4P BC Environment");
@@ -127,7 +126,7 @@ codeunit 62030 "D4P AppInsights Client"
         AIConnectionSetup: Record "D4P AppInsights Connection";
     begin
         // Get telemetry data from environment and AppInsights connection setup
-        if Environment."Application Insights String" <> '' then begin
+        if Environment."Application Insights String" <> '' then
             if AIConnectionSetup.Get(Environment."Application Insights String") then begin
                 // Set the telemetry data from AppInsights connection setup
                 TelemetryApplicationId := AIConnectionSetup."Telemetry Application Id";
@@ -135,12 +134,10 @@ codeunit 62030 "D4P AppInsights Client"
                 TelemetryTenantId := AIConnectionSetup."Tenant Id";
                 AIConnectionString := AIConnectionSetup."AppInsights Connection String";
 
-                if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then begin
+                if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then
                     // Use the actual connection string for initialization
                     InitializeForPost(AIConnectionString);
-                end;
             end;
-        end;
     end;
 
 

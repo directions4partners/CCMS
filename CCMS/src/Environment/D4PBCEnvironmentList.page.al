@@ -267,9 +267,8 @@ page 62003 "D4P BC Environment List"
                 begin
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     NewEnvironmentDialog.SetBCTenant(BCTenant);
-                    if NewEnvironmentDialog.RunModal() = Action::OK then begin
+                    if NewEnvironmentDialog.RunModal() = Action::OK then
                         NewEnvironmentDialog.CreateNewBCEnvironment();
-                    end;
                 end;
             }
             action(CopyEnvironment)
@@ -286,9 +285,8 @@ page 62003 "D4P BC Environment List"
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     CopyEnvironmentDialog.SetBCTenant(BCTenant);
                     CopyEnvironmentDialog.SetCurrentBCEnvironment(Rec.Name);
-                    if CopyEnvironmentDialog.RunModal() = Action::OK then begin
+                    if CopyEnvironmentDialog.RunModal() = Action::OK then
                         CopyEnvironmentDialog.CopyEnvironment();
-                    end;
                 end;
             }
             action(RenameEnvironment)
@@ -305,9 +303,8 @@ page 62003 "D4P BC Environment List"
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     RenameEnvironmentDialog.SetBCTenant(BCTenant);
                     RenameEnvironmentDialog.SetCurrentBCEnvironment(Rec.Name);
-                    if RenameEnvironmentDialog.RunModal() = Action::OK then begin
+                    if RenameEnvironmentDialog.RunModal() = Action::OK then
                         RenameEnvironmentDialog.RenameEnvironment();
-                    end;
                 end;
             }
             action(DeleteAllFetched)
@@ -408,14 +405,11 @@ page 62003 "D4P BC Environment List"
                 begin
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     if Rec."Application Insights String" <> '' then begin
-                        if Confirm(AppInsightsMsg, false, Rec.Name) then begin
+                        if Confirm(AppInsightsMsg, false, Rec.Name) then
                             EnvironmentManagement.SetApplicationInsightsConnectionString(Rec);
-                        end;
-                    end else begin
-                        if Confirm(RemoveAppInsightsMsg, false, Rec.Name) then begin
+                    end else
+                        if Confirm(RemoveAppInsightsMsg, false, Rec.Name) then
                             EnvironmentManagement.SetApplicationInsightsConnectionString(Rec);
-                        end;
-                    end;
                 end;
             }
             action(Features)
@@ -550,8 +544,7 @@ page 62003 "D4P BC Environment List"
             StateStyleExpr := 'Standard';
 
         // Calculate flowfields for telemetry information
-        if Rec."Application Insights String" <> '' then begin
+        if Rec."Application Insights String" <> '' then
             Rec.CalcFields("Telemetry API Key", "Telemetry Application ID", "Telemetry Tenant ID", "Telemetry Description");
-        end;
     end;
 }

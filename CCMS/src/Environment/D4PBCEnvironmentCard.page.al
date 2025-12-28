@@ -195,7 +195,7 @@ page 62004 "D4P BC Environment Card"
                         AIConnectionSetupCard: Page "D4P AppInsights Conn Card";
                     begin
                         // If a new connection string is entered and doesn't exist, offer to create it
-                        if (Rec."Application Insights String" <> '') and (not AIConnectionSetup.Get(Rec."Application Insights String")) then begin
+                        if (Rec."Application Insights String" <> '') and (not AIConnectionSetup.Get(Rec."Application Insights String")) then
                             if Confirm('The connection string "%1" does not exist in the setup. Do you want to create it now?', false, Rec."Application Insights String") then begin
                                 AIConnectionSetup.Init();
                                 AIConnectionSetup."AppInsights Connection String" := Rec."Application Insights String";
@@ -205,7 +205,6 @@ page 62004 "D4P BC Environment Card"
                                 AIConnectionSetupCard.SetRecord(AIConnectionSetup);
                                 AIConnectionSetupCard.RunModal();
                             end;
-                        end;
 
                         // Refresh flowfields when connection string changes
                         if Rec."Application Insights String" <> '' then begin
@@ -345,9 +344,8 @@ page 62004 "D4P BC Environment Card"
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     CopyEnvironmentDialog.SetBCTenant(BCTenant);
                     CopyEnvironmentDialog.SetCurrentBCEnvironment(Rec.Name);
-                    if CopyEnvironmentDialog.RunModal() = Action::OK then begin
+                    if CopyEnvironmentDialog.RunModal() = Action::OK then
                         CopyEnvironmentDialog.CopyEnvironment();
-                    end;
                 end;
             }
             action(RenameEnvironment)
@@ -364,9 +362,8 @@ page 62004 "D4P BC Environment Card"
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     CopyEnvironmentDialog.SetBCTenant(BCTenant);
                     CopyEnvironmentDialog.SetCurrentBCEnvironment(Rec.Name);
-                    if CopyEnvironmentDialog.RunModal() = Action::OK then begin
+                    if CopyEnvironmentDialog.RunModal() = Action::OK then
                         CopyEnvironmentDialog.CopyEnvironment();
-                    end;
                 end;
             }
             action(DeleteEnvironment)
@@ -523,10 +520,9 @@ page 62004 "D4P BC Environment Card"
                 begin
                     if AIConnectionSetup.Get(Rec."Application Insights String") then begin
                         AIConnectionSetupCard.SetRecord(AIConnectionSetup);
-                        if AIConnectionSetupCard.RunModal() = ACTION::OK then begin
+                        if AIConnectionSetupCard.RunModal() = ACTION::OK then
                             // Refresh flowfields after editing
                             Rec.CalcFields("Telemetry API Key", "Telemetry Application ID", "Telemetry Tenant ID", "Telemetry Description");
-                        end;
                         CurrPage.Update();
                     end else
                         Message(NoAIConnectionSetupMsg);
@@ -586,14 +582,11 @@ page 62004 "D4P BC Environment Card"
                 begin
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     if Rec."Application Insights String" <> '' then begin
-                        if Confirm(AppInsightsMsg, false, Rec.Name) then begin
+                        if Confirm(AppInsightsMsg, false, Rec.Name) then
                             EnvironmentManagement.SetApplicationInsightsConnectionString(Rec);
-                        end;
-                    end else begin
-                        if Confirm(RemoveAppInsightsMsg, false, Rec.Name) then begin
+                    end else
+                        if Confirm(RemoveAppInsightsMsg, false, Rec.Name) then
                             EnvironmentManagement.SetApplicationInsightsConnectionString(Rec);
-                        end;
-                    end;
                 end;
             }
         }
@@ -678,8 +671,7 @@ page 62004 "D4P BC Environment Card"
             StateStyleExpr := 'Standard';
 
         // Calculate flowfields for telemetry information
-        if Rec."Application Insights String" <> '' then begin
+        if Rec."Application Insights String" <> '' then
             Rec.CalcFields("Telemetry API Key", "Telemetry Application ID", "Telemetry Tenant ID", "Telemetry Description");
-        end;
     end;
 }

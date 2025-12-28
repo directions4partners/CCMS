@@ -133,9 +133,8 @@ page 62040 "D4P KQL Queries"
         ShowEnvironmentContext := true;
 
         // Calculate telemetry flowfields for display
-        if CurrentEnvironment."Application Insights String" <> '' then begin
+        if CurrentEnvironment."Application Insights String" <> '' then
             CurrentEnvironment.CalcFields("Telemetry API Key", "Telemetry Application ID", "Telemetry Tenant ID", "Telemetry Description");
-        end;
 
         // Update page caption and status
         CurrPage.Caption := 'KQL Queries - ' + Environment.Name;
@@ -171,7 +170,7 @@ page 62040 "D4P KQL Queries"
         if CurrentEnvironment."Application Insights String" = '' then begin
             TelemetryStatusText := 'Not Configured';
             TelemetryStatusStyle := 'Unfavorable';
-        end else begin
+        end else
             if AIConnectionSetup.Get(CurrentEnvironment."Application Insights String") then begin
                 if (AIConnectionSetup."Telemetry Application Id" <> '') and
                    (AIConnectionSetup."Telemetry API Key" <> '') then begin
@@ -185,7 +184,6 @@ page 62040 "D4P KQL Queries"
                 TelemetryStatusText := 'Setup Not Found';
                 TelemetryStatusStyle := 'Unfavorable';
             end;
-        end;
     end;
 
     trigger OnOpenPage()
