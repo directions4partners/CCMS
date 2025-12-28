@@ -4,7 +4,7 @@ using D4P.CCMS.Customer;
 
 table 62013 "D4P BC Environment Feature"
 {
-    Caption = 'D365BC Environment Features';
+    Caption = 'D365BC Environment Feature';
     DataClassification = SystemMetadata;
     DrillDownPageId = "D4P BC Environment Features";
     LookupPageId = "D4P BC Environment Features";
