@@ -13,12 +13,10 @@ table 62004 "D4P PTE Object Range"
     {
         field(1; "Customer No."; Code[20])
         {
-            DataClassification = CustomerContent;
             TableRelation = "D4P BC Customer";
         }
         field(2; "Tenant ID"; Guid)
         {
-            DataClassification = CustomerContent;
             TableRelation = "D4P BC Tenant"."Tenant ID" where("Customer No." = field("Customer No."));
         }
         field(3; "Entry No."; Integer)
@@ -29,23 +27,19 @@ table 62004 "D4P PTE Object Range"
         }
         field(4; "PTE ID"; Guid)
         {
-            DataClassification = CustomerContent;
             Caption = 'PTE ID';
         }
         field(5; "PTE Name"; Text[100])
         {
             Caption = 'PTE Name';
-            DataClassification = CustomerContent;
         }
         field(6; "Range From"; Integer)
         {
             Caption = 'Range From';
-            DataClassification = CustomerContent;
         }
         field(7; "Range To"; Integer)
         {
             Caption = 'Range To';
-            DataClassification = CustomerContent;
         }
     }
 

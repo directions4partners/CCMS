@@ -10,22 +10,18 @@ table 62009 "D4P BC Setup"
         field(1; "Primary Key"; Code[10])
         {
             Caption = 'Primary Key';
-            DataClassification = CustomerContent;
         }
         field(2; "Debug Mode"; Boolean)
         {
             Caption = 'Debug Mode';
-            DataClassification = CustomerContent;
         }
         field(3; "Admin API Base URL"; Text[250])
         {
             Caption = 'Admin API Base URL';
-            DataClassification = CustomerContent;
         }
         field(4; "Automation API Base URL"; Text[250])
         {
             Caption = 'Automation API Base URL';
-            DataClassification = CustomerContent;
         }
     }
 

@@ -6,7 +6,7 @@ using D4P.CCMS.Auth;
 table 62001 "D4P BC Tenant"
 {
     Caption = 'D365BC Tenant';
-    DataClassification = CustomerContent;
+    DataClassification = SystemMetadata;
     DrillDownPageId = "D4P BC Tenant List";
     LookupPageId = "D4P BC Tenant List";
 
@@ -15,24 +15,20 @@ table 62001 "D4P BC Tenant"
         field(1; "Customer No."; Code[20])
         {
             Caption = 'Customer No.';
-            DataClassification = CustomerContent;
             TableRelation = "D4P BC Customer";
 
         }
         field(2; "Tenant ID"; Guid)
         {
             Caption = 'Tenant ID';
-            DataClassification = CustomerContent;
         }
         field(3; "Tenant Name"; Text[100])
         {
             Caption = 'Tenant Name';
-            DataClassification = CustomerContent;
         }
         field(4; "Client ID"; Guid)
         {
             Caption = 'Client ID';
-            DataClassification = CustomerContent;
 
             trigger OnValidate()
             var
@@ -51,7 +47,6 @@ table 62001 "D4P BC Tenant"
         field(5; "Client Secret"; Text[100])
         {
             Caption = 'Client Secret';
-            DataClassification = CustomerContent;
             ObsoleteReason = 'Client secrets are now stored in isolated storage. Use GetClientSecret() method instead.';
             ObsoleteState = Pending;
             ObsoleteTag = '0.0.1.0';
@@ -59,27 +54,22 @@ table 62001 "D4P BC Tenant"
         field(6; "Secret Expiration Date"; Date)
         {
             Caption = 'Secret Expiration Date';
-            DataClassification = CustomerContent;
         }
         field(7; "Backup SAS URI"; Text[250])
         {
             Caption = 'Backup SAS URI';
-            DataClassification = CustomerContent;
         }
         field(8; "Backup Container Name"; Text[250])
         {
             Caption = 'Backup Container Name';
-            DataClassification = CustomerContent;
         }
         field(9; "Backup SAS Token Exp. Date"; Date)
         {
             Caption = 'Backup SAS Token Expiration Date';
-            DataClassification = CustomerContent;
         }
         field(10; "App Registration Type"; Enum "D4P BC App Reg. Type")
         {
             Caption = 'App Registration Type';
-            DataClassification = CustomerContent;
             InitValue = Individual;
 
             trigger OnValidate()

@@ -12,17 +12,14 @@ table 62005 "D4P BC App Registration"
         field(1; "Client ID"; Guid)
         {
             Caption = 'Client ID';
-            DataClassification = CustomerContent;
         }
         field(2; Description; Text[100])
         {
             Caption = 'Description';
-            DataClassification = CustomerContent;
         }
         field(3; "Secret Expiration Date"; Date)
         {
             Caption = 'Secret Expiration Date';
-            DataClassification = CustomerContent;
         }
     }
 
