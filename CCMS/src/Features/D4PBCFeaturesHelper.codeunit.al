@@ -13,12 +13,12 @@ codeunit 62014 "D4P BC Features Helper"
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";
         APIHelper: Codeunit "D4P BC API Helper";
-        ResponseText: Text;
-        AuthToken: SecretText;
-        EnvironmentNotFoundErr: Label 'Environment not found.';
-        TenantNotFoundErr: Label 'Tenant not found.';
-        FailedToObtainTokenErr: Label 'Failed to obtain authentication token.';
         APIRequestFailedErr: Label 'API request failed. Error details: %1';
+        EnvironmentNotFoundErr: Label 'Environment not found.';
+        FailedToObtainTokenErr: Label 'Failed to obtain authentication token.';
+        TenantNotFoundErr: Label 'Tenant not found.';
+        AuthToken: SecretText;
+        ResponseText: Text;
     begin
         // Find the environment
         BCEnvironment.SetRange("Customer No.", EnvironmentFeatures."Customer No.");
@@ -56,17 +56,17 @@ codeunit 62014 "D4P BC Features Helper"
     local procedure GetFeaturesForCompany(CompaniesResponse: Text; AuthToken: SecretText; BCEnvironment: Record "D4P BC Environment"; var EnvironmentFeatures: Record "D4P BC Environment Features")
     var
         APIHelper: Codeunit "D4P BC API Helper";
+        JArray: JsonArray;
         JObject: JsonObject;
         JToken: JsonToken;
-        JArray: JsonArray;
-        ResponseText: Text;
+        CouldNotFindCompanyErr: Label 'Could not find company ID in response.';
+        FailedToParseErr: Label 'Failed to parse companies response.';
+        FeaturesAPIFailedErr: Label 'Features API request failed. Error details: %1';
+        NoCompaniesErr: Label 'No companies found in the environment.';
+        NoValueArrayErr: Label 'No value array found in companies response.';
         CompanyId: Text;
         Endpoint: Text;
-        FailedToParseErr: Label 'Failed to parse companies response.';
-        NoValueArrayErr: Label 'No value array found in companies response.';
-        NoCompaniesErr: Label 'No companies found in the environment.';
-        CouldNotFindCompanyErr: Label 'Could not find company ID in response.';
-        FeaturesAPIFailedErr: Label 'Features API request failed. Error details: %1';
+        ResponseText: Text;
     begin
         // Parse companies response to get the first company ID
         if not JObject.ReadFrom(CompaniesResponse) then
@@ -109,12 +109,12 @@ codeunit 62014 "D4P BC Features Helper"
 
     local procedure ProcessFeaturesResponse(ResponseText: Text; var EnvironmentFeatures: Record "D4P BC Environment Features")
     var
-        JToken: JsonToken;
-        JObject: JsonObject;
-        JArray: JsonArray;
-        JValue: JsonValue;
         Feature: Record "D4P BC Environment Features";
         i: Integer;
+        JArray: JsonArray;
+        JObject: JsonObject;
+        JToken: JsonToken;
+        JValue: JsonValue;
         FailedToParseErr: Label 'Failed to parse features JSON response.';
         NoValueArrayErr: Label 'No value array found in features response.';
     begin
@@ -224,16 +224,16 @@ codeunit 62014 "D4P BC Features Helper"
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";
         APIHelper: Codeunit "D4P BC API Helper";
-        ResponseText: Text;
+        EnvironmentNotFoundErr: Label 'Environment not found.';
+        FailedToActivateErr: Label 'Failed to activate feature. Error details: %1';
+        FailedToObtainTokenErr: Label 'Failed to obtain authentication token.';
+        FeatureActivatedMsg: Label 'Feature "%1" activated successfully.';
+        TenantNotFoundErr: Label 'Tenant not found.';
         AuthToken: SecretText;
         CompanyId: Text;
-        RequestBody: Text;
         Endpoint: Text;
-        EnvironmentNotFoundErr: Label 'Environment not found.';
-        TenantNotFoundErr: Label 'Tenant not found.';
-        FailedToObtainTokenErr: Label 'Failed to obtain authentication token.';
-        FailedToActivateErr: Label 'Failed to activate feature. Error details: %1';
-        FeatureActivatedMsg: Label 'Feature "%1" activated successfully.';
+        RequestBody: Text;
+        ResponseText: Text;
     begin
         // Find the environment
         BCEnvironment.SetRange("Customer No.", Feature."Customer No.");
@@ -285,15 +285,15 @@ codeunit 62014 "D4P BC Features Helper"
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";
         APIHelper: Codeunit "D4P BC API Helper";
-        ResponseText: Text;
+        EnvironmentNotFoundErr: Label 'Environment not found.';
+        FailedToDeactivateErr: Label 'Failed to deactivate feature. Error details: %1';
+        FailedToObtainTokenErr: Label 'Failed to obtain authentication token.';
+        FeatureDeactivatedMsg: Label 'Feature "%1" deactivated successfully.';
+        TenantNotFoundErr: Label 'Tenant not found.';
         AuthToken: SecretText;
         CompanyId: Text;
         Endpoint: Text;
-        EnvironmentNotFoundErr: Label 'Environment not found.';
-        TenantNotFoundErr: Label 'Tenant not found.';
-        FailedToObtainTokenErr: Label 'Failed to obtain authentication token.';
-        FailedToDeactivateErr: Label 'Failed to deactivate feature. Error details: %1';
-        FeatureDeactivatedMsg: Label 'Feature "%1" deactivated successfully.';
+        ResponseText: Text;
     begin
         // Find the environment
         BCEnvironment.SetRange("Customer No.", Feature."Customer No.");
@@ -338,16 +338,16 @@ codeunit 62014 "D4P BC Features Helper"
     local procedure GetFirstCompanyId(BCEnvironment: Record "D4P BC Environment"; AuthToken: SecretText): Text
     var
         APIHelper: Codeunit "D4P BC API Helper";
+        JArray: JsonArray;
         JObject: JsonObject;
         JToken: JsonToken;
-        JArray: JsonArray;
-        ResponseText: Text;
-        CompanyId: Text;
+        CouldNotFindCompanyErr: Label 'Could not find company ID in response.';
         FailedToGetCompanyErr: Label 'Failed to get company ID. Error details: %1';
         FailedToParseErr: Label 'Failed to parse companies response.';
-        NoValueArrayErr: Label 'No value array found in companies response.';
         NoCompaniesErr: Label 'No companies found in the environment.';
-        CouldNotFindCompanyErr: Label 'Could not find company ID in response.';
+        NoValueArrayErr: Label 'No value array found in companies response.';
+        CompanyId: Text;
+        ResponseText: Text;
     begin
         // Get companies
         if not APIHelper.SendAutomationAPIRequest(

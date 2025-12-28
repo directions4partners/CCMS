@@ -76,10 +76,10 @@ page 62040 "D4P KQL Queries"
                 Image = Start;
                 trigger OnAction()
                 var
-                    LoadData: Report "D4P Load Data";
                     AIConnectionSetup: Record "D4P AppInsights Connection";
-                    NoEnvironmentContextErr: Label 'No environment context is set. Please open KQL Queries from the Environment Card to use the environment context directly.';
+                    LoadData: Report "D4P Load Data";
                     NoConnectionStringErr: Label 'The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.';
+                    NoEnvironmentContextErr: Label 'No environment context is set. Please open KQL Queries from the Environment Card to use the environment context directly.';
                     SetupNotFoundErr: Label 'Application Insights connection setup not found for environment "%1". Please verify telemetry configuration.';
                 begin
                     // Check if we have environment context set
@@ -118,9 +118,9 @@ page 62040 "D4P KQL Queries"
 
     var
         CurrentEnvironment: Record "D4P BC Environment";
-        TelemetryStatusText: Text[50];
-        TelemetryStatusStyle: Text[20];
         ShowEnvironmentContext: Boolean;
+        TelemetryStatusStyle: Text[20];
+        TelemetryStatusText: Text[50];
 
     /// <summary>
     /// Sets the current environment context for telemetry queries

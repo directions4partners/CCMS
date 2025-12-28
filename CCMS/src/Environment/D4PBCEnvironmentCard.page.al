@@ -395,11 +395,11 @@ page 62004 "D4P BC Environment Card"
                     TempAvailableUpdate: Record "D4P BC Available Update" temporary;
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                     UpdateSelectionDialog: Page "D4P Update Selection Dialog";
-                    TargetVersion: Text[100];
                     SelectedDate: Date;
                     ExpectedMonth: Integer;
                     ExpectedYear: Integer;
                     NoUpdatesAvailableErr: Label 'No updates available for the environment %1.';
+                    TargetVersion: Text[100];
                 begin
                     // Get available updates from API
                     EnvironmentManagement.GetAvailableUpdates(Rec, TempAvailableUpdate);

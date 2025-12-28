@@ -142,9 +142,9 @@ page 62013 "D4P BC Environment Features"
                 trigger OnAction()
                 var
                     Feature: Record "D4P BC Environment Features";
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched feature records?';
-                    DeletedSuccessMsg: Label '%1 feature records deleted.';
                     RecordCount: Integer;
+                    DeletedSuccessMsg: Label '%1 feature records deleted.';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched feature records?';
                 begin
                     Feature.CopyFilters(Rec);
                     RecordCount := Feature.Count();

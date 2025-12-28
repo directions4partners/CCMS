@@ -88,20 +88,20 @@ report 62032 "D4P Load Data"
     }
 
     var
-        Client: Codeunit "D4P AppInsights Client";
-        SelectedQuery: Record "D4P KQL Query Store";
-        SelectedQueryCode: Code[20];
-        FromDateTime, ToDateTime : DateTime;
-        TimeCompression: Text;
-        EnvironmentCode: Code[100];
-        EnvironmentType: Text[50];
-        EnvironmentName: Text[100];
-        EnvironmentAADTenantId: Guid;
-        TelemetryApplicationId: Text[50];
-        TelemetryAPIKey: Text[50];
-        TelemetryTenantId: Text[50];
-        AIConnectionString: Text[1000];
         StoredEnvironment: Record "D4P BC Environment";
+        SelectedQuery: Record "D4P KQL Query Store";
+        Client: Codeunit "D4P AppInsights Client";
+        SelectedQueryCode: Code[20];
+        EnvironmentCode: Code[100];
+        FromDateTime, ToDateTime : DateTime;
+        EnvironmentAADTenantId: Guid;
+        TimeCompression: Text;
+        EnvironmentType: Text[50];
+        TelemetryAPIKey: Text[50];
+        TelemetryApplicationId: Text[50];
+        TelemetryTenantId: Text[50];
+        EnvironmentName: Text[100];
+        AIConnectionString: Text[1000];
 
     trigger OnPreReport()
     begin
@@ -110,8 +110,8 @@ report 62032 "D4P Load Data"
 
     local procedure GetWorksheetFilter(RecVariant: Variant): Code[20]
     var
-        Field: Record Field;
         TempRec: Record "D4P KQL Report Execution" temporary;
+        Field: Record Field;
         RecRef: RecordRef;
         FldRef: FieldRef;
         WorkSheetCode: Code[20];
@@ -211,10 +211,10 @@ report 62032 "D4P Load Data"
 
     local procedure LoadTable()
     var
-        TableName, QueryText : Text;
-        Tables: List of [Text];
         NotSupportedErr: Label 'The query must return at least one result table.';
         TelemetryIncompleteErr: Label 'Telemetry configuration is incomplete. Ensure Application ID and API Key are specified.';
+        Tables: List of [Text];
+        QueryText, TableName : Text;
     begin
         // Check if we have telemetry configuration data
         if (TelemetryApplicationId = '') or (TelemetryAPIKey = '') then
@@ -237,8 +237,8 @@ report 62032 "D4P Load Data"
     var
         RecRef: RecordRef;
         EntryNoFieldRef: FieldRef;
-        WorksheetCodeFieldRef: FieldRef;
         UserIDFieldRef: FieldRef;
+        WorksheetCodeFieldRef: FieldRef;
         EntryNo: Integer;
     begin
         if SelectedQuery."Result Table ID" = 0 then
@@ -298,8 +298,8 @@ report 62032 "D4P Load Data"
     var
         ExecutionDateFieldRef: FieldRef;
         ExecutionDateTimeFieldRef: FieldRef;
-        ExecutionDateTime: DateTime;
         ExecutionDate: Date;
+        ExecutionDateTime: DateTime;
     begin
         // Handle Page Execution specific calculation
         if RecRef.Number() = Database::"D4P KQL Page Execution" then
@@ -340,14 +340,14 @@ report 62032 "D4P Load Data"
 
     local procedure ShowResultsPage()
     var
+        ExtensionLifecycleRec: Record "D4P KQL Extension Lifecycle";
         PageExecutionRec: Record "D4P KQL Page Execution";
         ReportExecutionRec: Record "D4P KQL Report Execution";
         SlowALMethodRec: Record "D4P KQL Slow AL Method";
-        ExtensionLifecycleRec: Record "D4P KQL Extension Lifecycle";
+        ExtensionLifecyclePage: Page "D4P KQL Extension Lifecycle";
         PageExecutionsPage: Page "D4P KQL Page Executions";
         ReportExecutionsPage: Page "D4P KQL Report Executions";
         SlowALMethodsPage: Page "D4P KQL Slow AL Methods";
-        ExtensionLifecyclePage: Page "D4P KQL Extension Lifecycle";
         QueryExecutedMsg: Label 'Query executed successfully. No specific results page configured.';
         QueryExecutedWithResultsMsg: Label 'Query executed successfully. Results stored in Table ID %1.';
     begin
@@ -397,9 +397,9 @@ report 62032 "D4P Load Data"
     local procedure GetStoredQueryText(QueryRec: Record "D4P KQL Query Store"): Text
     var
         InS: InStream;
+        NoQueryTextErr: Label 'The selected query does not contain any text.';
         Line: Text;
         Txt: Text;
-        NoQueryTextErr: Label 'The selected query does not contain any text.';
     begin
         QueryRec.CalcFields(Query);
         if not QueryRec.Query.HasValue() then
@@ -417,8 +417,8 @@ report 62032 "D4P Load Data"
 
     local procedure ApplyTokens(Kql: Text): Text
     var
-        TimestampCompression: Text;
         TenantIdText: Text;
+        TimestampCompression: Text;
     begin
         Kql := Kql.Replace('{{FROM}}', Format(FromDateTime, 0, 9));
         Kql := Kql.Replace('{{TO}}', Format(ToDateTime, 0, 9));
@@ -449,11 +449,11 @@ report 62032 "D4P Load Data"
     local procedure ShowDebugInfo()
     var
         BCSetup: Record "D4P BC Setup";
-        DebugText: Text;
-        ColumnList: Text;
-        ValueList: Text;
         TempBuffer: Record "Name/Value Buffer" temporary;
         RowCounter: Integer;
+        ColumnList: Text;
+        DebugText: Text;
+        ValueList: Text;
     begin
         if not BCSetup.IsDebugModeEnabled() then
             exit;
@@ -511,8 +511,8 @@ report 62032 "D4P Load Data"
     var
         BCSetup: Record "D4P BC Setup";
         RecRef: RecordRef;
-        DebugText: Text;
         RecordCount: Integer;
+        DebugText: Text;
     begin
         if not BCSetup.IsDebugModeEnabled() then
             exit;

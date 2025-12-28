@@ -164,10 +164,10 @@ page 62011 "D4P BC Tenant Card"
     }
 
     var
-        SecretExpirationStyle: Text;
-        SASTokenExpirationStyle: Text;
-        ClientSecretValue: Text;
         SecretPlaceholderLbl: Label 'SECRETPLACEHOLDER', Locked = true;
+        ClientSecretValue: Text;
+        SASTokenExpirationStyle: Text;
+        SecretExpirationStyle: Text;
 
     trigger OnAfterGetRecord()
     begin

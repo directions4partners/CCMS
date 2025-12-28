@@ -85,8 +85,8 @@ page 62023 "D4P BC Capacity Card"
 
                 trigger OnAction()
                 var
-                    CapacityHelper: Codeunit "D4P BC Capacity Helper";
                     BCTenant: Record "D4P BC Tenant";
+                    CapacityHelper: Codeunit "D4P BC Capacity Helper";
                     TenantIdGuid: Guid;
                 begin
                     Evaluate(TenantIdGuid, Rec."Tenant ID");

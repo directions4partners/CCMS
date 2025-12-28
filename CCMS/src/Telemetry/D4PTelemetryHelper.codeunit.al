@@ -50,8 +50,8 @@ codeunit 62032 "D4P Telemetry Helper"
     procedure RunTelemetryQuery(Environment: Record "D4P BC Environment")
     var
         KQLQueryStore: Record "D4P KQL Query Store";
-        KQLQuerySelection: Page "D4P KQL Query Selection";
         LoadData: Report "D4P Load Data";
+        KQLQuerySelection: Page "D4P KQL Query Selection";
     begin
         ValidateEnvironmentTelemetrySetup(Environment);
 

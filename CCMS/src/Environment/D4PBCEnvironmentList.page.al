@@ -217,11 +217,11 @@ page 62003 "D4P BC Environment List"
                     BCEnvironment: Record "D4P BC Environment";
                     BCTenant: Record "D4P BC Tenant";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
-                    ProcessedCount: Integer;
                     ProgressDialog: Dialog;
+                    ProcessedCount: Integer;
                     TotalCount: Integer;
-                    NoEnvironmentsToUpdateMsg: Label 'No environments to update.';
                     ConfirmMsg: Label 'This will get update information for %1 environment(s). Continue?';
+                    NoEnvironmentsToUpdateMsg: Label 'No environments to update.';
                     ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@';
                     SuccessMsg: Label 'Successfully processed %1 environment(s).';
                 begin
@@ -317,9 +317,9 @@ page 62003 "D4P BC Environment List"
                 var
                     Environment: Record "D4P BC Environment";
                     EnvironmentHelper: Codeunit "D4P BC Environment Helper";
+                    RecordCount: Integer;
                     DeleteQst: Label 'Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.';
                     EnvironmentRecordsDeletedMsg: Label '%1 environment record(s) and related data deleted from local database.';
-                    RecordCount: Integer;
                 begin
                     CurrPage.SetSelectionFilter(Environment);
                     RecordCount := Environment.Count();
@@ -444,8 +444,8 @@ page 62003 "D4P BC Environment List"
 
                 trigger OnAction()
                 var
-                    CapacityWorksheet: Page "D4P BC Capacity Worksheet";
                     CapacityHeader: Record "D4P BC Capacity Header";
+                    CapacityWorksheet: Page "D4P BC Capacity Worksheet";
                 begin
                     CapacityHeader.SetRange("Customer No.", Rec."Customer No.");
                     CapacityHeader.SetRange("Tenant ID", Format(Rec."Tenant ID"));

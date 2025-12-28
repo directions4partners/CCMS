@@ -90,8 +90,8 @@ page 62014 "D4P BC Environment Backups"
                 var
                     BackupHelper: Codeunit "D4P BC Backup Helper";
                     ExportHistoryDialog: Page "D4P Export History Dialog";
-                    StartTime: DateTime;
                     EndTime: DateTime;
+                    StartTime: DateTime;
                 begin
                     CheckEnvironmentContext();
 
@@ -142,9 +142,9 @@ page 62014 "D4P BC Environment Backups"
                 trigger OnAction()
                 var
                     Backup: Record "D4P BC Environment Backup";
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched backup records?';
-                    DeletedSuccessMsg: Label '%1 backup records deleted.';
                     RecordCount: Integer;
+                    DeletedSuccessMsg: Label '%1 backup records deleted.';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched backup records?';
                 begin
                     Backup.CopyFilters(Rec);
                     RecordCount := Backup.Count();

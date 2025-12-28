@@ -122,8 +122,8 @@ page 62024 "D4P BC Installed App Card"
                 ToolTip = 'Update the selected app to the latest version.';
                 trigger OnAction()
                 var
-                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                     BCEnvironment: Record "D4P BC Environment";
+                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
                     BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
                     EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false);
@@ -138,9 +138,9 @@ page 62024 "D4P BC Installed App Card"
                 trigger OnAction()
                 var
                     InstalledApp: Record "D4P BC Installed Apps";
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?';
-                    DeletedSuccessMsg: Label '%1 installed apps records deleted.';
                     RecordCount: Integer;
+                    DeletedSuccessMsg: Label '%1 installed apps records deleted.';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?';
                 begin
                     InstalledApp.CopyFilters(Rec);
                     RecordCount := InstalledApp.Count();

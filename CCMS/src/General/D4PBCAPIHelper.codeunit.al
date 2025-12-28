@@ -9,14 +9,14 @@ codeunit 62049 "D4P BC API Helper"
     procedure SendAdminAPIRequest(var BCTenant: Record "D4P BC Tenant"; Method: Text; Endpoint: Text; RequestBody: Text; var ResponseText: Text): Boolean
     var
         HttpClient: HttpClient;
+        RequestContent: HttpContent;
+        Headers: HttpHeaders;
         HttpRequestMessage: HttpRequestMessage;
         HttpResponseMessage: HttpResponseMessage;
-        Headers: HttpHeaders;
-        AuthToken: SecretText;
-        EndpointUrl: Text;
-        RequestContent: HttpContent;
         FailedToObtainTokenErr: Label 'Failed to obtain access token.';
         FailedToSendRequestErr: Label 'Failed to send HTTP request';
+        AuthToken: SecretText;
+        EndpointUrl: Text;
     begin
         // Get OAuth token
         AuthToken := GetOAuthToken(BCTenant);
@@ -54,13 +54,13 @@ codeunit 62049 "D4P BC API Helper"
     procedure SendAutomationAPIRequest(AADTenantId: Guid; EnvironmentName: Text; Method: Text; Endpoint: Text; RequestBody: Text; AuthToken: SecretText; var ResponseText: Text): Boolean
     var
         HttpClient: HttpClient;
+        RequestContent: HttpContent;
+        Headers: HttpHeaders;
         HttpRequestMessage: HttpRequestMessage;
         HttpResponseMessage: HttpResponseMessage;
-        Headers: HttpHeaders;
-        EndpointUrl: Text;
-        RequestContent: HttpContent;
-        TenantIdText: Text;
         FailedToConnectErr: Label 'Failed to connect to the API.';
+        EndpointUrl: Text;
+        TenantIdText: Text;
     begin
         // Format tenant ID (remove braces)
         TenantIdText := Format(AADTenantId);
@@ -101,12 +101,12 @@ codeunit 62049 "D4P BC API Helper"
 
     procedure GetOAuthToken(var BCTenant: Record "D4P BC Tenant") AuthToken: SecretText
     var
-        AccessTokenURL: Text;
         OAuth2: Codeunit OAuth2;
-        Scopes: List of [Text];
-        tenantID: Text;
-        ClientSecret: SecretText;
         FailedToGetTokenErr: Label 'Failed to get access token from response\%1';
+        Scopes: List of [Text];
+        ClientSecret: SecretText;
+        AccessTokenURL: Text;
+        tenantID: Text;
     begin
         tenantID := BCTenant."Tenant ID".ToText().Replace('{', '');
         tenantID := tenantID.Replace('}', '');
@@ -120,11 +120,11 @@ codeunit 62049 "D4P BC API Helper"
 
     procedure GetAutomationApiOAuthToken(AADTenantId: Guid; ClientID: Text; ClientSecret: SecretText) AuthToken: SecretText
     var
-        AccessTokenURL: Text;
         OAuth2: Codeunit OAuth2;
+        FailedToGetTokenErr: Label 'Failed to get Automation API access token: %1';
         Scopes: List of [Text];
         AADTenantIdText: Text;
-        FailedToGetTokenErr: Label 'Failed to get Automation API access token: %1';
+        AccessTokenURL: Text;
     begin
         // Format AAD Tenant ID
         AADTenantIdText := Format(AADTenantId);

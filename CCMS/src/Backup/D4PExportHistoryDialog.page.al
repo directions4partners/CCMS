@@ -41,9 +41,9 @@ page 62020 "D4P Export History Dialog"
     }
 
     var
-        TimePeriodOption: Option "Current Month","Last 12 Months",Custom;
-        StartDateTime: DateTime;
         EndDateTime: DateTime;
+        StartDateTime: DateTime;
+        TimePeriodOption: Option "Current Month","Last 12 Months",Custom;
 
     trigger OnOpenPage()
     begin

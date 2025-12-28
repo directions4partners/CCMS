@@ -80,14 +80,14 @@ page 62017 "D4P Tenant Migration Dialog"
     }
 
     var
-        SourceCustomerNo: Code[20];
-        SourceTenantID: Text[50];
-        SourceEnvironmentName: Text[100];
-        TargetCustomerNo: Code[20];
-        TargetTenantID: Text[50];
-        TargetEnvironmentName: Text[100];
-        MigrateData: Boolean;
         MigrateApps: Boolean;
+        MigrateData: Boolean;
+        SourceCustomerNo: Code[20];
+        TargetCustomerNo: Code[20];
+        SourceTenantID: Text[50];
+        TargetTenantID: Text[50];
+        SourceEnvironmentName: Text[100];
+        TargetEnvironmentName: Text[100];
         MigrationDescription: Text[250];
 
     procedure SetSourceEnvironment(CustomerNo: Code[20]; TenantID: Text[50]; EnvironmentName: Text[100])

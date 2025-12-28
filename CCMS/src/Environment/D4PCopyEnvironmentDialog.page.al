@@ -49,7 +49,7 @@ page 62006 "D4P Copy Environment Dialog"
     end;
 
     var
-        EnvironmentName, NewEnvironmentName : Text[100];
-        NewEnvironmentType: Enum "D4P Environment Type";
         BCTenant: Record "D4P BC Tenant";
+        NewEnvironmentType: Enum "D4P Environment Type";
+        EnvironmentName, NewEnvironmentName : Text[100];
 }
