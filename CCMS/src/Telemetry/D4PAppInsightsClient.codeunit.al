@@ -829,7 +829,7 @@ codeunit 62030 "D4P AppInsights Client"
     /// There are DeserializeToRecordRef[xxx] events available to customize deserialization.
     /// </summary>
     /// <param name="RecRef">The target RecordRef where field values will be written to.</param>
-    procedure DeserializeToRecordRef(var RecRef: Recordref)
+    procedure DeserializeToRecordRef(var RecRef: RecordRef)
     var
         TempBuffer: Record "Name/Value Buffer" temporary;
         Field: Record Field;

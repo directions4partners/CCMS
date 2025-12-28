@@ -348,7 +348,7 @@ page 62003 "D4P BC Environment List"
                 ApplicationArea = All;
                 Caption = 'Details';
                 Image = ViewDetails;
-                RunObject = Page "D4P BC Environment Card";
+                RunObject = page "D4P BC Environment Card";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             Name = field(Name);
@@ -359,7 +359,7 @@ page 62003 "D4P BC Environment List"
                 ApplicationArea = All;
                 Caption = 'Installed Apps';
                 Image = ExternalDocument;
-                RunObject = Page "D4P BC Installed Apps List";
+                RunObject = page "D4P BC Installed Apps List";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
@@ -423,7 +423,7 @@ page 62003 "D4P BC Environment List"
                 ApplicationArea = All;
                 Caption = 'Features';
                 Image = Setup;
-                RunObject = Page "D4P BC Environment Features";
+                RunObject = page "D4P BC Environment Features";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
@@ -434,7 +434,7 @@ page 62003 "D4P BC Environment List"
                 ApplicationArea = All;
                 Caption = 'Backups';
                 Image = History;
-                RunObject = Page "D4P BC Environment Backups";
+                RunObject = page "D4P BC Environment Backups";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);

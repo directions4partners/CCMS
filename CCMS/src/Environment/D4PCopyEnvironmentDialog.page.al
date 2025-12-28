@@ -9,7 +9,7 @@ page 62006 "D4P Copy Environment Dialog"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             field(EnvironmentName; EnvironmentName)
             {

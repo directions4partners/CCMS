@@ -10,7 +10,7 @@ page 62041 "D4P KQL Query Preview"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(General)
             {

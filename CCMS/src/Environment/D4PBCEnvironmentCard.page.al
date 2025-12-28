@@ -427,7 +427,7 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Installed Apps';
                 Image = ExternalDocument;
-                RunObject = Page "D4P BC Installed Apps List";
+                RunObject = page "D4P BC Installed Apps List";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
@@ -438,7 +438,7 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Features';
                 Image = Setup;
-                RunObject = Page "D4P BC Environment Features";
+                RunObject = page "D4P BC Environment Features";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
@@ -504,7 +504,7 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Application Insights Connection Setup';
                 Image = Setup;
-                RunObject = Page "D4P AppInsights Conn List";
+                RunObject = page "D4P AppInsights Conn List";
                 ToolTip = 'View and manage Application Insights connection setups.';
             }
             action(EditCurrentAIConnection)
@@ -537,7 +537,7 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Installed Apps';
                 Image = ExternalDocument;
-                RunObject = Page "D4P BC Installed Apps List";
+                RunObject = page "D4P BC Installed Apps List";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);

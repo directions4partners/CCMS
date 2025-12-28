@@ -9,7 +9,7 @@ page 62005 "D4P New Environment Dialog"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             field(EnvironmentName; EnvironmentName)
             {

@@ -9,7 +9,7 @@ page 62007 "D4P Rename Environment Dialog"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             field(EnvironmentName; EnvironmentName)
             {

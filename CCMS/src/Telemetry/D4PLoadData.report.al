@@ -111,7 +111,7 @@ report 62032 "D4P Load Data"
         Field: Record Field;
         TempRec: Record "D4P KQL Report Execution" temporary;
         RecRef: RecordRef;
-        Fldref: FieldRef;
+        FldRef: FieldRef;
         WorkSheetCode: Code[20];
     begin
         RecRef.GetTable(RecVariant);
@@ -120,10 +120,10 @@ report 62032 "D4P Load Data"
         Field.FindLast();
         FldRef := RecRef.Field(Field."No.");
         RecRef.FilterGroup(0);
-        WorkSheetCode := CopyStr(Fldref.GetFilter(), 1, MaxStrLen(WorkSheetCode));
+        WorkSheetCode := CopyStr(FldRef.GetFilter(), 1, MaxStrLen(WorkSheetCode));
         if (WorkSheetCode = '') then begin
             RecRef.FilterGroup(2);
-            WorkSheetCode := CopyStr(Fldref.GetFilter(), 1, MaxStrLen(WorkSheetCode));
+            WorkSheetCode := CopyStr(FldRef.GetFilter(), 1, MaxStrLen(WorkSheetCode));
         end;
         exit(WorkSheetCode);
     end;

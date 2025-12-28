@@ -57,7 +57,7 @@ page 62002 "D4P BC Tenant List"
                 ApplicationArea = All;
                 Caption = 'Setup';
                 Image = Setup;
-                RunObject = Page "D4P BC Setup";
+                RunObject = page "D4P BC Setup";
                 ToolTip = 'Configure D365BC Admin Center settings including debug mode.';
             }
             action(TestDebugMode)
@@ -81,7 +81,7 @@ page 62002 "D4P BC Tenant List"
                 ApplicationArea = All;
                 Caption = 'Environments';
                 Image = ViewDetails;
-                RunObject = Page "D4P BC Environment List";
+                RunObject = page "D4P BC Environment List";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
                 ToolTip = 'View Business Central environments for this tenant.';
@@ -91,7 +91,7 @@ page 62002 "D4P BC Tenant List"
                 ApplicationArea = All;
                 Caption = 'PTE Object Ranges';
                 Image = NumberSetup;
-                RunObject = Page "D4P PTE Object Ranges";
+                RunObject = page "D4P PTE Object Ranges";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
                 ToolTip = 'View PTE object ranges for this customer and tenant.';

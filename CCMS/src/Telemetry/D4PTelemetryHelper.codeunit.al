@@ -57,7 +57,7 @@ codeunit 62032 "D4P Telemetry Helper"
 
         // Let user select a query
         KQLQuerySelection.LookupMode(true);
-        if KQLQuerySelection.RunModal() = ACTION::LookupOK then begin
+        if KQLQuerySelection.RunModal() = Action::LookupOK then begin
             KQLQuerySelection.GetRecord(KQLQueryStore);
 
             // Run the selected query directly with this environment's context

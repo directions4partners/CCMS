@@ -79,7 +79,7 @@ table 62009 "D4P BC Setup"
 
     procedure RestoreDefaults()
     begin
-        rec."Debug Mode" := false;
+        Rec."Debug Mode" := false;
         Rec."Admin API Base URL" := 'https://api.businesscentral.dynamics.com/admin/v2.28';
         Rec."Automation API Base URL" := 'https://api.businesscentral.dynamics.com/v2.0';
         Rec.Modify();

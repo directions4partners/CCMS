@@ -71,7 +71,7 @@ page 62044 "D4P KQL Report Executions"
                 {
                     ApplicationArea = All;
                 }
-                field("No. Of Executions"; Rec."No. Of Executions")
+                field("No. of Executions"; Rec."No. of Executions")
                 {
                     ApplicationArea = All;
                 }

@@ -54,7 +54,7 @@ page 62047 "D4P AppInsights Conn List"
                 ApplicationArea = All;
                 Caption = 'New';
                 Image = New;
-                RunObject = Page "D4P AppInsights Conn Card";
+                RunObject = page "D4P AppInsights Conn Card";
                 RunPageMode = Create;
                 ToolTip = 'Create a new Application Insights connection setup.';
             }
@@ -63,7 +63,7 @@ page 62047 "D4P AppInsights Conn List"
                 ApplicationArea = All;
                 Caption = 'Edit';
                 Image = Edit;
-                RunObject = Page "D4P AppInsights Conn Card";
+                RunObject = page "D4P AppInsights Conn Card";
                 RunPageLink = "AppInsights Connection String" = field("AppInsights Connection String");
                 ToolTip = 'Edit the selected Application Insights connection setup.';
             }

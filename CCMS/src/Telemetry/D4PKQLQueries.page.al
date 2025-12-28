@@ -11,7 +11,7 @@ page 62040 "D4P KQL Queries"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(EnvironmentInfo)
             {
@@ -56,7 +56,7 @@ page 62040 "D4P KQL Queries"
             }
         }
 
-        area(factboxes)
+        area(FactBoxes)
         {
             part(Preview; "D4P KQL Query Preview")
             {

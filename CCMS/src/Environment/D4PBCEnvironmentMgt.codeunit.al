@@ -415,7 +415,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         ResponseText: Text;
         BCTenant: Record "D4P BC Tenant";
         BCInstalledApps: Record "D4P BC Installed Apps";
-        appId: guid;
+        appId: Guid;
         appVersion: Text;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
         AvailableUpdatesFetchedMsg: Label 'Available updates for the selected environment have been fetched successfully.';
