@@ -19,7 +19,6 @@ page 62010 "D4P BC Setup"
                 Caption = 'General Settings';
                 field("Debug Mode"; Rec."Debug Mode")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Enable debug mode to display API response texts in messages for troubleshooting purposes.';
                 }
             }
@@ -28,12 +27,10 @@ page 62010 "D4P BC Setup"
                 Caption = 'API Configuration';
                 field("Admin API Base URL"; Rec."Admin API Base URL")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Base URL for Business Central Admin API calls. Default: https://api.businesscentral.dynamics.com/admin/v2.24';
                 }
                 field("Automation API Base URL"; Rec."Automation API Base URL")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Base URL for Business Central Automation API calls. Default: https://api.businesscentral.dynamics.com/v2.0';
                 }
             }

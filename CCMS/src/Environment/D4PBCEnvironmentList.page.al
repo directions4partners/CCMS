@@ -26,49 +26,40 @@ page 62003 "D4P BC Environment List"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number associated with this environment.';
                     Editable = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the tenant ID of the environment.';
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the name of the environment.';
                 }
                 field("Application Family"; Rec."Application Family")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the application family of the environment.';
                 }
                 field(Type; Rec.Type)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the type of the environment.';
                 }
                 field(State; Rec.State)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current state of the environment.';
                     StyleExpr = StateStyleExpr;
                 }
                 field("Country/Region"; Rec."Country/Region")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the country/region of the environment.';
                 }
                 field("Current Version"; Rec."Current Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current version of Business Central.';
                 }
                 field("Target Version"; Rec."Target Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the target version of Business Central update.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -76,7 +67,6 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Available"; Rec."Available")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates whether the target version has been released.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -84,7 +74,6 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Target Version Type"; Rec."Target Version Type")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates the type of the target version (GA or Preview).';
                     Style = Favorable;
                     StyleExpr = true;
@@ -92,7 +81,6 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Selected DateTime"; Rec."Selected DateTime")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates the datetime for which the update to the target version has been scheduled.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -100,7 +88,6 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates the last date for which the update to this target version can be scheduled.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -108,7 +95,6 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Expected Availability"; Rec."Expected Availability")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Expected availability month/year for unreleased versions.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -116,7 +102,6 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates the rollout status of updates to this target version.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -124,7 +109,6 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Ignore Update Window"; Rec."Ignore Update Window")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates whether the update window for the environment may be ignored.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -132,74 +116,61 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Application Insights String"; Rec."Application Insights String")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the connection string for Application Insights.';
                     MaskType = Concealed;
                 }
                 field("Friendly Name"; Rec."Friendly Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the friendly/display name of the environment.';
                 }
                 field("Ring Name"; Rec."Ring Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the update ring name (e.g., Prod, Preview).';
                 }
                 field("Location Name"; Rec."Location Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Azure Region where the environment database is stored.';
                 }
                 field("Geo Name"; Rec."Geo Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Azure Geo where the environment database is stored.';
                 }
                 field("Web Client Login URL"; Rec."Web Client Login URL")
                 {
-                    ApplicationArea = All;
                     ExtendedDatatype = URL;
                     ToolTip = 'Specifies the URL to log into the environment.';
                 }
                 field("Web Service URL"; Rec."Web Service URL")
                 {
-                    ApplicationArea = All;
                     ExtendedDatatype = URL;
                     ToolTip = 'Specifies the URL to access the environment service API.';
                 }
                 field("AppSource Apps Update Cadence"; Rec."AppSource Apps Update Cadence")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the cadence for automatic AppSource apps updates.';
                 }
                 field("Platform Version"; Rec."Platform Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the platform version of the environment.';
                 }
                 field("Telemetry API Key"; Rec."Telemetry API Key")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the API key for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                     Editable = false;
                     ExtendedDatatype = Masked;
                 }
                 field("Telemetry Application ID"; Rec."Telemetry Application ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Application ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                     Editable = false;
                 }
                 field("Telemetry Tenant ID"; Rec."Telemetry Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                     Editable = false;
                 }
                 field("Telemetry Description"; Rec."Telemetry Description")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from AppInsights Connection Setup).';
                     Editable = false;
                 }
@@ -209,7 +180,6 @@ page 62003 "D4P BC Environment List"
         {
             part(InstalledApp; "D4P BC Installed Apps FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);

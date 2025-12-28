@@ -16,7 +16,6 @@ page 62020 "D4P Export History Dialog"
 
                 field(TimePeriod; TimePeriodOption)
                 {
-                    ApplicationArea = All;
                     Caption = 'Time Period';
                     ToolTip = 'Select the time period for which to retrieve export history.';
 
@@ -27,14 +26,12 @@ page 62020 "D4P Export History Dialog"
                 }
                 field(StartDate; StartDateTime)
                 {
-                    ApplicationArea = All;
                     Caption = 'Start Date/Time';
                     ToolTip = 'The start date and time for the export history query.';
                     Editable = TimePeriodOption = TimePeriodOption::Custom;
                 }
                 field(EndDate; EndDateTime)
                 {
-                    ApplicationArea = All;
                     Caption = 'End Date/Time';
                     ToolTip = 'The end date and time for the export history query.';
                     Editable = TimePeriodOption = TimePeriodOption::Custom;

@@ -22,17 +22,14 @@ page 62002 "D4P BC Tenant List"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number associated with this tenant.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the unique identifier of the Business Central tenant.';
                 }
                 field("Tenant Name"; Rec."Tenant Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the name of the Business Central tenant.';
                 }
             }
@@ -41,13 +38,11 @@ page 62002 "D4P BC Tenant List"
         {
             part(TenantDetails; "D4P BC Tenant FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
             }
             part(EnvironmentsFactBox; "D4P BC Environments FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "Customer No." = field("Customer No."), "Tenant ID" = field("Tenant ID");
             }
         }

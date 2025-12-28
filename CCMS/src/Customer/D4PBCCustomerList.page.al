@@ -19,12 +19,10 @@ page 62000 "D4P BC Customers List"
             {
                 field("No."; Rec."No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number.';
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer name.';
                 }
             }

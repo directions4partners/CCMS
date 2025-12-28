@@ -17,17 +17,14 @@ page 62013 "D4P BC Environment Features"
             {
                 field("Feature Name"; Rec."Feature Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the name of the feature.';
                 }
                 field("Feature Key"; Rec."Feature Key")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the unique key of the feature.';
                 }
                 field("Is Enabled"; Rec."Is Enabled")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the enabled status (All Users, None, etc.).';
                     StyleExpr = EnabledStatusStyle;
 
@@ -37,43 +34,35 @@ page 62013 "D4P BC Environment Features"
                 }
                 field("Feature Description"; Rec."Feature Description")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the description of the feature.';
                 }
                 field("Mandatory By"; Rec."Mandatory By")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the feature becomes mandatory.';
                 }
                 field("Mandatory By Version"; Rec."Mandatory By Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the BC version when the feature becomes mandatory.';
                 }
                 field("Can Try"; Rec."Can Try")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies whether the feature can be tried.';
                 }
                 field("Is One Way"; Rec."Is One Way")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies whether the feature change is one-way.';
                 }
                 field("Data Update Required"; Rec."Data Update Required")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies whether enabling the feature requires data update.';
                 }
                 field("Learn More Link"; Rec."Learn More Link")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the link to learn more about the feature.';
                     ExtendedDatatype = URL;
                 }
                 field("Last Modified"; Rec."Last Modified")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the feature was last retrieved.';
                 }
             }

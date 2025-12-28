@@ -19,21 +19,18 @@ page 62040 "D4P KQL Queries"
                 Visible = ShowEnvironmentContext;
                 field(CurrentEnvironmentName; CurrentEnvironment.Name)
                 {
-                    ApplicationArea = All;
                     Caption = 'Environment';
                     Editable = false;
                     ToolTip = 'Specifies the environment that will be used for telemetry queries.';
                 }
                 field(CurrentEnvironmentTelemetryDescription; CurrentEnvironment."Telemetry Description")
                 {
-                    ApplicationArea = All;
                     Caption = 'Telemetry Connection';
                     Editable = false;
                     ToolTip = 'Specifies the telemetry connection description for the current environment.';
                 }
                 field(TelemetryStatus; TelemetryStatusText)
                 {
-                    ApplicationArea = All;
                     Caption = 'Status';
                     Editable = false;
                     StyleExpr = TelemetryStatusStyle;
@@ -44,20 +41,16 @@ page 62040 "D4P KQL Queries"
             {
                 field(Code; Rec.Code)
                 {
-                    ApplicationArea = All;
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
                     Width = 40;
                 }
                 field(ResultTableID; Rec."Result Table ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Table ID where results will be stored. Leave blank for generic processing.';
                 }
             }
@@ -67,7 +60,6 @@ page 62040 "D4P KQL Queries"
         {
             part(Preview; "D4P KQL Query Preview")
             {
-                ApplicationArea = All;
                 SubPageLink = Code = field(Code);
             }
         }

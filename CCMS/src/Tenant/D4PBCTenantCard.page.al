@@ -20,17 +20,14 @@ page 62011 "D4P BC Tenant Card"
                 Caption = 'General';
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number associated with this tenant.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the unique identifier (GUID) of the Microsoft Entra tenant.';
                 }
                 field("Tenant Name"; Rec."Tenant Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the name of the Business Central tenant.';
                 }
             }
@@ -39,7 +36,6 @@ page 62011 "D4P BC Tenant Card"
                 Caption = 'Authentication';
                 field("App Registration Type"; Rec."App Registration Type")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies whether to use an individual or shared app registration.';
 
                     trigger OnValidate()
@@ -54,7 +50,6 @@ page 62011 "D4P BC Tenant Card"
 
                     field("Client ID Lookup"; Rec."Client ID")
                     {
-                        ApplicationArea = All;
                         Caption = 'Client ID';
                         ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication. Select from shared app registrations.';
                         TableRelation = "D4P BC App Registration"."Client ID";
@@ -72,13 +67,11 @@ page 62011 "D4P BC Tenant Card"
                     Visible = Rec."App Registration Type" = Rec."App Registration Type"::Individual;
                     field("Client ID"; Rec."Client ID")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication.';
                         ShowMandatory = true;
                     }
                     field("Client Secret Individual"; ClientSecretValue)
                     {
-                        ApplicationArea = All;
                         Caption = 'Client Secret';
                         ExtendedDatatype = Masked;
                         ToolTip = 'Specifies the Azure AD Application Client Secret for API authentication. This is stored securely in isolated storage.';
@@ -91,7 +84,6 @@ page 62011 "D4P BC Tenant Card"
                     }
                     field("Secret Expiration Date"; Rec."Secret Expiration Date")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies when the client secret expires. Update the secret before this date.';
                         StyleExpr = SecretExpirationStyle;
                     }
@@ -102,18 +94,15 @@ page 62011 "D4P BC Tenant Card"
                 Caption = 'Backup Configuration';
                 field("Backup SAS URI"; Rec."Backup SAS URI")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Azure Storage SAS URI for environment backups.';
                     ExtendedDatatype = URL;
                 }
                 field("Backup Container Name"; Rec."Backup Container Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Azure Storage container name for environment backups.';
                 }
                 field("Backup SAS Token Exp. Date"; Rec."Backup SAS Token Exp. Date")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the SAS token expires. Update the SAS URI before this date.';
                     StyleExpr = SASTokenExpirationStyle;
                 }
@@ -123,13 +112,11 @@ page 62011 "D4P BC Tenant Card"
         {
             part(TenantDetails; "D4P BC Tenant FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
             }
             part(EnvironmentsFactBox; "D4P BC Environments FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
             }

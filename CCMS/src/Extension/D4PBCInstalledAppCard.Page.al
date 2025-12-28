@@ -20,33 +20,27 @@ page 62024 "D4P BC Installed App Card"
             {
                 field("App ID"; Rec."App ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the unique identifier of the app.';
                 }
                 field("App Name"; Rec."App Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the name of the installed app.';
                     StyleExpr = UpdateAvailableStyleExpr;
                 }
                 field("App Publisher"; Rec."App Publisher")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the publisher of the app.';
                 }
                 field("App Version"; Rec."App Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the version of the installed app.';
                 }
                 field(State; Rec.State)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current state of the app.';
                 }
                 field("App Type"; Rec."App Type")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the type of the app (Global, PTE, DEV).';
                 }
 
@@ -55,33 +49,26 @@ page 62024 "D4P BC Installed App Card"
             {
                 field("Last Update Attempt Result"; Rec."Last Update Attempt Result")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the result of the last update attempt.';
                 }
-
                 field("Available Update Version"; Rec."Available Update Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the version of the app that is available for update.';
                     StyleExpr = UpdateAvailableStyleExpr;
                 }
-
             }
             group(Install)
             {
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the environment where the app is installed.';
                 }
                 field("Can Be Uninstalled"; Rec."Can Be Uninstalled")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies whether the app can be uninstalled.';
                 }
                 field("Last Uninstall Attempt Result"; Rec."Last Uninstall Attempt Result")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the result of the last uninstall attempt.';
                 }
             }

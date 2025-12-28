@@ -14,7 +14,6 @@ page 62049 "D4P BC Admin Role Center"
             {
                 part(AdminCenterCues; "D4P BC Admin Center Cues")
                 {
-                    ApplicationArea = All;
                 }
             }
         }
