@@ -226,9 +226,10 @@ page 62011 "D4P BC Tenant Card"
 
         if DaysToExpiration < 0 then
             SASTokenExpirationStyle := 'Unfavorable'
-        else if DaysToExpiration <= 30 then
-            SASTokenExpirationStyle := 'Attention'
         else
-            SASTokenExpirationStyle := 'Favorable';
+            if DaysToExpiration <= 30 then
+                SASTokenExpirationStyle := 'Attention'
+            else
+                SASTokenExpirationStyle := 'Favorable';
     end;
 }
