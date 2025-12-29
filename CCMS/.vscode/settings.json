@@ -1,5 +1,5 @@
 {
-    "CRS.ObjectNamePrefix": "D4P",    
+    "CRS.ObjectNamePrefix": "D4P",
     "CRS.RenameWithGit": false,
     "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectType>.al",
     "CRS.FileNamePatternExtensions": "<BaseNameShort>.<ObjectTypeShort><BaseId>-Ext.al"
