@@ -1,6 +1,8 @@
 namespace D4P.CCMS.Customer;
 
 using D4P.CCMS.Tenant;
+using Microsoft.Utilities;
+using D4P.CCMS.Setup;
 
 page 62001 "D4P BC Customer Card"
 {
@@ -22,11 +24,58 @@ page 62001 "D4P BC Customer Card"
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the customer number.';
+                    Importance = Standard;
+                    Visible = NoFieldVisible;
+
+                    trigger OnAssistEdit()
+                    begin
+                        if Rec.AssistEdit(xRec) then
+                            CurrPage.Update();
+                    end;
                 }
                 field(Name; Rec.Name)
                 {
                     ApplicationArea = All;
                     ToolTip = 'Specifies the customer name.';
+                    Importance = Promoted;
+                }
+            }
+            group("Address & Contact")
+            {
+                Caption = 'Address & Contact';
+
+                field(Address; Rec.Address)
+                {
+                    ToolTip = 'Specifies the customer''s address.';
+                }
+                field("Address 2"; Rec."Address 2")
+                {
+                    ToolTip = 'Specifies additional address information.';
+                }
+                field(City; Rec.City)
+                {
+                    ToolTip = 'Specifies the customer''s city.';
+                }
+                field("Post Code"; Rec."Post Code")
+                {
+                    ToolTip = 'Specifies the postal code.';
+                }
+                field(County; Rec.County)
+                {
+                    ToolTip = 'Specifies the county or state.';
+                }
+                field("Country/Region Code"; Rec."Country/Region Code")
+                {
+                    ToolTip = 'Specifies the country/region code.';
+                }
+                field("Contact Person Name"; Rec."Contact Person Name")
+                {
+                    ToolTip = 'Specifies the name of the primary contact person for this customer.';
+                }
+                field("Contact Person Email"; Rec."Contact Person Email")
+                {
+                    ApplicationArea = All;
+                    ToolTip = 'Specifies the email address of the primary contact person for this customer.';
                 }
             }
         }
@@ -54,4 +103,18 @@ page 62001 "D4P BC Customer Card"
             }
         }
     }
+
+    trigger OnOpenPage()
+    var
+        DocumentNoVisibility: Codeunit DocumentNoVisibility;
+    begin
+        CCMSSetup.Get();
+        NoFieldVisible := DocumentNoVisibility.ForceShowNoSeriesForDocNo(CCMSSetup."Customer Nos.");
+    end;
+
+    var
+        CCMSSetup: Record "D4P BC Setup";
+        NoFieldVisible: Boolean;
+
+
 }

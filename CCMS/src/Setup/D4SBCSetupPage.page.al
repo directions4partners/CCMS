@@ -23,6 +23,13 @@ page 62010 "D4P BC Setup"
                     ToolTip = 'Enable debug mode to display API response texts in messages for troubleshooting purposes.';
                 }
             }
+            group(Numbering)
+            {
+                Caption = 'Numbering';
+                field("Customer No. Series"; Rec."Customer Nos.")
+                {
+                }
+            }
             group(API)
             {
                 Caption = 'API Configuration';
