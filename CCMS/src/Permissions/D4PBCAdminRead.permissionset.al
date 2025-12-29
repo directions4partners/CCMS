@@ -78,6 +78,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         page "D4P AppInsights Conn List" = X,
         page "D4P AppInsights Conn Card" = X,
         page "D4P PTE Object Ranges" = X,
+        page "D4P BC Customer FactBox" = X,
 
         // Codeunit for reading data
         codeunit "D4P BC Environment Mgt" = X,

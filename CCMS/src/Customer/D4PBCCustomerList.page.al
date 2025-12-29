@@ -1,6 +1,7 @@
 namespace D4P.CCMS.Customer;
 
 using D4P.CCMS.Tenant;
+using D4P.CCMS.Environment;
 
 page 62000 "D4P BC Customers List"
 {
@@ -43,6 +44,14 @@ page 62000 "D4P BC Customers List"
                 {
                     ToolTip = 'Specifies the email address of the primary contact person for this customer.';
                 }
+            }
+        }
+        area(FactBoxes)
+        {
+            part(CustomerFootprint; "D4P BC Customer FactBox")
+            {
+                ApplicationArea = All;
+                SubPageLink = "No." = field("No.");
             }
         }
     }

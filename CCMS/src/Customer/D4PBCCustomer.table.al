@@ -4,6 +4,8 @@ using Microsoft.Foundation.NoSeries;
 using D4P.CCMS.Setup;
 using Microsoft.Foundation.Address;
 using System.EMail;
+using D4P.CCMS.Tenant;
+using D4P.CCMS.Environment;
 
 table 62000 "D4P BC Customer"
 {
@@ -111,6 +113,39 @@ table 62000 "D4P BC Customer"
             Caption = 'No. Series';
             DataClassification = CustomerContent;
             TableRelation = "No. Series";
+        }
+        field(20; Tenants; Integer)
+        {
+            Caption = 'Tenants';
+            FieldClass = FlowField;
+            CalcFormula = count("D4P BC Tenant" where("Customer No." = field("No.")));
+            Editable = false;
+        }
+        field(21; "All Active Environments"; Integer)
+        {
+            Caption = 'All Active Environments';
+            FieldClass = FlowField;
+            CalcFormula = count("D4P BC Environment" where("Customer No." = field("No."),
+                                                              State = const('Active')));
+            Editable = false;
+        }
+        field(22; "Active Prod. Environments"; Integer)
+        {
+            Caption = 'Active Production Environments';
+            FieldClass = FlowField;
+            CalcFormula = count("D4P BC Environment" where("Customer No." = field("No."),
+                                                              State = const('Active'),
+                                                              Type = const('Production')));
+            Editable = false;
+        }
+        field(23; "Active Sandbox Environ."; Integer)
+        {
+            Caption = 'Active Sandbox Environments';
+            FieldClass = FlowField;
+            CalcFormula = count("D4P BC Environment" where("Customer No." = field("No."),
+                                                              State = const('Active'),
+                                                              Type = const('Sandbox')));
+            Editable = false;
         }
     }
 
