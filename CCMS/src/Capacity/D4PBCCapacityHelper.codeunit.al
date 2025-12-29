@@ -26,9 +26,9 @@ codeunit 62018 "D4P BC Capacity Helper"
 
     local procedure GetQuotasAndStorage(CustomerNo: Code[20]; TenantID: Guid)
     var
-        BCTenant: Record "D4P BC Tenant";
         CapacityHeader: Record "D4P BC Capacity Header";
         CapacityLine: Record "D4P BC Capacity Line";
+        BCTenant: Record "D4P BC Tenant";
         TenantIdText: Text[50];
     begin
         // Get the tenant record
@@ -49,7 +49,7 @@ codeunit 62018 "D4P BC Capacity Helper"
         CapacityHeader.Init();
         CapacityHeader."Customer No." := CustomerNo;
         CapacityHeader."Tenant ID" := TenantIdText;
-        CapacityHeader."Last Update Date" := CurrentDateTime;
+        CapacityHeader."Last Update Date" := CurrentDateTime();
         CapacityHeader.Insert();
 
         // Get quotas
@@ -64,10 +64,10 @@ codeunit 62018 "D4P BC Capacity Helper"
 
     local procedure GetQuotas(var CapacityHeader: Record "D4P BC Capacity Header"; BCTenant: Record "D4P BC Tenant")
     var
+        JsonObject2: JsonObject;
         JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonValue: JsonValue;
-        JsonObject2: JsonObject;
         ResponseText: Text;
     begin
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'GET', '/environments/quotas', '', ResponseText) then
@@ -118,11 +118,11 @@ codeunit 62018 "D4P BC Capacity Helper"
 
     local procedure GetAllEnvironmentsStorage(var CapacityHeader: Record "D4P BC Capacity Header"; BCTenant: Record "D4P BC Tenant")
     var
+        i: Integer;
+        JsonArray: JsonArray;
         JsonResponse: JsonObject;
         JsonToken: JsonToken;
-        JsonArray: JsonArray;
         ResponseText: Text;
-        i: Integer;
     begin
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'GET', '/environments/usedstorage', '', ResponseText) then
             exit;
@@ -131,7 +131,7 @@ codeunit 62018 "D4P BC Capacity Helper"
 
         if JsonResponse.Get('value', JsonToken) then begin
             JsonArray := JsonToken.AsArray();
-            for i := 0 to JsonArray.Count - 1 do begin
+            for i := 0 to JsonArray.Count() - 1 do begin
                 JsonArray.Get(i, JsonToken);
                 ProcessStorageObject(CapacityHeader, JsonToken.AsObject(), i + 1);
             end;
@@ -141,15 +141,15 @@ codeunit 62018 "D4P BC Capacity Helper"
     local procedure ProcessStorageObject(var CapacityHeader: Record "D4P BC Capacity Header"; JsonObj: JsonObject; LineNo: Integer)
     var
         CapacityLine: Record "D4P BC Capacity Line";
+        DatabaseStorageKB: BigInteger;
         JsonToken: JsonToken;
         JsonValue: JsonValue;
-        DatabaseStorageKB: BigInteger;
     begin
         CapacityLine.Init();
         CapacityLine."Customer No." := CapacityHeader."Customer No.";
         CapacityLine."Tenant ID" := CapacityHeader."Tenant ID";
         CapacityLine."Line No." := LineNo;
-        CapacityLine."Measurement Date" := CurrentDateTime;
+        CapacityLine."Measurement Date" := CurrentDateTime();
 
         if JsonObj.Get('environmentName', JsonToken) then begin
             JsonValue := JsonToken.AsValue();

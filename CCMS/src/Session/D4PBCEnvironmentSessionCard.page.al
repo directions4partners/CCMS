@@ -21,27 +21,22 @@ page 62019 "D4P BC Environment Sess Card"
                 Caption = 'General';
                 field("Session ID"; Rec."Session ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the unique session identifier.';
                 }
                 field("User ID"; Rec."User ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the user ID for this session.';
                 }
                 field("Client Type"; Rec."Client Type")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the client type.';
                 }
                 field("Login Date"; Rec."Login Date")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the user logged in.';
                 }
                 field("Current Operation Duration"; Rec."Current Operation Duration")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the duration of the current operation in milliseconds.';
                 }
             }
@@ -50,22 +45,18 @@ page 62019 "D4P BC Environment Sess Card"
                 Caption = 'Entry Point';
                 field("Entry Point Operation"; Rec."Entry Point Operation")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the entry point operation.';
                 }
                 field("Entry Point Object Name"; Rec."Entry Point Object Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the entry point object name.';
                 }
                 field("Entry Point Object ID"; Rec."Entry Point Object ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the entry point object ID.';
                 }
                 field("Entry Point Object Type"; Rec."Entry Point Object Type")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the entry point object type.';
                 }
             }
@@ -74,17 +65,14 @@ page 62019 "D4P BC Environment Sess Card"
                 Caption = 'Current Object';
                 field("Current Object Name"; Rec."Current Object Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current object name.';
                 }
                 field("Current Object ID"; Rec."Current Object ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current object ID.';
                 }
                 field("Current Object Type"; Rec."Current Object Type")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current object type.';
                 }
             }
@@ -93,17 +81,14 @@ page 62019 "D4P BC Environment Sess Card"
                 Caption = 'Environment';
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the environment name.';
                 }
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the tenant ID.';
                 }
             }
@@ -116,7 +101,6 @@ page 62019 "D4P BC Environment Sess Card"
         {
             action(RefreshDetails)
             {
-                ApplicationArea = All;
                 Caption = 'Refresh Details';
                 Image = Refresh;
                 ToolTip = 'Refresh the session details from the API.';
