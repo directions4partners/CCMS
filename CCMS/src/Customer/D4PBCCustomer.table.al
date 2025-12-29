@@ -143,21 +143,21 @@ table 62000 "D4P BC Customer"
 
     procedure AssistEdit(OldCustomer: Record "D4P BC Customer"): Boolean
     var
-        D3PBCCustomer: Record "D4P BC Customer";
+        D4PBCCustomer: Record "D4P BC Customer";
     begin
-        D3PBCCustomer := Rec;
+        D4PBCCustomer := Rec;
         CCMSSetup.Get();
         CCMSSetup.TestField("Customer Nos.");
-        if NoSeries.LookupRelatedNoSeries(CCMSSetup."Customer Nos.", OldCustomer."No. Series", D3PBCCustomer."No. Series") then begin
-            "No." := NoSeries.GetNextNo(D3PBCCustomer."No. Series");
-            Rec := D3PBCCustomer;
+        if NoSeries.LookupRelatedNoSeries(CCMSSetup."Customer Nos.", OldCustomer."No. Series", D4PBCCustomer."No. Series") then begin
+            "No." := NoSeries.GetNextNo(D4PBCCustomer."No. Series");
+            Rec := D4PBCCustomer;
             exit(true);
         end;
     end;
 
     local procedure TestNoSeries()
     var
-        D3PBCCustomer: Record "D4P BC Customer";
+        D4PBCCustomer: Record "D4P BC Customer";
         IsHandled: Boolean;
     begin
         IsHandled := false;
@@ -166,7 +166,7 @@ table 62000 "D4P BC Customer"
             exit;
 
         if "No." <> xRec."No." then
-            if not D3PBCCustomer.Get(Rec."No.") then begin
+            if not D4PBCCustomer.Get(Rec."No.") then begin
                 CCMSSetup.Get();
                 NoSeries.TestManual(CCMSSetup."Customer Nos.");
                 "No. Series" := '';
