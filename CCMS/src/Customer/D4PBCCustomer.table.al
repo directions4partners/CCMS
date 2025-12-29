@@ -139,8 +139,6 @@ table 62000 "D4P BC Customer"
         PostCode: Record "Post Code";
         NoSeries: Codeunit "No. Series";
 
-
-
     procedure AssistEdit(OldCustomer: Record "D4P BC Customer"): Boolean
     var
         D4PBCCustomer: Record "D4P BC Customer";
