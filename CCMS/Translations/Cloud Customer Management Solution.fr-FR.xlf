@@ -4352,8 +4352,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Setup - Control API - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1013162530 - Control 1921896107 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Base URL for Business Central Admin API calls. Default: https://api.businesscentral.dynamics.com/admin/v2.24</source>
-          <target>URL de base pour les appels à l'API d'administration Business Central. Par défaut : https://api.businesscentral.dynamics.com/admin/v2.24</target>
+          <source>Base URL for Business Central Admin API calls. Default: https://api.businesscentral.dynamics.com/admin/v2.28</source>
+          <target>URL de base pour les appels à l'API d'administration Business Central. Par défaut : https://api.businesscentral.dynamics.com/admin/v2.28</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Setup - Control Admin API Base URL - Property ToolTip</note>
         </trans-unit>

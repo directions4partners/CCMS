@@ -18,17 +18,17 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure GetEnvironments(var BCTenant: Record "D4P BC Tenant")
     var
-        JsonResponse: JsonObject;
-        JsonArray: JsonArray;
-        JsonToken: JsonToken;
-        JsonTokenLoop: JsonToken;
-        JsonTokenField: JsonToken;
-        JsonValue: JsonValue;
-        JsonObjectLoop: JsonObject;
-        JsonVersionDetails: JsonObject;
-        ResponseText: Text;
         BCEnvironment: Record "D4P BC Environment";
+        JsonArray: JsonArray;
+        JsonObjectLoop: JsonObject;
+        JsonResponse: JsonObject;
+        JsonVersionDetails: JsonObject;
+        JsonToken: JsonToken;
+        JsonTokenField: JsonToken;
+        JsonTokenLoop: JsonToken;
+        JsonValue: JsonValue;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
+        ResponseText: Text;
     begin
         BCEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
         BCEnvironment.SetRange("Tenant ID", BCTenant."Tenant ID");
@@ -131,7 +131,7 @@ codeunit 62000 "D4P BC Environment Mgt"
                     BCEnvironment."Linked PowerPlatform Env ID" := JsonValue.AsText();
                 end;
                 // Handle nested versionDetails object
-                if JsonObjectLoop.Get('versionDetails', JsonTokenField) then begin
+                if JsonObjectLoop.Get('versionDetails', JsonTokenField) then
                     if JsonTokenField.IsObject() then begin
                         JsonVersionDetails := JsonTokenField.AsObject();
                         if JsonVersionDetails.Get('gracePeriodStartDate', JsonTokenField) then begin
@@ -145,7 +145,7 @@ codeunit 62000 "D4P BC Environment Mgt"
                                 BCEnvironment."Enforced Update Period Start" := 0DT; // Clear if evaluation fails
                         end;
                     end;
-                end;
+
                 BCEnvironment.Insert();
             end;
         end;
@@ -153,16 +153,16 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure GetInstalledApps(var BCEnvironment: Record "D4P BC Environment")
     var
-        JsonResponse: JsonObject;
+        BCInstalledApps: Record "D4P BC Installed Apps";
+        BCTenant: Record "D4P BC Tenant";
         JsonArray: JsonArray;
+        JsonObjectLoop: JsonObject;
+        JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        JsonObjectLoop: JsonObject;
-        ResponseText: Text;
-        BCTenant: Record "D4P BC Tenant";
-        BCInstalledApps: Record "D4P BC Installed Apps";
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
+        ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
@@ -256,32 +256,32 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure GetEnvironmentUpdates(var BCEnvironment: Record "D4P BC Environment"; ShowMessage: Boolean)
     var
-        JsonResponse: JsonObject;
+        BCTenant: Record "D4P BC Tenant";
+        available: Boolean;
+        ignoreUpdateWindow: Boolean;
+        selected: Boolean;
+        latestSelectableDate: DateTime;
+        selectedDateTime: DateTime;
+        month: Integer;
+        year: Integer;
         JsonArray: JsonArray;
+        JsonExpectedAvailability: JsonObject;
+        JsonObjectLoop: JsonObject;
+        JsonResponse: JsonObject;
+        JsonScheduleDetails: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        JsonObjectLoop: JsonObject;
-        JsonScheduleDetails: JsonObject;
-        JsonExpectedAvailability: JsonObject;
-        ResponseText: Text;
-        BCTenant: Record "D4P BC Tenant";
-        targetVersion: Text;
-        available: Boolean;
-        selected: Boolean;
-        selectedDateTime: DateTime;
-        latestSelectableDate: DateTime;
-        ignoreUpdateWindow: Boolean;
-        rolloutStatus: Text;
-        targetVersionType: Text;
-        expectedAvailability: Text;
-        month: Integer;
-        year: Integer;
-        Endpoint: Text;
-        SelectedUpdateVersionFetchedMsg: Label 'Selected update version %1 has been fetched successfully.';
-        NoSelectedUpdateMsg: Label 'No selected update found for the selected environment.';
-        NoAvailableUpdatesMsg: Label 'No available updates found for the selected environment.';
         FailedToFetchErr: Label 'Failed to fetch environment updates: %1';
+        NoAvailableUpdatesMsg: Label 'No available updates found for the selected environment.';
+        NoSelectedUpdateMsg: Label 'No selected update found for the selected environment.';
+        SelectedUpdateVersionFetchedMsg: Label 'Selected update version %1 has been fetched successfully.';
+        Endpoint: Text;
+        expectedAvailability: Text;
+        ResponseText: Text;
+        rolloutStatus: Text;
+        targetVersion: Text;
+        targetVersionType: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
@@ -398,28 +398,27 @@ codeunit 62000 "D4P BC Environment Mgt"
             else
                 if ShowMessage then
                     Message(NoAvailableUpdatesMsg);
-        end else begin
+        end else
             if ShowMessage then
                 Error(FailedToFetchErr, ResponseText);
-        end;
     end;
 
     procedure GetAvailableAppUpdates(var BCEnvironment: Record "D4P BC Environment")
     var
-        JsonResponse: JsonObject;
+        BCInstalledApps: Record "D4P BC Installed Apps";
+        BCTenant: Record "D4P BC Tenant";
+        appId: Guid;
         JsonArray: JsonArray;
+        JsonObjectLoop: JsonObject;
+        JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        JsonObjectLoop: JsonObject;
-        ResponseText: Text;
-        BCTenant: Record "D4P BC Tenant";
-        BCInstalledApps: Record "D4P BC Installed Apps";
-        appId: guid;
-        appVersion: Text;
-        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
         AvailableUpdatesFetchedMsg: Label 'Available updates for the selected environment have been fetched successfully.';
+        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
         NoAvailableUpdatesMsg: Label 'No available updates found for the selected environment.';
+        appVersion: Text;
+        ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
@@ -464,15 +463,15 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid; showNotification: Boolean)
     var
-        BCTenant: Record "D4P BC Tenant";
-        JsonObject: JsonObject;
         BCInstalledApps: Record "D4P BC Installed Apps";
-        ResponseText: Text;
-        AppNotFoundErr: Label 'App not found';
-        NoUpdateAvailableErr: Label 'No update available for this app';
-        FailedToUpdateErr: Label 'Failed to update app: %1';
-        AppUpdateScheduledMsg: Label 'App %1 update to version %2 successfully scheduled.';
+        BCTenant: Record "D4P BC Tenant";
         AppUpdateNotification: Notification;
+        JsonObject: JsonObject;
+        AppNotFoundErr: Label 'App not found';
+        AppUpdateScheduledMsg: Label 'App %1 update to version %2 successfully scheduled.';
+        FailedToUpdateErr: Label 'Failed to update app: %1';
+        NoUpdateAvailableErr: Label 'No update available for this app';
+        ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
@@ -502,9 +501,9 @@ codeunit 62000 "D4P BC Environment Mgt"
     procedure CreateNewBCEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100]; Localization: Code[2]; EnvironmentType: Enum "D4P Environment Type")
     var
         JsonObject: JsonObject;
-        ResponseText: Text;
-        FailedToCreateErr: Label 'Failed to create new environment: %1';
         EnvironmentCreatedMsg: Label 'New environment %1 successfully created.';
+        FailedToCreateErr: Label 'Failed to create new environment: %1';
+        ResponseText: Text;
     begin
         JsonObject.Add('environmentType', Format(EnvironmentType));
         JsonObject.Add('countryCode', Localization);
@@ -521,9 +520,9 @@ codeunit 62000 "D4P BC Environment Mgt"
     procedure CopyBCEnvironment(var BCTenant: Record "D4P BC Tenant"; SourceEnvironmentName: Text[100]; NewEnvironmentName: Text[100]; NewEnvironmentType: Enum "D4P Environment Type")
     var
         JsonObject: JsonObject;
-        ResponseText: Text;
-        FailedToCreateErr: Label 'Failed to create new environment: %1';
         CopyEnvironmentScheduledMsg: Label 'Copy environment %1 to %2 successfully scheduled.';
+        FailedToCreateErr: Label 'Failed to create new environment: %1';
+        ResponseText: Text;
     begin
         JsonObject.Add('environmentName', NewEnvironmentName);
         JsonObject.Add('type', Format(NewEnvironmentType));
@@ -539,9 +538,9 @@ codeunit 62000 "D4P BC Environment Mgt"
     procedure RenameBCEnvironment(var BCTenant: Record "D4P BC Tenant"; SourceEnvironmentName: Text[100]; NewEnvironmentName: Text[100])
     var
         JsonObject: JsonObject;
-        ResponseText: Text;
-        FailedToRenameErr: Label 'Failed to rename environment: %1';
         EnvironmentRenamedMsg: Label 'Environment %1 successfully renamed to %2.';
+        FailedToRenameErr: Label 'Failed to rename environment: %1';
+        ResponseText: Text;
     begin
         JsonObject.Add('NewEnvironmentName', NewEnvironmentName);
 
@@ -555,9 +554,9 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure DeleteBCEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100])
     var
-        ResponseText: Text;
-        FailedToDeleteErr: Label 'Failed to delete environment: %1';
         EnvironmentMarkedForDeletionMsg: Label 'Environment %1 successfully marked for deletion.';
+        FailedToDeleteErr: Label 'Failed to delete environment: %1';
+        ResponseText: Text;
     begin
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'DELETE',
             '/applications/businesscentral/environments/' + EnvironmentName, '', ResponseText) then
@@ -569,26 +568,26 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure GetAvailableUpdates(var BCEnvironment: Record "D4P BC Environment"; var TempAvailableUpdate: Record "D4P BC Available Update" temporary)
     var
-        JsonResponse: JsonObject;
+        BCSetup: Record "D4P BC Setup";
+        BCTenant: Record "D4P BC Tenant";
+        ProgressDialog: Dialog;
+        CurrentUpdate: Integer;
+        EntryNo: Integer;
+        TotalUpdates: Integer;
         JsonArray: JsonArray;
+        JsonExpectedAvailability: JsonObject;
+        JsonObjectLoop: JsonObject;
+        JsonResponse: JsonObject;
+        JsonScheduleDetails: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        JsonObjectLoop: JsonObject;
-        JsonScheduleDetails: JsonObject;
-        JsonExpectedAvailability: JsonObject;
-        ResponseText: Text;
-        BCTenant: Record "D4P BC Tenant";
-        BCSetup: Record "D4P BC Setup";
-        Endpoint: Text;
-        EntryNo: Integer;
-        ProgressDialog: Dialog;
-        TotalUpdates: Integer;
-        CurrentUpdate: Integer;
         FailedToFetchErr: Label 'Failed to fetch available updates: %1';
         FetchingUpdatesMsg: Label 'Fetching available updates...';
-        ProcessingUpdateMsg: Label 'Processing update #1#### of #2####: #3####################';
         NoUpdatesFoundMsg: Label 'No updates found in API response for environment %1.';
+        ProcessingUpdateMsg: Label 'Processing update #1#### of #2####: #3####################';
+        Endpoint: Text;
+        ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
         BCSetup.Get();
@@ -725,18 +724,18 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure SelectTargetVersion(var BCEnvironment: Record "D4P BC Environment"; TargetVersion: Text[100]; SelectedDate: Date; ExpectedMonth: Integer; ExpectedYear: Integer)
     var
-        BCTenant: Record "D4P BC Tenant";
         BCSetup: Record "D4P BC Setup";
-        JsonObject: JsonObject;
-        JsonScheduleDetails: JsonObject;
-        RequestBody: Text;
-        ResponseText: Text;
-        Endpoint: Text;
+        BCTenant: Record "D4P BC Tenant";
         IsAvailable: Boolean;
         SelectedDateTime: DateTime;
+        JsonObject: JsonObject;
+        JsonScheduleDetails: JsonObject;
+        FailedToSelectErr: Label 'Failed to select target version: %1';
         UpdateScheduledMsg: Label 'Update to version %1 successfully scheduled for %2.';
         UpdateSelectedMsg: Label 'Update to version %1 successfully selected. Expected availability: %2/%3.';
-        FailedToSelectErr: Label 'Failed to select target version: %1';
+        Endpoint: Text;
+        RequestBody: Text;
+        ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
         BCSetup.Get();
@@ -787,10 +786,10 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure RescheduleBCEnvironmentUpgrade(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100]; TargetVersion: Text[100]; UpgradeDate: DateTime)
     var
-        ResponseText: Text;
-        Endpoint: Text;
         EnvironmentUpgradeScheduledMsg: Label 'Environment %1 successfully scheduled for upgrade to version %2 on Date %3.';
         FailedToUpgradeErr: Label 'Failed to upgrade environment: %1';
+        Endpoint: Text;
+        ResponseText: Text;
     begin
         // Call Admin API to reschedule environment upgrade
         Endpoint := '/applications/businesscentral/environments/' + EnvironmentName + '/updates';
@@ -804,14 +803,14 @@ codeunit 62000 "D4P BC Environment Mgt"
     procedure SetApplicationInsightsConnectionString(var BCEnvironment: Record "D4P BC Environment")
     var
         BCTenant: Record "D4P BC Tenant";
-        JsonObject: JsonObject;
-        RequestBody: Text;
-        ResponseText: Text;
-        Endpoint: Text;
         IsRemoving: Boolean;
+        JsonObject: JsonObject;
         ConnectionStringRemovedMsg: Label 'Application Insights connection string successfully removed for environment %1.';
         ConnectionStringSetMsg: Label 'Application Insights connection string successfully set for environment %1.';
         FailedToSetKeyErr: Label 'Failed to set Application Insights key: %1';
+        Endpoint: Text;
+        RequestBody: Text;
+        ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 

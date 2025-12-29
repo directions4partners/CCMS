@@ -10,13 +10,11 @@ table 62000 "D4P BC Customer"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
-            DataClassification = CustomerContent;
             NotBlank = true;
         }
         field(2; "Name"; Text[100])
         {
             Caption = 'Name';
-            DataClassification = CustomerContent;
         }
     }
 

@@ -81,8 +81,8 @@ page 62043 "D4P KQL Page Executions"
 
                 trigger OnAction()
                 var
-                    LoadTelemetryReport: Report "D4P Load Data";
                     BCEnvironment: Record "D4P BC Environment";
+                    LoadTelemetryReport: Report "D4P Load Data";
                     NoEnvironmentContextErr: Label 'No environment context available. Please run this query from the Environment List or Environment Card.';
                 begin
                     // If we have a stored environment context, use it
