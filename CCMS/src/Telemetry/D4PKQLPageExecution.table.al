@@ -2,7 +2,6 @@ namespace D4P.CCMS.Telemetry;
 
 table 62036 "D4P KQL Page Execution"
 {
-
     DataClassification = SystemMetadata;
     Caption = 'KQL Page Execution', Locked = true;
 
@@ -18,7 +17,6 @@ table 62036 "D4P KQL Page Execution"
         }
         field(15; "Entry No."; Integer)
         {
-            DataClassification = SystemMetadata;
             Caption = 'Entry No.';
         }
         field(16; "User ID"; Code[50])
@@ -28,39 +26,32 @@ table 62036 "D4P KQL Page Execution"
         }
         field(20; "Page Name"; Text[2014])
         {
-            DataClassification = SystemMetadata;
             Caption = 'Page Name', Locked = true;
         }
         field(30; "Execution Date"; Date)
         {
-            DataClassification = SystemMetadata;
             Caption = 'Execution Date', Locked = true;
         }
         field(31; "Execution Date/Time"; DateTime)
         {
-            DataClassification = SystemMetadata;
             Caption = 'Execution Date/Time', Locked = true;
         }
         field(40; "Average Execution Time"; Decimal)
         {
-            DataClassification = SystemMetadata;
             DecimalPlaces = 0 : 2;
             Caption = 'Average Execution Time', Locked = true;
         }
         field(50; "Max. Execution Time"; Decimal)
         {
-            DataClassification = SystemMetadata;
             DecimalPlaces = 0 : 2;
             Caption = 'Max. Execution Time', Locked = true;
         }
         field(60; "No. Of Executions"; Integer)
         {
-            DataClassification = SystemMetadata;
             Caption = 'No. of Executions', Locked = true;
         }
         field(70; "Page ID"; Integer)
         {
-            DataClassification = SystemMetadata;
             Caption = 'Page ID', Locked = true;
         }
         field(80; "Company Name"; Text[50])
@@ -75,7 +66,6 @@ table 62036 "D4P KQL Page Execution"
         }
         field(110; "Environment Type"; Text[50])
         {
-            DataClassification = SystemMetadata;
             Caption = 'Environment Type', Locked = true;
         }
         field(111; "Environment Name"; Text[50])

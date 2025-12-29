@@ -17,17 +17,14 @@ page 62027 "D4P BC App Registration List"
             {
                 field("Client ID"; Rec."Client ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Azure AD Application (Client) ID.';
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies a description for this app registration.';
                 }
                 field("Secret Expiration Date"; Rec."Secret Expiration Date")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the client secret expires. Update the secret before this date.';
                     StyleExpr = SecretExpirationStyle;
                 }

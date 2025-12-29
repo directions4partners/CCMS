@@ -15,28 +15,28 @@ using D4P.CCMS.Environment;
 codeunit 62030 "D4P AppInsights Client"
 {
     var
-        TelemetryApplicationId: Text[50];
-        TelemetryAPIKey: Text[50];
-        TelemetryTenantId: Text[50];
-        AIConnectionString: Text[1000];
         TempCurrFields: Record "Name/Value Buffer" temporary;
-        ApplicationIdTxt: Label 'ApplicationId', Locked = true;
-        ApiKeyTxt: Label 'ApiKey', Locked = true;
-        _uniqueSessionId: Guid;
+        ReaderDialogIsOpenValue: Boolean;
+        Dlg: Dialog;
         _instrumentationKey: Guid;
+        _uniqueSessionId: Guid;
+        EmptyGuid: Guid;
+        ReaderDialogCounter: array[2] of Integer;
+        ReaderDialogFreq: Integer;
+        RowIndex: Integer;
+        TotalRowCount: Integer;
+        Columns: JsonArray;
+        CurrRow: JsonArray;
+        Rows: JsonArray;
+        ApiKeyTxt: Label 'ApiKey', Locked = true;
+        ApplicationIdTxt: Label 'ApplicationId', Locked = true;
         _emitUri: Text;
         IngestionEndpointUrl: Text;
         LastResponse: Text;
-        Rows: JsonArray;
-        CurrRow: JsonArray;
-        Columns: JsonArray;
-        RowIndex: Integer;
-        TotalRowCount: Integer;
-        ReaderDialogIsOpenValue: Boolean;
-        Dlg: Dialog;
-        ReaderDialogCounter: array[2] of Integer;
-        ReaderDialogFreq: Integer;
-        EmptyGuid: Guid;
+        TelemetryAPIKey: Text[50];
+        TelemetryApplicationId: Text[50];
+        TelemetryTenantId: Text[50];
+        AIConnectionString: Text[1000];
 
     procedure GetConfigurationKeys(): List of [Text[250]];
     var
@@ -116,10 +116,9 @@ codeunit 62030 "D4P AppInsights Client"
         TelemetryTenantId := TenantId;
         AIConnectionString := ConnectionString;
 
-        if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then begin
+        if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then
             // Use the actual connection string for initialization
             InitializeForPost(AIConnectionString);
-        end;
     end;
 
     procedure InitializeFromEnvironment(Environment: Record "D4P BC Environment");
@@ -127,7 +126,7 @@ codeunit 62030 "D4P AppInsights Client"
         AIConnectionSetup: Record "D4P AppInsights Connection";
     begin
         // Get telemetry data from environment and AppInsights connection setup
-        if Environment."Application Insights String" <> '' then begin
+        if Environment."Application Insights String" <> '' then
             if AIConnectionSetup.Get(Environment."Application Insights String") then begin
                 // Set the telemetry data from AppInsights connection setup
                 TelemetryApplicationId := AIConnectionSetup."Telemetry Application Id";
@@ -135,12 +134,10 @@ codeunit 62030 "D4P AppInsights Client"
                 TelemetryTenantId := AIConnectionSetup."Tenant Id";
                 AIConnectionString := AIConnectionSetup."AppInsights Connection String";
 
-                if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then begin
+                if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then
                     // Use the actual connection string for initialization
                     InitializeForPost(AIConnectionString);
-                end;
             end;
-        end;
     end;
 
 
@@ -177,9 +174,9 @@ codeunit 62030 "D4P AppInsights Client"
 
     procedure GetOAuthToken() AuthToken: SecretText
     var
-        AccessTokenURL: Text;
         OAuth2: Codeunit OAuth2;
         Scopes: List of [Text];
+        AccessTokenURL: Text;
         tenantID: Text;
     begin
         tenantID := TelemetryTenantId.Replace('{', '');
@@ -230,9 +227,9 @@ codeunit 62030 "D4P AppInsights Client"
         jw.WriteStringProperty('severityLevel', GetSeverity(Verbosity));
 
         jw.WriteStartObject('properties');
-        jw.WriteStringProperty('companyName', CompanyName);
-        jw.WriteStringProperty('clientType', Format(CurrentClientType));
-        foreach k in Properties.Keys do
+        jw.WriteStringProperty('companyName', CompanyName());
+        jw.WriteStringProperty('clientType', Format(CurrentClientType()));
+        foreach k in Properties.Keys() do
             jw.WriteStringProperty(k, Properties.Get(k));
         jw.WriteEndObject(); // properties
 
@@ -251,25 +248,25 @@ codeunit 62030 "D4P AppInsights Client"
     [TryFunction]
     procedure RunQuery(QueryString: Text)
     var
-        response: Text;
-        ErrorMessage: Text;
 
         HttpClient: HttpClient;
-        HttpRequestMessage: HttpRequestMessage;
         HttpContentMessage: HttpContent;
-        HttpResponseMessage: HttpResponseMessage;
-        RequestHeaders: HttpHeaders;
         ContentHeaders: HttpHeaders;
-        JsonResponse: JsonObject;
+        RequestHeaders: HttpHeaders;
+        HttpRequestMessage: HttpRequestMessage;
+        HttpResponseMessage: HttpResponseMessage;
         JsonArray: JsonArray;
+        JsonObjectLoop: JsonObject;
+        JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        JsonObjectLoop: JsonObject;
-        AuthToken: SecretText;
-        ResponseText: Text;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1 %2';
         FailedToSendRequestErr: Label 'Failed to send HTTP request to Endpoint';
+        AuthToken: SecretText;
+        ErrorMessage: Text;
+        response: Text;
+        ResponseText: Text;
     begin
         IngestionEndpointUrl := 'https://api.applicationinsights.io/v1/apps/' + ApplicationId() + '/query';
         HttpRequestMessage.SetRequestUri(IngestionEndpointUrl);
@@ -287,12 +284,12 @@ codeunit 62030 "D4P AppInsights Client"
         // Send the HTTP request
         if HttpClient.Send(HttpRequestMessage, HttpResponseMessage) then begin
             if HttpResponseMessage.IsSuccessStatusCode() then begin
-                HttpResponseMessage.Content.ReadAs(ResponseText);
+                HttpResponseMessage.Content().ReadAs(ResponseText);
                 //Message(ResponseText);
                 LastResponse := ResponseText;
             end else begin
                 //Report errors!
-                HttpResponseMessage.Content.ReadAs(ResponseText);
+                HttpResponseMessage.Content().ReadAs(ResponseText);
                 Error(FailedToFetchErr, HttpResponseMessage.HttpStatusCode(), ResponseText);
             end;
         end else
@@ -306,9 +303,9 @@ codeunit 62030 "D4P AppInsights Client"
     /// <returns>The tables in the current result set.</returns>
     procedure ListTables(): List of [Text]
     var
+        ja: JsonArray;
         jo: JsonObject;
         jt: JsonToken;
-        ja: JsonArray;
         result: List of [Text];
     begin
         jo.ReadFrom(LastResponse);
@@ -338,7 +335,7 @@ codeunit 62030 "D4P AppInsights Client"
 
         if (not currTable.Get('rows', jt)) then exit(false);
         Rows := jt.AsArray();
-        TotalRowCount := Rows.Count;
+        TotalRowCount := Rows.Count();
         if not GetRow(0) then exit(false);
 
         exit(true);
@@ -412,8 +409,8 @@ codeunit 62030 "D4P AppInsights Client"
     [TryFunction]
     procedure IsValueGuid(ColumnName: Text)
     var
-        jv: JsonValue;
         TempValue: Guid;
+        jv: JsonValue;
     begin
         jv := GetValue(ColumnName, false);
         Evaluate(TempValue, jv.AsText());
@@ -458,8 +455,8 @@ codeunit 62030 "D4P AppInsights Client"
     [TryFunction]
     procedure IsValueInt(ColumnName: Text)
     var
-        jv: JsonValue;
         TempValue: Integer;
+        jv: JsonValue;
     begin
         Clear(TempValue);
         jv := GetValue(ColumnName, false);
@@ -500,8 +497,8 @@ codeunit 62030 "D4P AppInsights Client"
     [TryFunction]
     procedure IsValueDecimal(ColumnName: Text)
     var
-        jv: JsonValue;
         TempValue: Decimal;
+        jv: JsonValue;
     begin
         Clear(TempValue);
         jv := GetValue(ColumnName, false);
@@ -542,8 +539,8 @@ codeunit 62030 "D4P AppInsights Client"
     [TryFunction]
     procedure IsValueDateTime(ColumnName: Text)
     var
-        jv: JsonValue;
         TempValue: DateTime;
+        jv: JsonValue;
     begin
         Clear(TempValue);
         jv := GetValue(ColumnName, false);
@@ -608,9 +605,9 @@ codeunit 62030 "D4P AppInsights Client"
     /// <returns>The value.</returns>
     procedure GetValueAsDateOnly(ColumnName: Text; WithError: Boolean): Date
     var
+        Result: Date;
         jv: JsonValue;
         TextValue: Text;
-        Result: Date;
     begin
         jv := GetValue(ColumnName, WithError);
         if (jv.IsNull()) then exit(0D);
@@ -633,8 +630,8 @@ codeunit 62030 "D4P AppInsights Client"
     [TryFunction]
     procedure IsValueBool(ColumnName: Text)
     var
-        jv: JsonValue;
         TempValue: Boolean;
+        jv: JsonValue;
     begin
         Clear(TempValue);
         jv := GetValue(ColumnName, false);
@@ -727,8 +724,8 @@ codeunit 62030 "D4P AppInsights Client"
     /// <returns>The value.</returns>
     procedure GetValueAsObject(ColumnName: Text; WithError: Boolean): JsonObject
     var
-        jv: JsonValue;
         jo: JsonObject;
+        jv: JsonValue;
     begin
         jv := GetValue(ColumnName, WithError);
         if (jv.IsNull()) then exit(jo);
@@ -773,9 +770,9 @@ codeunit 62030 "D4P AppInsights Client"
 
     local procedure GetTable(name: Text; var result: JsonObject): Boolean
     var
+        ja: JsonArray;
         jo: JsonObject;
         jt: JsonToken;
-        ja: JsonArray;
     begin
         Clear(result);
         jo.ReadFrom(LastResponse);
@@ -829,17 +826,17 @@ codeunit 62030 "D4P AppInsights Client"
     /// There are DeserializeToRecordRef[xxx] events available to customize deserialization.
     /// </summary>
     /// <param name="RecRef">The target RecordRef where field values will be written to.</param>
-    procedure DeserializeToRecordRef(var RecRef: Recordref)
+    procedure DeserializeToRecordRef(var RecRef: RecordRef)
     var
-        TempBuffer: Record "Name/Value Buffer" temporary;
         Field: Record Field;
+        TempBuffer: Record "Name/Value Buffer" temporary;
         FldRef: FieldRef;
-        TextValue: Text;
-        FoundFieldNo: Integer;
         IsHandled: Boolean;
+        FoundFieldNo: Integer;
+        TextValue: Text;
     begin
         //Convert.FromXMLFormat(); //TBD
-        Field.SetRange(TableNo, RecRef.Number);
+        Field.SetRange(TableNo, RecRef.Number());
         GetFields(TempBuffer);
         if TempBuffer.FindSet() then
             repeat
@@ -867,7 +864,7 @@ codeunit 62030 "D4P AppInsights Client"
                     Clear(IsHandled);
                     OnDeserializeToRecordRefBeforeSetFieldValue(TempBuffer.Name, RecRef, FldRef, TextValue, IsHandled);
                     if (not IsHandled) then
-                        if (FldRef.Type = FldRef.Type::Blob) then begin
+                        if (FldRef.Type() = FldRef.Type::Blob) then begin
                             Clear(IsHandled);
                             OnDeserializeToRecordRefSetBlobValue(TempBuffer.Name, RecRef, FldRef, TextValue, IsHandled);
                             FldRef := RecRef.Field(FoundFieldNo);
@@ -876,7 +873,7 @@ codeunit 62030 "D4P AppInsights Client"
                                (Field.Type in [Field.Type::Text, Field.Type::Code])
                             then
                                 TextValue := CopyStr(TextValue, 1, Field.Len);
-                            if (FldRef.Type = FldRef.Type::Guid) and (TextValue = '') then
+                            if (FldRef.Type() = FldRef.Type::Guid) and (TextValue = '') then
                                 TextValue := Format(EmptyGuid);
                             ConvertToFieldRef(TextValue, FldRef);
                         end;
@@ -938,8 +935,8 @@ codeunit 62030 "D4P AppInsights Client"
 
     local procedure GetJsonArray(jo: JsonObject; PropertyName: Text): JsonArray
     var
-        jt: JsonToken;
         ja: JsonArray;
+        jt: JsonToken;
     begin
         if jo.Get(PropertyName, jt) then
             ja := jt.AsArray();
@@ -961,10 +958,10 @@ codeunit 62030 "D4P AppInsights Client"
 
     local procedure ExplodeConnectionString(ConnectionString: Text): Dictionary of [Text, Text]
     var
+        result: Dictionary of [Text, Text];
+        kvp: List of [Text];
         parts: List of [Text];
         part: Text;
-        kvp: List of [Text];
-        result: Dictionary of [Text, Text];
     begin
         parts := ConnectionString.Split(';');
         foreach part in parts do begin
@@ -976,8 +973,8 @@ codeunit 62030 "D4P AppInsights Client"
 
     local procedure SplitConnectionString(ConnectionString: Text)
     var
-        ub: Codeunit "Uri Builder";
         uri: Codeunit Uri;
+        ub: Codeunit "Uri Builder";
         Dict: Dictionary of [Text, Text];
     begin
         Dict := ExplodeConnectionString(ConnectionString);
@@ -991,16 +988,16 @@ codeunit 62030 "D4P AppInsights Client"
 
     local procedure ConvertToFieldRef(TextValue: Text; var FldRef: FieldRef)
     var
+        TempBoolean: Boolean;
         TempDate: Date;
         TempDateTime: DateTime;
-        TempTime: Time;
         TempDecimal: Decimal;
-        TempInteger: Integer;
-        TempBoolean: Boolean;
         TempGuid: Guid;
+        TempInteger: Integer;
+        TempTime: Time;
     begin
         if TextValue = '' then begin
-            case FldRef.Type of
+            case FldRef.Type() of
                 FldRef.Type::Date:
                     FldRef.Value := 0D;
                 FldRef.Type::DateTime:
@@ -1021,7 +1018,7 @@ codeunit 62030 "D4P AppInsights Client"
             exit;
         end;
 
-        case FldRef.Type of
+        case FldRef.Type() of
             FldRef.Type::Date:
                 if Evaluate(TempDate, TextValue, 9) then
                     FldRef.Value := TempDate

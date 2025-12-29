@@ -11,7 +11,7 @@ page 62040 "D4P KQL Queries"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(EnvironmentInfo)
             {
@@ -19,21 +19,18 @@ page 62040 "D4P KQL Queries"
                 Visible = ShowEnvironmentContext;
                 field(CurrentEnvironmentName; CurrentEnvironment.Name)
                 {
-                    ApplicationArea = All;
                     Caption = 'Environment';
                     Editable = false;
                     ToolTip = 'Specifies the environment that will be used for telemetry queries.';
                 }
                 field(CurrentEnvironmentTelemetryDescription; CurrentEnvironment."Telemetry Description")
                 {
-                    ApplicationArea = All;
                     Caption = 'Telemetry Connection';
                     Editable = false;
                     ToolTip = 'Specifies the telemetry connection description for the current environment.';
                 }
                 field(TelemetryStatus; TelemetryStatusText)
                 {
-                    ApplicationArea = All;
                     Caption = 'Status';
                     Editable = false;
                     StyleExpr = TelemetryStatusStyle;
@@ -44,30 +41,25 @@ page 62040 "D4P KQL Queries"
             {
                 field(Code; Rec.Code)
                 {
-                    ApplicationArea = All;
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
                     Width = 40;
                 }
                 field(ResultTableID; Rec."Result Table ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Table ID where results will be stored. Leave blank for generic processing.';
                 }
             }
         }
 
-        area(factboxes)
+        area(FactBoxes)
         {
             part(Preview; "D4P KQL Query Preview")
             {
-                ApplicationArea = All;
                 SubPageLink = Code = field(Code);
             }
         }
@@ -84,10 +76,10 @@ page 62040 "D4P KQL Queries"
                 Image = Start;
                 trigger OnAction()
                 var
-                    LoadData: Report "D4P Load Data";
                     AIConnectionSetup: Record "D4P AppInsights Connection";
-                    NoEnvironmentContextErr: Label 'No environment context is set. Please open KQL Queries from the Environment Card to use the environment context directly.';
+                    LoadData: Report "D4P Load Data";
                     NoConnectionStringErr: Label 'The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.';
+                    NoEnvironmentContextErr: Label 'No environment context is set. Please open KQL Queries from the Environment Card to use the environment context directly.';
                     SetupNotFoundErr: Label 'Application Insights connection setup not found for environment "%1". Please verify telemetry configuration.';
                 begin
                     // Check if we have environment context set
@@ -126,9 +118,9 @@ page 62040 "D4P KQL Queries"
 
     var
         CurrentEnvironment: Record "D4P BC Environment";
-        TelemetryStatusText: Text[50];
-        TelemetryStatusStyle: Text[20];
         ShowEnvironmentContext: Boolean;
+        TelemetryStatusStyle: Text[20];
+        TelemetryStatusText: Text[50];
 
     /// <summary>
     /// Sets the current environment context for telemetry queries
@@ -141,9 +133,8 @@ page 62040 "D4P KQL Queries"
         ShowEnvironmentContext := true;
 
         // Calculate telemetry flowfields for display
-        if CurrentEnvironment."Application Insights String" <> '' then begin
+        if CurrentEnvironment."Application Insights String" <> '' then
             CurrentEnvironment.CalcFields("Telemetry API Key", "Telemetry Application ID", "Telemetry Tenant ID", "Telemetry Description");
-        end;
 
         // Update page caption and status
         CurrPage.Caption := 'KQL Queries - ' + Environment.Name;
@@ -179,7 +170,7 @@ page 62040 "D4P KQL Queries"
         if CurrentEnvironment."Application Insights String" = '' then begin
             TelemetryStatusText := 'Not Configured';
             TelemetryStatusStyle := 'Unfavorable';
-        end else begin
+        end else
             if AIConnectionSetup.Get(CurrentEnvironment."Application Insights String") then begin
                 if (AIConnectionSetup."Telemetry Application Id" <> '') and
                    (AIConnectionSetup."Telemetry API Key" <> '') then begin
@@ -193,7 +184,6 @@ page 62040 "D4P KQL Queries"
                 TelemetryStatusText := 'Setup Not Found';
                 TelemetryStatusStyle := 'Unfavorable';
             end;
-        end;
     end;
 
     trigger OnOpenPage()
