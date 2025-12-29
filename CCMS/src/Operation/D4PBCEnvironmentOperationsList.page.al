@@ -2,7 +2,7 @@ namespace D4P.CCMS.Operations;
 
 using D4P.CCMS.Environment;
 
-page 62026 "D4P BC Environment Operations"
+page 62028 "D4P BC Environment Operations"
 {
     PageType = List;
     ApplicationArea = All;

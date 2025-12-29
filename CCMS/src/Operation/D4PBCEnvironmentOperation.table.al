@@ -40,6 +40,7 @@ table 62025 "D4P BC Environment Operation"
         field(50; "Product Family"; Text[50])
         {
             Caption = 'Product Family';
+            ToolTip = 'Specifies the product family.';
         }
         field(60; "Operation Type"; Text[50])
         {
@@ -54,6 +55,7 @@ table 62025 "D4P BC Environment Operation"
         field(80; "AAD Tenant ID"; Text[50])
         {
             Caption = 'AAD Tenant ID';
+            ToolTip = 'Specifies the Azure Active Directory tenant ID.';
         }
         field(90; "Created On"; DateTime)
         {

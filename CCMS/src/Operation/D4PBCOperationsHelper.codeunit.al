@@ -30,6 +30,8 @@ codeunit 62025 "D4P BC Operations Helper"
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'GET', Endpoint, '', ResponseText) then
             Error(OperationFetchErr, EnvironmentName);
 
+        DeleteOperationsForEnvironment(CustomerNo, Format(TenantID), EnvironmentName);
+
         if ResponseText <> '' then
             ParseOperationsResponse(CustomerNo, Format(TenantID), ResponseText);
     end;
@@ -72,10 +74,6 @@ codeunit 62025 "D4P BC Operations Helper"
         if not GetJsonGuid(JOperation, 'id', OperationID) then
             exit;
 
-        // Check if operation already exists
-        if Operation.Get(OperationID) then
-            Operation.Delete(true);
-
         Operation.Init();
         Operation."Customer No." := CustomerNo;
         Operation."Tenant ID" := TenantID;
@@ -93,7 +91,7 @@ codeunit 62025 "D4P BC Operations Helper"
         Operation."Environment Type" := GetJsonText(JOperation, 'environmentType');
         Operation."Product Family" := GetJsonText(JOperation, 'productFamily');
 
-        // Get datetime fields (time zone is UTC +2)
+        // Get datetime fields (time zone is UTC, convert to user time zone)
         Operation."Created On" := GetJsonDateTime(JOperation, 'createdOn');
         Operation."Started On" := GetJsonDateTime(JOperation, 'startedOn');
         Operation."Completed On" := GetJsonDateTime(JOperation, 'completedOn');
@@ -142,8 +140,18 @@ codeunit 62025 "D4P BC Operations Helper"
             if not JToken.AsValue().IsNull then begin
                 DateTimeText := JToken.AsValue().AsText();
                 if Evaluate(ResultDateTime, DateTimeText, 9) then
-                    exit(TypeHelper.GetInputDateTimeInUserTimeZone(ResultDateTime));
+                    exit(TypeHelper.ConvertDateTimeFromUTCToTimeZone(ResultDateTime, 'UTC'));
             end;
         exit(0DT);
+    end;
+
+    local procedure DeleteOperationsForEnvironment(CustomerNo: Code[20]; TenantID: Text; EnvironmentName: Text[100])
+    var
+        BCEnvironmentOperation: Record "D4P BC Environment Operation";
+    begin
+        BCEnvironmentOperation.SetRange("Customer No.", CustomerNo);
+        BCEnvironmentOperation.SetRange("Tenant ID", TenantID);
+        BCEnvironmentOperation.SetRange("Environment Name", EnvironmentName);
+        BCEnvironmentOperation.DeleteAll(true);
     end;
 }

@@ -509,7 +509,7 @@ page 62003 "D4P BC Environment List"
             {
                 ApplicationArea = All;
                 Caption = 'Operations';
-                Image = TaskList;
+                Image = ServiceTasks;
                 ToolTip = 'View operations history for this environment.';
 
                 trigger OnAction()
