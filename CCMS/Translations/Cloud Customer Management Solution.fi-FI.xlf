@@ -2074,14 +2074,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action SetAppInsightsConnectionString - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1494117452 - Action 1285194967 - Method 1377591017 - NamedType 3398415263" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Are you sure you want to set the Application Insights connection string for environment %1?</source>
-          <target>Haluatko varmasti asettaa Application Insights -yhteysmerkkijonon ympäristölle %1?</target>
+          <source>Are you sure you want to set the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.</source>
+          <target>Haluatko varmasti asettaa Application Insights -yhteysmerkkijonon ympäristölle %1?\Huomiothan, että tämä KÄYNNISTÄÄ ympäristön uudelleen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action SetAppInsightsConnectionString - Method OnAction - NamedType AppInsightsMsg</note>
         </trans-unit>
         <trans-unit id="Page 1494117452 - Action 1285194967 - Method 1377591017 - NamedType 4040907277" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Are you sure you want to remove the Application Insights connection string for environment %1?</source>
-          <target>Haluatko varmasti poistaa Application Insights -yhteysmerkkijonon ympäristöltä %1?</target>
+          <source>Are you sure you want to remove the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.</source>
+          <target>Haluatko varmasti poistaa Application Insights -yhteysmerkkijonon ympäristöltä %1?\Huomiothan, että tämä KÄYNNISTÄÄ ympäristön uudelleen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action SetAppInsightsConnectionString - Method OnAction - NamedType RemoveAppInsightsMsg</note>
         </trans-unit>
@@ -2410,14 +2410,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action SetAppInsightsConnectionString - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 1285194967 - Method 1377591017 - NamedType 3398415263" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Are you sure you want to set the Application Insights connection string for environment %1?</source>
-          <target>Haluatko varmasti asettaa Application Insights -yhteysmerkkijonon ympäristölle %1?</target>
+          <source>Are you sure you want to set the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.</source>
+          <target>Haluatko varmasti asettaa Application Insights -yhteysmerkkijonon ympäristölle %1?\Huomiothan, että tämä KÄYNNISTÄÄ ympäristön uudelleen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action SetAppInsightsConnectionString - Method OnAction - NamedType AppInsightsMsg</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 1285194967 - Method 1377591017 - NamedType 4040907277" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Are you sure you want to remove the Application Insights connection string for environment %1?</source>
-          <target>Haluatko varmasti poistaa Application Insights -yhteysmerkkijonon ympäristöltä %1?</target>
+          <source>Are you sure you want to remove the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.</source>
+          <target>Haluatko varmasti poistaa Application Insights -yhteysmerkkijonon ympäristöltä %1?\Huomiothan, että tämä KÄYNNISTÄÄ ympäristön uudelleen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action SetAppInsightsConnectionString - Method OnAction - NamedType RemoveAppInsightsMsg</note>
         </trans-unit>
@@ -3071,7 +3071,7 @@
         </trans-unit>
         <trans-unit id="Page 1896412547 - Control 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the customer associated with the installed app.</source>
-          <target>Määrittää asennettuun sovellukseen liittyvän asiakkaan.</target>
+          <target>Määrittää asennetun sovelluksen asiakkaan.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Customer No. - Property ToolTip</note>
         </trans-unit>
@@ -3101,7 +3101,7 @@
         </trans-unit>
         <trans-unit id="Page 1896412547 - Control 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the tenant identifier associated with the app.</source>
-          <target>Määrittää sovellukseen liittyvän vuokraajan tunnisteen.</target>
+          <target>Määrittää asennetun sovelluksen asiakkaan Tenant-ID:n.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
