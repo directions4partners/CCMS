@@ -110,8 +110,8 @@ page 62042 "D4P KQL Extension Lifecycle"
 
                 trigger OnAction()
                 var
-                    LoadTelemetryReport: Report "D4P Load Data";
                     BCEnvironment: Record "D4P BC Environment";
+                    LoadTelemetryReport: Report "D4P Load Data";
                     NoEnvironmentContextErr: Label 'No environment context available. Please run this query from the Environment List or Environment Card.';
                 begin
                     // If we have a stored environment context, use it
@@ -140,8 +140,8 @@ page 62042 "D4P KQL Extension Lifecycle"
     }
 
     var
-        StyleExpression: Text;
         EnvironmentContext: Record "D4P BC Environment";
+        StyleExpression: Text;
 
     trigger OnAfterGetRecord()
     begin

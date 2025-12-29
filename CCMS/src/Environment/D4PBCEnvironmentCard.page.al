@@ -26,43 +26,36 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'General';
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number associated with this environment.';
                     Editable = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the tenant ID of the environment.';
                     Editable = false;
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the name of the environment.';
                     Editable = false;
                 }
                 field("Friendly Name"; Rec."Friendly Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the friendly/display name of the environment.';
                     Editable = false;
                 }
                 field("Application Family"; Rec."Application Family")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the application family of the environment.';
                     Editable = false;
                 }
                 field(Type; Rec.Type)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the type of the environment.';
                     Editable = false;
                 }
                 field(State; Rec.State)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current state of the environment.';
                     Editable = false;
                     StyleExpr = StateStyleExpr;
@@ -73,19 +66,16 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'Location';
                 field("Country/Region"; Rec."Country/Region")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the country/region of the environment.';
                     Editable = false;
                 }
                 field("Location Name"; Rec."Location Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Azure Region where the environment database is stored.';
                     Editable = false;
                 }
                 field("Geo Name"; Rec."Geo Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Azure Geo where the environment database is stored.';
                     Editable = false;
                 }
@@ -95,19 +85,16 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'Versions';
                 field("Current Version"; Rec."Current Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current version of Business Central.';
                     Editable = false;
                 }
                 field("Platform Version"; Rec."Platform Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the platform version of the environment.';
                     Editable = false;
                 }
                 field("Target Version"; Rec."Target Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the target version of Business Central update.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -115,7 +102,6 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Available"; Rec."Available")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates whether the target version has been released.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -123,7 +109,6 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Target Version Type"; Rec."Target Version Type")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates the type of the target version (GA or Preview).';
                     Style = Favorable;
                     StyleExpr = true;
@@ -131,7 +116,6 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Selected DateTime"; Rec."Selected DateTime")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates the datetime for which the update to the target version has been scheduled.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -139,7 +123,6 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates the last date for which the update to this target version can be scheduled.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -147,7 +130,6 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Expected Availability"; Rec."Expected Availability")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Expected availability month/year for unreleased versions.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -155,7 +137,6 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates the rollout status of updates to this target version.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -163,7 +144,6 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Ignore Update Window"; Rec."Ignore Update Window")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Indicates whether the update window for the environment may be ignored.';
                     Style = Favorable;
                     StyleExpr = true;
@@ -171,19 +151,16 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Ring Name"; Rec."Ring Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the update ring name (e.g., Prod, Preview).';
                     Editable = false;
                 }
                 field("Grace Period Start Date"; Rec."Grace Period Start Date")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the grace period start date for the current major version.';
                     Editable = false;
                 }
                 field("Enforced Update Period Start"; Rec."Enforced Update Period Start")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the enforced update period start date for the current major version.';
                     Editable = false;
                 }
@@ -193,14 +170,12 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'Access';
                 field("Web Client Login URL"; Rec."Web Client Login URL")
                 {
-                    ApplicationArea = All;
                     ExtendedDatatype = URL;
                     ToolTip = 'Specifies the URL to log into the environment.';
                     Editable = false;
                 }
                 field("Web Service URL"; Rec."Web Service URL")
                 {
-                    ApplicationArea = All;
                     ExtendedDatatype = URL;
                     ToolTip = 'Specifies the URL to access the environment service API.';
                     Editable = false;
@@ -211,7 +186,6 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'Telemetry & Monitoring';
                 field("Application Insights String"; Rec."Application Insights String")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the connection string for Application Insights. Use the lookup to select from existing configurations or type directly to create new entries.';
                     MaskType = Concealed;
 
@@ -221,7 +195,7 @@ page 62004 "D4P BC Environment Card"
                         AIConnectionSetupCard: Page "D4P AppInsights Conn Card";
                     begin
                         // If a new connection string is entered and doesn't exist, offer to create it
-                        if (Rec."Application Insights String" <> '') and (not AIConnectionSetup.Get(Rec."Application Insights String")) then begin
+                        if (Rec."Application Insights String" <> '') and (not AIConnectionSetup.Get(Rec."Application Insights String")) then
                             if Confirm('The connection string "%1" does not exist in the setup. Do you want to create it now?', false, Rec."Application Insights String") then begin
                                 AIConnectionSetup.Init();
                                 AIConnectionSetup."AppInsights Connection String" := Rec."Application Insights String";
@@ -231,7 +205,6 @@ page 62004 "D4P BC Environment Card"
                                 AIConnectionSetupCard.SetRecord(AIConnectionSetup);
                                 AIConnectionSetupCard.RunModal();
                             end;
-                        end;
 
                         // Refresh flowfields when connection string changes
                         if Rec."Application Insights String" <> '' then begin
@@ -260,23 +233,19 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Telemetry API Key"; Rec."Telemetry API Key")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the API key for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                     ExtendedDatatype = Masked;
                 }
                 field("Telemetry Application ID"; Rec."Telemetry Application ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Application ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                 }
                 field("Telemetry Tenant ID"; Rec."Telemetry Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from Application Insights Connection Setup).';
                 }
                 field("Telemetry Description"; Rec."Telemetry Description")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from Application Insights Connection Setup).';
                 }
             }
@@ -285,13 +254,11 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'App Management';
                 field("AppSource Apps Update Cadence"; Rec."AppSource Apps Update Cadence")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the cadence for automatic AppSource apps updates.';
                     Editable = false;
                 }
                 field("Linked PowerPlatform Env ID"; Rec."Linked PowerPlatform Env ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the linked Power Platform environment ID.';
                     Editable = false;
                 }
@@ -302,19 +269,16 @@ page 62004 "D4P BC Environment Card"
                 Visible = DeletionInfoVisible;
                 field("Soft Deleted On"; Rec."Soft Deleted On")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the environment was soft deleted.';
                     Editable = false;
                 }
                 field("Hard Delete Pending On"; Rec."Hard Delete Pending On")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the environment will be permanently deleted.';
                     Editable = false;
                 }
                 field("Delete Reason"; Rec."Delete Reason")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the reason why the environment was deleted.';
                     Editable = false;
                 }
@@ -324,7 +288,6 @@ page 62004 "D4P BC Environment Card"
         {
             part(InstalledApp; "D4P BC Installed Apps FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
@@ -381,9 +344,8 @@ page 62004 "D4P BC Environment Card"
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     CopyEnvironmentDialog.SetBCTenant(BCTenant);
                     CopyEnvironmentDialog.SetCurrentBCEnvironment(Rec.Name);
-                    if CopyEnvironmentDialog.RunModal() = Action::OK then begin
+                    if CopyEnvironmentDialog.RunModal() = Action::OK then
                         CopyEnvironmentDialog.CopyEnvironment();
-                    end;
                 end;
             }
             action(RenameEnvironment)
@@ -400,9 +362,8 @@ page 62004 "D4P BC Environment Card"
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     CopyEnvironmentDialog.SetBCTenant(BCTenant);
                     CopyEnvironmentDialog.SetCurrentBCEnvironment(Rec.Name);
-                    if CopyEnvironmentDialog.RunModal() = Action::OK then begin
+                    if CopyEnvironmentDialog.RunModal() = Action::OK then
                         CopyEnvironmentDialog.CopyEnvironment();
-                    end;
                 end;
             }
             action(DeleteEnvironment)
@@ -434,11 +395,11 @@ page 62004 "D4P BC Environment Card"
                     TempAvailableUpdate: Record "D4P BC Available Update" temporary;
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                     UpdateSelectionDialog: Page "D4P Update Selection Dialog";
-                    TargetVersion: Text[100];
                     SelectedDate: Date;
                     ExpectedMonth: Integer;
                     ExpectedYear: Integer;
                     NoUpdatesAvailableErr: Label 'No updates available for the environment %1.';
+                    TargetVersion: Text[100];
                 begin
                     // Get available updates from API
                     EnvironmentManagement.GetAvailableUpdates(Rec, TempAvailableUpdate);
@@ -463,7 +424,7 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Installed Apps';
                 Image = ExternalDocument;
-                RunObject = Page "D4P BC Installed Apps List";
+                RunObject = page "D4P BC Installed Apps List";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
@@ -474,7 +435,7 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Features';
                 Image = Setup;
-                RunObject = Page "D4P BC Environment Features";
+                RunObject = page "D4P BC Environment Features";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
@@ -540,7 +501,7 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Application Insights Connection Setup';
                 Image = Setup;
-                RunObject = Page "D4P AppInsights Conn List";
+                RunObject = page "D4P AppInsights Conn List";
                 ToolTip = 'View and manage Application Insights connection setups.';
             }
             action(EditCurrentAIConnection)
@@ -559,10 +520,9 @@ page 62004 "D4P BC Environment Card"
                 begin
                     if AIConnectionSetup.Get(Rec."Application Insights String") then begin
                         AIConnectionSetupCard.SetRecord(AIConnectionSetup);
-                        if AIConnectionSetupCard.RunModal() = ACTION::OK then begin
+                        if AIConnectionSetupCard.RunModal() = ACTION::OK then
                             // Refresh flowfields after editing
                             Rec.CalcFields("Telemetry API Key", "Telemetry Application ID", "Telemetry Tenant ID", "Telemetry Description");
-                        end;
                         CurrPage.Update();
                     end else
                         Message(NoAIConnectionSetupMsg);
@@ -573,7 +533,7 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Installed Apps';
                 Image = ExternalDocument;
-                RunObject = Page "D4P BC Installed Apps List";
+                RunObject = page "D4P BC Installed Apps List";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
@@ -622,14 +582,11 @@ page 62004 "D4P BC Environment Card"
                 begin
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     if Rec."Application Insights String" <> '' then begin
-                        if Confirm(AppInsightsMsg, false, Rec.Name) then begin
+                        if Confirm(AppInsightsMsg, false, Rec.Name) then
                             EnvironmentManagement.SetApplicationInsightsConnectionString(Rec);
-                        end;
-                    end else begin
-                        if Confirm(RemoveAppInsightsMsg, false, Rec.Name) then begin
+                    end else
+                        if Confirm(RemoveAppInsightsMsg, false, Rec.Name) then
                             EnvironmentManagement.SetApplicationInsightsConnectionString(Rec);
-                        end;
-                    end;
                 end;
             }
         }
@@ -714,8 +671,7 @@ page 62004 "D4P BC Environment Card"
             StateStyleExpr := 'Standard';
 
         // Calculate flowfields for telemetry information
-        if Rec."Application Insights String" <> '' then begin
+        if Rec."Application Insights String" <> '' then
             Rec.CalcFields("Telemetry API Key", "Telemetry Application ID", "Telemetry Tenant ID", "Telemetry Description");
-        end;
     end;
 }

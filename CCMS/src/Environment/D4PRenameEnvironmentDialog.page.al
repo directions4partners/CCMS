@@ -9,7 +9,7 @@ page 62007 "D4P Rename Environment Dialog"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             field(EnvironmentName; EnvironmentName)
             {
@@ -44,6 +44,6 @@ page 62007 "D4P Rename Environment Dialog"
     end;
 
     var
-        EnvironmentName, NewEnvironmentName : Text[100];
         BCTenant: Record "D4P BC Tenant";
+        EnvironmentName, NewEnvironmentName : Text[100];
 }

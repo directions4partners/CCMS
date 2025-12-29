@@ -21,23 +21,19 @@ page 62023 "D4P BC Capacity Card"
                 Caption = 'General';
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the environment name.';
                     Style = Strong;
                 }
                 field("Environment Type"; Rec."Environment Type")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the environment type (Production or Sandbox).';
                 }
                 field("Application Family"; Rec."Application Family")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the application family.';
                 }
                 field("Measurement Date"; Rec."Measurement Date")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the capacity data was measured.';
                 }
             }
@@ -46,18 +42,15 @@ page 62023 "D4P BC Capacity Card"
                 Caption = 'Storage Usage';
                 field("Database Storage GB"; Rec."Database Storage GB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the database storage used by this environment in GB.';
                     Style = Strong;
                 }
                 field("Database Storage MB"; Rec."Database Storage MB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the database storage used by this environment in MB.';
                 }
                 field("Database Storage KB"; Rec."Database Storage KB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the database storage used by this environment in KB.';
                 }
             }
@@ -66,12 +59,10 @@ page 62023 "D4P BC Capacity Card"
                 Caption = 'Tenant Information';
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the tenant ID.';
                 }
             }
@@ -94,8 +85,8 @@ page 62023 "D4P BC Capacity Card"
 
                 trigger OnAction()
                 var
-                    CapacityHelper: Codeunit "D4P BC Capacity Helper";
                     BCTenant: Record "D4P BC Tenant";
+                    CapacityHelper: Codeunit "D4P BC Capacity Helper";
                     TenantIdGuid: Guid;
                 begin
                     Evaluate(TenantIdGuid, Rec."Tenant ID");

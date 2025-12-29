@@ -20,12 +20,10 @@ page 62000 "D4P BC Customers List"
             {
                 field("No."; Rec."No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number.';
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer name.';
                 }
                 field(City; Rec.City)
@@ -64,7 +62,7 @@ page 62000 "D4P BC Customers List"
                 ApplicationArea = All;
                 Caption = 'BC Tenants';
                 Image = List;
-                RunObject = Page "D4P BC Tenant List";
+                RunObject = page "D4P BC Tenant List";
                 RunPageLink = "Customer No." = field("No.");
                 ToolTip = 'View Business Central tenants for this customer.';
             }

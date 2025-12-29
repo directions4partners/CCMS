@@ -21,29 +21,24 @@ page 62047 "D4P AppInsights Conn List"
             {
                 field("AppInsights Connection String"; Rec."AppInsights Connection String")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Application Insights connection string.';
                     MaskType = Concealed;
                 }
                 field("Description"; Rec."Description")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies a description for this connection.';
                 }
                 field("Telemetry Application Id"; Rec."Telemetry Application Id")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Application ID for telemetry data access.';
                 }
                 field("Telemetry API Key"; Rec."Telemetry API Key")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the API key for telemetry data access.';
                     ExtendedDatatype = Masked;
                 }
                 field("Tenant Id"; Rec."Tenant Id")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Tenant ID for telemetry data access.';
                 }
             }
@@ -59,7 +54,7 @@ page 62047 "D4P AppInsights Conn List"
                 ApplicationArea = All;
                 Caption = 'New';
                 Image = New;
-                RunObject = Page "D4P AppInsights Conn Card";
+                RunObject = page "D4P AppInsights Conn Card";
                 RunPageMode = Create;
                 ToolTip = 'Create a new Application Insights connection setup.';
             }
@@ -68,7 +63,7 @@ page 62047 "D4P AppInsights Conn List"
                 ApplicationArea = All;
                 Caption = 'Edit';
                 Image = Edit;
-                RunObject = Page "D4P AppInsights Conn Card";
+                RunObject = page "D4P AppInsights Conn Card";
                 RunPageLink = "AppInsights Connection String" = field("AppInsights Connection String");
                 ToolTip = 'Edit the selected Application Insights connection setup.';
             }
