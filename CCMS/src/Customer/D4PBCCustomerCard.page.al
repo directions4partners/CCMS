@@ -22,7 +22,6 @@ page 62001 "D4P BC Customer Card"
 
                 field("No."; Rec."No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number.';
                     Importance = Standard;
                     Visible = NoFieldVisible;
@@ -35,7 +34,6 @@ page 62001 "D4P BC Customer Card"
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer name.';
                     Importance = Promoted;
                 }
@@ -90,7 +88,7 @@ page 62001 "D4P BC Customer Card"
                 ApplicationArea = All;
                 Caption = 'BC Tenants';
                 Image = List;
-                RunObject = Page "D4P BC Tenant List";
+                RunObject = page "D4P BC Tenant List";
                 RunPageLink = "Customer No." = field("No.");
                 ToolTip = 'View Business Central tenants for this customer.';
             }

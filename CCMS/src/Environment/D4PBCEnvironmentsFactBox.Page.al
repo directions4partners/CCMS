@@ -19,19 +19,15 @@ page 62015 "D4P BC Environments FactBox"
             {
                 field(Name; Rec."Name")
                 {
-                    ApplicationArea = All;
                 }
                 field(Type; Rec."Type")
                 {
-                    ApplicationArea = All;
                 }
                 field("Country/Region"; Rec."Country/Region")
                 {
-                    ApplicationArea = All;
                 }
                 field("Current Version"; Rec."Current Version")
                 {
-                    ApplicationArea = All;
                 }
             }
         }

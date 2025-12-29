@@ -102,12 +102,12 @@ page 62025 "D4P Update Selection Dialog"
     }
 
     var
+        DateFieldEditable: Boolean;
         DateFieldsVisible: Boolean;
         ExpectedFieldsVisible: Boolean;
-        DateFieldEditable: Boolean;
-        RowStyleExpr: Text;
         DateTooEarlyErr: Label 'Selected date cannot be earlier than current date and time.';
         DateTooLateErr: Label 'Selected date cannot be later than %1.';
+        RowStyleExpr: Text;
 
     trigger OnOpenPage()
     begin
@@ -156,7 +156,7 @@ page 62025 "D4P Update Selection Dialog"
             exit;
 
         // Validate that selected date is not in the past
-        if Rec."User Selected Date" < Today then
+        if Rec."User Selected Date" < Today() then
             Error(DateTooEarlyErr);
 
         // Validate that selected date is not later than Latest Selectable Date
