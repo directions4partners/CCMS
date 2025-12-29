@@ -30,13 +30,11 @@ codeunit 62025 "D4P BC Operations Helper"
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'GET', Endpoint, '', ResponseText) then
             Error(OperationFetchErr, EnvironmentName);
 
-        DeleteOperationsForEnvironment(CustomerNo, Format(TenantID), EnvironmentName);
-
         if ResponseText <> '' then
-            ParseOperationsResponse(CustomerNo, Format(TenantID), ResponseText);
+            ParseOperationsResponse(CustomerNo, Format(TenantID), ResponseText, EnvironmentName);
     end;
 
-    local procedure ParseOperationsResponse(CustomerNo: Code[20]; TenantID: Text[50]; ResponseText: Text)
+    local procedure ParseOperationsResponse(CustomerNo: Code[20]; TenantID: Text[50]; ResponseText: Text; EnvironmentName: Text[100])
     var
         ParsingErr: Label 'Failed to parse response.';
         OperationsRetrievedMsg: Label '%1 operation(s) retrieved successfully.';
@@ -50,6 +48,8 @@ codeunit 62025 "D4P BC Operations Helper"
 
         if not JObject.Get('value', JToken) then
             exit;
+
+        DeleteOperationsForEnvironment(CustomerNo, Format(TenantID), EnvironmentName);
 
         JArray := JToken.AsArray();
 
@@ -140,7 +140,7 @@ codeunit 62025 "D4P BC Operations Helper"
             if not JToken.AsValue().IsNull then begin
                 DateTimeText := JToken.AsValue().AsText();
                 if Evaluate(ResultDateTime, DateTimeText, 9) then
-                    exit(TypeHelper.ConvertDateTimeFromUTCToTimeZone(ResultDateTime, 'UTC'));
+                    exit(TypeHelper.ConvertDateTimeFromInputTimeZoneToClientTimezone(ResultDateTime, 'UTC'));
             end;
         exit(0DT);
     end;

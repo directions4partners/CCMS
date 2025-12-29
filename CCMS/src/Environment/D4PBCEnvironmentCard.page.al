@@ -538,7 +538,7 @@ page 62004 "D4P BC Environment Card"
                 ApplicationArea = All;
                 Caption = 'Operations';
                 Image = ServiceTasks;
-                ToolTip = 'View operations for this environment.';
+                ToolTip = 'View operations history for this environment.';
 
                 trigger OnAction()
                 var

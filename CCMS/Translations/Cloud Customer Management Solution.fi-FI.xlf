@@ -2020,7 +2020,7 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action InstalledApps - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1494117452 - Action 1502400274 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View operations for this environment.</source>
+          <source>View operations history for this environment.</source>
           <target>Näytä tämän ympäristön toiminnot.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action Operations - Property ToolTip</note>
