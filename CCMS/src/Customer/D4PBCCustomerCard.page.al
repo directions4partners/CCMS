@@ -113,6 +113,4 @@ page 62001 "D4P BC Customer Card"
     var
         CCMSSetup: Record "D4P BC Setup";
         NoFieldVisible: Boolean;
-
-
 }
