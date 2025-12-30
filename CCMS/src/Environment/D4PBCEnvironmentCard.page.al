@@ -5,6 +5,7 @@ using D4P.CCMS.Telemetry;
 using D4P.CCMS.Extension;
 using D4P.CCMS.Features;
 using D4P.CCMS.Backup;
+using D4P.CCMS.Operations;
 using D4P.CCMS.Capacity;
 using D4P.CCMS.Session;
 
@@ -493,6 +494,21 @@ page 62004 "D4P BC Environment Card"
                     SessionsPage.Run();
                 end;
             }
+            action(Operations)
+            {
+                ApplicationArea = All;
+                Caption = 'Operations';
+                Image = ServiceTasks;
+                ToolTip = 'View operations history for this environment.';
+
+                trigger OnAction()
+                var
+                    OperationsPage: Page "D4P BC Environment Operations";
+                begin
+                    OperationsPage.SetEnvironmentContext(Rec);
+                    OperationsPage.Run();
+                end;
+            }
         }
         area(Reporting)
         {
@@ -650,6 +666,9 @@ page 62004 "D4P BC Environment Card"
                 {
                 }
                 actionref(SessionsPromoted; Sessions)
+                {
+                }
+                actionref(OperationsPromoted; Operations)
                 {
                 }
             }
