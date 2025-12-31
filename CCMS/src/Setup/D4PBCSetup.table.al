@@ -1,5 +1,7 @@
 namespace D4P.CCMS.Setup;
 
+using Microsoft.Foundation.NoSeries;
+
 table 62009 "D4P BC Setup"
 {
     Caption = 'D365BC Admin Center Setup';
@@ -22,6 +24,13 @@ table 62009 "D4P BC Setup"
         field(4; "Automation API Base URL"; Text[250])
         {
             Caption = 'Automation API Base URL';
+        }
+        field(5; "Customer Nos."; Code[20])
+        {
+            Caption = 'Customer Nos.';
+            DataClassification = CustomerContent;
+            TableRelation = "No. Series";
+            ToolTip = 'Specifies the number series used to assign customer numbers automatically.';
         }
     }
 
