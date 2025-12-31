@@ -8,6 +8,7 @@ page 62030 "D4P BC Customer FactBox"
     PageType = CardPart;
     SourceTable = "D4P BC Customer";
     Caption = 'Customer';
+    ApplicationArea = All;
 
     layout
     {
@@ -18,10 +19,7 @@ page 62030 "D4P BC Customer FactBox"
                 ShowCaption = false;
                 field(Tenants; Rec.Tenants)
                 {
-                    ApplicationArea = All;
-                    Caption = 'Tenants';
                     ToolTip = 'Number of tenants for this customer';
-                    DrillDownPageId = "D4P BC Tenant List";
 
                     trigger OnDrillDown()
                     var
@@ -34,10 +32,7 @@ page 62030 "D4P BC Customer FactBox"
 
                 field("All Active Environments"; Rec."All Active Environments")
                 {
-                    ApplicationArea = All;
-                    Caption = 'All Active Environments';
                     ToolTip = 'Number of active environments for this customer';
-                    DrillDownPageId = "D4P BC Environment List";
 
                     trigger OnDrillDown()
                     var
@@ -51,10 +46,7 @@ page 62030 "D4P BC Customer FactBox"
 
                 field("Active Prod. Environments"; Rec."Active Prod. Environments")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Active Production';
                     ToolTip = 'Number of active production environments for this customer';
-                    DrillDownPageId = "D4P BC Environment List";
 
                     trigger OnDrillDown()
                     var
@@ -69,10 +61,7 @@ page 62030 "D4P BC Customer FactBox"
 
                 field("Active Sandbox Environ."; Rec."Active Sandbox Environ.")
                 {
-                    ApplicationArea = All;
-                    Caption = 'Active Sandbox';
                     ToolTip = 'Number of active sandbox environments for this customer';
-                    DrillDownPageId = "D4P BC Environment List";
 
                     trigger OnDrillDown()
                     var
