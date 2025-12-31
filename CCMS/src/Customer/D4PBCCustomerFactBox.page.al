@@ -3,7 +3,7 @@ namespace D4P.CCMS.Customer;
 using D4P.CCMS.Tenant;
 using D4P.CCMS.Environment;
 
-page 62028 "D4P BC Customer FactBox"
+page 62030 "D4P BC Customer FactBox"
 {
     PageType = CardPart;
     SourceTable = "D4P BC Customer";

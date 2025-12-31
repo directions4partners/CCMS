@@ -3,6 +3,126 @@
   <file datatype="xml" source-language="en-US" target-language="fi-FI" original="Cloud Customer Management Solution.g.xlf">
     <body>
       <group id="body">
+        <trans-unit id="Table 4175876315 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Registration</source>
+          <target>Sovelluksen rekisteröinti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4175876315 - Method 1549509814 - NamedType 1950925899" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Open App Registration</source>
+          <target>Avaa sovelluksen rekisteröinti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Method SendMissingClientSecretNotification - NamedType OpenCardMsg</note>
+        </trans-unit>
+        <trans-unit id="Table 4175876315 - Method 1549509814 - NamedType 510982954" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No client secret has been set for app registration %1. Click here to configure the secret.</source>
+          <target>Sovelluksen rekisteröinnille %1 ei ole asetettu asiakassalaisuutta. Napsauta tätä määrittääksesi salaisuuden.</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Client ID or Description</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Method SendMissingClientSecretNotification - NamedType NoSecretMsg</note>
+        </trans-unit>
+        <trans-unit id="Table 4175876315 - Field 652819368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client ID</source>
+          <target>Asiakasohjelman tunnus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Field Client ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4175876315 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Description</source>
+          <target>Kuvaus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Field Description - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4175876315 - Field 3786226563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Secret Expiration Date</source>
+          <target>Salaisuuden vanhentumisaika</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Field Secret Expiration Date - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2856621359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC App Registration Card</source>
+          <target>D365BC Sovelluksen rekisteröinti kortti</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2856621359 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target>Yleiset</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2856621359 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Azure AD Application (Client) ID.</source>
+          <target>Määrittää Azure AD Applikaation (Client) ID:n</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Client ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2856621359 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Azure AD Application Client Secret. This is stored securely in isolated storage.</source>
+          <target>Määrittää Azure AD -sovellusasiakkaan salaisuuden. Tämä tallennetaan turvallisesti eristetyssä tallennustilassa.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Client Secret - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2856621359 - Control 2529110793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Secret</source>
+          <target>Asiakasohjelman salasana</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Client Secret - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2856621359 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description for this app registration.</source>
+          <target>Määrittää kuvauksen tälle sovellusrekisteröinnille.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2856621359 - Control 3786226563 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the client secret expires. Update the secret before this date.</source>
+          <target>Määrittää, milloin asiakassalaisuus vanhenee. Päivitä salaisuus ennen tätä päivämäärää.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Secret Expiration Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 785925573 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC App Registrations</source>
+          <target>D365BC sovelluksen rekisteröinnit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 785925573 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Azure AD Application (Client) ID.</source>
+          <target>Määrittää Azure AD Applikaation (Client) ID:n</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Control Client ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 785925573 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies a description for this app registration.</source>
+          <target>Määrittää kuvauksen tälle sovellusrekisteröinnille.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Control Description - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 785925573 - Control 3786226563 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the client secret expires. Update the secret before this date.</source>
+          <target>Määrittää, milloin asiakassalaisuus vanhenee. Päivitä salaisuus ennen tätä päivämäärää.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Control Secret Expiration Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Enum 1764239386 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Registration Type</source>
+          <target>Sovelluksen rekisteröintityyppi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC App Reg. Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1764239386 - EnumValue 3143523363 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Individual</source>
+          <target>Yksilö</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC App Reg. Type - EnumValue Individual - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Enum 1764239386 - EnumValue 4243948939 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Shared</source>
+          <target>Jaettu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC App Reg. Type - EnumValue Shared - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 2008748094 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment Database Export</source>
           <target>D365BC Ympäristön tietokannan vienti</target>
@@ -1899,6 +2019,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action InstalledApps - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1494117452 - Action 1502400274 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View operations history for this environment.</source>
+          <target>Näytä tämän ympäristön toiminnot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action Operations - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1494117452 - Action 1502400274 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operations</source>
+          <target>Toiminnot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action Operations - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1494117452 - Action 1821335367 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View active sessions for this environment.</source>
           <target>Tarkastele tämän ympäristön aktiivisia istuntoja.</target>
@@ -2361,6 +2493,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action KQLQueries - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 1502400274 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View operations history for this environment.</source>
+          <target>Näytä tämän ympäristön toimintohistoria.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action Operations - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 1502400274 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operations</source>
+          <target>Toiminnot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action Operations - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 4116547146 - Action 3860714960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Select and run a telemetry query directly using the selected environment's configuration.</source>
           <target>Valitse ja suorita telemetriakysely suoraan käyttäen valitun ympäristön kokoonpanoa.</target>
@@ -2456,12 +2600,6 @@
           <target>%1 ympäristöä ja sen relaatio tietueita poistettu lokaalista tietokannasta.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType EnvironmentRecordsDeletedMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 1684716017" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 environment records deleted from local database.</source>
-          <target>%1 ympäristötietuetta poistettu paikallisesta tietokannasta.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeletedSuccessMsg</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 1977573380 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Get the list of environments.</source>
@@ -3155,7 +3293,7 @@
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 103537446 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update the selected apps (multiple) to the latest version.</source>
-          <target>Päivitä valitut sovellukset (useita) uusimpaan versioon.</target>
+          <target>Päivitä valitut sovellukset uusimpaan versioon.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property ToolTip</note>
         </trans-unit>
@@ -3812,6 +3950,264 @@
           <target>D365 BC -järjestelmänvalvoja</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Profile D4P BC Admin - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC Environment Operation</source>
+          <target>D365BC-ympäristön toiminto</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 4275512631 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Azure Active Directory tenant ID.</source>
+          <target>Määrittää Azure Active Directory -vuokraajan tunnuksen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field AAD Tenant ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 4275512631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>AAD Tenant ID</source>
+          <target>AAD-tenantin tunnus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field AAD Tenant ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 3508346432 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the operation completed.</source>
+          <target>Määrittää, milloin toiminto valmistui.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Completed On - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 3508346432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Completed On</source>
+          <target>Valmistunut</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Completed On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 2369664869 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies who created the operation.</source>
+          <target>Määrittää, kuka loi toiminnon.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created By - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created By</source>
+          <target>Luonut</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created By - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 2389018819 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the operation was created.</source>
+          <target>Määrittää, milloin toiminto luotiin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created On - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 2389018819 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Created On</source>
+          <target>Luontipvm</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the customer number.</source>
+          <target>Määrittää asiakasnumeron.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Customer No. - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Customer No.</source>
+          <target>Asiakasnro</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Customer No. - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 1768934958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the environment name.</source>
+          <target>Määrittää ympäristön nimen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 1768934958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Environment Name</source>
+          <target>Ympäristön nimi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 1436111935 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the environment type.</source>
+          <target>Määrittää ympäristön tyypin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 1436111935 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Environment Type</source>
+          <target>Ympäristötyyppi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 2852966117 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the error message if the operation failed.</source>
+          <target>Määrittää virheviestin, jos toiminto epäonnistui.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Error Message - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 2852966117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Error Message</source>
+          <target>Virhesanoma</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Error Message - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 1848808116 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique identifier for the operation.</source>
+          <target>Määrittää toiminnon yksilöllisen tunnisteen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 1848808116 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation ID</source>
+          <target>Toiminnon tunnus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 3156524383 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the type of operation.</source>
+          <target>Määrittää operaation tyypin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation Type - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 3156524383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operation Type</source>
+          <target>Toimintotyyppi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation Type - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 684242166 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the operation parameters in JSON format.</source>
+          <target>Määrittää toiminnon parametrit JSON-muodossa.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Parameters - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 684242166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Parameters</source>
+          <target>Parametrit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Parameters - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 461906359 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the product family.</source>
+          <target>Määrittää tuoteperheen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Product Family - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 461906359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Product Family</source>
+          <target>Tuoteperhe</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Product Family - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 3944750556 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies when the operation started.</source>
+          <target>Määrittää, milloin toiminto aloitettiin.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Started On - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 3944750556 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Started On</source>
+          <target>Aloitettu</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Started On - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the status of the operation.</source>
+          <target>Määrittää toiminnon tilan.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Status - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Status</source>
+          <target>Tila</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Status - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the tenant ID.</source>
+          <target>Määrittää tenant id:n.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Tenant ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 3263097707 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tenant ID</source>
+          <target>Tenant ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Tenant ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4214262675 - Method 2647952887 - NamedType 1558719015" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Tenant %1 not found for customer %2.</source>
+          <target>Vuokraajaa %1 ei löytynyt asiakkaalle %2.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Operations Helper - Method GetEnvironmentOperations - NamedType TenantNotFoundForCustomerErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4214262675 - Method 2647952887 - NamedType 3153508440" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to retrieve operations for environment %1.</source>
+          <target>Toimintojen haku ympäristölle %1 epäonnistui.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Operations Helper - Method GetEnvironmentOperations - NamedType OperationFetchErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4214262675 - Method 794736420 - NamedType 1342174135" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to parse response.</source>
+          <target>Vastauksen jäsentäminen epäonnistui.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Operations Helper - Method ParseOperationsResponse - NamedType ParsingErr</note>
+        </trans-unit>
+        <trans-unit id="Codeunit 4214262675 - Method 794736420 - NamedType 777849847" size-unit="char" translate="yes" xml:space="preserve">
+          <source>%1 operation(s) retrieved successfully.</source>
+          <target>%1 toimintoa haettu onnistuneesti.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Operations Helper - Method ParseOperationsResponse - NamedType OperationsRetrievedMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 2992190902 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC Environment Operations</source>
+          <target>D365BC-ympäristön toiminnot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2992190902 - Action 2540763588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get the list of operations for this environment.</source>
+          <target>Hae tämän ympäristön toimintoluettelo.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action GetOperations - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2992190902 - Action 2540763588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Operations</source>
+          <target>Hae toiminnot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action GetOperations - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2992190902 - Action 2540763588 - Method 1377591017 - NamedType 2034613673" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No environment context set.</source>
+          <target>Ympäristökontekstia ei ole asetettu.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action GetOperations - Method OnAction - NamedType EnvironmentContextMissingMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 2992190902 - Action 1413759641 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View the operation parameters.</source>
+          <target>Näytä toiminnon parametrit.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action ViewParameters - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2992190902 - Action 1413759641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View Parameters</source>
+          <target>Näytä parametrit</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action ViewParameters - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2992190902 - Action 1413759641 - Method 1377591017 - NamedType 2086361766" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No parameters available.</source>
+          <target>Parametreja ei ole saatavilla.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action ViewParameters - Method OnAction - NamedType NoParametersMsg</note>
+        </trans-unit>
+        <trans-unit id="Page 2992190902 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Process</source>
+          <target>Prosessi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action Category_Process - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 192857266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Admin Center - Full Access</source>
@@ -5121,6 +5517,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Tenant - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 3746675639 - Field 1153343652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Registration Type</source>
+          <target>Sovelluksen rekisteröintityyppi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Tenant - Field App Registration Type - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Table 3746675639 - Field 3107334762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Backup Container Name</source>
           <target>Varmuuskopiosäiliön nimi</target>
@@ -5187,23 +5589,47 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Authentication - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1913673331 - Control 1153343652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies whether to use an individual or shared app registration.</source>
+          <target>Määrittää, käytetäänkö yksittäistä vai jaettua sovellusrekisteröintiä.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control App Registration Type - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Page 1913673331 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Azure AD Application (Client) ID for API authentication.</source>
           <target>Määrittää Azure AD -sovelluksen (asiakas)tunnuksen API-todennusta varten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 1913673331 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD Application Client Secret for API authentication.</source>
-          <target>Määrittää Azure AD -sovelluksen asiakassalaisuuden API-todennusta varten.</target>
+        <trans-unit id="Page 1913673331 - Control 1545841066 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Azure AD Application Client Secret for API authentication. This is stored securely in isolated storage.</source>
+          <target>Määrittää Azure AD -sovellusasiakkaan salaisuuden API-todennusta varten. Tämä tallennetaan turvallisesti erilliseen tallennustilaan.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client Secret - Property ToolTip</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client Secret Individual - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1913673331 - Control 1545841066 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client Secret</source>
+          <target>Asiakasohjelman salasana</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client Secret Individual - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 3786226563 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the client secret expires. Update the secret before this date.</source>
           <target>Määrittää, milloin asiakassalaisuus vanhenee. Päivitä salaisuus ennen tätä päivämäärää.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Secret Expiration Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1913673331 - Control 1603746290 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Azure AD Application (Client) ID for API authentication. Select from shared app registrations.</source>
+          <target>Määrittää Azure AD -sovelluksen (asiakasohjelman) tunnuksen API-todennusta varten. Valitse jaetuista sovellusrekisteröinneistä.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID Lookup - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1913673331 - Control 1603746290 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Client ID</source>
+          <target>Asiakasohjelman tunnus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID Lookup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 2441683610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Backup Configuration</source>
@@ -5301,17 +5727,17 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Client ID - Property ToolTip</note>
         </trans-unit>
-        <trans-unit id="Page 3208869332 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD application client secret.</source>
-          <target>Määrittää Azure AD -sovelluksen asiakassalaisuuden.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Client Secret - Property ToolTip</note>
-        </trans-unit>
         <trans-unit id="Page 3208869332 - Control 3786226563 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the client secret will expire.</source>
           <target>Määrittää, milloin asiakassalaisuus vanhenee.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Secret Expiration Date - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 3208869332 - Control 3786226563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Secret Expiration Date</source>
+          <target>Salaisuuden vanhentumisaika</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Secret Expiration Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 2441683610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Backup Configuration</source>
