@@ -52,7 +52,7 @@ table 62010 "D4P BC PTE App Version"
         PTEApps: Record "D4P BC PTE App";
     begin
         if not PTEApps.Get(Rec."PTE ID") then
-            exit(DevOps);
+            exit(DevOps::NoDevOps);
         DevOps := PTEApps.DevOps;
     end;
 

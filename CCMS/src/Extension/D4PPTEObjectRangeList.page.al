@@ -33,9 +33,13 @@ page 62009 "D4P PTE Object Ranges"
                     TableRelation = "D4P BC PTE App"."PTE ID";
 
                     trigger OnValidate()
+                    var
+                        NoPTEAppExists: Label 'The specified PTE App does not exist.';
                     begin
-                        if not IsNullGuid(Rec."PTE ID") then
-                            Rec.CopyValuesFromApp(Rec."PTE ID");
+                        if IsNullGuid(Rec."PTE ID") then
+                            exit;
+
+                        Rec.CopyValuesFromApp(Rec."PTE ID");
                     end;
                 }
                 field("PTE Name"; Rec."PTE Name")

@@ -14,6 +14,8 @@ codeunit 62008 "D4P BC Nuget Processing"
         if not BCDevOpsUpdate.IsEnabled() then
             exit;
         ServiceTypeUrl := BCDevOpsUpdate.GetNugetServiceTypeUrl(PTEApp, ServiceType);
+        if ServiceTypeUrl = '' then
+            exit;
         GetAppVersions(PTEApp, BCDevOpsUpdate, ServiceTypeUrl);
     end;
 
@@ -82,7 +84,7 @@ codeunit 62008 "D4P BC Nuget Processing"
             exit(JsonToken.AsObject().GetText('packageContent'));
     end;
 
-    procedure DownloadPackageContent(PTEAppVersion: Record "D4P BC PTE App Version")
+    procedure DownloadPackageContent(PTEAppVersion: Record "D4P BC PTE App Version"): Boolean
     var
         BCDevOpsUpdate: Interface "D4P BC DevOps Update";
         RestClient: Codeunit "Rest Client";
@@ -94,10 +96,10 @@ codeunit 62008 "D4P BC Nuget Processing"
         RestClient.SetAuthorizationHeader(BCDevOpsUpdate.GetToken(PTEAppVersion.GetPTEOrganizationName()));
         Response := RestClient.Get(PTEAppVersion."Package Content Url");
         if not Response.GetIsSuccessStatusCode() then
-            exit;
+            exit(false);
         Instream := Response.GetContent().AsInStream();
         FileName := PTEAppVersion.GetPTEAppName() + '_' + PTEAppVersion."App Version" + '.app';
-        DownloadFromStream(Instream, 'Download App Package', '', '', FileName);
+        exit(DownloadFromStream(Instream, 'Download App Package', '', '', FileName));
     end;
 
 }

@@ -48,10 +48,16 @@ page 62029 "D4P BC PTE Apps List"
                 trigger OnAction()
                 var
                     NugetProcessing: Codeunit "D4P BC Nuget Processing";
+                    OldLatestAppVersion: Text;
+                    NoNewVersionsFound: Label 'No newer versions were found.';
+                    LatestVersionsUpdated: Label 'Latest versions have been updated.';
                 begin
+                    OldLatestAppVersion := Rec."Latest App Version";
                     NugetProcessing.GetPTEAppVersions(Rec);
-
-                    Message('Latest versions have been updated.');
+                    if Rec."Latest App Version" <> OldLatestAppVersion then
+                        Message(LatestVersionsUpdated)
+                    else
+                        Message(NoNewVersionsFound);
                 end;
             }
         }
