@@ -3321,6 +3321,13 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Control PTE ID - Property ToolTip</note>
         </trans-unit>
+        <trans-unit id="Page 3331374484 - Control 4277803464 - Method 2126772001 - NamedType 143409443" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The specified PTE App does not exist.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Control PTE ID - Method OnValidate - NamedType NoPTEAppExists</note>
+        </trans-unit>
         <trans-unit id="Page 3331374484 - Control 716423282 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Per Tenant Extension's name.</source>
           <target>Määrittää Per Tenant laajennuksen nimen.</target>
@@ -3951,263 +3958,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Profile D4P BC Admin - Property Caption</note>
         </trans-unit>
-        <trans-unit id="Table 3263097707 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>D365BC Environment Operation</source>
-          <target>D365BC-ympäristön toiminto</target>
+        <trans-unit id="Enum 578315456 - EnumValue 119067982 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No DevOps</source>
+          <target>[NAB: NOT TRANSLATED]</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 4275512631 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure Active Directory tenant ID.</source>
-          <target>Määrittää Azure Active Directory -vuokraajan tunnuksen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field AAD Tenant ID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 4275512631 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>AAD Tenant ID</source>
-          <target>AAD-tenantin tunnus</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field AAD Tenant ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 3508346432 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies when the operation completed.</source>
-          <target>Määrittää, milloin toiminto valmistui.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Completed On - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 3508346432 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Completed On</source>
-          <target>Valmistunut</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Completed On - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 2369664869 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies who created the operation.</source>
-          <target>Määrittää, kuka loi toiminnon.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created By - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 2369664869 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Created By</source>
-          <target>Luonut</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created By - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 2389018819 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies when the operation was created.</source>
-          <target>Määrittää, milloin toiminto luotiin.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created On - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 2389018819 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Created On</source>
-          <target>Luontipvm</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Created On - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 4190130733 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the customer number.</source>
-          <target>Määrittää asiakasnumeron.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Customer No. - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 4190130733 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Customer No.</source>
-          <target>Asiakasnro</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Customer No. - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 1768934958 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the environment name.</source>
-          <target>Määrittää ympäristön nimen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Name - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 1768934958 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Environment Name</source>
-          <target>Ympäristön nimi</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Name - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 1436111935 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the environment type.</source>
-          <target>Määrittää ympäristön tyypin.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 1436111935 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Environment Type</source>
-          <target>Ympäristötyyppi</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Environment Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 2852966117 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the error message if the operation failed.</source>
-          <target>Määrittää virheviestin, jos toiminto epäonnistui.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Error Message - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 2852966117 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Error Message</source>
-          <target>Virhesanoma</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Error Message - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 1848808116 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the unique identifier for the operation.</source>
-          <target>Määrittää toiminnon yksilöllisen tunnisteen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation ID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 1848808116 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Operation ID</source>
-          <target>Toiminnon tunnus</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 3156524383 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the type of operation.</source>
-          <target>Määrittää operaation tyypin.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation Type - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 3156524383 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Operation Type</source>
-          <target>Toimintotyyppi</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Operation Type - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 684242166 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the operation parameters in JSON format.</source>
-          <target>Määrittää toiminnon parametrit JSON-muodossa.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Parameters - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 684242166 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Parameters</source>
-          <target>Parametrit</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Parameters - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 461906359 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the product family.</source>
-          <target>Määrittää tuoteperheen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Product Family - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 461906359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Product Family</source>
-          <target>Tuoteperhe</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Product Family - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 3944750556 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies when the operation started.</source>
-          <target>Määrittää, milloin toiminto aloitettiin.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Started On - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 3944750556 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Started On</source>
-          <target>Aloitettu</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Started On - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 513339096 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the status of the operation.</source>
-          <target>Määrittää toiminnon tilan.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Status - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 513339096 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Status</source>
-          <target>Tila</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Status - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 1656975091 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the tenant ID.</source>
-          <target>Määrittää tenant id:n.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Tenant ID - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Table 3263097707 - Field 1656975091 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Tenant ID</source>
-          <target>Tenant ID</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Operation - Field Tenant ID - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4214262675 - Method 2647952887 - NamedType 1558719015" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Tenant %1 not found for customer %2.</source>
-          <target>Vuokraajaa %1 ei löytynyt asiakkaalle %2.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Operations Helper - Method GetEnvironmentOperations - NamedType TenantNotFoundForCustomerErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4214262675 - Method 2647952887 - NamedType 3153508440" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to retrieve operations for environment %1.</source>
-          <target>Toimintojen haku ympäristölle %1 epäonnistui.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Operations Helper - Method GetEnvironmentOperations - NamedType OperationFetchErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4214262675 - Method 794736420 - NamedType 1342174135" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Failed to parse response.</source>
-          <target>Vastauksen jäsentäminen epäonnistui.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Operations Helper - Method ParseOperationsResponse - NamedType ParsingErr</note>
-        </trans-unit>
-        <trans-unit id="Codeunit 4214262675 - Method 794736420 - NamedType 777849847" size-unit="char" translate="yes" xml:space="preserve">
-          <source>%1 operation(s) retrieved successfully.</source>
-          <target>%1 toimintoa haettu onnistuneesti.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Operations Helper - Method ParseOperationsResponse - NamedType OperationsRetrievedMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 2992190902 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>D365BC Environment Operations</source>
-          <target>D365BC-ympäristön toiminnot</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2992190902 - Action 2540763588 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get the list of operations for this environment.</source>
-          <target>Hae tämän ympäristön toimintoluettelo.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action GetOperations - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2992190902 - Action 2540763588 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get Operations</source>
-          <target>Hae toiminnot</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action GetOperations - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2992190902 - Action 2540763588 - Method 1377591017 - NamedType 2034613673" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No environment context set.</source>
-          <target>Ympäristökontekstia ei ole asetettu.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action GetOperations - Method OnAction - NamedType EnvironmentContextMissingMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 2992190902 - Action 1413759641 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View the operation parameters.</source>
-          <target>Näytä toiminnon parametrit.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action ViewParameters - Property ToolTip</note>
-        </trans-unit>
-        <trans-unit id="Page 2992190902 - Action 1413759641 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>View Parameters</source>
-          <target>Näytä parametrit</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action ViewParameters - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 2992190902 - Action 1413759641 - Method 1377591017 - NamedType 2086361766" size-unit="char" translate="yes" xml:space="preserve">
-          <source>No parameters available.</source>
-          <target>Parametreja ei ole saatavilla.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action ViewParameters - Method OnAction - NamedType NoParametersMsg</note>
-        </trans-unit>
-        <trans-unit id="Page 2992190902 - Action 3383493608 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Process</source>
-          <target>Prosessi</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Operations - Action Category_Process - Property Caption</note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC DevOps Environments - EnumValue NoDevOps - Property Caption</note>
         </trans-unit>
         <trans-unit id="PermissionSet 192857266 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Admin Center - Full Access</source>
@@ -4232,6 +3988,341 @@
           <target>D365BC-hallintakeskus - Vain telemetria</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">PermissionSet D4P BC TELEMETRY - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC DevOps Organization</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Field 3641927271 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the unique identifier for the DevOps organization.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Field 3641927271 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>ID</source>
+          <target>ID</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Field 2961552353 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the name of the DevOps organization.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 4174934779 - Field 2961552353 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Name</source>
+          <target>[NAB: SUGGESTION]Nimi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE App</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 2108067845 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the DevOps environment associated with the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 2108067845 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DevOps Environment</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3385472603 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the feed associated with the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Feed - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3385472603 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Feed</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Feed - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1416140780 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the organization associated with the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Organization - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1416140780 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Organization</source>
+          <target>[NAB: SUGGESTION]Organisaatio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Organization - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1997329075 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the repository associated with the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Package - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1997329075 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Repository</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field DevOps Package - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3111762196 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the latest version of the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field Latest App Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3111762196 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Version</source>
+          <target>[NAB: SUGGESTION]Sovelluksen versio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field Latest App Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3822533900 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the NuGet package name of the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field NuGet Package Name - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3822533900 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>NuGet Package Name</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field NuGet Package Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 4277803464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PTE ID</source>
+          <target>[NAB: SUGGESTION]PTE-tunnus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field PTE ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 716423282 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PTE Name</source>
+          <target>[NAB: SUGGESTION]PTE-nimi</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field PTE Name - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 3359984739 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Range From</source>
+          <target>[NAB: SUGGESTION]Alue alkaen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field Range From - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 2648630731 - Field 1746152936 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Range To</source>
+          <target>[NAB: SUGGESTION]Alue päättyen</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App - Field Range To - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE App Version</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 2709452997 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the version of the PTE app.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field App Version - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 2709452997 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App Version</source>
+          <target>[NAB: SUGGESTION]Sovelluksen versio</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field App Version - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 1683934100 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the URL to the package content.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field Package Content Url - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 1683934100 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Package Content Url</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field Package Content Url - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 4277803464 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Per Tenant Extension's ID.</source>
+          <target>[NAB: SUGGESTION]Määrittää Per Tenant laajennuksen tunnuksen.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field PTE ID - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Table 1150009597 - Field 4277803464 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>PTE ID</source>
+          <target>[NAB: SUGGESTION]PTE-tunnus</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC PTE App Version - Field PTE ID - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3505232960 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC DevOps Organization List</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC DevOps Org. List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 3505232960 - Action 2211637354 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Import Token</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC DevOps Org. List - Action ImportToken - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2134193840 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC Input Token</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Input Token - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2134193840 - Control 4146460525 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the Personal Access Token for DevOps organization access.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Input Token - Control Token - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 2134193840 - Control 4146460525 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Personal Access Token</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Input Token - Control Token - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 571158911 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE Apps Card</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 571158911 - Control 3604674248 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>DevOps</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Card - Control DevOpsGroup - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 571158911 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target>[NAB: SUGGESTION]Yleiset</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 571158911 - Control 1819982392 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Versions</source>
+          <target>[NAB: SUGGESTION]Versiot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Card - Control PTEAppVersionsFactBox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE App Versions Card</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>General</source>
+          <target>[NAB: SUGGESTION]Yleiset</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Control General - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Action 1736997633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Download App Package</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Action DownloadAppPackage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Action 1736997633 - Method 1377591017 - NamedType 446982473" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App package has been downloaded.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Action DownloadAppPackage - Method OnAction - NamedType SuccessDownload</note>
+        </trans-unit>
+        <trans-unit id="Page 1639015937 - Action 1736997633 - Method 1377591017 - NamedType 2046971401" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to download app package.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Action DownloadAppPackage - Method OnAction - NamedType FailedDownload</note>
+        </trans-unit>
+        <trans-unit id="Page 2176551060 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC PTE Apps List</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE Apps List - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2176551060 - Action 684531328 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Get Latest Versions</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE Apps List - Action GetLatestVersions - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 2176551060 - Action 684531328 - Method 1377591017 - NamedType 2789771990" size-unit="char" translate="yes" xml:space="preserve">
+          <source>No newer versions were found.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE Apps List - Action GetLatestVersions - Method OnAction - NamedType NoNewVersionsFound</note>
+        </trans-unit>
+        <trans-unit id="Page 2176551060 - Action 684531328 - Method 1377591017 - NamedType 746897729" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Latest versions have been updated.</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE Apps List - Action GetLatestVersions - Method OnAction - NamedType LatestVersionsUpdated</note>
+        </trans-unit>
+        <trans-unit id="Page 1074736624 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>D365BC Versions</source>
+          <target>[NAB: NOT TRANSLATED]</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE App Versions FactBox - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2957340651 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment Sessions</source>
