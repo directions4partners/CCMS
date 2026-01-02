@@ -1,5 +1,5 @@
 namespace D4P.CCMS.PTEApps;
-page 62028 "D4P BC PTE App Card"
+page 62035 "D4P BC PTE App Card"
 {
     ApplicationArea = All;
     Caption = 'D365BC PTE Apps Card';

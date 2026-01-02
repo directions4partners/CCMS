@@ -40,7 +40,6 @@ codeunit 62008 "D4P BC Nuget Processing"
     local procedure ProcessVersions(JsonToken: JsonToken; var PTEApp: Record "D4P BC PTE App"; var BCDevOpsUpdate: Interface "D4P BC DevOps Update")
     var
         JsonArray: JsonArray;
-        VersionText: Text;
         TotalHits: Integer;
         PTEAppVersion: Record "D4P BC PTE App Version";
     begin
