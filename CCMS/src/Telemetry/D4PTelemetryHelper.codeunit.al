@@ -50,14 +50,14 @@ codeunit 62032 "D4P Telemetry Helper"
     procedure RunTelemetryQuery(Environment: Record "D4P BC Environment")
     var
         KQLQueryStore: Record "D4P KQL Query Store";
-        KQLQuerySelection: Page "D4P KQL Query Selection";
         LoadData: Report "D4P Load Data";
+        KQLQuerySelection: Page "D4P KQL Query Selection";
     begin
         ValidateEnvironmentTelemetrySetup(Environment);
 
         // Let user select a query
         KQLQuerySelection.LookupMode(true);
-        if KQLQuerySelection.RunModal() = ACTION::LookupOK then begin
+        if KQLQuerySelection.RunModal() = Action::LookupOK then begin
             KQLQuerySelection.GetRecord(KQLQueryStore);
 
             // Run the selected query directly with this environment's context

@@ -12,17 +12,14 @@ table 62005 "D4P BC App Registration"
         field(1; "Client ID"; Guid)
         {
             Caption = 'Client ID';
-            DataClassification = CustomerContent;
         }
         field(2; Description; Text[100])
         {
             Caption = 'Description';
-            DataClassification = CustomerContent;
         }
         field(3; "Secret Expiration Date"; Date)
         {
             Caption = 'Secret Expiration Date';
-            DataClassification = CustomerContent;
         }
     }
 
@@ -110,7 +107,7 @@ table 62005 "D4P BC App Registration"
         if ExpirationDate = 0D then
             exit;
 
-        DaysToExpiration := ExpirationDate - Today;
+        DaysToExpiration := ExpirationDate - Today();
 
         if DaysToExpiration < 0 then
             exit('Unfavorable')
@@ -128,9 +125,9 @@ table 62005 "D4P BC App Registration"
     procedure SendMissingClientSecretNotification()
     var
         MissingSecretNotification: Notification;
-        OpenCardMsg: Label 'Open App Registration';
         NoSecretMsg: Label 'No client secret has been set for app registration %1. Click here to configure the secret.', Comment = '%1 = Client ID or Description';
         NotificationIdLbl: Label 'ef2984fd-326b-489c-933f-906617b4fe59', Locked = true;
+        OpenCardMsg: Label 'Open App Registration';
     begin
         MissingSecretNotification.Id := NotificationIdLbl;
         if Rec.Description <> '' then

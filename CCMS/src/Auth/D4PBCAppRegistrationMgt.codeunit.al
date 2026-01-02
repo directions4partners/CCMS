@@ -11,8 +11,8 @@ codeunit 62005 "D4P BC App Registration"
     var
         AppRegistration: Record "D4P BC App Registration";
         AppRegistrationCard: Page "D4P BC App Registration Card";
-        ClientIDText: Text;
         ClientIDGuid: Guid;
+        ClientIDText: Text;
     begin
         ClientIDText := MissingSecretNotification.GetData('ClientID');
         if ClientIDText = '' then

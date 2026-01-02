@@ -18,17 +18,14 @@ page 62009 "D4P PTE Object Ranges"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the tenant ID.';
                 }
                 field("PTE ID"; Rec."PTE ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Per Tenant Extension''s ID.';
                     TableRelation = "D4P BC PTE App"."PTE ID";
 
@@ -42,17 +39,14 @@ page 62009 "D4P PTE Object Ranges"
                 }
                 field("PTE Name"; Rec."PTE Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Per Tenant Extension''s name.';
                 }
                 field("Range From"; Rec."Range From")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the starting range.';
                 }
                 field("Range To"; Rec."Range To")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the ending range.';
                 }
             }
