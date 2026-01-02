@@ -12,14 +12,14 @@ codeunit 62015 "D4P BC Backup Helper"
     var
         BCTenant: Record "D4P BC Tenant";
         JsonObject: JsonObject;
-        ResponseText: Text;
-        BlobName: Text;
         ConfirmMsg: Label 'You are about to start a database export with the following settings:\\ Environment: %1\ Container: %2\ Blob File: %3\\These settings CANNOT be changed after the export starts.\\Do you want to continue?';
-        NoSASURIErr: Label 'Backup SAS URI is not configured for this tenant. Please configure it in the tenant settings before starting a database export.';
-        NoContainerErr: Label 'Backup Container Name is not configured for this tenant. Please configure it in the tenant settings before starting a database export.';
-        NotProductionErr: Label 'Database exports can only be created from Production environments.\ Environment "%1" is of type "%2".\ Please select a Production environment to perform a database export.';
-        FailedExportErr: Label 'Failed to start database export: %1';
         ExportStartedMsg: Label 'Database export for environment %1 successfully started.\Blob: %2';
+        FailedExportErr: Label 'Failed to start database export: %1';
+        NoContainerErr: Label 'Backup Container Name is not configured for this tenant. Please configure it in the tenant settings before starting a database export.';
+        NoSASURIErr: Label 'Backup SAS URI is not configured for this tenant. Please configure it in the tenant settings before starting a database export.';
+        NotProductionErr: Label 'Database exports can only be created from Production environments.\ Environment "%1" is of type "%2".\ Please select a Production environment to perform a database export.';
+        BlobName: Text;
+        ResponseText: Text;
     begin
         // Validate environment is Production
         if BCEnvironment.Type <> 'Production' then
@@ -35,7 +35,7 @@ codeunit 62015 "D4P BC Backup Helper"
             Error(NoContainerErr);
 
         // Generate blob name with timestamp
-        BlobName := StrSubstNo('%1_%2.bacpac', BCEnvironment.Name, Format(CurrentDateTime, 0, '<Year4><Month,2><Day,2>_<Hours24><Minutes,2><Seconds,2>'));
+        BlobName := StrSubstNo('%1_%2.bacpac', BCEnvironment.Name, Format(CurrentDateTime(), 0, '<Year4><Month,2><Day,2>_<Hours24><Minutes,2><Seconds,2>'));
 
         // Show confirmation with storage details
         if not Confirm(ConfirmMsg, false, BCEnvironment.Name, BCTenant."Backup Container Name", BlobName) then
@@ -58,15 +58,15 @@ codeunit 62015 "D4P BC Backup Helper"
     procedure GetExportMetrics(var BCEnvironment: Record "D4P BC Environment")
     var
         BCTenant: Record "D4P BC Tenant";
-        ResponseText: Text;
+        ExportsPerMonth: Integer;
+        ExportsRemaining: Integer;
         JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonValue: JsonValue;
-        ExportsPerMonth: Integer;
-        ExportsRemaining: Integer;
         FailedMetricsErr: Label 'Failed to get export metrics: %1';
         MetricsMsg: Label 'Export Metrics for %1:\Exports Per Month: %2\Exports Remaining This Month: %3';
         ParseMetricsErr: Label 'Failed to parse export metrics response.';
+        ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
@@ -96,21 +96,21 @@ codeunit 62015 "D4P BC Backup Helper"
 
     procedure GetExportHistory(var BCEnvironment: Record "D4P BC Environment"; StartTime: DateTime; EndTime: DateTime)
     var
+        BCBackup: Record "D4P BC Environment Backup";
         BCTenant: Record "D4P BC Tenant";
-        ResponseText: Text;
-        JsonResponse: JsonObject;
+        InsertedCount: Integer;
         JsonArray: JsonArray;
+        JsonObjectLoop: JsonObject;
+        JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
-        JsonObjectLoop: JsonObject;
         JsonValue: JsonValue;
-        BCBackup: Record "D4P BC Environment Backup";
-        StartTimeText: Text;
-        EndTimeText: Text;
-        InsertedCount: Integer;
         FailedHistoryErr: Label 'Failed to get export history: %1';
         HistorySuccessMsg: Label 'Export history retrieved successfully. Found %1 export(s) for %2.';
         ParseHistoryErr: Label 'Failed to parse export history response.';
+        EndTimeText: Text;
+        ResponseText: Text;
+        StartTimeText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 

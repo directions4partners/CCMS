@@ -22,17 +22,14 @@ page 62002 "D4P BC Tenant List"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the customer number associated with this tenant.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the unique identifier of the Business Central tenant.';
                 }
                 field("Tenant Name"; Rec."Tenant Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the name of the Business Central tenant.';
                 }
             }
@@ -41,13 +38,11 @@ page 62002 "D4P BC Tenant List"
         {
             part(TenantDetails; "D4P BC Tenant FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
             }
             part(EnvironmentsFactBox; "D4P BC Environments FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "Customer No." = field("Customer No."), "Tenant ID" = field("Tenant ID");
             }
         }
@@ -62,7 +57,7 @@ page 62002 "D4P BC Tenant List"
                 ApplicationArea = All;
                 Caption = 'Setup';
                 Image = Setup;
-                RunObject = Page "D4P BC Setup";
+                RunObject = page "D4P BC Setup";
                 ToolTip = 'Configure D365BC Admin Center settings including debug mode.';
             }
             action(TestDebugMode)
@@ -86,7 +81,7 @@ page 62002 "D4P BC Tenant List"
                 ApplicationArea = All;
                 Caption = 'Environments';
                 Image = ViewDetails;
-                RunObject = Page "D4P BC Environment List";
+                RunObject = page "D4P BC Environment List";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
                 ToolTip = 'View Business Central environments for this tenant.';
@@ -96,7 +91,7 @@ page 62002 "D4P BC Tenant List"
                 ApplicationArea = All;
                 Caption = 'PTE Object Ranges';
                 Image = NumberSetup;
-                RunObject = Page "D4P PTE Object Ranges";
+                RunObject = page "D4P PTE Object Ranges";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
                 ToolTip = 'View PTE object ranges for this customer and tenant.';

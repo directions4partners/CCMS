@@ -2,6 +2,7 @@ namespace D4P.CCMS.Permissions;
 
 using D4P.CCMS.Customer;
 using D4P.CCMS.Tenant;
+using D4P.CCMS.Operations;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
 using D4P.CCMS.Setup;
@@ -39,6 +40,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         tabledata "D4P BC PTE App" = R,
         tabledata "D4P BC PTE App Version" = R,
         tabledata "D4P BC DevOps Organization" = R,
+        tabledata "D4P BC Environment Operation" = R,
 
         // Table Objects
         table "D4P BC Customer" = X,
@@ -61,6 +63,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         table "D4P BC PTE App" = X,
         table "D4P BC PTE App Version" = X,
         table "D4P BC DevOps Organization" = X,
+        table "D4P BC Environment Operation" = X,
 
         // Pages - List and Card pages for viewing
         page "D4P BC Customers List" = X,
@@ -85,6 +88,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         page "D4P AppInsights Conn List" = X,
         page "D4P AppInsights Conn Card" = X,
         page "D4P PTE Object Ranges" = X,
+        page "D4P BC Environment Operations" = X,
 
         // Codeunit for reading data
         codeunit "D4P BC Environment Mgt" = X,
@@ -92,6 +96,7 @@ permissionset 62001 "D4P BC ADMIN READ"
         codeunit "D4P AppInsights Client" = X,
         codeunit "D4P KQL Query Store Init" = X,
         codeunit "D4P Telemetry Helper" = X,
+        codeunit "D4P BC Operations Helper" = X,
 
         // Reports - needed for telemetry queries
         report "D4P Load Data" = X;

@@ -9,7 +9,7 @@ page 62005 "D4P New Environment Dialog"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             field(EnvironmentName; EnvironmentName)
             {
@@ -43,8 +43,8 @@ page 62005 "D4P New Environment Dialog"
     end;
 
     var
-        EnvironmentName: Text[100];
+        BCTenant: Record "D4P BC Tenant";
         Localization: Code[2];
         EnvironmentType: Enum "D4P Environment Type";
-        BCTenant: Record "D4P BC Tenant";
+        EnvironmentName: Text[100];
 }

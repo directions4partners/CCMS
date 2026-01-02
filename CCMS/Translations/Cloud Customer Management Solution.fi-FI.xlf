@@ -5,142 +5,122 @@
       <group id="body">
         <trans-unit id="Table 4175876315 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>App Registration</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Sovelluksen rekisteröinti</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4175876315 - Method 1549509814 - NamedType 1950925899" size-unit="char" translate="yes" xml:space="preserve">
           <source>Open App Registration</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Avaa sovelluksen rekisteröinti</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Method SendMissingClientSecretNotification - NamedType OpenCardMsg</note>
         </trans-unit>
         <trans-unit id="Table 4175876315 - Method 1549509814 - NamedType 510982954" size-unit="char" translate="yes" xml:space="preserve">
           <source>No client secret has been set for app registration %1. Click here to configure the secret.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Sovelluksen rekisteröinnille %1 ei ole asetettu asiakassalaisuutta. Napsauta tätä määrittääksesi salaisuuden.</target>
           <note from="Developer" annotates="general" priority="2">%1 = Client ID or Description</note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Method SendMissingClientSecretNotification - NamedType NoSecretMsg</note>
         </trans-unit>
         <trans-unit id="Table 4175876315 - Field 652819368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client ID</source>
-          <target>[NAB: SUGGESTION]Asiakasohjelman tunnus</target>
+          <target>Asiakasohjelman tunnus</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Field Client ID - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4175876315 - Field 3461834954 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Description</source>
-          <target>[NAB: SUGGESTION]Kuvaus</target>
+          <target>Kuvaus</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Field Description - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 4175876315 - Field 3786226563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Secret Expiration Date</source>
-          <target>[NAB: SUGGESTION]Salaisuuden vanhentumisaika</target>
+          <target>Salaisuuden vanhentumisaika</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC App Registration - Field Secret Expiration Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2856621359 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC App Registration Card</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>D365BC Sovelluksen rekisteröinti kortti</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2856621359 - Control 2445482498 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>General</source>
-          <target>[NAB: SUGGESTION]Yleiset</target>
+          <target>Yleiset</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control General - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2856621359 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Azure AD Application (Client) ID.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää Azure AD Applikaation (Client) ID:n</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2856621359 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Azure AD Application Client Secret. This is stored securely in isolated storage.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää Azure AD -sovellusasiakkaan salaisuuden. Tämä tallennetaan turvallisesti eristetyssä tallennustilassa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Client Secret - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2856621359 - Control 2529110793 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client Secret</source>
-          <target>[NAB: SUGGESTION]Asiakasohjelman salasana</target>
+          <target>Asiakasohjelman salasana</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Client Secret - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2856621359 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a description for this app registration.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää kuvauksen tälle sovellusrekisteröinnille.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2856621359 - Control 3786226563 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the client secret expires. Update the secret before this date.</source>
-          <target>[NAB: SUGGESTION]Määrittää, milloin asiakassalaisuus vanhenee. Päivitä salaisuus ennen tätä päivämäärää.</target>
+          <target>Määrittää, milloin asiakassalaisuus vanhenee. Päivitä salaisuus ennen tätä päivämäärää.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Secret Expiration Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 785925573 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC App Registrations</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>D365BC sovelluksen rekisteröinnit</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 785925573 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Azure AD Application (Client) ID.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää Azure AD Applikaation (Client) ID:n</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 785925573 - Control 3461834954 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies a description for this app registration.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää kuvauksen tälle sovellusrekisteröinnille.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Control Description - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 785925573 - Control 3786226563 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the client secret expires. Update the secret before this date.</source>
-          <target>[NAB: SUGGESTION]Määrittää, milloin asiakassalaisuus vanhenee. Päivitä salaisuus ennen tätä päivämäärää.</target>
+          <target>Määrittää, milloin asiakassalaisuus vanhenee. Päivitä salaisuus ennen tätä päivämäärää.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Control Secret Expiration Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Enum 1764239386 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>App Registration Type</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Sovelluksen rekisteröintityyppi</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC App Reg. Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1764239386 - EnumValue 3143523363 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Individual</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Yksilö</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC App Reg. Type - EnumValue Individual - Property Caption</note>
         </trans-unit>
         <trans-unit id="Enum 1764239386 - EnumValue 4243948939 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Shared</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Jaettu</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Enum D4P BC App Reg. Type - EnumValue Shared - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 2008748094 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -2039,6 +2019,18 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action InstalledApps - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1494117452 - Action 1502400274 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View operations history for this environment.</source>
+          <target>Näytä tämän ympäristön toiminnot.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action Operations - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 1494117452 - Action 1502400274 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operations</source>
+          <target>Toiminnot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Action Operations - Property Caption</note>
+        </trans-unit>
         <trans-unit id="Page 1494117452 - Action 1821335367 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>View active sessions for this environment.</source>
           <target>Tarkastele tämän ympäristön aktiivisia istuntoja.</target>
@@ -2500,6 +2492,18 @@
           <target>KQL-kyselyt</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action KQLQueries - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 1502400274 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>View operations history for this environment.</source>
+          <target>Näytä tämän ympäristön toimintohistoria.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action Operations - Property ToolTip</note>
+        </trans-unit>
+        <trans-unit id="Page 4116547146 - Action 1502400274 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Operations</source>
+          <target>Toiminnot</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action Operations - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 3860714960 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Select and run a telemetry query directly using the selected environment's configuration.</source>
@@ -3289,7 +3293,7 @@
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 103537446 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update the selected apps (multiple) to the latest version.</source>
-          <target>Päivitä valitut sovellukset (useita) uusimpaan versioon.</target>
+          <target>Päivitä valitut sovellukset uusimpaan versioon.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property ToolTip</note>
         </trans-unit>
@@ -4831,8 +4835,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Setup - Control API - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1013162530 - Control 1921896107 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Base URL for Business Central Admin API calls. Default: https://api.businesscentral.dynamics.com/admin/v2.24</source>
-          <target>Perus-URL Business Central -hallinta-API-kutsuille. Oletus: https://api.businesscentral.dynamics.com/admin/v2.24</target>
+          <source>Base URL for Business Central Admin API calls. Default: https://api.businesscentral.dynamics.com/admin/v2.28</source>
+          <target>Perus-URL Business Central -hallinta-API-kutsuille. Oletus: https://api.businesscentral.dynamics.com/admin/v2.28</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Setup - Control Admin API Base URL - Property ToolTip</note>
         </trans-unit>
@@ -5606,9 +5610,8 @@
         </trans-unit>
         <trans-unit id="Table 3746675639 - Field 1153343652 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>App Registration Type</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Sovelluksen rekisteröintityyppi</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Tenant - Field App Registration Type - Property Caption</note>
         </trans-unit>
         <trans-unit id="Table 3746675639 - Field 3107334762 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -5679,9 +5682,8 @@
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 1153343652 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies whether to use an individual or shared app registration.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää, käytetäänkö yksittäistä vai jaettua sovellusrekisteröintiä.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control App Registration Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -5692,16 +5694,14 @@
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 1545841066 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Azure AD Application Client Secret for API authentication. This is stored securely in isolated storage.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää Azure AD -sovellusasiakkaan salaisuuden API-todennusta varten. Tämä tallennetaan turvallisesti erilliseen tallennustilaan.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client Secret Individual - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 1545841066 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client Secret</source>
-          <target>[NAB: SUGGESTION]Asiakasohjelman salasana</target>
+          <target>Asiakasohjelman salasana</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client Secret Individual - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 3786226563 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
@@ -5712,16 +5712,14 @@
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 1603746290 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the Azure AD Application (Client) ID for API authentication. Select from shared app registrations.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target>Määrittää Azure AD -sovelluksen (asiakasohjelman) tunnuksen API-todennusta varten. Valitse jaetuista sovellusrekisteröinneistä.</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID Lookup - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 1603746290 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Client ID</source>
-          <target>[NAB: SUGGESTION]Asiakasohjelman tunnus</target>
+          <target>Asiakasohjelman tunnus</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID Lookup - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 2441683610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
@@ -5828,9 +5826,8 @@
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 3786226563 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Secret Expiration Date</source>
-          <target>[NAB: SUGGESTION]Salaisuuden vanhentumisaika</target>
+          <target>Salaisuuden vanhentumisaika</target>
           <note from="Developer" annotates="general" priority="2"></note>
-          <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">Suggested translation inserted.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Secret Expiration Date - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 2441683610 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
