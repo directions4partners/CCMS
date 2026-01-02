@@ -33,8 +33,6 @@ page 62009 "D4P PTE Object Ranges"
                     TableRelation = "D4P BC PTE App"."PTE ID";
 
                     trigger OnValidate()
-                    var
-                        NoPTEAppExists: Label 'The specified PTE App does not exist.';
                     begin
                         if IsNullGuid(Rec."PTE ID") then
                             exit;
