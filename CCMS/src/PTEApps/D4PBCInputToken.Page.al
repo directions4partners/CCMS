@@ -25,7 +25,7 @@ page 62031 "D4P BC Input Token"
     var
         Token: Text[250];
 
-    procedure GetToken(): Text
+    procedure GetToken(): SecretText
     begin
         exit(Token);
     end;
