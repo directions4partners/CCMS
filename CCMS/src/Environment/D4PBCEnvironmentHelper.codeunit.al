@@ -45,35 +45,35 @@ codeunit 62002 "D4P BC Environment Helper"
 
     local procedure DeleteEnvironmentSessions(Environment: Record "D4P BC Environment")
     var
-        EnvironmentSessions: Record "D4P BC Environment Session";
+        EnvironmentSession: Record "D4P BC Environment Session";
     begin
-        EnvironmentSessions.SetRange("Customer No.", Environment."Customer No.");
-        EnvironmentSessions.SetRange("Tenant ID", Format(Environment."Tenant ID"));
-        EnvironmentSessions.SetRange("Environment Name", Environment.Name);
-        if not EnvironmentSessions.IsEmpty() then
-            EnvironmentSessions.DeleteAll(true);
+        EnvironmentSession.SetRange("Customer No.", Environment."Customer No.");
+        EnvironmentSession.SetRange("Tenant ID", Format(Environment."Tenant ID"));
+        EnvironmentSession.SetRange("Environment Name", Environment.Name);
+        if not EnvironmentSession.IsEmpty() then
+            EnvironmentSession.DeleteAll(true);
     end;
 
     local procedure DeleteEnvironmentFeatures(Environment: Record "D4P BC Environment")
     var
-        EnvironmentFeatures: Record "D4P BC Environment Feature";
+        EnvironmentFeature: Record "D4P BC Environment Feature";
     begin
-        EnvironmentFeatures.SetRange("Customer No.", Environment."Customer No.");
-        EnvironmentFeatures.SetRange("Tenant ID", Format(Environment."Tenant ID"));
-        EnvironmentFeatures.SetRange("Environment Name", Environment.Name);
-        if not EnvironmentFeatures.IsEmpty() then
-            EnvironmentFeatures.DeleteAll(true);
+        EnvironmentFeature.SetRange("Customer No.", Environment."Customer No.");
+        EnvironmentFeature.SetRange("Tenant ID", Format(Environment."Tenant ID"));
+        EnvironmentFeature.SetRange("Environment Name", Environment.Name);
+        if not EnvironmentFeature.IsEmpty() then
+            EnvironmentFeature.DeleteAll(true);
     end;
 
     local procedure DeleteEnvironmentInstalledApps(Environment: Record "D4P BC Environment")
     var
-        InstalledApps: Record "D4P BC Installed App";
+        InstalledApp: Record "D4P BC Installed App";
     begin
-        InstalledApps.SetRange("Customer No.", Environment."Customer No.");
-        InstalledApps.SetRange("Tenant ID", Environment."Tenant ID");
-        InstalledApps.SetRange("Environment Name", Environment.Name);
-        if not InstalledApps.IsEmpty() then
-            InstalledApps.DeleteAll(true);
+        InstalledApp.SetRange("Customer No.", Environment."Customer No.");
+        InstalledApp.SetRange("Tenant ID", Environment."Tenant ID");
+        InstalledApp.SetRange("Environment Name", Environment.Name);
+        if not InstalledApp.IsEmpty() then
+            InstalledApp.DeleteAll(true);
     end;
 
     local procedure DeleteEnvironmentCapacityData(Environment: Record "D4P BC Environment")
