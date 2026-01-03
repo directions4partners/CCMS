@@ -16,7 +16,6 @@ page 62020 "D4P Export History Dialog"
 
                 field(TimePeriod; TimePeriodOption)
                 {
-                    ApplicationArea = All;
                     Caption = 'Time Period';
                     ToolTip = 'Select the time period for which to retrieve export history.';
 
@@ -27,14 +26,12 @@ page 62020 "D4P Export History Dialog"
                 }
                 field(StartDate; StartDateTime)
                 {
-                    ApplicationArea = All;
                     Caption = 'Start Date/Time';
                     ToolTip = 'The start date and time for the export history query.';
                     Editable = TimePeriodOption = TimePeriodOption::Custom;
                 }
                 field(EndDate; EndDateTime)
                 {
-                    ApplicationArea = All;
                     Caption = 'End Date/Time';
                     ToolTip = 'The end date and time for the export history query.';
                     Editable = TimePeriodOption = TimePeriodOption::Custom;
@@ -44,9 +41,9 @@ page 62020 "D4P Export History Dialog"
     }
 
     var
-        TimePeriodOption: Option "Current Month","Last 12 Months",Custom;
-        StartDateTime: DateTime;
         EndDateTime: DateTime;
+        StartDateTime: DateTime;
+        TimePeriodOption: Option "Current Month","Last 12 Months",Custom;
 
     trigger OnOpenPage()
     begin
@@ -59,25 +56,23 @@ page 62020 "D4P Export History Dialog"
     var
         FirstDayOfMonth: Date;
     begin
-        EndDateTime := CurrentDateTime;
+        EndDateTime := CurrentDateTime();
 
         case TimePeriodOption of
             TimePeriodOption::"Current Month":
                 begin
-                    FirstDayOfMonth := CalcDate('<-CM>', Today);
+                    FirstDayOfMonth := CalcDate('<-CM>', Today());
                     StartDateTime := CreateDateTime(FirstDayOfMonth, 0T);
                 end;
             TimePeriodOption::"Last 12 Months":
-                begin
-                    StartDateTime := CreateDateTime(CalcDate('<-12M>', Today), 0T);
-                end;
+                StartDateTime := CreateDateTime(CalcDate('<-12M>', Today()), 0T);
             TimePeriodOption::Custom:
                 begin
                     // User can edit manually
                     if StartDateTime = 0DT then
-                        StartDateTime := CreateDateTime(CalcDate('<-1M>', Today), 0T);
+                        StartDateTime := CreateDateTime(CalcDate('<-1M>', Today()), 0T);
                     if EndDateTime = 0DT then
-                        EndDateTime := CurrentDateTime;
+                        EndDateTime := CurrentDateTime();
                 end;
         end;
     end;

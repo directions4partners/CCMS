@@ -14,18 +14,18 @@ codeunit 62017 "D4P BC Session Helper"
 
     procedure GetSessions(var BCEnvironment: Record "D4P BC Environment")
     var
-        JsonResponse: JsonObject;
-        JsonArray: JsonArray;
-        JsonToken: JsonToken;
-        ResponseText: Text;
         BCTenant: Record "D4P BC Tenant";
         ProgressDialog: Dialog;
         SessionCount: Integer;
+        JsonArray: JsonArray;
+        JsonResponse: JsonObject;
+        JsonToken: JsonToken;
+        FailedToRetrieveErr: Label 'Failed to retrieve sessions: %1';
+        NoSessionsMsg: Label 'No active sessions found.';
         ProcessingMsg: Label 'Retrieving sessions...\\Please wait.';
         SuccessMsg: Label '%1 session(s) retrieved successfully.';
-        NoSessionsMsg: Label 'No active sessions found.';
         Endpoint: Text;
-        FailedToRetrieveErr: Label 'Failed to retrieve sessions: %1';
+        ResponseText: Text;
     begin
         ProgressDialog.Open(ProcessingMsg);
 
@@ -42,7 +42,7 @@ codeunit 62017 "D4P BC Session Helper"
 
             if JsonResponse.Get('value', JsonToken) then begin
                 JsonArray := JsonToken.AsArray();
-                SessionCount := JsonArray.Count;
+                SessionCount := JsonArray.Count();
                 ProcessSessionsArray(BCEnvironment, JsonArray);
                 ProgressDialog.Close();
                 if SessionCount > 0 then
@@ -61,14 +61,14 @@ codeunit 62017 "D4P BC Session Helper"
 
     procedure GetSessionDetails(var BCEnvironment: Record "D4P BC Environment"; SessionId: Text)
     var
-        JsonResponse: JsonObject;
-        ResponseText: Text;
-        BCTenant: Record "D4P BC Tenant";
         BCSession: Record "D4P BC Environment Session";
-        Endpoint: Text;
+        BCTenant: Record "D4P BC Tenant";
+        JsonResponse: JsonObject;
+        FailedToRetrieveErr: Label 'Failed to retrieve session details: %1';
         SessionDetailsRefreshedMsg: Label 'Session details refreshed.';
         SessionDetailsRetrievedMsg: Label 'Session details retrieved.';
-        FailedToRetrieveErr: Label 'Failed to retrieve session details: %1';
+        Endpoint: Text;
+        ResponseText: Text;
     begin
         // Get the tenant record
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
@@ -91,14 +91,14 @@ codeunit 62017 "D4P BC Session Helper"
 
     procedure DeleteSession(var BCEnvironment: Record "D4P BC Environment"; SessionId: Text)
     var
-        ResponseText: Text;
-        BCTenant: Record "D4P BC Tenant";
         BCSession: Record "D4P BC Environment Session";
+        BCTenant: Record "D4P BC Tenant";
         ConfirmMsg: Label 'Are you sure you want to terminate session %1 for user %2?';
-        Endpoint: Text;
+        FailedToTerminateErr: Label 'Failed to terminate session: %1';
         SessionNotFoundErr: Label 'Session %1 not found.';
         SessionTerminatedMsg: Label 'Session %1 terminated successfully.';
-        FailedToTerminateErr: Label 'Failed to terminate session: %1';
+        Endpoint: Text;
+        ResponseText: Text;
     begin
         // Get the session record to show user info
         if not BCSession.Get(SessionId) then
@@ -135,9 +135,9 @@ codeunit 62017 "D4P BC Session Helper"
 
     local procedure ProcessSessionsArray(var BCEnvironment: Record "D4P BC Environment"; JsonArray: JsonArray)
     var
-        JsonToken: JsonToken;
-        JsonObject: JsonObject;
         BCSession: Record "D4P BC Environment Session";
+        JsonObject: JsonObject;
+        JsonToken: JsonToken;
     begin
         foreach JsonToken in JsonArray do begin
             JsonObject := JsonToken.AsObject();
@@ -149,10 +149,10 @@ codeunit 62017 "D4P BC Session Helper"
 
     local procedure ProcessSessionObject(var BCEnvironment: Record "D4P BC Environment"; JsonObject: JsonObject; var BCSession: Record "D4P BC Environment Session")
     var
+        TenantIdGuid: Guid;
+        SessionIdInt: Integer;
         JsonToken: JsonToken;
         JsonValue: JsonValue;
-        SessionIdInt: Integer;
-        TenantIdGuid: Guid;
     begin
         BCSession."Customer No." := BCEnvironment."Customer No.";
         TenantIdGuid := BCEnvironment."Tenant ID";
@@ -230,8 +230,8 @@ codeunit 62017 "D4P BC Session Helper"
     local procedure ParseDateTimeFromAPI(DateTimeText: Text): DateTime
     var
         TypeHelper: Codeunit "Type Helper";
-        DateTimeValue: Variant;
         ParsedDateTime: DateTime;
+        DateTimeValue: Variant;
     begin
         DateTimeValue := ParsedDateTime;
         if TypeHelper.Evaluate(DateTimeValue, DateTimeText, 'M/d/yyyy h:mm:ss tt', 'en-US') then begin

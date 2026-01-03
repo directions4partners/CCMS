@@ -21,15 +21,12 @@ page 62018 "D4P BC Installed Apps FactBox"
             {
                 field("App Name"; Rec."App Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("App Publisher"; Rec."App Publisher")
                 {
-                    ApplicationArea = All;
                 }
                 field("App Version"; Rec."App Version")
                 {
-                    ApplicationArea = All;
                 }
             }
         }

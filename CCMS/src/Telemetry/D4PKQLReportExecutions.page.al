@@ -71,7 +71,7 @@ page 62044 "D4P KQL Report Executions"
                 {
                     ApplicationArea = All;
                 }
-                field("No. Of Executions"; Rec."No. Of Executions")
+                field("No. of Executions"; Rec."No. of Executions")
                 {
                     ApplicationArea = All;
                 }
@@ -96,8 +96,8 @@ page 62044 "D4P KQL Report Executions"
 
                 trigger OnAction()
                 var
-                    LoadTelemetryReport: Report "D4P Load Data";
                     BCEnvironment: Record "D4P BC Environment";
+                    LoadTelemetryReport: Report "D4P Load Data";
                     NoEnvironmentContextErr: Label 'No environment context available. Please run this query from the Environment List or Environment Card.';
                 begin
                     // If we have a stored environment context, use it
