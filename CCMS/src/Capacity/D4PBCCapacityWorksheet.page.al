@@ -21,26 +21,22 @@ page 62021 "D4P BC Capacity Worksheet"
                 Caption = 'Storage capacity usage';
                 field("Total Storage Used GB"; Rec."Total Storage Used GB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the total database storage used across all environments.';
                     StyleExpr = 'Strong';
                     Style = Strong;
                 }
                 field("Storage Total GB"; Rec."Storage Total GB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the total database storage capacity allowed.';
                     Caption = 'of';
                 }
                 field("Storage Available GB"; Rec."Storage Available GB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the available database storage capacity.';
                     Caption = 'GB available';
                 }
                 field("Last Update Date"; Rec."Last Update Date")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the capacity data was last updated.';
                     Caption = 'Last updated date';
                 }
@@ -50,25 +46,21 @@ page 62021 "D4P BC Capacity Worksheet"
                 Caption = 'Storage capacity, by source';
                 field("Storage Default GB Display"; Rec."Storage Default GB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the default storage capacity (organization default).';
                     Caption = 'Org (tenant) default';
                 }
                 field("Storage User Licenses GB"; Rec."Storage User Licenses GB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the storage capacity from user licenses.';
                     Caption = 'User licenses';
                 }
                 field("Storage Additional Capacity GB"; Rec."Storage Additional Capacity GB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the additional purchased storage capacity.';
                     Caption = 'Additional capacity';
                 }
                 field("Storage Total GB Display"; Rec."Storage Total GB")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the total storage capacity.';
                     Caption = 'Total';
                     StyleExpr = 'Strong';
@@ -83,19 +75,16 @@ page 62021 "D4P BC Capacity Worksheet"
                     Caption = 'Production';
                     field("Production Environments Used"; Rec."Production Environments Used")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the number of production environments currently in use.';
                         Caption = 'Used';
                     }
                     field("Max Production Environments"; Rec."Max Production Environments")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the maximum allowed number of production environments.';
                         Caption = 'of';
                     }
                     field("Production Env. Available"; Rec."Production Env. Available")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the number of available production environment slots.';
                         Caption = 'available';
                     }
@@ -105,19 +94,16 @@ page 62021 "D4P BC Capacity Worksheet"
                     Caption = 'Sandbox';
                     field("Sandbox Environments Used"; Rec."Sandbox Environments Used")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the number of sandbox environments currently in use.';
                         Caption = 'Used';
                     }
                     field("Max Sandbox Environments"; Rec."Max Sandbox Environments")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the maximum allowed number of sandbox environments.';
                         Caption = 'of';
                     }
                     field("Sandbox Env. Available"; Rec."Sandbox Env. Available")
                     {
-                        ApplicationArea = All;
                         ToolTip = 'Specifies the number of available sandbox environment slots.';
                         Caption = 'available';
                     }
@@ -125,7 +111,6 @@ page 62021 "D4P BC Capacity Worksheet"
             }
             part(Lines; "D4P BC Capacity Subform")
             {
-                ApplicationArea = All;
                 SubPageLink = "Customer No." = field("Customer No."), "Tenant ID" = field("Tenant ID");
             }
         }
@@ -147,8 +132,8 @@ page 62021 "D4P BC Capacity Worksheet"
 
                 trigger OnAction()
                 var
-                    CapacityHelper: Codeunit "D4P BC Capacity Helper";
                     BCTenant: Record "D4P BC Tenant";
+                    CapacityHelper: Codeunit "D4P BC Capacity Helper";
                     TenantIdGuid: Guid;
                 begin
                     // If no header record exists, use first tenant

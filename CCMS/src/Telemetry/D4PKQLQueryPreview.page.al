@@ -10,10 +10,12 @@ page 62041 "D4P KQL Query Preview"
 
     layout
     {
-        area(content)
+        area(Content)
         {
             group(General)
             {
+                ShowCaption = false;
+
                 field(QueryText; GetQueryText())
                 {
                     ApplicationArea = All;
@@ -59,13 +61,13 @@ page 62041 "D4P KQL Query Preview"
     local procedure UploadQueryFromFile()
     var
         InStr: InStream;
+        FileIsEmptyMsg: Label 'The selected file is empty.';
+        PleaseSelectRecordMsg: Label 'Please select a query record first.';
+        QueryUploadedMsg: Label 'Query uploaded successfully from file: %1';
         OutStr: OutStream;
         FileName: Text;
-        QueryText: Text;
         Line: Text;
-        PleaseSelectRecordMsg: Label 'Please select a query record first.';
-        FileIsEmptyMsg: Label 'The selected file is empty.';
-        QueryUploadedMsg: Label 'Query uploaded successfully from file: %1';
+        QueryText: Text;
     begin
         if Rec.Code = '' then begin
             Message('Please select a query record first.');
@@ -76,7 +78,7 @@ page 62041 "D4P KQL Query Preview"
             exit;
 
         // Read entire file content
-        while not InStr.EOS do begin
+        while not InStr.EOS() do begin
             InStr.ReadText(Line);
             if QueryText = '' then
                 QueryText := Line
@@ -101,11 +103,11 @@ page 62041 "D4P KQL Query Preview"
     var
         TempBlob: Codeunit "Temp Blob";
         InStr: InStream;
+        NoQueryContentMsg: Label 'No query content to download.';
+        PleaseSelectRecordMsg: Label 'Please select a query record first.';
         OutStr: OutStream;
         FileName: Text;
         QueryText: Text;
-        PleaseSelectRecordMsg: Label 'Please select a query record first.';
-        NoQueryContentMsg: Label 'No query content to download.';
     begin
         if Rec.Code = '' then begin
             Message(PleaseSelectRecordMsg);
@@ -136,7 +138,7 @@ page 62041 "D4P KQL Query Preview"
         if Rec.Query.HasValue() then begin
             Rec.CalcFields(Query);
             Rec.Query.CreateInStream(InStr, TEXTENCODING::UTF8);
-            while not InStr.EOS do begin
+            while not InStr.EOS() do begin
                 InStr.ReadText(Line);
                 if Txt = '' then
                     Txt := Line

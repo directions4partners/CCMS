@@ -20,47 +20,38 @@ page 62014 "D4P BC Environment Backups"
             {
                 field("Export Time"; Rec."Export Time")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the database export was performed.';
                 }
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the environment that was exported.';
                 }
                 field("Export Status"; Rec."Export Status")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the status of the export.';
                 }
                 field("Application Version"; Rec."Application Version")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the application version at the time of export.';
                 }
                 field("Storage Account"; Rec."Storage Account")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the Azure storage account where the export is stored.';
                 }
                 field(Container; Rec."Container")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the container name where the export is stored.';
                 }
                 field("Blob"; Rec."Blob")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the blob name of the exported file.';
                 }
                 field("Exported By"; Rec."Exported By")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies who initiated the export.';
                 }
                 field("Country Code"; Rec."Country Code")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the country code of the environment.';
                 }
             }
@@ -99,8 +90,8 @@ page 62014 "D4P BC Environment Backups"
                 var
                     BackupHelper: Codeunit "D4P BC Backup Helper";
                     ExportHistoryDialog: Page "D4P Export History Dialog";
-                    StartTime: DateTime;
                     EndTime: DateTime;
+                    StartTime: DateTime;
                 begin
                     CheckEnvironmentContext();
 
@@ -151,12 +142,12 @@ page 62014 "D4P BC Environment Backups"
                 trigger OnAction()
                 var
                     Backup: Record "D4P BC Environment Backup";
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched backup records?';
-                    DeletedSuccessMsg: Label '%1 backup records deleted.';
                     RecordCount: Integer;
+                    DeletedSuccessMsg: Label '%1 backup records deleted.';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched backup records?';
                 begin
                     Backup.CopyFilters(Rec);
-                    RecordCount := Backup.Count;
+                    RecordCount := Backup.Count();
                     if RecordCount = 0 then
                         exit;
 

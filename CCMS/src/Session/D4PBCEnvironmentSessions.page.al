@@ -21,58 +21,47 @@ page 62016 "D4P BC Environment Sessions"
             {
                 field("Session ID"; Rec."Session ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the unique session identifier.';
                 }
                 field("User ID"; Rec."User ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the user ID for this session.';
                 }
                 field("Client Type"; Rec."Client Type")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the client type.';
                 }
                 field("Login Date"; Rec."Login Date")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies when the user logged in.';
                 }
                 field("Duration"; SessionDuration)
                 {
-                    ApplicationArea = All;
                     Caption = 'Duration';
                     ToolTip = 'Specifies the session duration since login.';
                 }
                 field("Entry Point Operation"; Rec."Entry Point Operation")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the entry point operation.';
                 }
                 field("Entry Point Object Name"; Rec."Entry Point Object Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the entry point object name.';
                 }
                 field("Current Object Name"; Rec."Current Object Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current object name.';
                 }
                 field("Current Object ID"; Rec."Current Object ID")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the current object ID.';
                 }
                 field("Current Operation Duration"; Rec."Current Operation Duration")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the duration of the current operation in milliseconds.';
                 }
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ApplicationArea = All;
                     ToolTip = 'Specifies the environment name.';
                 }
             }
@@ -137,12 +126,12 @@ page 62016 "D4P BC Environment Sessions"
                 trigger OnAction()
                 var
                     Session: Record "D4P BC Environment Sessions";
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched session records?';
-                    DeletedSuccessMsg: Label '%1 session records deleted.';
                     RecordCount: Integer;
+                    DeletedSuccessMsg: Label '%1 session records deleted.';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched session records?';
                 begin
                     Session.CopyFilters(Rec);
-                    RecordCount := Session.Count;
+                    RecordCount := Session.Count();
                     if RecordCount = 0 then
                         exit;
 
@@ -181,7 +170,7 @@ page 62016 "D4P BC Environment Sessions"
 
     trigger OnAfterGetRecord()
     begin
-        SessionDuration := CurrentDateTime - Rec."Login Date";
+        SessionDuration := CurrentDateTime() - Rec."Login Date";
     end;
 
     procedure SetEnvironmentContext(Environment: Record "D4P BC Environment")
