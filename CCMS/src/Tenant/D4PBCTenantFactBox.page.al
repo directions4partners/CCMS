@@ -18,7 +18,6 @@ page 62012 "D4P BC Tenant FactBox"
                 field("Client ID"; Rec."Client ID")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the Azure AD application client ID.';
                 }
                 field("Secret Expiration Date"; GetSecretExpirationDate())
                 {
@@ -33,18 +32,15 @@ page 62012 "D4P BC Tenant FactBox"
                 field("Backup SAS URI"; Rec."Backup SAS URI")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the Blob Storage SAS URI where to store the backup from the BC online environment.';
                     ExtendedDatatype = Masked;
                 }
                 field("Backup Container Name"; Rec."Backup Container Name")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies the Blob Storage container name where to store the backup from the BC online environment.';
                 }
                 field("Backup SAS Token Exp. Date"; Rec."Backup SAS Token Exp. Date")
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies when the SAS token expires.';
                 }
             }
         }

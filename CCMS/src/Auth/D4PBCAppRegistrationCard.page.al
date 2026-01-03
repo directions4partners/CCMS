@@ -16,11 +16,9 @@ page 62026 "D4P BC App Registration Card"
                 Caption = 'General';
                 field("Client ID"; Rec."Client ID")
                 {
-                    ToolTip = 'Specifies the Azure AD Application (Client) ID.';
                 }
                 field(Description; Rec.Description)
                 {
-                    ToolTip = 'Specifies a description for this app registration.';
                 }
                 field("Client Secret"; ClientSecretValue)
                 {
@@ -35,7 +33,6 @@ page 62026 "D4P BC App Registration Card"
                 }
                 field("Secret Expiration Date"; Rec."Secret Expiration Date")
                 {
-                    ToolTip = 'Specifies when the client secret expires. Update the secret before this date.';
                     StyleExpr = SecretExpirationStyle;
                 }
             }

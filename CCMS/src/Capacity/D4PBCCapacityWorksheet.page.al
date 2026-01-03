@@ -21,23 +21,19 @@ page 62021 "D4P BC Capacity Worksheet"
                 Caption = 'Storage capacity usage';
                 field("Total Storage Used GB"; Rec."Total Storage Used GB")
                 {
-                    ToolTip = 'Specifies the total database storage used across all environments.';
                     StyleExpr = 'Strong';
                     Style = Strong;
                 }
                 field("Storage Total GB"; Rec."Storage Total GB")
                 {
-                    ToolTip = 'Specifies the total database storage capacity allowed.';
                     Caption = 'of';
                 }
                 field("Storage Available GB"; Rec."Storage Available GB")
                 {
-                    ToolTip = 'Specifies the available database storage capacity.';
                     Caption = 'GB available';
                 }
                 field("Last Update Date"; Rec."Last Update Date")
                 {
-                    ToolTip = 'Specifies when the capacity data was last updated.';
                     Caption = 'Last updated date';
                 }
             }
@@ -46,22 +42,18 @@ page 62021 "D4P BC Capacity Worksheet"
                 Caption = 'Storage capacity, by source';
                 field("Storage Default GB Display"; Rec."Storage Default GB")
                 {
-                    ToolTip = 'Specifies the default storage capacity (organization default).';
                     Caption = 'Org (tenant) default';
                 }
                 field("Storage User Licenses GB"; Rec."Storage User Licenses GB")
                 {
-                    ToolTip = 'Specifies the storage capacity from user licenses.';
                     Caption = 'User licenses';
                 }
                 field("Storage Additional Capacity GB"; Rec."Storage Additional Capacity GB")
                 {
-                    ToolTip = 'Specifies the additional purchased storage capacity.';
                     Caption = 'Additional capacity';
                 }
                 field("Storage Total GB Display"; Rec."Storage Total GB")
                 {
-                    ToolTip = 'Specifies the total storage capacity.';
                     Caption = 'Total';
                     StyleExpr = 'Strong';
                     Style = Strong;
@@ -75,17 +67,14 @@ page 62021 "D4P BC Capacity Worksheet"
                     Caption = 'Production';
                     field("Production Environments Used"; Rec."Production Environments Used")
                     {
-                        ToolTip = 'Specifies the number of production environments currently in use.';
                         Caption = 'Used';
                     }
                     field("Max Production Environments"; Rec."Max Production Environments")
                     {
-                        ToolTip = 'Specifies the maximum allowed number of production environments.';
                         Caption = 'of';
                     }
                     field("Production Env. Available"; Rec."Production Env. Available")
                     {
-                        ToolTip = 'Specifies the number of available production environment slots.';
                         Caption = 'available';
                     }
                 }
@@ -94,17 +83,14 @@ page 62021 "D4P BC Capacity Worksheet"
                     Caption = 'Sandbox';
                     field("Sandbox Environments Used"; Rec."Sandbox Environments Used")
                     {
-                        ToolTip = 'Specifies the number of sandbox environments currently in use.';
                         Caption = 'Used';
                     }
                     field("Max Sandbox Environments"; Rec."Max Sandbox Environments")
                     {
-                        ToolTip = 'Specifies the maximum allowed number of sandbox environments.';
                         Caption = 'of';
                     }
                     field("Sandbox Env. Available"; Rec."Sandbox Env. Available")
                     {
-                        ToolTip = 'Specifies the number of available sandbox environment slots.';
                         Caption = 'available';
                     }
                 }
