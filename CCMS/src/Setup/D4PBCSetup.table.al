@@ -28,7 +28,6 @@ table 62009 "D4P BC Setup"
         field(5; "Customer Nos."; Code[20])
         {
             Caption = 'Customer Nos.';
-            DataClassification = CustomerContent;
             TableRelation = "No. Series";
             ToolTip = 'Specifies the number series used to assign customer numbers automatically.';
         }
