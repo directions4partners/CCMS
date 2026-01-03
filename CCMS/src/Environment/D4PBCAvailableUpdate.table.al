@@ -10,7 +10,6 @@ table 62024 "D4P BC Available Update"
         field(1; "Entry No."; Integer)
         {
             Caption = 'Entry No.';
-            AutoIncrement = true;
         }
         field(10; "Target Version"; Text[100])
         {
