@@ -7,7 +7,7 @@ page 62016 "D4P BC Environment Sessions"
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "D4P BC Environment Sessions";
+    SourceTable = "D4P BC Environment Session";
     Caption = 'D365BC Environment Sessions';
     InsertAllowed = false;
     ModifyAllowed = false;
@@ -125,7 +125,7 @@ page 62016 "D4P BC Environment Sessions"
                 ToolTip = 'Delete all fetched session records.';
                 trigger OnAction()
                 var
-                    Session: Record "D4P BC Environment Sessions";
+                    Session: Record "D4P BC Environment Session";
                     RecordCount: Integer;
                     DeletedSuccessMsg: Label '%1 session records deleted.';
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched session records?';

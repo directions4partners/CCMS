@@ -6,7 +6,7 @@ page 62019 "D4P BC Environment Sess Card"
 {
     PageType = Card;
     ApplicationArea = All;
-    SourceTable = "D4P BC Environment Sessions";
+    SourceTable = "D4P BC Environment Session";
     Caption = 'D365BC Environment Session Details';
     InsertAllowed = false;
     ModifyAllowed = false;

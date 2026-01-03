@@ -61,7 +61,7 @@ codeunit 62017 "D4P BC Session Helper"
 
     procedure GetSessionDetails(var BCEnvironment: Record "D4P BC Environment"; SessionId: Text)
     var
-        BCSession: Record "D4P BC Environment Sessions";
+        BCSession: Record "D4P BC Environment Session";
         BCTenant: Record "D4P BC Tenant";
         JsonResponse: JsonObject;
         FailedToRetrieveErr: Label 'Failed to retrieve session details: %1';
@@ -91,7 +91,7 @@ codeunit 62017 "D4P BC Session Helper"
 
     procedure DeleteSession(var BCEnvironment: Record "D4P BC Environment"; SessionId: Text)
     var
-        BCSession: Record "D4P BC Environment Sessions";
+        BCSession: Record "D4P BC Environment Session";
         BCTenant: Record "D4P BC Tenant";
         ConfirmMsg: Label 'Are you sure you want to terminate session %1 for user %2?';
         FailedToTerminateErr: Label 'Failed to terminate session: %1';
@@ -123,7 +123,7 @@ codeunit 62017 "D4P BC Session Helper"
 
     local procedure DeleteSessionsForEnvironment(var BCEnvironment: Record "D4P BC Environment")
     var
-        BCSession: Record "D4P BC Environment Sessions";
+        BCSession: Record "D4P BC Environment Session";
         TenantIdGuid: Guid;
     begin
         TenantIdGuid := BCEnvironment."Tenant ID";
@@ -135,7 +135,7 @@ codeunit 62017 "D4P BC Session Helper"
 
     local procedure ProcessSessionsArray(var BCEnvironment: Record "D4P BC Environment"; JsonArray: JsonArray)
     var
-        BCSession: Record "D4P BC Environment Sessions";
+        BCSession: Record "D4P BC Environment Session";
         JsonObject: JsonObject;
         JsonToken: JsonToken;
     begin
@@ -147,7 +147,7 @@ codeunit 62017 "D4P BC Session Helper"
         end;
     end;
 
-    local procedure ProcessSessionObject(var BCEnvironment: Record "D4P BC Environment"; JsonObject: JsonObject; var BCSession: Record "D4P BC Environment Sessions")
+    local procedure ProcessSessionObject(var BCEnvironment: Record "D4P BC Environment"; JsonObject: JsonObject; var BCSession: Record "D4P BC Environment Session")
     var
         TenantIdGuid: Guid;
         SessionIdInt: Integer;
