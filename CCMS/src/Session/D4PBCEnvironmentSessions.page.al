@@ -35,7 +35,7 @@ page 62016 "D4P BC Environment Sessions"
                 {
                     ToolTip = 'Specifies when the user logged in.';
                 }
-                field("Duration"; SessionDuration)
+                field(Duration; SessionDuration)
                 {
                     Caption = 'Duration';
                     ToolTip = 'Specifies the session duration since login.';
@@ -117,7 +117,7 @@ page 62016 "D4P BC Environment Sessions"
                     CurrPage.Update(false);
                 end;
             }
-            action("DeleteAll")
+            action(DeleteAll)
             {
                 ApplicationArea = All;
                 Caption = 'Delete All';

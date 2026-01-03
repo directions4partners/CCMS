@@ -38,7 +38,7 @@ page 62014 "D4P BC Environment Backups"
                 {
                     ToolTip = 'Specifies the Azure storage account where the export is stored.';
                 }
-                field(Container; Rec."Container")
+                field("Container"; Rec."Container")
                 {
                     ToolTip = 'Specifies the container name where the export is stored.';
                 }
@@ -133,7 +133,7 @@ page 62014 "D4P BC Environment Backups"
                         Message('PIT Restore functionality to be implemented.');
                 end;
             }
-            action("DeleteAll")
+            action(DeleteAll)
             {
                 ApplicationArea = All;
                 Caption = 'Delete All';

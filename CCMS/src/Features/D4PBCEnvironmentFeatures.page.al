@@ -133,7 +133,7 @@ page 62013 "D4P BC Environment Features"
                     CurrPage.Update(false);
                 end;
             }
-            action("DeleteAll")
+            action(DeleteAll)
             {
                 ApplicationArea = All;
                 Caption = 'Delete All';

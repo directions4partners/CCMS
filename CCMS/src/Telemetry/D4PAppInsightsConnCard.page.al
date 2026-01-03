@@ -21,7 +21,7 @@ page 62048 "D4P AppInsights Conn Card"
                     ShowMandatory = true;
                     MaskType = Concealed;
                 }
-                field(Description; Rec."Description")
+                field("Description"; Rec."Description")
                 {
                     ToolTip = 'Specifies a description for this connection.';
                 }
