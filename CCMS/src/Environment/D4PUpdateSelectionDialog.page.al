@@ -17,7 +17,6 @@ page 62025 "D4P Update Selection Dialog"
                 field(Selected; Rec.Selected)
                 {
                     ApplicationArea = All;
-                    ToolTip = 'Specifies if this is the currently selected version.';
                     StyleExpr = RowStyleExpr;
 
                     trigger OnValidate()
@@ -30,28 +29,24 @@ page 62025 "D4P Update Selection Dialog"
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    ToolTip = 'Specifies the target version.';
                     StyleExpr = RowStyleExpr;
                 }
                 field(Available; Rec.Available)
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    ToolTip = 'Specifies if the version is available.';
                     StyleExpr = RowStyleExpr;
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    ToolTip = 'Specifies the latest date for which the update can be scheduled.';
                     StyleExpr = RowStyleExpr;
                 }
                 field("Selected Date"; Rec."User Selected Date")
                 {
                     ApplicationArea = All;
                     Caption = 'Selected Date';
-                    ToolTip = 'Select the date for the update (between today and latest selectable date).';
                     Editable = DateFieldEditable;
                     Visible = DateFieldsVisible;
                     StyleExpr = RowStyleExpr;
@@ -65,7 +60,6 @@ page 62025 "D4P Update Selection Dialog"
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    ToolTip = 'Specifies the rollout status (Active, UnderMaintenance, Postponed).';
                     Visible = DateFieldsVisible;
                     StyleExpr = RowStyleExpr;
                 }
@@ -73,7 +67,6 @@ page 62025 "D4P Update Selection Dialog"
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    ToolTip = 'Specifies the expected month for the release.';
                     Visible = ExpectedFieldsVisible;
                     StyleExpr = RowStyleExpr;
                 }
@@ -81,7 +74,6 @@ page 62025 "D4P Update Selection Dialog"
                 {
                     ApplicationArea = All;
                     Editable = false;
-                    ToolTip = 'Specifies the expected year for the release.';
                     Visible = ExpectedFieldsVisible;
                     StyleExpr = RowStyleExpr;
                 }

@@ -21,20 +21,16 @@ page 62023 "D4P BC Capacity Card"
                 Caption = 'General';
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ToolTip = 'Specifies the environment name.';
                     Style = Strong;
                 }
                 field("Environment Type"; Rec."Environment Type")
                 {
-                    ToolTip = 'Specifies the environment type (Production or Sandbox).';
                 }
                 field("Application Family"; Rec."Application Family")
                 {
-                    ToolTip = 'Specifies the application family.';
                 }
                 field("Measurement Date"; Rec."Measurement Date")
                 {
-                    ToolTip = 'Specifies when the capacity data was measured.';
                 }
             }
             group(StorageUsage)
@@ -42,16 +38,13 @@ page 62023 "D4P BC Capacity Card"
                 Caption = 'Storage Usage';
                 field("Database Storage GB"; Rec."Database Storage GB")
                 {
-                    ToolTip = 'Specifies the database storage used by this environment in GB.';
                     Style = Strong;
                 }
                 field("Database Storage MB"; Rec."Database Storage MB")
                 {
-                    ToolTip = 'Specifies the database storage used by this environment in MB.';
                 }
                 field("Database Storage KB"; Rec."Database Storage KB")
                 {
-                    ToolTip = 'Specifies the database storage used by this environment in KB.';
                 }
             }
             group(TenantInfo)
@@ -59,11 +52,9 @@ page 62023 "D4P BC Capacity Card"
                 Caption = 'Tenant Information';
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ToolTip = 'Specifies the customer number.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ToolTip = 'Specifies the tenant ID.';
                 }
             }
         }

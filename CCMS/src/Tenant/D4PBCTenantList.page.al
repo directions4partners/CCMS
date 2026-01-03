@@ -22,15 +22,12 @@ page 62002 "D4P BC Tenant List"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ToolTip = 'Specifies the customer number associated with this tenant.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ToolTip = 'Specifies the unique identifier of the Business Central tenant.';
                 }
                 field("Tenant Name"; Rec."Tenant Name")
                 {
-                    ToolTip = 'Specifies the name of the Business Central tenant.';
                 }
             }
         }

@@ -19,27 +19,21 @@ page 62000 "D4P BC Customers List"
             {
                 field("No."; Rec."No.")
                 {
-                    ToolTip = 'Specifies the customer number.';
                 }
                 field(Name; Rec.Name)
                 {
-                    ToolTip = 'Specifies the customer name.';
                 }
                 field(City; Rec.City)
                 {
-                    ToolTip = 'Specifies the customer''s city.';
                 }
                 field("Country/Region Code"; Rec."Country/Region Code")
                 {
-                    ToolTip = 'Specifies the country/region code.';
                 }
                 field("Contact Person Name"; Rec."Contact Person Name")
                 {
-                    ToolTip = 'Specifies the name of the primary contact person for this customer.';
                 }
                 field("Contact Person Email"; Rec."Contact Person Email")
                 {
-                    ToolTip = 'Specifies the email address of the primary contact person for this customer.';
                 }
             }
         }

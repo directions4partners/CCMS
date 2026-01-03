@@ -22,7 +22,6 @@ page 62034 "D4P BC Admin Center Cues"
                 {
                     ApplicationArea = All;
                     Caption = 'Customers';
-                    ToolTip = 'Number of D365 BC customers';
                     DrillDownPageId = "D4P BC Customers List";
 
                     trigger OnDrillDown()
@@ -35,7 +34,6 @@ page 62034 "D4P BC Admin Center Cues"
                 {
                     ApplicationArea = All;
                     Caption = 'Tenants';
-                    ToolTip = 'Number of Entra ID tenants';
                     DrillDownPageId = "D4P BC Tenant List";
 
                     trigger OnDrillDown()

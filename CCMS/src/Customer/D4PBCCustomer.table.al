@@ -19,7 +19,7 @@ table 62000 "D4P BC Customer"
         {
             Caption = 'No.';
             DataClassification = CustomerContent;
-
+            ToolTip = 'Specifies the customer number.';
             trigger OnValidate()
             begin
                 TestNoSeries();
@@ -29,22 +29,25 @@ table 62000 "D4P BC Customer"
         {
             Caption = 'Name';
             DataClassification = CustomerContent;
+            ToolTip = 'Specifies the customer name.';
         }
         field(3; Address; Text[100])
         {
             Caption = 'Address';
             DataClassification = CustomerContent;
+            ToolTip = 'Specifies the customer''s address.';
         }
         field(4; "Address 2"; Text[50])
         {
             Caption = 'Address 2';
             DataClassification = CustomerContent;
+            ToolTip = 'Specifies additional address information.';
         }
         field(5; City; Text[30])
         {
             Caption = 'City';
             DataClassification = CustomerContent;
-
+            ToolTip = 'Specifies the customer''s city.';
             trigger OnValidate()
             begin
                 PostCode.ValidateCity(City, "Post Code", County, "Country/Region Code", (CurrFieldNo <> 0) and GuiAllowed);
@@ -63,7 +66,7 @@ table 62000 "D4P BC Customer"
             else
             if ("Country/Region Code" = filter(<> '')) "Post Code" where("Country/Region Code" = field("Country/Region Code"));
             ValidateTableRelation = false;
-
+            ToolTip = 'Specifies the postal code.';
             trigger OnValidate()
             begin
                 PostCode.ValidatePostCode(City, "Post Code", County, "Country/Region Code", (CurrFieldNo <> 0) and GuiAllowed);
@@ -79,13 +82,14 @@ table 62000 "D4P BC Customer"
             Caption = 'County';
             DataClassification = CustomerContent;
             CaptionClass = '5,1,' + "Country/Region Code";
+            ToolTip = 'Specifies the county or state.';
         }
         field(8; "Country/Region Code"; Code[10])
         {
             Caption = 'Country/Region Code';
             DataClassification = CustomerContent;
             TableRelation = "Country/Region";
-
+            ToolTip = 'Specifies the country/region code.';
             trigger OnValidate()
             begin
                 PostCode.CheckClearPostCodeCityCounty(City, "Post Code", County, "Country/Region Code", xRec."Country/Region Code");
@@ -95,12 +99,14 @@ table 62000 "D4P BC Customer"
         {
             Caption = 'Contact Person Name';
             DataClassification = CustomerContent;
+            ToolTip = 'Specifies the name of the primary contact person for this customer.';
         }
         field(10; "Contact Person Email"; Text[80])
         {
             Caption = 'Contact Person Email';
             DataClassification = CustomerContent;
             ExtendedDatatype = EMail;
+            ToolTip = 'Specifies the email address of the primary contact person for this customer.';
             trigger OnValidate()
             begin
                 ValidateContactEmail();

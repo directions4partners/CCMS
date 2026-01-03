@@ -21,6 +21,7 @@ table 62019 "D4P BC Capacity Header"
         field(10; "Last Update Date"; DateTime)
         {
             Caption = 'Last Update Date';
+            ToolTip = 'Specifies when the capacity data was last updated.';
         }
         // Storage Quota fields from /environments/quotas
         field(20; "Storage Default KB"; BigInteger)
@@ -44,21 +45,25 @@ table 62019 "D4P BC Capacity Header"
         {
             Caption = 'Storage Default GB';
             DecimalPlaces = 2 : 2;
+            ToolTip = 'Specifies the default storage capacity (organization default).';
         }
         field(31; "Storage User Licenses GB"; Decimal)
         {
             Caption = 'Storage User Licenses GB';
             DecimalPlaces = 2 : 2;
+            ToolTip = 'Specifies the storage capacity from user licenses.';
         }
         field(32; "Storage Additional Capacity GB"; Decimal)
         {
             Caption = 'Storage Additional Capacity GB';
             DecimalPlaces = 2 : 2;
+            ToolTip = 'Specifies the additional purchased storage capacity.';
         }
         field(33; "Storage Total GB"; Decimal)
         {
             Caption = 'Storage Total GB';
             DecimalPlaces = 2 : 2;
+            ToolTip = 'Specifies the total database storage capacity allowed.';
         }
         // Total storage used (sum from all environments)
         field(40; "Total Storage Used KB"; BigInteger)
@@ -69,36 +74,44 @@ table 62019 "D4P BC Capacity Header"
         {
             Caption = 'Total Storage Used GB';
             DecimalPlaces = 2 : 2;
+            ToolTip = 'Specifies the total database storage used across all environments.';
         }
         field(42; "Storage Available GB"; Decimal)
         {
             Caption = 'Storage Available GB';
             DecimalPlaces = 2 : 2;
+            ToolTip = 'Specifies the available database storage capacity.';
         }
         // Environment quotas
         field(50; "Max Production Environments"; Integer)
         {
             Caption = 'Max Production Environments';
+            ToolTip = 'Specifies the maximum allowed number of production environments.';
         }
         field(51; "Max Sandbox Environments"; Integer)
         {
             Caption = 'Max Sandbox Environments';
+            ToolTip = 'Specifies the maximum allowed number of sandbox environments.';
         }
         field(52; "Production Environments Used"; Integer)
         {
             Caption = 'Production Environments Used';
+            ToolTip = 'Specifies the number of production environments currently in use.';
         }
         field(53; "Sandbox Environments Used"; Integer)
         {
             Caption = 'Sandbox Environments Used';
+            ToolTip = 'Specifies the number of sandbox environments currently in use.';
         }
         field(54; "Production Env. Available"; Integer)
         {
             Caption = 'Production Environments Available';
+            ToolTip = 'Specifies the number of available production environment slots.';
         }
         field(55; "Sandbox Env. Available"; Integer)
         {
             Caption = 'Sandbox Environments Available';
+            ToolTip = 'Specifies the number of available sandbox environment slots.';
         }
     }
 

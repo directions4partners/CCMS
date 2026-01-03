@@ -20,6 +20,7 @@ table 62047 "D4P BC Admin Center Cue"
             FieldClass = FlowField;
             CalcFormula = count("D4P BC Customer");
             Editable = false;
+            ToolTip = 'Number of D365 BC customers';
         }
         field(3; "Tenants Count"; Integer)
         {
@@ -27,6 +28,7 @@ table 62047 "D4P BC Admin Center Cue"
             FieldClass = FlowField;
             CalcFormula = count("D4P BC Tenant");
             Editable = false;
+            ToolTip = 'Number of Entra ID tenants';
         }
     }
 

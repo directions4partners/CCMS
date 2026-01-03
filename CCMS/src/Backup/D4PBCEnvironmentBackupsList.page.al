@@ -20,39 +20,30 @@ page 62014 "D4P BC Environment Backups"
             {
                 field("Export Time"; Rec."Export Time")
                 {
-                    ToolTip = 'Specifies when the database export was performed.';
                 }
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ToolTip = 'Specifies the environment that was exported.';
                 }
                 field("Export Status"; Rec."Export Status")
                 {
-                    ToolTip = 'Specifies the status of the export.';
                 }
                 field("Application Version"; Rec."Application Version")
                 {
-                    ToolTip = 'Specifies the application version at the time of export.';
                 }
                 field("Storage Account"; Rec."Storage Account")
                 {
-                    ToolTip = 'Specifies the Azure storage account where the export is stored.';
                 }
                 field("Container"; Rec."Container")
                 {
-                    ToolTip = 'Specifies the container name where the export is stored.';
                 }
                 field("Blob"; Rec."Blob")
                 {
-                    ToolTip = 'Specifies the blob name of the exported file.';
                 }
                 field("Exported By"; Rec."Exported By")
                 {
-                    ToolTip = 'Specifies who initiated the export.';
                 }
                 field("Country Code"; Rec."Country Code")
                 {
-                    ToolTip = 'Specifies the country code of the environment.';
                 }
             }
         }

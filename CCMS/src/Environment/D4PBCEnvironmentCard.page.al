@@ -27,37 +27,30 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'General';
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ToolTip = 'Specifies the customer number associated with this environment.';
                     Editable = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ToolTip = 'Specifies the tenant ID of the environment.';
                     Editable = false;
                 }
                 field(Name; Rec.Name)
                 {
-                    ToolTip = 'Specifies the name of the environment.';
                     Editable = false;
                 }
                 field("Friendly Name"; Rec."Friendly Name")
                 {
-                    ToolTip = 'Specifies the friendly/display name of the environment.';
                     Editable = false;
                 }
                 field("Application Family"; Rec."Application Family")
                 {
-                    ToolTip = 'Specifies the application family of the environment.';
                     Editable = false;
                 }
                 field(Type; Rec.Type)
                 {
-                    ToolTip = 'Specifies the type of the environment.';
                     Editable = false;
                 }
                 field(State; Rec.State)
                 {
-                    ToolTip = 'Specifies the current state of the environment.';
                     Editable = false;
                     StyleExpr = StateStyleExpr;
                 }
@@ -67,17 +60,14 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'Location';
                 field("Country/Region"; Rec."Country/Region")
                 {
-                    ToolTip = 'Specifies the country/region of the environment.';
                     Editable = false;
                 }
                 field("Location Name"; Rec."Location Name")
                 {
-                    ToolTip = 'Specifies the Azure Region where the environment database is stored.';
                     Editable = false;
                 }
                 field("Geo Name"; Rec."Geo Name")
                 {
-                    ToolTip = 'Specifies the Azure Geo where the environment database is stored.';
                     Editable = false;
                 }
             }
@@ -86,83 +76,70 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'Versions';
                 field("Current Version"; Rec."Current Version")
                 {
-                    ToolTip = 'Specifies the current version of Business Central.';
                     Editable = false;
                 }
                 field("Platform Version"; Rec."Platform Version")
                 {
-                    ToolTip = 'Specifies the platform version of the environment.';
                     Editable = false;
                 }
                 field("Target Version"; Rec."Target Version")
                 {
-                    ToolTip = 'Specifies the target version of Business Central update.';
                     Style = Favorable;
                     StyleExpr = true;
                     Editable = false;
                 }
                 field("Available"; Rec."Available")
                 {
-                    ToolTip = 'Indicates whether the target version has been released.';
                     Style = Favorable;
                     StyleExpr = true;
                     Editable = false;
                 }
                 field("Target Version Type"; Rec."Target Version Type")
                 {
-                    ToolTip = 'Indicates the type of the target version (GA or Preview).';
                     Style = Favorable;
                     StyleExpr = true;
                     Editable = false;
                 }
                 field("Selected DateTime"; Rec."Selected DateTime")
                 {
-                    ToolTip = 'Indicates the datetime for which the update to the target version has been scheduled.';
                     Style = Favorable;
                     StyleExpr = true;
                     Editable = false;
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
-                    ToolTip = 'Indicates the last date for which the update to this target version can be scheduled.';
                     Style = Favorable;
                     StyleExpr = true;
                     Editable = false;
                 }
                 field("Expected Availability"; Rec."Expected Availability")
                 {
-                    ToolTip = 'Expected availability month/year for unreleased versions.';
                     Style = Favorable;
                     StyleExpr = true;
                     Editable = false;
                 }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
-                    ToolTip = 'Indicates the rollout status of updates to this target version.';
                     Style = Favorable;
                     StyleExpr = true;
                     Editable = false;
                 }
                 field("Ignore Update Window"; Rec."Ignore Update Window")
                 {
-                    ToolTip = 'Indicates whether the update window for the environment may be ignored.';
                     Style = Favorable;
                     StyleExpr = true;
                     Editable = false;
                 }
                 field("Ring Name"; Rec."Ring Name")
                 {
-                    ToolTip = 'Specifies the update ring name (e.g., Prod, Preview).';
                     Editable = false;
                 }
                 field("Grace Period Start Date"; Rec."Grace Period Start Date")
                 {
-                    ToolTip = 'Specifies the grace period start date for the current major version.';
                     Editable = false;
                 }
                 field("Enforced Update Period Start"; Rec."Enforced Update Period Start")
                 {
-                    ToolTip = 'Specifies the enforced update period start date for the current major version.';
                     Editable = false;
                 }
             }
@@ -172,13 +149,11 @@ page 62004 "D4P BC Environment Card"
                 field("Web Client Login URL"; Rec."Web Client Login URL")
                 {
                     ExtendedDatatype = URL;
-                    ToolTip = 'Specifies the URL to log into the environment.';
                     Editable = false;
                 }
                 field("Web Service URL"; Rec."Web Service URL")
                 {
                     ExtendedDatatype = URL;
-                    ToolTip = 'Specifies the URL to access the environment service API.';
                     Editable = false;
                 }
             }
@@ -187,7 +162,6 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'Telemetry & Monitoring';
                 field("Application Insights String"; Rec."Application Insights String")
                 {
-                    ToolTip = 'Specifies the connection string for Application Insights. Use the lookup to select from existing configurations or type directly to create new entries.';
                     MaskType = Concealed;
 
                     trigger OnValidate()
@@ -234,20 +208,16 @@ page 62004 "D4P BC Environment Card"
                 }
                 field("Telemetry API Key"; Rec."Telemetry API Key")
                 {
-                    ToolTip = 'Specifies the API key for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                     ExtendedDatatype = Masked;
                 }
                 field("Telemetry Application ID"; Rec."Telemetry Application ID")
                 {
-                    ToolTip = 'Specifies the Application ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                 }
                 field("Telemetry Tenant ID"; Rec."Telemetry Tenant ID")
                 {
-                    ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from Application Insights Connection Setup).';
                 }
                 field("Telemetry Description"; Rec."Telemetry Description")
                 {
-                    ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from Application Insights Connection Setup).';
                 }
             }
             group(AppManagement)
@@ -255,12 +225,10 @@ page 62004 "D4P BC Environment Card"
                 Caption = 'App Management';
                 field("AppSource Apps Update Cadence"; Rec."AppSource Apps Update Cadence")
                 {
-                    ToolTip = 'Specifies the cadence for automatic AppSource apps updates.';
                     Editable = false;
                 }
                 field("Linked PowerPlatform Env ID"; Rec."Linked PowerPlatform Env ID")
                 {
-                    ToolTip = 'Specifies the linked Power Platform environment ID.';
                     Editable = false;
                 }
             }
@@ -270,17 +238,14 @@ page 62004 "D4P BC Environment Card"
                 Visible = DeletionInfoVisible;
                 field("Soft Deleted On"; Rec."Soft Deleted On")
                 {
-                    ToolTip = 'Specifies when the environment was soft deleted.';
                     Editable = false;
                 }
                 field("Hard Delete Pending On"; Rec."Hard Delete Pending On")
                 {
-                    ToolTip = 'Specifies when the environment will be permanently deleted.';
                     Editable = false;
                 }
                 field("Delete Reason"; Rec."Delete Reason")
                 {
-                    ToolTip = 'Specifies the reason why the environment was deleted.';
                     Editable = false;
                 }
             }
