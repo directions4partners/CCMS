@@ -8,7 +8,7 @@ using D4P.CCMS.General;
 
 codeunit 62014 "D4P BC Features Helper"
 {
-    procedure GetFeatures(var EnvironmentFeatures: Record "D4P BC Environment Features")
+    procedure GetFeatures(var EnvironmentFeature: Record "D4P BC Environment Feature")
     var
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";
@@ -21,14 +21,14 @@ codeunit 62014 "D4P BC Features Helper"
         ResponseText: Text;
     begin
         // Find the environment
-        BCEnvironment.SetRange("Customer No.", EnvironmentFeatures."Customer No.");
-        BCEnvironment.SetRange("Tenant ID", EnvironmentFeatures."Tenant ID");
-        BCEnvironment.SetRange(Name, EnvironmentFeatures."Environment Name");
+        BCEnvironment.SetRange("Customer No.", EnvironmentFeature."Customer No.");
+        BCEnvironment.SetRange("Tenant ID", EnvironmentFeature."Tenant ID");
+        BCEnvironment.SetRange(Name, EnvironmentFeature."Environment Name");
         if not BCEnvironment.FindFirst() then
             Error(EnvironmentNotFoundErr);
 
         // Find the tenant
-        if not BCTenant.Get(EnvironmentFeatures."Customer No.", EnvironmentFeatures."Tenant ID") then
+        if not BCTenant.Get(EnvironmentFeature."Customer No.", EnvironmentFeature."Tenant ID") then
             Error(TenantNotFoundErr);
 
         // Get OAuth token using the AAD Tenant ID (Entra ID) from the environment
@@ -50,10 +50,10 @@ codeunit 62014 "D4P BC Features Helper"
 
         ShowDebugMessage(ResponseText, 'Get Companies');
         // Now get features using the first company
-        GetFeaturesForCompany(ResponseText, AuthToken, BCEnvironment, EnvironmentFeatures);
+        GetFeaturesForCompany(ResponseText, AuthToken, BCEnvironment, EnvironmentFeature);
     end;
 
-    local procedure GetFeaturesForCompany(CompaniesResponse: Text; AuthToken: SecretText; BCEnvironment: Record "D4P BC Environment"; var EnvironmentFeatures: Record "D4P BC Environment Features")
+    local procedure GetFeaturesForCompany(CompaniesResponse: Text; AuthToken: SecretText; BCEnvironment: Record "D4P BC Environment"; var EnvironmentFeature: Record "D4P BC Environment Feature")
     var
         APIHelper: Codeunit "D4P BC API Helper";
         JArray: JsonArray;
@@ -104,12 +104,12 @@ codeunit 62014 "D4P BC Features Helper"
             Error(FeaturesAPIFailedErr, ResponseText);
 
         ShowDebugMessage(ResponseText, 'Get Features');
-        ProcessFeaturesResponse(ResponseText, EnvironmentFeatures);
+        ProcessFeaturesResponse(ResponseText, EnvironmentFeature);
     end;
 
-    local procedure ProcessFeaturesResponse(ResponseText: Text; var EnvironmentFeatures: Record "D4P BC Environment Features")
+    local procedure ProcessFeaturesResponse(ResponseText: Text; var EnvironmentFeature: Record "D4P BC Environment Feature")
     var
-        Feature: Record "D4P BC Environment Features";
+        Feature: Record "D4P BC Environment Feature";
         i: Integer;
         JArray: JsonArray;
         JObject: JsonObject;
@@ -119,9 +119,9 @@ codeunit 62014 "D4P BC Features Helper"
         NoValueArrayErr: Label 'No value array found in features response.';
     begin
         // Clear existing features
-        Feature.SetRange("Customer No.", EnvironmentFeatures."Customer No.");
-        Feature.SetRange("Tenant ID", EnvironmentFeatures."Tenant ID");
-        Feature.SetRange("Environment Name", EnvironmentFeatures."Environment Name");
+        Feature.SetRange("Customer No.", EnvironmentFeature."Customer No.");
+        Feature.SetRange("Tenant ID", EnvironmentFeature."Tenant ID");
+        Feature.SetRange("Environment Name", EnvironmentFeature."Environment Name");
         Feature.DeleteAll();
 
         // Parse JSON response
@@ -139,9 +139,9 @@ codeunit 62014 "D4P BC Features Helper"
             JObject := JToken.AsObject();
 
             Feature.Init();
-            Feature."Customer No." := EnvironmentFeatures."Customer No.";
-            Feature."Tenant ID" := EnvironmentFeatures."Tenant ID";
-            Feature."Environment Name" := EnvironmentFeatures."Environment Name";
+            Feature."Customer No." := EnvironmentFeature."Customer No.";
+            Feature."Tenant ID" := EnvironmentFeature."Tenant ID";
+            Feature."Environment Name" := EnvironmentFeature."Environment Name";
 
             // Get feature key (id)
             if JObject.Get('id', JToken) then begin
@@ -219,7 +219,7 @@ codeunit 62014 "D4P BC Features Helper"
             Message(DebugMsg, ActionName, ResponseText);
     end;
 
-    procedure ActivateFeature(var Feature: Record "D4P BC Environment Features"; UpdateInBackground: Boolean; StartDateTime: DateTime)
+    procedure ActivateFeature(var Feature: Record "D4P BC Environment Feature"; UpdateInBackground: Boolean; StartDateTime: DateTime)
     var
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";
@@ -280,7 +280,7 @@ codeunit 62014 "D4P BC Features Helper"
         Message(FeatureActivatedMsg, Feature."Feature Name");
     end;
 
-    procedure DeactivateFeature(var Feature: Record "D4P BC Environment Features")
+    procedure DeactivateFeature(var Feature: Record "D4P BC Environment Feature")
     var
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";
