@@ -67,7 +67,7 @@ page 62011 "D4P BC Tenant Card"
                     {
                         Caption = 'Client Secret';
                         ExtendedDatatype = Masked;
-                        ToolTip = 'Specifies the Azure AD Application Client Secret for API authentication. This is stored securely in isolated storage.';
+                        ToolTip = 'Specifies the Microsoft Entra Application Client Secret for API authentication. This is stored securely in isolated storage.';
 
                         trigger OnValidate()
                         begin

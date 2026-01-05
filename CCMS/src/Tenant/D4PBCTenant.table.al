@@ -31,7 +31,7 @@ table 62001 "D4P BC Tenant"
         field(4; "Client ID"; Guid)
         {
             Caption = 'Client ID';
-            ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication. Select from shared app registrations.';
+            ToolTip = 'Specifies the Microsoft Entra Application (Client) ID for API authentication. Select from shared app registrations.';
             trigger OnValidate()
             var
                 D4PBCAppRegistration: Record "D4P BC App Registration";

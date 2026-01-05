@@ -12,7 +12,7 @@ table 62005 "D4P BC App Registration"
         field(1; "Client ID"; Guid)
         {
             Caption = 'Client ID';
-            ToolTip = 'Specifies the Azure AD Application (Client) ID.';
+            ToolTip = 'Specifies the Microsoft Entra Application (Client) ID.';
         }
         field(2; Description; Text[100])
         {

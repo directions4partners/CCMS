@@ -5194,14 +5194,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Authentication - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD Application (Client) ID for API authentication.</source>
-          <target>Spécifie l'ID d'application (client) Azure AD pour l'authentification API.</target>
+          <source>Specifies the Microsoft Entra Application (Client) ID for API authentication.</source>
+          <target>Spécifie l'ID d'application (client) Microsoft Entra pour l'authentification API.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD Application Client Secret for API authentication.</source>
-          <target>Spécifie le secret client de l'application Azure AD pour l'authentification API.</target>
+          <source>Specifies the Microsoft Entra Application Client Secret for API authentication.</source>
+          <target>Spécifie le secret client de l'application Microsoft Entra pour l'authentification API.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client Secret - Property ToolTip</note>
         </trans-unit>
@@ -5302,14 +5302,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Authentication - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD application client ID.</source>
-          <target>Spécifie l'ID client de l'application Azure AD.</target>
+          <source>Specifies the Microsoft Entra application client ID.</source>
+          <target>Spécifie l'ID client de l'application Microsoft Entra.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD application client secret.</source>
-          <target>Spécifie le secret client de l'application Azure AD.</target>
+          <source>Specifies the Microsoft Entra application client secret.</source>
+          <target>Spécifie le secret client de l'application Microsoft Entra.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Client Secret - Property ToolTip</note>
         </trans-unit>

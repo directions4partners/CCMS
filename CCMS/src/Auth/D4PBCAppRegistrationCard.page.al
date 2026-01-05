@@ -24,7 +24,7 @@ page 62026 "D4P BC App Registration Card"
                 {
                     Caption = 'Client Secret';
                     ExtendedDatatype = Masked;
-                    ToolTip = 'Specifies the Azure AD Application Client Secret. This is stored securely in isolated storage.';
+                    ToolTip = 'Specifies the Microsoft Entra Application Client Secret. This is stored securely in isolated storage.';
 
                     trigger OnValidate()
                     begin
