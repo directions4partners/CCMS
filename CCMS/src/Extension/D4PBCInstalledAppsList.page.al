@@ -7,7 +7,7 @@ page 62008 "D4P BC Installed Apps List"
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "D4P BC Installed Apps";
+    SourceTable = "D4P BC Installed App";
     Caption = 'D365BC Installed Apps';
     InsertAllowed = false;
     ModifyAllowed = false;
@@ -154,7 +154,7 @@ page 62008 "D4P BC Installed Apps List"
                 ToolTip = 'Delete all fetched installed apps records.';
                 trigger OnAction()
                 var
-                    InstalledApp: Record "D4P BC Installed Apps";
+                    InstalledApp: Record "D4P BC Installed App";
                     RecordCount: Integer;
                     DeletedSuccessMsg: Label '%1 installed apps records deleted.';
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?';
