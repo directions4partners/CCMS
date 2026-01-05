@@ -153,7 +153,7 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure GetInstalledApps(var BCEnvironment: Record "D4P BC Environment")
     var
-        BCInstalledApps: Record "D4P BC Installed Apps";
+        InstalledApp: Record "D4P BC Installed App";
         BCTenant: Record "D4P BC Tenant";
         JsonArray: JsonArray;
         JsonObjectLoop: JsonObject;
@@ -166,10 +166,10 @@ codeunit 62000 "D4P BC Environment Mgt"
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
-        BCInstalledApps.SetRange("Customer No.", BCTenant."Customer No.");
-        BCInstalledApps.SetRange("Tenant ID", BCTenant."Tenant ID");
-        BCInstalledApps.SetRange("Environment Name", BCEnvironment.Name);
-        BCInstalledApps.DeleteAll();
+        InstalledApp.SetRange("Customer No.", BCTenant."Customer No.");
+        InstalledApp.SetRange("Tenant ID", BCTenant."Tenant ID");
+        InstalledApp.SetRange("Environment Name", BCEnvironment.Name);
+        InstalledApp.DeleteAll();
 
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'GET',
             '/applications/businesscentral/environments/' + BCEnvironment.Name + '/apps', '', ResponseText) then
@@ -180,76 +180,76 @@ codeunit 62000 "D4P BC Environment Mgt"
         if JsonResponse.Get('value', JsonToken) then begin
             JsonArray := JsonToken.AsArray();
 
-            BCInstalledApps.Init();
-            BCInstalledApps."Customer No." := BCTenant."Customer No.";
-            BCInstalledApps."Tenant ID" := BCTenant."Tenant ID";
-            BCInstalledApps."Environment Name" := BCEnvironment.Name;
+            InstalledApp.Init();
+            InstalledApp."Customer No." := BCTenant."Customer No.";
+            InstalledApp."Tenant ID" := BCTenant."Tenant ID";
+            InstalledApp."Environment Name" := BCEnvironment.Name;
 
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
                 if JsonObjectLoop.Get('id', JsonTokenLoop) then begin
                     JsonValue := JsonTokenLoop.AsValue();
-                    BCInstalledApps."App ID" := JsonValue.AsText();
+                    InstalledApp."App ID" := JsonValue.AsText();
                 end;
                 if JsonObjectLoop.Get('name', JsonTokenLoop) then begin
                     JsonValue := JsonTokenLoop.AsValue();
-                    BCInstalledApps."App Name" := JsonValue.AsText();
+                    InstalledApp."App Name" := JsonValue.AsText();
                 end;
                 if JsonObjectLoop.Get('publisher', JsonTokenLoop) then begin
                     JsonValue := JsonTokenLoop.AsValue();
-                    BCInstalledApps."App Publisher" := JsonValue.AsText();
+                    InstalledApp."App Publisher" := JsonValue.AsText();
                 end;
                 if JsonObjectLoop.Get('version', JsonTokenLoop) then begin
                     JsonValue := JsonTokenLoop.AsValue();
-                    BCInstalledApps."App Version" := JsonValue.AsText();
+                    InstalledApp."App Version" := JsonValue.AsText();
                 end;
                 if JsonObjectLoop.Get('state', JsonTokenLoop) then begin
                     JsonValue := JsonTokenLoop.AsValue();
                     case JsonValue.AsText() of
                         'Installed':
-                            BCInstalledApps.State := Enum::"D4P App State"::Installed;
+                            InstalledApp.State := Enum::"D4P App State"::Installed;
                         'UpdatePending':
-                            BCInstalledApps.State := Enum::"D4P App State"::"Update Pending";
+                            InstalledApp.State := Enum::"D4P App State"::"Update Pending";
                         'Updating':
-                            BCInstalledApps.State := Enum::"D4P App State"::Updating;
+                            InstalledApp.State := Enum::"D4P App State"::Updating;
                         else
-                            BCInstalledApps.State := Enum::"D4P App State"::Installed;
+                            InstalledApp.State := Enum::"D4P App State"::Installed;
                     end;
                 end;
                 if JsonObjectLoop.Get('appType', JsonTokenLoop) then begin
                     JsonValue := JsonTokenLoop.AsValue();
                     case LowerCase(JsonValue.AsText()) of
                         'global':
-                            BCInstalledApps."App Type" := Enum::"D4P App Type"::Global;
+                            InstalledApp."App Type" := Enum::"D4P App Type"::Global;
                         'pte':
-                            BCInstalledApps."App Type" := Enum::"D4P App Type"::PTE;
+                            InstalledApp."App Type" := Enum::"D4P App Type"::PTE;
                         'dev':
-                            BCInstalledApps."App Type" := Enum::"D4P App Type"::DEV;
+                            InstalledApp."App Type" := Enum::"D4P App Type"::DEV;
                         else
-                            BCInstalledApps."App Type" := Enum::"D4P App Type"::" ";
+                            InstalledApp."App Type" := Enum::"D4P App Type"::" ";
                     end;
                 end;
                 if JsonObjectLoop.Get('lastOperationId', JsonTokenLoop) then begin
                     JsonValue := JsonTokenLoop.AsValue();
-                    BCInstalledApps."Last Operation Id" := JsonValue.AsText();
+                    InstalledApp."Last Operation Id" := JsonValue.AsText();
                 end;
                 if JsonObjectLoop.Get('lastUpdateAttemptResult', JsonTokenLoop) then begin
                     JsonValue := JsonTokenLoop.AsValue();
                     case JsonValue.AsText() of
                         'Succeeded':
-                            BCInstalledApps."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
+                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
                         'Failed':
-                            BCInstalledApps."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Failed;
+                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Failed;
                         'Canceled':
-                            BCInstalledApps."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Canceled;
+                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Canceled;
                         'Skipped':
-                            BCInstalledApps."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Skipped;
+                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Skipped;
                         else
-                            BCInstalledApps."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
+                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
                     end;
                 end;
-                BCInstalledApps."Available Update Version" := '';
-                BCInstalledApps.Insert();
+                InstalledApp."Available Update Version" := '';
+                InstalledApp.Insert();
             end;
         end;
     end;
@@ -405,7 +405,7 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure GetAvailableAppUpdates(var BCEnvironment: Record "D4P BC Environment")
     var
-        BCInstalledApps: Record "D4P BC Installed Apps";
+        InstalledApp: Record "D4P BC Installed App";
         BCTenant: Record "D4P BC Tenant";
         appId: Guid;
         JsonArray: JsonArray;
@@ -450,9 +450,9 @@ codeunit 62000 "D4P BC Environment Mgt"
                     appVersion := JsonValue.AsText();
                 end;
                 //Update the app entry
-                if BCInstalledApps.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, appId) then begin
-                    BCInstalledApps."Available Update Version" := appVersion;
-                    BCInstalledApps.Modify();
+                if InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, appId) then begin
+                    InstalledApp."Available Update Version" := appVersion;
+                    InstalledApp.Modify();
                 end;
             end;
             Message(AvailableUpdatesFetchedMsg);
@@ -463,7 +463,7 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid; showNotification: Boolean)
     var
-        BCInstalledApps: Record "D4P BC Installed Apps";
+        InstalledApp: Record "D4P BC Installed App";
         BCTenant: Record "D4P BC Tenant";
         AppUpdateNotification: Notification;
         JsonObject: JsonObject;
@@ -475,14 +475,14 @@ codeunit 62000 "D4P BC Environment Mgt"
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
-        if not BCInstalledApps.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, AppId) then
+        if not InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, AppId) then
             Error(AppNotFoundErr);
 
-        if BCInstalledApps."Available Update Version" = '' then
+        if InstalledApp."Available Update Version" = '' then
             Error(NoUpdateAvailableErr);
 
         JsonObject.Add('useEnvironmentUpdateWindow', false);
-        JsonObject.Add('targetVersion', BCInstalledApps."Available Update Version");
+        JsonObject.Add('targetVersion', InstalledApp."Available Update Version");
         JsonObject.Add('allowPreviewVersion', false);
         JsonObject.Add('installOrUpdateNeededDependencies', true);
 
@@ -492,10 +492,10 @@ codeunit 62000 "D4P BC Environment Mgt"
             Error(FailedToUpdateErr, ResponseText);
 
         if showNotification then begin
-            AppUpdateNotification.Message := StrSubstNo(AppUpdateScheduledMsg, BCInstalledApps."App Name", BCInstalledApps."Available Update Version");
+            AppUpdateNotification.Message := StrSubstNo(AppUpdateScheduledMsg, InstalledApp."App Name", InstalledApp."Available Update Version");
             AppUpdateNotification.Send();
         end else
-            Message(AppUpdateScheduledMsg, BCInstalledApps."App Name", BCInstalledApps."Available Update Version");
+            Message(AppUpdateScheduledMsg, InstalledApp."App Name", InstalledApp."Available Update Version");
     end;
 
     procedure CreateNewBCEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100]; Localization: Code[2]; EnvironmentType: Enum "D4P Environment Type")
