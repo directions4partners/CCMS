@@ -4,7 +4,7 @@ page 62013 "D4P BC Environment Features"
 {
     PageType = List;
     ApplicationArea = All;
-    SourceTable = "D4P BC Environment Features";
+    SourceTable = "D4P BC Environment Feature";
     Caption = 'D365BC Environment Features';
     InsertAllowed = false;
     ModifyAllowed = false;
@@ -130,7 +130,7 @@ page 62013 "D4P BC Environment Features"
                 ToolTip = 'Delete all fetched feature records.';
                 trigger OnAction()
                 var
-                    Feature: Record "D4P BC Environment Features";
+                    Feature: Record "D4P BC Environment Feature";
                     RecordCount: Integer;
                     DeletedSuccessMsg: Label '%1 feature records deleted.';
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched feature records?';

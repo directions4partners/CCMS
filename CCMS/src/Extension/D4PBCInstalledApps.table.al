@@ -2,9 +2,9 @@ namespace D4P.CCMS.Extension;
 
 using D4P.CCMS.Customer;
 
-table 62003 "D4P BC Installed Apps"
+table 62003 "D4P BC Installed App"
 {
-    Caption = 'D365BC Installed Apps';
+    Caption = 'D365BC Installed App';
     DataClassification = CustomerContent;
     LookupPageId = "D4P BC Installed Apps List";
     DrillDownPageId = "D4P BC Installed Apps List";
