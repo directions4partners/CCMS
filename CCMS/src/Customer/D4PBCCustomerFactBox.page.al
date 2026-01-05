@@ -1,14 +1,14 @@
 namespace D4P.CCMS.Customer;
 
-using D4P.CCMS.Tenant;
 using D4P.CCMS.Environment;
+using D4P.CCMS.Tenant;
 
 page 62030 "D4P BC Customer FactBox"
 {
+    ApplicationArea = All;
+    Caption = 'Customer';
     PageType = CardPart;
     SourceTable = "D4P BC Customer";
-    Caption = 'Customer';
-    ApplicationArea = All;
 
     layout
     {
@@ -19,8 +19,6 @@ page 62030 "D4P BC Customer FactBox"
                 ShowCaption = false;
                 field(Tenants; Rec.Tenants)
                 {
-                    ToolTip = 'Number of tenants for this customer';
-
                     trigger OnDrillDown()
                     var
                         BCTenant: Record "D4P BC Tenant";
@@ -32,8 +30,6 @@ page 62030 "D4P BC Customer FactBox"
 
                 field("All Active Environments"; Rec."All Active Environments")
                 {
-                    ToolTip = 'Number of active environments for this customer';
-
                     trigger OnDrillDown()
                     var
                         BCEnvironment: Record "D4P BC Environment";
@@ -46,8 +42,6 @@ page 62030 "D4P BC Customer FactBox"
 
                 field("Active Prod. Environments"; Rec."Active Prod. Environments")
                 {
-                    ToolTip = 'Number of active production environments for this customer';
-
                     trigger OnDrillDown()
                     var
                         BCEnvironment: Record "D4P BC Environment";
@@ -59,10 +53,8 @@ page 62030 "D4P BC Customer FactBox"
                     end;
                 }
 
-                field("Active Sandbox Environ."; Rec."Active Sandbox Environ.")
+                field("Active Sand. Environments"; Rec."Active Sand. Environments")
                 {
-                    ToolTip = 'Number of active sandbox environments for this customer';
-
                     trigger OnDrillDown()
                     var
                         BCEnvironment: Record "D4P BC Environment";
@@ -79,6 +71,6 @@ page 62030 "D4P BC Customer FactBox"
 
     trigger OnAfterGetCurrRecord()
     begin
-        Rec.CalcFields(Tenants, "All Active Environments", "Active Prod. Environments", "Active Sandbox Environ.");
+        Rec.CalcFields(Tenants, "All Active Environments", "Active Prod. Environments", "Active Sand. Environments");
     end;
 }

@@ -1,17 +1,17 @@
 namespace D4P.CCMS.Customer;
 
-using Microsoft.Foundation.NoSeries;
-using D4P.CCMS.Setup;
-using Microsoft.Foundation.Address;
-using System.EMail;
-using D4P.CCMS.Tenant;
 using D4P.CCMS.Environment;
+using D4P.CCMS.Setup;
+using D4P.CCMS.Tenant;
+using Microsoft.Foundation.Address;
+using Microsoft.Foundation.NoSeries;
+using System.EMail;
 
 table 62000 "D4P BC Customer"
 {
     Caption = 'D365BC Customer';
-    DataClassification = CustomerContent;
     DataCaptionFields = "No.", Name;
+    DataClassification = CustomerContent;
     DrillDownPageId = "D4P BC Customers List";
     LookupPageId = "D4P BC Customers List";
 
@@ -79,8 +79,8 @@ table 62000 "D4P BC Customer"
         field(7; County; Text[30])
         {
             Caption = 'County';
-            DataClassification = CustomerContent;
             CaptionClass = '5,1,' + "Country/Region Code";
+            DataClassification = CustomerContent;
         }
         field(8; "Country/Region Code"; Code[10])
         {
@@ -116,36 +116,40 @@ table 62000 "D4P BC Customer"
         }
         field(20; Tenants; Integer)
         {
-            Caption = 'Tenants';
-            FieldClass = FlowField;
             CalcFormula = count("D4P BC Tenant" where("Customer No." = field("No.")));
+            Caption = 'Tenants';
             Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Number of tenants for this customer';
         }
         field(21; "All Active Environments"; Integer)
         {
-            Caption = 'All Active Environments';
-            FieldClass = FlowField;
             CalcFormula = count("D4P BC Environment" where("Customer No." = field("No."),
                                                               State = const('Active')));
+            Caption = 'All Active Environments';
             Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Number of active environments for this customer';
         }
         field(22; "Active Prod. Environments"; Integer)
         {
-            Caption = 'Active Production Environments';
-            FieldClass = FlowField;
             CalcFormula = count("D4P BC Environment" where("Customer No." = field("No."),
                                                               State = const('Active'),
                                                               Type = const('Production')));
+            Caption = 'Active Production Environments';
             Editable = false;
-        }
-        field(23; "Active Sandbox Environ."; Integer)
-        {
-            Caption = 'Active Sandbox Environments';
             FieldClass = FlowField;
+            ToolTip = 'Number of active production environments for this customer';
+        }
+        field(23; "Active Sand. Environments"; Integer)
+        {
             CalcFormula = count("D4P BC Environment" where("Customer No." = field("No."),
                                                               State = const('Active'),
                                                               Type = const('Sandbox')));
+            Caption = 'Active Sandbox Environments';
             Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Number of active sandbox environments for this customer';
         }
     }
 
