@@ -46,9 +46,8 @@ page 62000 "D4P BC Customers List"
         }
         area(FactBoxes)
         {
-            part(CustomerFootprint; "D4P BC Customer FactBox")
+            part(CustomerFactBox; "D4P BC Customer FactBox")
             {
-                ApplicationArea = All;
                 SubPageLink = "No." = field("No.");
             }
         }
