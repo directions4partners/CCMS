@@ -18,8 +18,6 @@ table 62000 "D4P BC Customer"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
-            DataClassification = CustomerContent;
-
             trigger OnValidate()
             begin
                 TestNoSeries();
@@ -28,23 +26,18 @@ table 62000 "D4P BC Customer"
         field(2; "Name"; Text[100])
         {
             Caption = 'Name';
-            DataClassification = CustomerContent;
         }
         field(3; Address; Text[100])
         {
             Caption = 'Address';
-            DataClassification = CustomerContent;
         }
         field(4; "Address 2"; Text[50])
         {
             Caption = 'Address 2';
-            DataClassification = CustomerContent;
         }
         field(5; City; Text[30])
         {
             Caption = 'City';
-            DataClassification = CustomerContent;
-
             trigger OnValidate()
             begin
                 PostCode.ValidateCity(City, "Post Code", County, "Country/Region Code", (CurrFieldNo <> 0) and GuiAllowed);
@@ -58,7 +51,6 @@ table 62000 "D4P BC Customer"
         field(6; "Post Code"; Code[20])
         {
             Caption = 'Post Code';
-            DataClassification = CustomerContent;
             TableRelation = if ("Country/Region Code" = const('')) "Post Code"
             else
             if ("Country/Region Code" = filter(<> '')) "Post Code" where("Country/Region Code" = field("Country/Region Code"));
@@ -77,13 +69,11 @@ table 62000 "D4P BC Customer"
         field(7; County; Text[30])
         {
             Caption = 'County';
-            DataClassification = CustomerContent;
             CaptionClass = '5,1,' + "Country/Region Code";
         }
         field(8; "Country/Region Code"; Code[10])
         {
             Caption = 'Country/Region Code';
-            DataClassification = CustomerContent;
             TableRelation = "Country/Region";
 
             trigger OnValidate()
@@ -94,12 +84,10 @@ table 62000 "D4P BC Customer"
         field(9; "Contact Person Name"; Text[100])
         {
             Caption = 'Contact Person Name';
-            DataClassification = CustomerContent;
         }
         field(10; "Contact Person Email"; Text[80])
         {
             Caption = 'Contact Person Email';
-            DataClassification = CustomerContent;
             ExtendedDatatype = EMail;
             trigger OnValidate()
             begin
@@ -109,7 +97,6 @@ table 62000 "D4P BC Customer"
         field(11; "No. Series"; Code[20])
         {
             Caption = 'No. Series';
-            DataClassification = CustomerContent;
             TableRelation = "No. Series";
         }
     }
