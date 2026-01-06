@@ -77,7 +77,7 @@ codeunit 62008 "D4P BC Nuget Processing"
     begin
         RestClient.SetAuthorizationHeader(BCDevOpsUpdate.GetToken(PTEAppVersion.GetPTEOrganizationName()));
         JsonToken := RestClient.GetAsJson(PackageVersionUrl);
-        if not JsonToken.IsObject then
+        if not JsonToken.IsObject() then
             exit('');
         if JsonToken.AsObject().Contains('packageContent') then
             exit(JsonToken.AsObject().GetText('packageContent'));
