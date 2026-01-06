@@ -97,7 +97,7 @@ table 62007 "D4P BC PTE App"
 
     local procedure ClearFieldsOnDevOpsChange()
     begin
-        rec."DevOps Organization" := '';
+        Rec."DevOps Organization" := '';
         Rec."DevOps Feed" := '';
         Rec."DevOps Package" := '';
         Rec."NuGet Package Name" := '';
