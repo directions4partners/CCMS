@@ -35,17 +35,29 @@ table 62007 "D4P BC PTE App"
         {
             Caption = 'DevOps Environment';
             ToolTip = 'Specifies the DevOps environment associated with the PTE app.';
+            trigger OnValidate()
+            begin
+                if Rec.DevOps <> xRec.DevOps then
+                    ClearFieldsOnDevOpsChange();
+            end;
         }
         field(8; "DevOps Organization"; Text[100])
         {
             Caption = 'Organization';
             ToolTip = 'Specifies the organization associated with the PTE app.';
-            TableRelation = "D4P BC DevOps Organization".ID;
+            trigger OnLookup()
+            var
+                DevOpsOrganization: Record "D4P BC DevOps Organization";
+            begin
+                DevOpsOrganization.SetRange(DevOps, Rec.DevOps);
+                if Page.RunModal(Page::"D4P BC DevOps Org. List", DevOpsOrganization) = Action::LookupOK then
+                    Rec."DevOps Organization" := DevOpsOrganization.ID;
+            end;
         }
         field(9; "DevOps Package"; Text[100])
         {
-            Caption = 'Repository';
-            ToolTip = 'Specifies the repository associated with the PTE app.';
+            Caption = 'Package';
+            ToolTip = 'Specifies the package associated with the PTE app.';
         }
         field(10; "DevOps Feed"; Text[100])
         {
@@ -81,5 +93,13 @@ table 62007 "D4P BC PTE App"
         PTEAppVersion.SetRange("PTE ID", Rec."PTE ID");
         if not PTEAppVersion.IsEmpty() then
             PTEAppVersion.DeleteAll(true);
+    end;
+
+    local procedure ClearFieldsOnDevOpsChange()
+    begin
+        rec."DevOps Organization" := '';
+        Rec."DevOps Feed" := '';
+        Rec."DevOps Package" := '';
+        Rec."NuGet Package Name" := '';
     end;
 }

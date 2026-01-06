@@ -2,7 +2,7 @@ namespace D4P.CCMS.PTEApps;
 page 62035 "D4P BC PTE App Card"
 {
     ApplicationArea = All;
-    Caption = 'D365BC PTE Apps Card';
+    Caption = 'D365BC PTE App Card';
     PageType = Card;
     SourceTable = "D4P BC PTE App";
 
@@ -23,17 +23,17 @@ page 62035 "D4P BC PTE App Card"
                 field("App Version"; Rec."Latest App Version")
                 {
                 }
-            }
-            group(DevOpsGroup)
-            {
-                Caption = 'DevOps';
-
                 field("Range From"; Rec."Range From")
                 {
                 }
                 field("Range To"; Rec."Range To")
                 {
                 }
+            }
+            group(DevOpsGroup)
+            {
+                Caption = 'DevOps';
+
                 field(DevOps; Rec.DevOps)
                 {
                 }

@@ -11,7 +11,7 @@ codeunit 62006 "D4P BC NoDevOps Update" implements "D4P BC DevOps Update"
     begin
     end;
 
-    procedure GetToken(OrganizationName: Text[100]): SecretText
+    procedure GetToken(TokenName: Text[150]): SecretText
     begin
     end;
 

@@ -22,14 +22,14 @@ codeunit 62004 "D4P BC Azure Update" implements "D4P BC DevOps Update"
         exit(StrSubstNo(NugetServiceURL, PTEApp."DevOps Organization", PTEApp."DevOps Package", PTEApp."DevOps Feed"));
     end;
 
-    procedure GetToken(OrganizationName: Text[100]): SecretText
+    procedure GetToken(TokenName: Text[150]): SecretText
     var
         BearerLbl: Label 'Bearer %1', Locked = true, Comment = '%1 is the token string';
         Token: SecretText;
     begin
-        if not IsolatedStorage.Contains(OrganizationName) then
+        if not IsolatedStorage.Contains(TokenName) then
             exit(Token); // No token stored for this organization; return empty value so the caller can handle missing authorization (e.g., anonymous access or explicit error handling).
-        IsolatedStorage.Get(OrganizationName, Token);
+        IsolatedStorage.Get(TokenName, Token);
         exit(SecretText.SecretStrSubstNo(BearerLbl, Token));
     end;
 

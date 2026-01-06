@@ -14,6 +14,9 @@ page 62030 "D4P BC DevOps Org. List"
         {
             repeater(General)
             {
+                field(DevOps; Rec.DevOps)
+                {
+                }
                 field(ID; Rec.ID)
                 {
                 }
@@ -38,7 +41,7 @@ page 62030 "D4P BC DevOps Org. List"
                     InputToken: Page "D4P BC Input Token";
                 begin
                     if InputToken.RunModal() = Action::OK then
-                        IsolatedStorage.Set(Rec.ID, InputToken.GetToken());
+                        IsolatedStorage.Set(StrSubstNo('%1-%2', Rec.DevOps, Rec.ID), InputToken.GetToken());
                 end;
             }
         }

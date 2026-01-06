@@ -1,4 +1,6 @@
 namespace D4P.CCMS.PTEApps;
+
+using D4P.CCMS.Nuget;
 table 62006 "D4P BC DevOps Organization"
 {
     DataClassification = CustomerContent;
@@ -6,12 +8,17 @@ table 62006 "D4P BC DevOps Organization"
 
     fields
     {
-        field(1; ID; Code[20])
+        field(1; DevOps; enum "D4P BC DevOps Environments")
+        {
+            Caption = 'DevOps Organization ID';
+            ToolTip = 'Specifies the unique identifier for the DevOps organization.';
+        }
+        field(2; ID; Code[20])
         {
             Caption = 'ID';
             ToolTip = 'Specifies the unique identifier for the DevOps organization.';
         }
-        field(2; Name; Text[100])
+        field(3; Name; Text[128])
         {
             Caption = 'Name';
             ToolTip = 'Specifies the name of the DevOps organization.';
@@ -20,7 +27,7 @@ table 62006 "D4P BC DevOps Organization"
 
     keys
     {
-        key(PK; ID)
+        key(PK; "DevOps", ID)
         {
             Clustered = true;
         }

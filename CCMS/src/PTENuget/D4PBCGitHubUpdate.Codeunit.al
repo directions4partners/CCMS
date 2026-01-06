@@ -9,7 +9,7 @@ codeunit 62003 "D4P BC GitHub Update" implements "D4P BC DevOps Update"
         RestClient: Codeunit "Rest Client";
         JsonToken: JsonToken;
     begin
-        RestClient.SetAuthorizationHeader(GetToken(PTEApp."DevOps Organization"));
+        RestClient.SetAuthorizationHeader(GetToken(StrSubstNo('%1-%2', PTEApp.DevOps, PTEApp."DevOps Organization")));
         JsonToken := RestClient.GetAsJson(GetNugetServiceURL(PTEApp));
         exit(ProcessServices(JsonToken, ServiceType));
     end;
@@ -21,14 +21,14 @@ codeunit 62003 "D4P BC GitHub Update" implements "D4P BC DevOps Update"
         exit(StrSubstNo(NugetServiceURL, PTEApp."DevOps Organization"));
     end;
 
-    procedure GetToken(OrganizationName: Text[100]): SecretText
+    procedure GetToken(TokenName: Text[150]): SecretText
     var
         BearerLbl: Label 'Bearer %1', Locked = true, Comment = '%1 is the token string';
         Token: SecretText;
     begin
-        if not IsolatedStorage.Contains(OrganizationName) then
+        if not IsolatedStorage.Contains(TokenName) then
             exit(Token); // Return empty token when no value is stored; caller must handle missing token (e.g., anonymous access or error).
-        IsolatedStorage.Get(OrganizationName, Token);
+        IsolatedStorage.Get(TokenName, Token);
         exit(SecretText.SecretStrSubstNo(BearerLbl, Token));
     end;
 

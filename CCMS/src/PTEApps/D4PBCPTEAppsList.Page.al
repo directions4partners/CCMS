@@ -32,6 +32,21 @@ page 62029 "D4P BC PTE Apps List"
                 field("Range To"; Rec."Range To")
                 {
                 }
+                field(DevOps; Rec.DevOps)
+                {
+                }
+                field("DevOps Organization"; Rec."DevOps Organization")
+                {
+                }
+                field("DevOps Package"; Rec."DevOps Package")
+                {
+                }
+                field("DevOps Feed"; Rec."DevOps Feed")
+                {
+                }
+                field("NuGet Package Name"; Rec."NuGet Package Name")
+                {
+                }
             }
         }
     }
