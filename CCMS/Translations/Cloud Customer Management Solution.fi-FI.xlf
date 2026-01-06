@@ -52,14 +52,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control General - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 2856621359 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra Application (Client) ID.</source>
-          <target>Määrittää Microsoft Entra Applikaation (Client) ID:n</target>
+          <source>Specifies the Azure AD Application (Client) ID.</source>
+          <target>Määrittää Azure AD Applikaation (Client) ID:n</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 2856621359 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra Application Client Secret. This is stored securely in isolated storage.</source>
-          <target>Määrittää Microsoft Entra -sovellusasiakkaan salaisuuden. Tämä tallennetaan turvallisesti eristetyssä tallennustilassa.</target>
+          <source>Specifies the Azure AD Application Client Secret. This is stored securely in isolated storage.</source>
+          <target>Määrittää Azure AD -sovellusasiakkaan salaisuuden. Tämä tallennetaan turvallisesti eristetyssä tallennustilassa.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration Card - Control Client Secret - Property ToolTip</note>
         </trans-unit>
@@ -88,8 +88,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 785925573 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra Application (Client) ID.</source>
-          <target>Määrittää Microsoft Entra Applikaation (Client) ID:n</target>
+          <source>Specifies the Azure AD Application (Client) ID.</source>
+          <target>Määrittää Azure AD Applikaation (Client) ID:n</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC App Registration List - Control Client ID - Property ToolTip</note>
         </trans-unit>
@@ -5596,14 +5596,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control App Registration Type - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra Application (Client) ID for API authentication.</source>
-          <target>Määrittää Microsoft Entra -sovelluksen (asiakas)tunnuksen API-todennusta varten.</target>
+          <source>Specifies the Azure AD Application (Client) ID for API authentication.</source>
+          <target>Määrittää Azure AD -sovelluksen (asiakas)tunnuksen API-todennusta varten.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 1545841066 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra Application Client Secret for API authentication. This is stored securely in isolated storage.</source>
-          <target>Määrittää Microsoft Entra -sovellusasiakkaan salaisuuden API-todennusta varten. Tämä tallennetaan turvallisesti erilliseen tallennustilaan.</target>
+          <source>Specifies the Azure AD Application Client Secret for API authentication. This is stored securely in isolated storage.</source>
+          <target>Määrittää Azure AD -sovellusasiakkaan salaisuuden API-todennusta varten. Tämä tallennetaan turvallisesti erilliseen tallennustilaan.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client Secret Individual - Property ToolTip</note>
         </trans-unit>
@@ -5620,8 +5620,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Secret Expiration Date - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 1603746290 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra Application (Client) ID for API authentication. Select from shared app registrations.</source>
-          <target>Määrittää Microsoft Entra -sovelluksen (asiakasohjelman) tunnuksen API-todennusta varten. Valitse jaetuista sovellusrekisteröinneistä.</target>
+          <source>Specifies the Azure AD Application (Client) ID for API authentication. Select from shared app registrations.</source>
+          <target>Määrittää Azure AD -sovelluksen (asiakasohjelman) tunnuksen API-todennusta varten. Valitse jaetuista sovellusrekisteröinneistä.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID Lookup - Property ToolTip</note>
         </trans-unit>
@@ -5722,8 +5722,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Authentication - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra application client ID.</source>
-          <target>Määrittää Microsoft Entra -sovelluksen asiakastunnuksen.</target>
+          <source>Specifies the Azure AD application client ID.</source>
+          <target>Määrittää Azure AD -sovelluksen asiakastunnuksen.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Client ID - Property ToolTip</note>
         </trans-unit>
