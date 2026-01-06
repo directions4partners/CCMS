@@ -528,7 +528,7 @@
         </trans-unit>
         <trans-unit id="Table 2607330341 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Capacity Line</source>
-          <target state="needs-adaptation">D365BC kapasitetslinje</target>
+          <target>D365BC  kapasitetslinje</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Capacity Line - Property Caption</note>
         </trans-unit>
@@ -756,7 +756,7 @@
         </trans-unit>
         <trans-unit id="Page 1650274849 - Control 3109009282 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies when the measurement was taken.</source>
-          <target state="needs-adaptation">Angir når målingen ble foretatt.</target>
+          <target>Angir når  målingen ble foretatt.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Capacity Subform - Control Measurement Date - Property ToolTip</note>
         </trans-unit>
@@ -1008,7 +1008,7 @@
         </trans-unit>
         <trans-unit id="Table 4179850407 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Customer</source>
-          <target state="needs-adaptation">D365BC Kunde</target>
+          <target>D365BC  Kunde</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Customer - Property Caption</note>
         </trans-unit>
@@ -1458,7 +1458,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 175239086 - Method 227458231 - NamedType 1506670541" size-unit="char" translate="yes" xml:space="preserve">
           <source>Processing update #1#### of #2####: #3####################</source>
-          <target state="needs-adaptation">Behandler oppdatering #1#### of #2####: #3####################</target>
+          <target>Behandler oppdatering  #1#### of #2####: #3####################</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method GetAvailableUpdates - NamedType ProcessingUpdateMsg</note>
         </trans-unit>
@@ -1512,7 +1512,7 @@
         </trans-unit>
         <trans-unit id="Codeunit 175239086 - Method 1542749424 - NamedType 2419470300" size-unit="char" translate="yes" xml:space="preserve">
           <source>Environment %1 successfully renamed to %2.</source>
-          <target state="needs-adaptation">Vellykket endring av navn fra %1 til %2.</target>
+          <target>Vellykket  endring av navn fra %1 til %2.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method RenameBCEnvironment - NamedType EnvironmentRenamedMsg</note>
         </trans-unit>
@@ -1590,7 +1590,7 @@
         </trans-unit>
         <trans-unit id="Page 1494117452 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment Details</source>
-          <target state="needs-adaptation">D365BC Miljødetaljer</target>
+          <target>D365BC  Miljødetaljer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Card - Property Caption</note>
         </trans-unit>
@@ -2452,16 +2452,14 @@
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 2367821945" size-unit="char" translate="yes" xml:space="preserve">
           <source>Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.</source>
-          <target state="needs-adaptation">[NAB: NOT TRANSLATED]</target>
-          <note from="XLIFF Sync" annotates="general" priority="1">Problem detected: The number of placeholders in the source and translation text do not match.</note>
+          <target>[NAB: NOT TRANSLATED]</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeleteQst</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 1221066665" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 environment record(s) and related data deleted from local database.</source>
-          <target state="needs-adaptation">[NAB: NOT TRANSLATED]</target>
-          <note from="XLIFF Sync" annotates="general" priority="1">Problem detected: The number of placeholders in the source and translation text do not match.</note>
+          <target>[NAB: NOT TRANSLATED]</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType EnvironmentRecordsDeletedMsg</note>
@@ -2731,7 +2729,7 @@
         </trans-unit>
         <trans-unit id="Table 2736968941 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Installed Apps</source>
-          <target state="needs-adaptation">D365BC Installerte apper</target>
+          <target>D365BC  Installerte apper</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Installed Apps - Property Caption</note>
         </trans-unit>
@@ -2875,7 +2873,7 @@
         </trans-unit>
         <trans-unit id="Page 3922837368 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Installed App</source>
-          <target state="needs-adaptation">D365BC Installert app</target>
+          <target>D365BC  Installert app</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed App Card - Property Caption</note>
         </trans-unit>
@@ -3026,7 +3024,7 @@
         </trans-unit>
         <trans-unit id="Page 1896412547 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Installed Apps</source>
-          <target state="needs-adaptation">D365BC Installerte apper</target>
+          <target>D365BC  Installerte apper</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Property Caption</note>
         </trans-unit>
@@ -3313,7 +3311,7 @@
         </trans-unit>
         <trans-unit id="Table 1807623301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment Features</source>
-          <target state="needs-adaptation">D365BC Miljøfunksjoner</target>
+          <target>D365BC  Miljøfunksjoner</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC Environment Features - Property Caption</note>
         </trans-unit>
@@ -3571,7 +3569,7 @@
         </trans-unit>
         <trans-unit id="Page 1807623301 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment Features</source>
-          <target state="needs-adaptation">D365BC Miljøfunksjoner</target>
+          <target>D365BC  Miljøfunksjoner</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Property Caption</note>
         </trans-unit>
@@ -3607,7 +3605,7 @@
         </trans-unit>
         <trans-unit id="Page 1807623301 - Control 1457822769 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the enabled status (All Users, None, etc.).</source>
-          <target state="needs-adaptation">Angir den aktiverte statusen (All, User,None, ol.).</target>
+          <target>Angir  den aktiverte statusen (All, User,None, ol.).</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Features - Control Is Enabled - Property ToolTip</note>
         </trans-unit>
@@ -4031,7 +4029,7 @@
         </trans-unit>
         <trans-unit id="Page 1993633906 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment Session Details</source>
-          <target state="needs-adaptation">D365BC Miljø sesjonsdetaljer</target>
+          <target>D365BC  Miljø sesjonsdetaljer</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment Sess Card - Property Caption</note>
         </trans-unit>
@@ -5135,7 +5133,7 @@
         </trans-unit>
         <trans-unit id="Report 2415584498 - Control 3249287415 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the value of the "To Date" field.</source>
-          <target state="needs-adaptation">Angir verdien for "Til Dato" feltet</target>
+          <target>Angir verdien  for "Til Dato" feltet</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Report D4P Load Data - Control ToDateField - Property ToolTip</note>
         </trans-unit>
@@ -5218,14 +5216,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Authentication - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra Application (Client) ID for API authentication.</source>
-          <target>Angir Microsoft Entra-applikasjons-ID (klient-ID) for API-autentisering.</target>
+          <source>Specifies the Azure AD Application (Client) ID for API authentication.</source>
+          <target>Angir Azure AD-applikasjons-ID (klient-ID) for API-autentisering.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra Application Client Secret for API authentication.</source>
-          <target>Angir Microsoft Entra-applikasjonens klienthemmelighet for API-autentisering.</target>
+          <source>Specifies the Azure AD Application Client Secret for API authentication.</source>
+          <target>Angir Azure AD-applikasjonens klienthemmelighet for API-autentisering.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client Secret - Property ToolTip</note>
         </trans-unit>
@@ -5326,14 +5324,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Authentication - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra application client ID.</source>
-          <target>Angir Microsoft Entra applikasjons-klient-ID.</target>
+          <source>Specifies the Azure AD application client ID.</source>
+          <target>Angir Azure AD applikasjons-klient-ID.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Microsoft Entra application client secret.</source>
-          <target>Angir Microsoft Entra applikasjons-klienthemmeligheten</target>
+          <source>Specifies the Azure AD application client secret.</source>
+          <target>Angir Azure AD applikasjons-klienthemmeligheten</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Client Secret - Property ToolTip</note>
         </trans-unit>
