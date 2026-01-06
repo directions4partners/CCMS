@@ -2449,14 +2449,16 @@
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 2367821945" size-unit="char" translate="yes" xml:space="preserve">
           <source>Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target state="needs-adaptation">[NAB: NOT TRANSLATED]</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Problem detected: The number of placeholders in the source and translation text do not match.</note>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType DeleteQst</note>
         </trans-unit>
         <trans-unit id="Page 4116547146 - Action 736008119 - Method 1377591017 - NamedType 1221066665" size-unit="char" translate="yes" xml:space="preserve">
           <source>%1 environment record(s) and related data deleted from local database.</source>
-          <target>[NAB: NOT TRANSLATED]</target>
+          <target state="needs-adaptation">[NAB: NOT TRANSLATED]</target>
+          <note from="XLIFF Sync" annotates="general" priority="1">Problem detected: The number of placeholders in the source and translation text do not match.</note>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="NAB AL Tool Refresh Xlf" annotates="general" priority="3">New translation.</note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Environment List - Action DeleteAllFetched - Method OnAction - NamedType EnvironmentRecordsDeletedMsg</note>
@@ -5192,14 +5194,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Authentication - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD Application (Client) ID for API authentication.</source>
-          <target>Angiver Azure AD-program-id'et (klient) til API-godkendelse.</target>
+          <source>Specifies the Microsoft Entra Application (Client) ID for API authentication.</source>
+          <target>Angiver Microsoft Entra-program-id'et (klient) til API-godkendelse.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1913673331 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD Application Client Secret for API authentication.</source>
-          <target>Angiver Azure AD-programmets klienthemmelighed til API-godkendelse.</target>
+          <source>Specifies the Microsoft Entra Application Client Secret for API authentication.</source>
+          <target>Angiver Microsoft Entra-programmets klienthemmelighed til API-godkendelse.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant Card - Control Client Secret - Property ToolTip</note>
         </trans-unit>
@@ -5300,14 +5302,14 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Authentication - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 652819368 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD application client ID.</source>
-          <target>Angiver Azure AD-programmets klient-id.</target>
+          <source>Specifies the Microsoft Entra application client ID.</source>
+          <target>Angiver Microsoft Entra-programmets klient-id.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Client ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 3208869332 - Control 2529110793 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Azure AD application client secret.</source>
-          <target>Angiver Azure AD-programmets klienthemmelighed.</target>
+          <source>Specifies the Microsoft Entra application client secret.</source>
+          <target>Angiver Microsoft Entra-programmets klienthemmelighed.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Tenant FactBox - Control Client Secret - Property ToolTip</note>
         </trans-unit>
