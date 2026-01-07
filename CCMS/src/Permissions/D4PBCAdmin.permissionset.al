@@ -95,6 +95,7 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P AppInsights Conn List" = X,
         page "D4P AppInsights Conn Card" = X,
         page "D4P PTE Object Ranges" = X,
+        page "D4P BC Environment Operations" = X,
         page "D4P BC Customer FactBox" = X,
 
         // Codeunits
