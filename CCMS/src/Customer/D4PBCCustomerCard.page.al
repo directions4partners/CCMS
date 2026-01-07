@@ -1,8 +1,8 @@
 namespace D4P.CCMS.Customer;
 
 using D4P.CCMS.Tenant;
-using Microsoft.Utilities;
 using D4P.CCMS.Setup;
+using Microsoft.Utilities;
 
 page 62001 "D4P BC Customer Card"
 {
@@ -65,6 +65,13 @@ page 62001 "D4P BC Customer Card"
                 {
                     ApplicationArea = All;
                 }
+            }
+        }
+        area(FactBoxes)
+        {
+            part(CustomerFactBox; "D4P BC Customer FactBox")
+            {
+                SubPageLink = "No." = field("No.");
             }
         }
     }

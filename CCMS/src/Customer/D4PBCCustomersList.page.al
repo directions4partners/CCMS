@@ -1,6 +1,7 @@
 namespace D4P.CCMS.Customer;
 
 using D4P.CCMS.Tenant;
+using D4P.CCMS.Environment;
 
 page 62000 "D4P BC Customers List"
 {
@@ -35,6 +36,13 @@ page 62000 "D4P BC Customers List"
                 field("Contact Person Email"; Rec."Contact Person Email")
                 {
                 }
+            }
+        }
+        area(FactBoxes)
+        {
+            part(CustomerFactBox; "D4P BC Customer FactBox")
+            {
+                SubPageLink = "No." = field("No.");
             }
         }
     }
