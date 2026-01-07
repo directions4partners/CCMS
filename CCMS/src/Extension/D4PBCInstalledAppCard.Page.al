@@ -100,7 +100,7 @@ page 62024 "D4P BC Installed App Card"
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
                     BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.GetAvailableAppUpdates(BCEnvironment);
+                    EnvironmentManagement.GetAvailableAppUpdates(BCEnvironment, true);
                 end;
             }
             action(UpdateApp)

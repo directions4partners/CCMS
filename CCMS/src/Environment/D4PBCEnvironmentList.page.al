@@ -27,7 +27,10 @@ page 62003 "D4P BC Environment List"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
-                    Editable = false;
+                }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    DrillDown = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
@@ -55,53 +58,46 @@ page 62003 "D4P BC Environment List"
                 {
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Available"; Rec."Available")
                 {
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Target Version Type"; Rec."Target Version Type")
                 {
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Selected DateTime"; Rec."Selected DateTime")
                 {
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Expected Availability"; Rec."Expected Availability")
                 {
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Ignore Update Window"; Rec."Ignore Update Window")
                 {
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Application Insights String"; Rec."Application Insights String")
                 {
-                    MaskType = Concealed;
+                    ExtendedDatatype = Masked;
+                    Visible = false;
                 }
                 field("Friendly Name"; Rec."Friendly Name")
                 {
@@ -131,22 +127,17 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Telemetry API Key"; Rec."Telemetry API Key")
                 {
-                    Editable = false;
                     ExtendedDatatype = Masked;
+                    Visible = false;
                 }
                 field("Telemetry Application ID"; Rec."Telemetry Application ID")
                 {
-                    Editable = false;
                 }
                 field("Telemetry Tenant ID"; Rec."Telemetry Tenant ID")
                 {
-                    ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
-                    Editable = false;
                 }
                 field("Telemetry Description"; Rec."Telemetry Description")
                 {
-                    ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from AppInsights Connection Setup).';
-                    Editable = false;
                 }
             }
         }
