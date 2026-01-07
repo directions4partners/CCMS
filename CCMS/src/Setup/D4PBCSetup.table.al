@@ -16,19 +16,21 @@ table 62009 "D4P BC Setup"
         field(2; "Debug Mode"; Boolean)
         {
             Caption = 'Debug Mode';
+            ToolTip = 'Enable debug mode to display API response texts in messages for troubleshooting purposes.';
         }
         field(3; "Admin API Base URL"; Text[250])
         {
             Caption = 'Admin API Base URL';
+            ToolTip = 'Base URL for Business Central Admin API calls. Default: https://api.businesscentral.dynamics.com/admin/v2.28';
         }
         field(4; "Automation API Base URL"; Text[250])
         {
             Caption = 'Automation API Base URL';
+            ToolTip = 'Base URL for Business Central Automation API calls. Default: https://api.businesscentral.dynamics.com/v2.0';
         }
         field(5; "Customer Nos."; Code[20])
         {
             Caption = 'Customer Nos.';
-            DataClassification = CustomerContent;
             TableRelation = "No. Series";
             ToolTip = 'Specifies the number series used to assign customer numbers automatically.';
         }

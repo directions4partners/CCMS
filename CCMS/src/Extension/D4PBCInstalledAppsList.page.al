@@ -7,7 +7,7 @@ page 62008 "D4P BC Installed Apps List"
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "D4P BC Installed Apps";
+    SourceTable = "D4P BC Installed App";
     Caption = 'D365BC Installed Apps';
     InsertAllowed = false;
     ModifyAllowed = false;
@@ -21,58 +21,45 @@ page 62008 "D4P BC Installed Apps List"
             {
                 field("App Name"; Rec."App Name")
                 {
-                    ToolTip = 'Specifies the name of the installed app.';
                     StyleExpr = UpdateAvailableStyleExpr;
                 }
                 field("App Publisher"; Rec."App Publisher")
                 {
-                    ToolTip = 'Specifies the publisher of the app.';
                 }
                 field("App Version"; Rec."App Version")
                 {
-                    ToolTip = 'Specifies the version of the installed app.';
                 }
                 field(State; Rec.State)
                 {
-                    ToolTip = 'Specifies the current state of the app.';
                 }
                 field("App Type"; Rec."App Type")
                 {
-                    ToolTip = 'Specifies the type of the app (Global, PTE, DEV).';
                 }
                 field("Can Be Uninstalled"; Rec."Can Be Uninstalled")
                 {
-                    ToolTip = 'Specifies whether the app can be uninstalled.';
                 }
                 field("Last Update Attempt Result"; Rec."Last Update Attempt Result")
                 {
-                    ToolTip = 'Specifies the result of the last update attempt.';
                 }
                 field("Last Uninstall Attempt Result"; Rec."Last Uninstall Attempt Result")
                 {
-                    ToolTip = 'Specifies the result of the last uninstall attempt.';
                 }
                 field("Available Update Version"; Rec."Available Update Version")
                 {
-                    ToolTip = 'Specifies the version of the app that is available for update.';
                     StyleExpr = UpdateAvailableStyleExpr;
                 }
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ToolTip = 'Specifies the environment where the app is installed.';
                 }
                 field("App ID"; Rec."App ID")
                 {
-                    ToolTip = 'Specifies the unique identifier of the app.';
                 }
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ToolTip = 'Specifies the customer associated with the installed app.';
                     Visible = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ToolTip = 'Specifies the tenant identifier associated with the app.';
                     Visible = false;
                 }
             }
@@ -154,7 +141,7 @@ page 62008 "D4P BC Installed Apps List"
                 ToolTip = 'Delete all fetched installed apps records.';
                 trigger OnAction()
                 var
-                    InstalledApp: Record "D4P BC Installed Apps";
+                    InstalledApp: Record "D4P BC Installed App";
                     RecordCount: Integer;
                     DeletedSuccessMsg: Label '%1 installed apps records deleted.';
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?';

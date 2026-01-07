@@ -20,15 +20,12 @@ page 62011 "D4P BC Tenant Card"
                 Caption = 'General';
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ToolTip = 'Specifies the customer number associated with this tenant.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ToolTip = 'Specifies the unique identifier (GUID) of the Microsoft Entra tenant.';
                 }
                 field("Tenant Name"; Rec."Tenant Name")
                 {
-                    ToolTip = 'Specifies the name of the Business Central tenant.';
                 }
             }
             group(Authentication)
@@ -36,8 +33,6 @@ page 62011 "D4P BC Tenant Card"
                 Caption = 'Authentication';
                 field("App Registration Type"; Rec."App Registration Type")
                 {
-                    ToolTip = 'Specifies whether to use an individual or shared app registration.';
-
                     trigger OnValidate()
                     begin
                         CurrPage.Update();
@@ -51,7 +46,6 @@ page 62011 "D4P BC Tenant Card"
                     field("Client ID Lookup"; Rec."Client ID")
                     {
                         Caption = 'Client ID';
-                        ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication. Select from shared app registrations.';
                         TableRelation = "D4P BC App Registration"."Client ID";
                         ShowMandatory = true;
 
@@ -67,14 +61,13 @@ page 62011 "D4P BC Tenant Card"
                     Visible = Rec."App Registration Type" = Rec."App Registration Type"::Individual;
                     field("Client ID"; Rec."Client ID")
                     {
-                        ToolTip = 'Specifies the Azure AD Application (Client) ID for API authentication.';
                         ShowMandatory = true;
                     }
                     field("Client Secret Individual"; ClientSecretValue)
                     {
                         Caption = 'Client Secret';
                         ExtendedDatatype = Masked;
-                        ToolTip = 'Specifies the Azure AD Application Client Secret for API authentication. This is stored securely in isolated storage.';
+                        ToolTip = 'Specifies the Microsoft Entra Application Client Secret for API authentication. This is stored securely in isolated storage.';
 
                         trigger OnValidate()
                         begin
@@ -84,7 +77,6 @@ page 62011 "D4P BC Tenant Card"
                     }
                     field("Secret Expiration Date"; Rec."Secret Expiration Date")
                     {
-                        ToolTip = 'Specifies when the client secret expires. Update the secret before this date.';
                         StyleExpr = SecretExpirationStyle;
                     }
                 }
@@ -94,16 +86,13 @@ page 62011 "D4P BC Tenant Card"
                 Caption = 'Backup Configuration';
                 field("Backup SAS URI"; Rec."Backup SAS URI")
                 {
-                    ToolTip = 'Specifies the Azure Storage SAS URI for environment backups.';
                     ExtendedDatatype = URL;
                 }
                 field("Backup Container Name"; Rec."Backup Container Name")
                 {
-                    ToolTip = 'Specifies the Azure Storage container name for environment backups.';
                 }
                 field("Backup SAS Token Exp. Date"; Rec."Backup SAS Token Exp. Date")
                 {
-                    ToolTip = 'Specifies when the SAS token expires. Update the SAS URI before this date.';
                     StyleExpr = SASTokenExpirationStyle;
                 }
             }

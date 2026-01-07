@@ -4,7 +4,7 @@ page 62013 "D4P BC Environment Features"
 {
     PageType = List;
     ApplicationArea = All;
-    SourceTable = "D4P BC Environment Features";
+    SourceTable = "D4P BC Environment Feature";
     Caption = 'D365BC Environment Features';
     InsertAllowed = false;
     ModifyAllowed = false;
@@ -17,15 +17,12 @@ page 62013 "D4P BC Environment Features"
             {
                 field("Feature Name"; Rec."Feature Name")
                 {
-                    ToolTip = 'Specifies the name of the feature.';
                 }
                 field("Feature Key"; Rec."Feature Key")
                 {
-                    ToolTip = 'Specifies the unique key of the feature.';
                 }
                 field("Is Enabled"; Rec."Is Enabled")
                 {
-                    ToolTip = 'Specifies the enabled status (All Users, None, etc.).';
                     StyleExpr = EnabledStatusStyle;
 
                     trigger OnDrillDown()
@@ -34,36 +31,28 @@ page 62013 "D4P BC Environment Features"
                 }
                 field("Feature Description"; Rec."Feature Description")
                 {
-                    ToolTip = 'Specifies the description of the feature.';
                 }
                 field("Mandatory By"; Rec."Mandatory By")
                 {
-                    ToolTip = 'Specifies when the feature becomes mandatory.';
                 }
                 field("Mandatory By Version"; Rec."Mandatory By Version")
                 {
-                    ToolTip = 'Specifies the BC version when the feature becomes mandatory.';
                 }
                 field("Can Try"; Rec."Can Try")
                 {
-                    ToolTip = 'Specifies whether the feature can be tried.';
                 }
                 field("Is One Way"; Rec."Is One Way")
                 {
-                    ToolTip = 'Specifies whether the feature change is one-way.';
                 }
                 field("Data Update Required"; Rec."Data Update Required")
                 {
-                    ToolTip = 'Specifies whether enabling the feature requires data update.';
                 }
                 field("Learn More Link"; Rec."Learn More Link")
                 {
-                    ToolTip = 'Specifies the link to learn more about the feature.';
                     ExtendedDatatype = URL;
                 }
                 field("Last Modified"; Rec."Last Modified")
                 {
-                    ToolTip = 'Specifies when the feature was last retrieved.';
                 }
             }
         }
@@ -141,7 +130,7 @@ page 62013 "D4P BC Environment Features"
                 ToolTip = 'Delete all fetched feature records.';
                 trigger OnAction()
                 var
-                    Feature: Record "D4P BC Environment Features";
+                    Feature: Record "D4P BC Environment Feature";
                     RecordCount: Integer;
                     DeletedSuccessMsg: Label '%1 feature records deleted.';
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched feature records?';

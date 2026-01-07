@@ -7,7 +7,7 @@ page 62016 "D4P BC Environment Sessions"
     PageType = List;
     ApplicationArea = All;
     UsageCategory = Lists;
-    SourceTable = "D4P BC Environment Sessions";
+    SourceTable = "D4P BC Environment Session";
     Caption = 'D365BC Environment Sessions';
     InsertAllowed = false;
     ModifyAllowed = false;
@@ -21,19 +21,15 @@ page 62016 "D4P BC Environment Sessions"
             {
                 field("Session ID"; Rec."Session ID")
                 {
-                    ToolTip = 'Specifies the unique session identifier.';
                 }
                 field("User ID"; Rec."User ID")
                 {
-                    ToolTip = 'Specifies the user ID for this session.';
                 }
                 field("Client Type"; Rec."Client Type")
                 {
-                    ToolTip = 'Specifies the client type.';
                 }
                 field("Login Date"; Rec."Login Date")
                 {
-                    ToolTip = 'Specifies when the user logged in.';
                 }
                 field(Duration; SessionDuration)
                 {
@@ -42,27 +38,21 @@ page 62016 "D4P BC Environment Sessions"
                 }
                 field("Entry Point Operation"; Rec."Entry Point Operation")
                 {
-                    ToolTip = 'Specifies the entry point operation.';
                 }
                 field("Entry Point Object Name"; Rec."Entry Point Object Name")
                 {
-                    ToolTip = 'Specifies the entry point object name.';
                 }
                 field("Current Object Name"; Rec."Current Object Name")
                 {
-                    ToolTip = 'Specifies the current object name.';
                 }
                 field("Current Object ID"; Rec."Current Object ID")
                 {
-                    ToolTip = 'Specifies the current object ID.';
                 }
                 field("Current Operation Duration"; Rec."Current Operation Duration")
                 {
-                    ToolTip = 'Specifies the duration of the current operation in milliseconds.';
                 }
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ToolTip = 'Specifies the environment name.';
                 }
             }
         }
@@ -125,7 +115,7 @@ page 62016 "D4P BC Environment Sessions"
                 ToolTip = 'Delete all fetched session records.';
                 trigger OnAction()
                 var
-                    Session: Record "D4P BC Environment Sessions";
+                    Session: Record "D4P BC Environment Session";
                     RecordCount: Integer;
                     DeletedSuccessMsg: Label '%1 session records deleted.';
                     DeleteMsg: Label 'Are you sure you want to delete all %1 fetched session records?';
