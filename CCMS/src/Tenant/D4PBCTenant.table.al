@@ -84,6 +84,14 @@ table 62001 "D4P BC Tenant"
                     Clear("Client ID");
             end;
         }
+        field(11; "Customer Name"; Text[100])
+        {
+            CalcFormula = lookup("D4P BC Customer".Name where("No." = field("Customer No.")));
+            Caption = 'Customer Name';
+            Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Specifies the name of the customer associated with this tenant.';
+        }
     }
 
     keys

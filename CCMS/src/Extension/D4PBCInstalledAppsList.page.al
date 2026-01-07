@@ -79,9 +79,14 @@ page 62008 "D4P BC Installed Apps List"
                 var
                     BCEnvironment: Record "D4P BC Environment";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                    ConfirmationGetInstalledAppsQst: Label 'Do you want to get installed apps for all tenants and all environments?';
                 begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.GetInstalledApps(BCEnvironment);
+                    if Rec.GetFilter("Environment Name") <> '' then begin
+                        BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
+                        EnvironmentManagement.GetInstalledApps(BCEnvironment);
+                    end else
+                        if Confirm(ConfirmationGetInstalledAppsQst, true) then
+                            EnvironmentManagement.GetInstalledApps();
                 end;
             }
             action(GetAvailableUpdates)
@@ -94,9 +99,14 @@ page 62008 "D4P BC Installed Apps List"
                 var
                     BCEnvironment: Record "D4P BC Environment";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                    ConfirmationGetAvailableUpdatesQst: Label 'Do you want to get available app updates for all tenants and all environments?';
                 begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.GetAvailableAppUpdates(BCEnvironment);
+                    if Rec.GetFilter("Environment Name") <> '' then begin
+                        BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
+                        EnvironmentManagement.GetAvailableAppUpdates(BCEnvironment, true);
+                    end else
+                        if Confirm(ConfirmationGetAvailableUpdatesQst, true) then
+                            EnvironmentManagement.GetAvailableAppUpdates();
                 end;
             }
             action(UpdateApp)
