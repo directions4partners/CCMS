@@ -12,14 +12,17 @@ table 62005 "D4P BC App Registration"
         field(1; "Client ID"; Guid)
         {
             Caption = 'Client ID';
+            ToolTip = 'Specifies the Microsoft Entra Application (Client) ID.';
         }
         field(2; Description; Text[100])
         {
             Caption = 'Description';
+            ToolTip = 'Specifies a description for this app registration.';
         }
         field(3; "Secret Expiration Date"; Date)
         {
             Caption = 'Secret Expiration Date';
+            ToolTip = 'Specifies when the client secret expires. Update the secret before this date.';
         }
     }
 

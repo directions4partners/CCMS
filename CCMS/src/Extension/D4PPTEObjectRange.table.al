@@ -16,11 +16,13 @@ table 62004 "D4P PTE Object Range"
         {
             Caption = 'Customer No.';
             TableRelation = "D4P BC Customer";
+            ToolTip = 'Specifies the customer number.';
         }
         field(2; "Tenant ID"; Guid)
         {
             Caption = 'Tenant ID';
             TableRelation = "D4P BC Tenant"."Tenant ID" where("Customer No." = field("Customer No."));
+            ToolTip = 'Specifies the tenant ID.';
         }
         field(3; "Entry No."; Integer)
         {
@@ -31,18 +33,22 @@ table 62004 "D4P PTE Object Range"
         field(4; "PTE ID"; Guid)
         {
             Caption = 'PTE ID';
+            ToolTip = 'Specifies the Per Tenant Extension''s ID.';
         }
         field(5; "PTE Name"; Text[100])
         {
             Caption = 'PTE Name';
+            ToolTip = 'Specifies the Per Tenant Extension''s name.';
         }
         field(6; "Range From"; Integer)
         {
             Caption = 'Range From';
+            ToolTip = 'Specifies the starting range.';
         }
         field(7; "Range To"; Integer)
         {
             Caption = 'Range To';
+            ToolTip = 'Specifies the ending range.';
         }
     }
 
