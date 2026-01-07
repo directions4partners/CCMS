@@ -34,9 +34,12 @@ table 62006 "D4P BC DevOps Organization"
     }
 
     trigger OnDelete()
+    var
+        TokenKey: Text;
     begin
-        if IsolatedStorage.Contains(Rec.ID) then
-            IsolatedStorage.Delete(Rec.ID);
+        TokenKey := StrSubstNo('%1-%2', Format(Rec.DevOps), Rec.ID);
+        if IsolatedStorage.Contains(TokenKey) then
+            IsolatedStorage.Delete(TokenKey);
     end;
 
 
