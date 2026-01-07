@@ -42,6 +42,7 @@ page 62035 "D4P BC PTE App Card"
                 }
                 field("DevOps Package"; Rec."DevOps Package")
                 {
+                    Caption = 'Package';
                     Visible = DevOpsPackageVisible;
                 }
                 field("DevOps Feed"; Rec."DevOps Feed")
