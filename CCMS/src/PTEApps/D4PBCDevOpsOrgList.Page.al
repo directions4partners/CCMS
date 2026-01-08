@@ -1,6 +1,6 @@
 namespace D4P.CCMS.PTEApps;
 
-page 62030 "D4P BC DevOps Org. List"
+page 62036 "D4P BC DevOps Org. List"
 {
     ApplicationArea = All;
     Caption = 'D365BC DevOps Organization List';
