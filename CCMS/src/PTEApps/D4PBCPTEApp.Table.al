@@ -13,6 +13,7 @@ table 62007 "D4P BC PTE App"
         field(1; "PTE ID"; Guid)
         {
             Caption = 'PTE ID';
+            ToolTip = 'Specifies the Per Tenant Extension''s ID.';
         }
         field(2; "PTE Name"; Text[100])
         {

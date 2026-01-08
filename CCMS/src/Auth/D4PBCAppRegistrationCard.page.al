@@ -16,17 +16,15 @@ page 62026 "D4P BC App Registration Card"
                 Caption = 'General';
                 field("Client ID"; Rec."Client ID")
                 {
-                    ToolTip = 'Specifies the Azure AD Application (Client) ID.';
                 }
                 field(Description; Rec.Description)
                 {
-                    ToolTip = 'Specifies a description for this app registration.';
                 }
                 field("Client Secret"; ClientSecretValue)
                 {
                     Caption = 'Client Secret';
                     ExtendedDatatype = Masked;
-                    ToolTip = 'Specifies the Azure AD Application Client Secret. This is stored securely in isolated storage.';
+                    ToolTip = 'Specifies the Microsoft Entra Application Client Secret. This is stored securely in isolated storage.';
 
                     trigger OnValidate()
                     begin
@@ -35,7 +33,6 @@ page 62026 "D4P BC App Registration Card"
                 }
                 field("Secret Expiration Date"; Rec."Secret Expiration Date")
                 {
-                    ToolTip = 'Specifies when the client secret expires. Update the secret before this date.';
                     StyleExpr = SecretExpirationStyle;
                 }
             }

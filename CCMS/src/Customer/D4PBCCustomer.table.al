@@ -1,15 +1,17 @@
 namespace D4P.CCMS.Customer;
 
-using Microsoft.Foundation.NoSeries;
+using D4P.CCMS.Environment;
 using D4P.CCMS.Setup;
+using D4P.CCMS.Tenant;
 using Microsoft.Foundation.Address;
+using Microsoft.Foundation.NoSeries;
 using System.EMail;
 
 table 62000 "D4P BC Customer"
 {
     Caption = 'D365BC Customer';
-    DataClassification = CustomerContent;
     DataCaptionFields = "No.", Name;
+    DataClassification = CustomerContent;
     DrillDownPageId = "D4P BC Customers List";
     LookupPageId = "D4P BC Customers List";
 
@@ -18,33 +20,31 @@ table 62000 "D4P BC Customer"
         field(1; "No."; Code[20])
         {
             Caption = 'No.';
-            DataClassification = CustomerContent;
-
+            ToolTip = 'Specifies the customer number.';
             trigger OnValidate()
             begin
                 TestNoSeries();
             end;
         }
-        field(2; "Name"; Text[100])
+        field(2; Name; Text[100])
         {
             Caption = 'Name';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies the customer name.';
         }
         field(3; Address; Text[100])
         {
             Caption = 'Address';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies the customer''s address.';
         }
         field(4; "Address 2"; Text[50])
         {
             Caption = 'Address 2';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies additional address information.';
         }
         field(5; City; Text[30])
         {
             Caption = 'City';
-            DataClassification = CustomerContent;
-
+            ToolTip = 'Specifies the customer''s city.';
             trigger OnValidate()
             begin
                 PostCode.ValidateCity(City, "Post Code", County, "Country/Region Code", (CurrFieldNo <> 0) and GuiAllowed);
@@ -58,12 +58,11 @@ table 62000 "D4P BC Customer"
         field(6; "Post Code"; Code[20])
         {
             Caption = 'Post Code';
-            DataClassification = CustomerContent;
             TableRelation = if ("Country/Region Code" = const('')) "Post Code"
             else
             if ("Country/Region Code" = filter(<> '')) "Post Code" where("Country/Region Code" = field("Country/Region Code"));
             ValidateTableRelation = false;
-
+            ToolTip = 'Specifies the postal code.';
             trigger OnValidate()
             begin
                 PostCode.ValidatePostCode(City, "Post Code", County, "Country/Region Code", (CurrFieldNo <> 0) and GuiAllowed);
@@ -77,15 +76,14 @@ table 62000 "D4P BC Customer"
         field(7; County; Text[30])
         {
             Caption = 'County';
-            DataClassification = CustomerContent;
             CaptionClass = '5,1,' + "Country/Region Code";
+            ToolTip = 'Specifies the county or state.';
         }
         field(8; "Country/Region Code"; Code[10])
         {
             Caption = 'Country/Region Code';
-            DataClassification = CustomerContent;
             TableRelation = "Country/Region";
-
+            ToolTip = 'Specifies the country/region code.';
             trigger OnValidate()
             begin
                 PostCode.CheckClearPostCodeCityCounty(City, "Post Code", County, "Country/Region Code", xRec."Country/Region Code");
@@ -94,13 +92,13 @@ table 62000 "D4P BC Customer"
         field(9; "Contact Person Name"; Text[100])
         {
             Caption = 'Contact Person Name';
-            DataClassification = CustomerContent;
+            ToolTip = 'Specifies the name of the primary contact person for this customer.';
         }
         field(10; "Contact Person Email"; Text[80])
         {
             Caption = 'Contact Person Email';
-            DataClassification = CustomerContent;
             ExtendedDatatype = EMail;
+            ToolTip = 'Specifies the email address of the primary contact person for this customer.';
             trigger OnValidate()
             begin
                 ValidateContactEmail();
@@ -109,8 +107,44 @@ table 62000 "D4P BC Customer"
         field(11; "No. Series"; Code[20])
         {
             Caption = 'No. Series';
-            DataClassification = CustomerContent;
             TableRelation = "No. Series";
+        }
+        field(20; Tenants; Integer)
+        {
+            CalcFormula = count("D4P BC Tenant" where("Customer No." = field("No.")));
+            Caption = 'Tenants';
+            Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Number of tenants for this customer';
+        }
+        field(21; "All Active Environments"; Integer)
+        {
+            CalcFormula = count("D4P BC Environment" where("Customer No." = field("No."),
+                                                              State = const('Active')));
+            Caption = 'All Active Environments';
+            Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Number of active environments for this customer';
+        }
+        field(22; "Active Prod. Environments"; Integer)
+        {
+            CalcFormula = count("D4P BC Environment" where("Customer No." = field("No."),
+                                                              State = const('Active'),
+                                                              Type = const('Production')));
+            Caption = 'Active Production Environments';
+            Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Number of active production environments for this customer';
+        }
+        field(23; "Active Sand. Environments"; Integer)
+        {
+            CalcFormula = count("D4P BC Environment" where("Customer No." = field("No."),
+                                                              State = const('Active'),
+                                                              Type = const('Sandbox')));
+            Caption = 'Active Sandbox Environments';
+            Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Number of active sandbox environments for this customer';
         }
     }
 

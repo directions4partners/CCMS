@@ -18,11 +18,9 @@ page 62009 "D4P PTE Object Ranges"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
-                    ToolTip = 'Specifies the customer number.';
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ToolTip = 'Specifies the tenant ID.';
                 }
                 field("PTE ID"; Rec."PTE ID")
                 {
@@ -39,15 +37,12 @@ page 62009 "D4P PTE Object Ranges"
                 }
                 field("PTE Name"; Rec."PTE Name")
                 {
-                    ToolTip = 'Specifies the Per Tenant Extension''s name.';
                 }
                 field("Range From"; Rec."Range From")
                 {
-                    ToolTip = 'Specifies the starting range.';
                 }
                 field("Range To"; Rec."Range To")
                 {
-                    ToolTip = 'Specifies the ending range.';
                 }
             }
         }
