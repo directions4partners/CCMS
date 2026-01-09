@@ -131,6 +131,7 @@ page 62044 "D4P KQL Report Executions"
     /// <summary>
     /// Sets the environment context for this page
     /// </summary>
+    /// <param name="Environment">The environment to set as context</param>
     procedure SetEnvironmentContext(Environment: Record "D4P BC Environment")
     begin
         EnvironmentContext := Environment;

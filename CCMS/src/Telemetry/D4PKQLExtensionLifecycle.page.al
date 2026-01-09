@@ -163,6 +163,7 @@ page 62042 "D4P KQL Extension Lifecycle"
     /// <summary>
     /// Sets the environment context for this page
     /// </summary>
+    /// <param name="Environment">The environment to set as context</param>
     procedure SetEnvironmentContext(Environment: Record "D4P BC Environment")
     begin
         EnvironmentContext := Environment;
