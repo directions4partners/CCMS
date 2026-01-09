@@ -64,11 +64,6 @@ codeunit 62030 "D4P AppInsights Client"
         exit(TelemetryAPIKey);
     end;
 
-    local procedure GetQueryBaseUri(): Text
-    begin
-        exit('https://api.applicationinsights.io');
-    end;
-
     local procedure GetPayload(QueryString: Text): Text
     var
         jw: Codeunit "Json Text Reader/Writer";
