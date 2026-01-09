@@ -38,7 +38,7 @@ codeunit 62030 "D4P AppInsights Client"
         TelemetryTenantId: Text[50];
         AIConnectionString: Text[1000];
 
-    procedure GetConfigurationKeys(): List of [Text[250]];
+    procedure GetConfigurationKeys(): List of [Text[250]]
     var
         Result: List of [Text[250]];
     begin
@@ -46,7 +46,7 @@ codeunit 62030 "D4P AppInsights Client"
         exit(Result);
     end;
 
-    procedure GetSecretConfigurationKeys(): List of [Text[250]];
+    procedure GetSecretConfigurationKeys(): List of [Text[250]]
     var
         Result: List of [Text[250]];
     begin
@@ -94,7 +94,7 @@ codeunit 62030 "D4P AppInsights Client"
     /// Enables log posting to Application Insights.using the given connection string.
     /// </summary>
     /// <param name="ConnectionString">The connection string to use.</param>
-    procedure InitializeForPost(ConnectionString: Text);
+    procedure InitializeForPost(ConnectionString: Text)
     var
         ActiveSession: Record "Active Session";
     begin
@@ -103,7 +103,7 @@ codeunit 62030 "D4P AppInsights Client"
             _uniqueSessionId := ActiveSession."Session Unique ID";
     end;
 
-    procedure Initialize(ApplicationId: Text[50]; APIKey: Text[50]; TenantId: Text[50]; ConnectionString: Text[1000]);
+    procedure Initialize(ApplicationId: Text[50]; APIKey: Text[50]; TenantId: Text[50]; ConnectionString: Text[1000])
     begin
         TelemetryApplicationId := ApplicationId;
         TelemetryAPIKey := APIKey;
@@ -115,7 +115,7 @@ codeunit 62030 "D4P AppInsights Client"
             InitializeForPost(AIConnectionString);
     end;
 
-    procedure InitializeFromEnvironment(Environment: Record "D4P BC Environment");
+    procedure InitializeFromEnvironment(Environment: Record "D4P BC Environment")
     var
         AIConnectionSetup: Record "D4P AppInsights Connection";
     begin
