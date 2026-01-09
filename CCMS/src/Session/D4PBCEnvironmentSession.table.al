@@ -6,6 +6,8 @@ table 62016 "D4P BC Environment Session"
 {
     Caption = 'D365BC Environment Session';
     DataClassification = SystemMetadata;
+    DrillDownPageId = "D4P BC Environment Sessions";
+    LookupPageId = "D4P BC Environment Sessions";
 
     fields
     {

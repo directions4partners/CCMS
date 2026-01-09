@@ -6,6 +6,8 @@ table 62014 "D4P BC Environment Backup"
 {
     Caption = 'D365BC Environment Database Export';
     DataClassification = SystemMetadata;
+    DrillDownPageId = "D4P BC Environment Backups";
+    LookupPageId = "D4P BC Environment Backups";
 
     fields
     {
