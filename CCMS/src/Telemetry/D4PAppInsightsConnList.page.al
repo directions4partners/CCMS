@@ -21,7 +21,6 @@ page 62047 "D4P AppInsights Conn List"
             {
                 field("AppInsights Connection String"; Rec."AppInsights Connection String")
                 {
-                    MaskType = Concealed;
                 }
                 field("Description"; Rec."Description")
                 {

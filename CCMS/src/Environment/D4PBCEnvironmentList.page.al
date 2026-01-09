@@ -101,7 +101,6 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Application Insights String"; Rec."Application Insights String")
                 {
-                    MaskType = Concealed;
                 }
                 field("Friendly Name"; Rec."Friendly Name")
                 {
