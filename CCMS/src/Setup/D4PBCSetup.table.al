@@ -51,8 +51,10 @@ table 62009 "D4P BC Setup"
         BCSetup."Primary Key" := '';
         if not BCSetup.Get() then begin
             BCSetup.Init();
-            BCSetup."Primary Key" := '';
-            BCSetup.Insert();
+            BCSetup.Validate("Primary Key", '');
+            BCSetup.Validate("Admin API Base URL", AdminAPIBaseURLTok);
+            BCSetup.Validate("Automation API Base URL", AutomationAPIBaseURLTok);
+            BCSetup.Insert(true);
         end;
         exit(BCSetup);
     end;
@@ -74,8 +76,8 @@ table 62009 "D4P BC Setup"
     begin
         BCSetup := GetSetup();
         if BCSetup."Admin API Base URL" = '' then begin
-            BCSetup."Admin API Base URL" := 'https://api.businesscentral.dynamics.com/admin/v2.28';
-            BCSetup.Modify();
+            BCSetup.Validate("Admin API Base URL", AdminAPIBaseURLTok);
+            BCSetup.Modify(true);
         end;
         exit(BCSetup."Admin API Base URL");
     end;
@@ -90,9 +92,13 @@ table 62009 "D4P BC Setup"
 
     procedure RestoreDefaults()
     begin
-        Rec."Debug Mode" := false;
-        Rec."Admin API Base URL" := 'https://api.businesscentral.dynamics.com/admin/v2.28';
-        Rec."Automation API Base URL" := 'https://api.businesscentral.dynamics.com/v2.0';
-        Rec.Modify();
+        Validate("Debug Mode", false);
+        Validate("Admin API Base URL", AdminAPIBaseURLTok);
+        Validate("Automation API Base URL", AutomationAPIBaseURLTok);
+        Modify(true);
     end;
+
+    var
+        AdminAPIBaseURLTok: Label 'https://api.businesscentral.dynamics.com/admin/v2.28', locked = true;
+        AutomationAPIBaseURLTok: Label 'https://api.businesscentral.dynamics.com/v2.0', locked = true;
 }
