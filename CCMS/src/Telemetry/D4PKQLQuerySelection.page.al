@@ -3,13 +3,12 @@ namespace D4P.CCMS.Telemetry;
 #pragma warning disable AA0218
 page 62039 "D4P KQL Query Selection"
 {
-
     PageType = List;
     UsageCategory = None;
     SourceTable = "D4P KQL Query Store";
     Caption = 'Query Selection', Locked = true;
-
     Editable = false;
+    ApplicationArea = All;
 
     layout
     {
@@ -19,17 +18,14 @@ page 62039 "D4P KQL Query Selection"
             {
                 field(Code; Rec.Code)
                 {
-                    ApplicationArea = All;
                     Caption = 'Query Code';
                 }
                 field(Name; Rec.Name)
                 {
-                    ApplicationArea = All;
                     Caption = 'Query Name';
                 }
                 field(Description; Rec.Description)
                 {
-                    ApplicationArea = All;
                     Caption = 'Description';
                 }
             }
@@ -48,5 +44,4 @@ page 62039 "D4P KQL Query Selection"
     begin
         exit(SelectedQueryCode);
     end;
-
 }

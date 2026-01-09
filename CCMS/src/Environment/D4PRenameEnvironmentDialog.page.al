@@ -6,6 +6,7 @@ page 62007 "D4P Rename Environment Dialog"
 {
     PageType = StandardDialog;
     Caption = 'Rename Environment';
+    ApplicationArea = All;
 
     layout
     {
@@ -13,13 +14,11 @@ page 62007 "D4P Rename Environment Dialog"
         {
             field(EnvironmentName; EnvironmentName)
             {
-                ApplicationArea = All;
                 Caption = 'Current Environment Name';
                 Editable = false;
             }
             field(NewEnvironmentName; NewEnvironmentName)
             {
-                ApplicationArea = All;
                 Caption = 'New Environment Name';
             }
         }

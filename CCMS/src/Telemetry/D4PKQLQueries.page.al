@@ -72,7 +72,6 @@ page 62040 "D4P KQL Queries"
             action(RunQuery)
             {
                 Caption = 'Run Query';
-                ApplicationArea = All;
                 Image = Start;
                 trigger OnAction()
                 var
@@ -101,7 +100,6 @@ page 62040 "D4P KQL Queries"
             action(InitializeQueries)
             {
                 Caption = 'Initialize Default Queries';
-                ApplicationArea = All;
                 Image = Setup;
                 trigger OnAction()
                 var
@@ -169,20 +167,20 @@ page 62040 "D4P KQL Queries"
 
         if CurrentEnvironment."Application Insights String" = '' then begin
             TelemetryStatusText := 'Not Configured';
-            TelemetryStatusStyle := 'Unfavorable';
+            TelemetryStatusStyle := Format(PageStyle::Unfavorable);
         end else
             if AIConnectionSetup.Get(CurrentEnvironment."Application Insights String") then begin
                 if (AIConnectionSetup."Telemetry Application Id" <> '') and
                    (AIConnectionSetup."Telemetry API Key" <> '') then begin
                     TelemetryStatusText := 'Ready';
-                    TelemetryStatusStyle := 'Favorable';
+                    TelemetryStatusStyle := Format(PageStyle::Favorable);
                 end else begin
                     TelemetryStatusText := 'Incomplete Setup';
-                    TelemetryStatusStyle := 'Ambiguous';
+                    TelemetryStatusStyle := Format(PageStyle::Ambiguous);
                 end;
             end else begin
                 TelemetryStatusText := 'Setup Not Found';
-                TelemetryStatusStyle := 'Unfavorable';
+                TelemetryStatusStyle := Format(PageStyle::Unfavorable);
             end;
     end;
 

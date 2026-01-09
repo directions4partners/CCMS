@@ -1,10 +1,10 @@
 namespace D4P.CCMS.Features;
 
-using System.Security.Authentication;
 using D4P.CCMS.Environment;
-using D4P.CCMS.Tenant;
-using D4P.CCMS.Setup;
 using D4P.CCMS.General;
+using D4P.CCMS.Setup;
+using D4P.CCMS.Tenant;
+using System.Security.Authentication;
 
 codeunit 62014 "D4P BC Features Helper"
 {

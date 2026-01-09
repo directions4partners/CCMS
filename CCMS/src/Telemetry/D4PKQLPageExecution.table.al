@@ -4,7 +4,6 @@ table 62036 "D4P KQL Page Execution"
 {
     DataClassification = SystemMetadata;
     Caption = 'KQL Page Execution', Locked = true;
-
     DrillDownPageId = "D4P KQL Page Executions";
     LookupPageId = "D4P KQL Page Executions";
 
@@ -83,5 +82,4 @@ table 62036 "D4P KQL Page Execution"
         }
         key(Key2; "Environment Code", "User ID", "Execution Date/Time") { }
     }
-
 }

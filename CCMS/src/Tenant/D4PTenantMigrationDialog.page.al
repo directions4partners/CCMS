@@ -4,6 +4,7 @@ page 62017 "D4P Tenant Migration Dialog"
 {
     PageType = StandardDialog;
     Caption = 'Tenant to Tenant Migration';
+    ApplicationArea = All;
 
     layout
     {
@@ -14,19 +15,16 @@ page 62017 "D4P Tenant Migration Dialog"
                 Caption = 'Source Environment';
                 field(SourceCustomerNo; SourceCustomerNo)
                 {
-                    ApplicationArea = All;
                     Caption = 'Source Customer No.';
                     ToolTip = 'Specifies the source customer number.';
                 }
                 field(SourceTenantID; SourceTenantID)
                 {
-                    ApplicationArea = All;
                     Caption = 'Source Tenant ID';
                     ToolTip = 'Specifies the source tenant ID.';
                 }
                 field(SourceEnvironmentName; SourceEnvironmentName)
                 {
-                    ApplicationArea = All;
                     Caption = 'Source Environment Name';
                     ToolTip = 'Specifies the source environment name.';
                 }
@@ -36,19 +34,16 @@ page 62017 "D4P Tenant Migration Dialog"
                 Caption = 'Target Environment';
                 field(TargetCustomerNo; TargetCustomerNo)
                 {
-                    ApplicationArea = All;
                     Caption = 'Target Customer No.';
                     ToolTip = 'Specifies the target customer number.';
                 }
                 field(TargetTenantID; TargetTenantID)
                 {
-                    ApplicationArea = All;
                     Caption = 'Target Tenant ID';
                     ToolTip = 'Specifies the target tenant ID.';
                 }
                 field(TargetEnvironmentName; TargetEnvironmentName)
                 {
-                    ApplicationArea = All;
                     Caption = 'Target Environment Name';
                     ToolTip = 'Specifies the target environment name.';
                 }
@@ -58,19 +53,16 @@ page 62017 "D4P Tenant Migration Dialog"
                 Caption = 'Migration Options';
                 field(MigrateData; MigrateData)
                 {
-                    ApplicationArea = All;
                     Caption = 'Migrate Data';
                     ToolTip = 'Specifies whether to migrate data along with the environment.';
                 }
                 field(MigrateApps; MigrateApps)
                 {
-                    ApplicationArea = All;
                     Caption = 'Migrate Apps';
                     ToolTip = 'Specifies whether to migrate installed apps.';
                 }
                 field(MigrationDescription; MigrationDescription)
                 {
-                    ApplicationArea = All;
                     Caption = 'Migration Description';
                     ToolTip = 'Specifies a description for this migration.';
                     MultiLine = true;

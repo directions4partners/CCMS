@@ -1,8 +1,8 @@
 namespace D4P.CCMS.General;
 
-using System.Security.Authentication;
-using D4P.CCMS.Tenant;
 using D4P.CCMS.Setup;
+using D4P.CCMS.Tenant;
+using System.Security.Authentication;
 
 codeunit 62049 "D4P BC API Helper"
 {

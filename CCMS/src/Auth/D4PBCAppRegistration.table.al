@@ -113,12 +113,12 @@ table 62005 "D4P BC App Registration"
         DaysToExpiration := ExpirationDate - Today();
 
         if DaysToExpiration < 0 then
-            exit('Unfavorable')
+            exit(Format(PageStyle::Unfavorable))
         else
             if DaysToExpiration <= 30 then
-                exit('Attention')
+                exit(Format(PageStyle::Attention))
             else
-                exit('Favorable');
+                exit(Format(PageStyle::Favorable));
     end;
 
     /// <summary>

@@ -47,7 +47,7 @@ table 62003 "D4P BC Installed App"
             Caption = 'App Version';
             ToolTip = 'Specifies the version of the installed app.';
         }
-        field(8; "State"; Enum "D4P App State")
+        field(8; State; Enum "D4P App State")
         {
             Caption = 'State';
             ToolTip = 'Specifies the current state of the app.';
