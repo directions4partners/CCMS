@@ -54,12 +54,12 @@ codeunit 62030 "D4P AppInsights Client"
         exit(Result);
     end;
 
-    local procedure ApplicationId(): Text
+    local procedure GetApplicationId(): Text
     begin
         exit(TelemetryApplicationId);
     end;
 
-    local procedure ApiKey(): Text
+    local procedure GetApiKey(): Text
     begin
         exit(TelemetryAPIKey);
     end;
@@ -258,11 +258,11 @@ codeunit 62030 "D4P AppInsights Client"
         FailedToSendRequestErr: Label 'Failed to send HTTP request to Endpoint';
         ResponseText: Text;
     begin
-        IngestionEndpointUrl := 'https://api.applicationinsights.io/v1/apps/' + ApplicationId() + '/query';
+        IngestionEndpointUrl := 'https://api.applicationinsights.io/v1/apps/' + GetApplicationId() + '/query';
         HttpRequestMessage.SetRequestUri(IngestionEndpointUrl);
         HttpRequestMessage.Method := 'POST';
         HttpRequestMessage.GetHeaders(RequestHeaders);
-        RequestHeaders.Add('X-API-Key', ApiKey());
+        RequestHeaders.Add('X-API-Key', GetApiKey());
 
         //QueryString := 'traces | limit 10';
         HttpContentMessage.WriteFrom(GetPayload(QueryString));
