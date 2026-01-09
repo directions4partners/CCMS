@@ -8,7 +8,6 @@ permissionset 62003 "D4P BC TELEMETRY"
 {
     Assignable = true;
     Caption = 'D365BC Admin Center - Telemetry Only';
-
     Permissions =
         // Core environment data (read-only for telemetry)
         tabledata "D4P BC Environment" = R,

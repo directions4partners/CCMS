@@ -6,6 +6,7 @@ page 62025 "D4P Update Selection Dialog"
     PageType = StandardDialog;
     SourceTable = "D4P BC Available Update";
     SourceTableTemporary = true;
+    ApplicationArea = All;
 
     layout
     {
@@ -16,7 +17,6 @@ page 62025 "D4P Update Selection Dialog"
                 Caption = 'Available Updates';
                 field(Selected; Rec.Selected)
                 {
-                    ApplicationArea = All;
                     StyleExpr = RowStyleExpr;
 
                     trigger OnValidate()
@@ -27,25 +27,21 @@ page 62025 "D4P Update Selection Dialog"
                 }
                 field("Target Version"; Rec."Target Version")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     StyleExpr = RowStyleExpr;
                 }
                 field(Available; Rec.Available)
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     StyleExpr = RowStyleExpr;
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     StyleExpr = RowStyleExpr;
                 }
                 field("Selected Date"; Rec."User Selected Date")
                 {
-                    ApplicationArea = All;
                     Caption = 'Selected Date';
                     Editable = DateFieldEditable;
                     Visible = DateFieldsVisible;
@@ -58,21 +54,18 @@ page 62025 "D4P Update Selection Dialog"
                 }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     Visible = DateFieldsVisible;
                     StyleExpr = RowStyleExpr;
                 }
                 field("Expected Month"; Rec."Expected Month")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     Visible = ExpectedFieldsVisible;
                     StyleExpr = RowStyleExpr;
                 }
                 field("Expected Year"; Rec."Expected Year")
                 {
-                    ApplicationArea = All;
                     Editable = false;
                     Visible = ExpectedFieldsVisible;
                     StyleExpr = RowStyleExpr;
@@ -86,12 +79,6 @@ page 62025 "D4P Update Selection Dialog"
         }
     }
 
-    actions
-    {
-        area(Processing)
-        {
-        }
-    }
 
     var
         DateFieldEditable: Boolean;

@@ -18,7 +18,6 @@ permissionset 62000 "D4P BC ADMIN"
 {
     Assignable = true;
     Caption = 'D365BC Admin Center - Full Access';
-
     Permissions =
         // Tables
         tabledata "D4P BC Customer" = RIMD,

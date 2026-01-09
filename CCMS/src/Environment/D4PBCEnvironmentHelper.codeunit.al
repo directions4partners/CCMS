@@ -8,7 +8,6 @@ using D4P.CCMS.Session;
 
 codeunit 62002 "D4P BC Environment Helper"
 {
-
     /// <summary>
     /// Deletes an environment record and all related data from the local database.
     /// This includes environment backups, sessions, features, installed apps, capacity data, and the environment record itself.

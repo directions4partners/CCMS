@@ -16,7 +16,6 @@ permissionset 62001 "D4P BC ADMIN READ"
 {
     Assignable = true;
     Caption = 'D365BC Admin Center - Read Only Access';
-
     Permissions =
         // Tables - Read only
         tabledata "D4P BC Customer" = R,

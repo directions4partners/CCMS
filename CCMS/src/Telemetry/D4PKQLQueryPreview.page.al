@@ -7,6 +7,7 @@ page 62041 "D4P KQL Query Preview"
     PageType = CardPart;
     SourceTable = "D4P KQL Query Store";
     Caption = 'Query Preview';
+    ApplicationArea = All;
 
     layout
     {
@@ -18,7 +19,6 @@ page 62041 "D4P KQL Query Preview"
 
                 field(QueryText; GetQueryText())
                 {
-                    ApplicationArea = All;
                     MultiLine = true;
                     Caption = 'Query';
                     Editable = false;
@@ -34,7 +34,6 @@ page 62041 "D4P KQL Query Preview"
             action(UploadQuery)
             {
                 Caption = 'Upload Query';
-                ApplicationArea = All;
                 Image = Import;
                 ToolTip = 'Upload a KQL query from a text file';
 
@@ -46,7 +45,6 @@ page 62041 "D4P KQL Query Preview"
             action(DownloadQuery)
             {
                 Caption = 'Download Query';
-                ApplicationArea = All;
                 Image = Export;
                 ToolTip = 'Download the KQL query to a text file';
 

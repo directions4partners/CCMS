@@ -63,7 +63,6 @@ page 62001 "D4P BC Customer Card"
                 }
                 field("Contact Person Email"; Rec."Contact Person Email")
                 {
-                    ApplicationArea = All;
                 }
             }
         }
@@ -82,7 +81,6 @@ page 62001 "D4P BC Customer Card"
         {
             action(BCTenants)
             {
-                ApplicationArea = All;
                 Caption = 'BC Tenants';
                 Image = List;
                 RunObject = page "D4P BC Tenant List";
@@ -94,7 +92,6 @@ page 62001 "D4P BC Customer Card"
         {
             actionref(BCTenantsPromoted; BCTenants)
             {
-
             }
         }
     }

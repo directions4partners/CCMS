@@ -5,7 +5,6 @@ using D4P.CCMS.Environment;
 #pragma warning disable AA0218
 page 62042 "D4P KQL Extension Lifecycle"
 {
-
     PageType = List;
     UsageCategory = None;
     SourceTable = "D4P KQL Extension Lifecycle";
@@ -13,6 +12,7 @@ page 62042 "D4P KQL Extension Lifecycle"
     InsertAllowed = false;
     ModifyAllowed = false;
     DeleteAllowed = false;
+    ApplicationArea = All;
 
     layout
     {
@@ -22,72 +22,58 @@ page 62042 "D4P KQL Extension Lifecycle"
             {
                 field(Timestamp; Rec."Exec. Date/Time")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Event ID"; Rec."Event ID")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Extension Name"; Rec."Extension Name")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Extension ID"; Rec."Extension ID")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Version"; Rec."Version")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field(Publisher; Rec.Publisher)
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field(Result; Rec.Result)
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field(Message; Rec.Message)
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Sync. Mode"; Rec."Sync. Mode")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Execution Time MS"; Rec."Execution Time")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Environment Type"; Rec."Environment Type")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
                 field("Failure Reason"; Rec."Failure Reason")
                 {
-                    ApplicationArea = All;
                     StyleExpr = StyleExpression;
                 }
             }
@@ -102,7 +88,6 @@ page 62042 "D4P KQL Extension Lifecycle"
             {
                 Caption = 'Load';
                 ToolTip = 'Loads data from the API.';
-                ApplicationArea = All;
                 Image = Report;
                 Promoted = true;
                 PromotedCategory = Process;

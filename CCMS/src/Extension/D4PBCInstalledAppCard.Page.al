@@ -39,7 +39,6 @@ page 62024 "D4P BC Installed App Card"
                 field("App Type"; Rec."App Type")
                 {
                 }
-
             }
             group(Update)
             {
@@ -75,7 +74,6 @@ page 62024 "D4P BC Installed App Card"
         {
             action(GetInstalledApps)
             {
-                ApplicationArea = All;
                 Caption = 'Get Installed Apps';
                 Image = Refresh;
                 ToolTip = 'Get the list of installed apps for the selected environment.';
@@ -90,7 +88,6 @@ page 62024 "D4P BC Installed App Card"
             }
             action(GetAvailableUpdates)
             {
-                ApplicationArea = All;
                 Caption = 'Get Available Updates';
                 Image = Refresh;
                 ToolTip = 'Get the list of available apps updates for the selected environment.';
@@ -105,7 +102,6 @@ page 62024 "D4P BC Installed App Card"
             }
             action(UpdateApp)
             {
-                ApplicationArea = All;
                 Caption = 'Update App';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected app to the latest version.';
@@ -120,7 +116,6 @@ page 62024 "D4P BC Installed App Card"
             }
             action(DeleteAll)
             {
-                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched installed apps records.';
@@ -143,7 +138,6 @@ page 62024 "D4P BC Installed App Card"
                     end;
                 end;
             }
-
         }
         area(Promoted)
         {

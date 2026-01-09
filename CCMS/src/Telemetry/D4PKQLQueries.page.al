@@ -72,7 +72,6 @@ page 62040 "D4P KQL Queries"
             action(RunQuery)
             {
                 Caption = 'Run Query';
-                ApplicationArea = All;
                 Image = Start;
                 trigger OnAction()
                 var
@@ -101,7 +100,6 @@ page 62040 "D4P KQL Queries"
             action(InitializeQueries)
             {
                 Caption = 'Initialize Default Queries';
-                ApplicationArea = All;
                 Image = Setup;
                 trigger OnAction()
                 var

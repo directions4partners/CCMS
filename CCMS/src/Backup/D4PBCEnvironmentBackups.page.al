@@ -55,7 +55,6 @@ page 62014 "D4P BC Environment Backups"
         {
             action(StartExport)
             {
-                ApplicationArea = All;
                 Caption = 'Start Database Export';
                 Image = Export;
                 ToolTip = 'Start a new database export of the environment. Only available for Production environments.';
@@ -71,7 +70,6 @@ page 62014 "D4P BC Environment Backups"
             }
             action(GetExportHistory)
             {
-                ApplicationArea = All;
                 Caption = 'Get Export History';
                 Image = History;
                 ToolTip = 'Retrieve the history of database exports.';
@@ -96,7 +94,6 @@ page 62014 "D4P BC Environment Backups"
             }
             action(GetExportMetrics)
             {
-                ApplicationArea = All;
                 Caption = 'Get Export Metrics';
                 Image = Statistics;
                 ToolTip = 'Get information about export quotas and usage.';
@@ -112,7 +109,6 @@ page 62014 "D4P BC Environment Backups"
             }
             action(PITRestore)
             {
-                ApplicationArea = All;
                 Caption = 'PIT Restore';
                 Image = Restore;
                 ToolTip = 'Perform a Point-in-Time restore of an environment.';
@@ -126,7 +122,6 @@ page 62014 "D4P BC Environment Backups"
             }
             action(DeleteAll)
             {
-                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched backup records.';

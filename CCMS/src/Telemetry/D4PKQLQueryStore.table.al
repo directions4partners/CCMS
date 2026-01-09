@@ -4,7 +4,6 @@ table 62033 "D4P KQL Query Store"
 {
     Caption = 'KQL Query Store';
     DataClassification = SystemMetadata;
-
     LookupPageId = "D4P KQL Queries";
     DrillDownPageId = "D4P KQL Queries";
 

@@ -52,7 +52,6 @@ page 62000 "D4P BC Customers List"
         {
             action(BCTenants)
             {
-                ApplicationArea = All;
                 Caption = 'BC Tenants';
                 Image = List;
                 RunObject = page "D4P BC Tenant List";
@@ -64,7 +63,6 @@ page 62000 "D4P BC Customers List"
         {
             actionref(BCTenantsPromoted; BCTenants)
             {
-
             }
         }
     }

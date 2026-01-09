@@ -514,7 +514,6 @@ codeunit 62000 "D4P BC Environment Mgt"
             Error(FailedToCreateErr, ResponseText);
 
         Message(EnvironmentCreatedMsg, EnvironmentName);
-
     end;
 
     procedure CopyBCEnvironment(var BCTenant: Record "D4P BC Tenant"; SourceEnvironmentName: Text[100]; NewEnvironmentName: Text[100]; NewEnvironmentType: Enum "D4P Environment Type")
@@ -563,7 +562,6 @@ codeunit 62000 "D4P BC Environment Mgt"
             Error(FailedToDeleteErr, ResponseText);
 
         Message(EnvironmentMarkedForDeletionMsg, EnvironmentName);
-
     end;
 
     procedure GetAvailableUpdates(var BCEnvironment: Record "D4P BC Environment"; var TempAvailableUpdate: Record "D4P BC Available Update" temporary)
@@ -797,7 +795,6 @@ codeunit 62000 "D4P BC Environment Mgt"
             Message(EnvironmentUpgradeScheduledMsg, EnvironmentName, TargetVersion, UpgradeDate)
         else
             Error(FailedToUpgradeErr, ResponseText);
-
     end;
 
     procedure SetApplicationInsightsConnectionString(var BCEnvironment: Record "D4P BC Environment")
@@ -831,5 +828,4 @@ codeunit 62000 "D4P BC Environment Mgt"
         end else
             Error(FailedToSetKeyErr, ResponseText);
     end;
-
 }

@@ -267,7 +267,6 @@ page 62004 "D4P BC Environment Card"
         {
             action(GetEnvironmentUpdateInfo)
             {
-                ApplicationArea = All;
                 Caption = 'Get Updates';
                 Image = UpdateDescription;
                 ToolTip = 'Returns information about the available version update for the specified environment.';
@@ -283,7 +282,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(GetEnvironmentAppsUpdateInfo)
             {
-                ApplicationArea = All;
                 Caption = 'Get App Updates';
                 Image = UpdateXML;
                 ToolTip = 'Returns information about the available apps update for the specified environment.';
@@ -298,7 +296,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(CopyEnvironment)
             {
-                ApplicationArea = All;
                 Caption = 'Copy';
                 Image = Copy;
                 ToolTip = 'Creates a copy for the selected environment.';
@@ -316,7 +313,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(RenameEnvironment)
             {
-                ApplicationArea = All;
                 Caption = 'Rename';
                 Image = NewStatusChange;
                 ToolTip = 'Renames selected environment.';
@@ -334,7 +330,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(DeleteEnvironment)
             {
-                ApplicationArea = All;
                 Caption = 'Delete';
                 Image = "Invoicing-Delete";
                 ToolTip = 'Deletes the selected environment.';
@@ -352,7 +347,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(RescheduleUpdate)
             {
-                ApplicationArea = All;
                 Caption = 'Reschedule Update';
                 Image = Timesheet;
                 ToolTip = 'Select and schedule an update version for the environment.';
@@ -387,7 +381,6 @@ page 62004 "D4P BC Environment Card"
         {
             action(InstalledApps)
             {
-                ApplicationArea = All;
                 Caption = 'Installed Apps';
                 Image = ExternalDocument;
                 RunObject = page "D4P BC Installed Apps List";
@@ -398,7 +391,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(Features)
             {
-                ApplicationArea = All;
                 Caption = 'Features';
                 Image = Setup;
                 RunObject = page "D4P BC Environment Features";
@@ -409,7 +401,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(Backups)
             {
-                ApplicationArea = All;
                 Caption = 'Backups';
                 Image = History;
                 ToolTip = 'View and manage backups for this environment.';
@@ -425,7 +416,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(Capacity)
             {
-                ApplicationArea = All;
                 Caption = 'Capacity';
                 Image = Capacity;
                 ToolTip = 'View capacity information for this environment.';
@@ -446,7 +436,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(Sessions)
             {
-                ApplicationArea = All;
                 Caption = 'Sessions';
                 Image = Users;
                 ToolTip = 'View active sessions for this environment.';
@@ -461,7 +450,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(Operations)
             {
-                ApplicationArea = All;
                 Caption = 'Operations';
                 Image = ServiceTasks;
                 ToolTip = 'View operations history for this environment.';
@@ -479,7 +467,6 @@ page 62004 "D4P BC Environment Card"
         {
             action(AIConnectionSetup)
             {
-                ApplicationArea = All;
                 Caption = 'Application Insights Connection Setup';
                 Image = Setup;
                 RunObject = page "D4P AppInsights Conn List";
@@ -487,7 +474,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(EditCurrentAIConnection)
             {
-                ApplicationArea = All;
                 Caption = 'Edit Current Application Insights Connection';
                 Image = Edit;
                 Enabled = Rec."Application Insights String" <> '';
@@ -511,7 +497,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(TelemetryInstalledApps)
             {
-                ApplicationArea = All;
                 Caption = 'Installed Apps';
                 Image = ExternalDocument;
                 RunObject = page "D4P BC Installed Apps List";
@@ -522,7 +507,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(TelemetryKQLQueries)
             {
-                ApplicationArea = All;
                 Caption = 'KQL Queries';
                 Image = Log;
                 ToolTip = 'View and execute KQL queries for telemetry data analysis.';
@@ -536,7 +520,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(RunDirectTelemetryQuery)
             {
-                ApplicationArea = All;
                 Caption = 'Run Telemetry Query';
                 Image = Start;
                 ToolTip = 'Select and run a telemetry query directly using this environment''s configuration.';
@@ -550,7 +533,6 @@ page 62004 "D4P BC Environment Card"
             }
             action(SetAppInsightsConnectionString)
             {
-                ApplicationArea = All;
                 Caption = 'Set Application Insights Connection String';
                 Image = Setup;
                 ToolTip = 'Sets the Application Insights connection string for the selected environment (telemetry).';

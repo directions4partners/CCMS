@@ -7,7 +7,6 @@ using System.Reflection;
 
 report 62032 "D4P Load Data"
 {
-
     UsageCategory = None;
     ProcessingOnly = true;
     Caption = 'Telemetry Analysis - Load Data';
@@ -81,7 +80,8 @@ report 62032 "D4P Load Data"
 
         trigger OnOpenPage()
         begin
-            if (TimeCompression = '') then TimeCompression := '30d';
+            if (TimeCompression = '') then
+                TimeCompression := '30d';
             if (FromDateTime = 0DT) and (ToDateTime = 0DT) then
                 SetDates(CreateDateTime(CalcDate('<-30D>', Today()), 000000T), CreateDateTime(Today(), 235959T));
         end;
@@ -486,7 +486,8 @@ report 62032 "D4P Load Data"
 
             repeat
                 RowCounter += 1;
-                if RowCounter > 3 then break;
+                if RowCounter > 3 then
+                    break;
 
                 Client.GetFields(TempBuffer);
                 ValueList := '';
@@ -536,5 +537,4 @@ report 62032 "D4P Load Data"
 
         Message(DebugText);
     end;
-
 }

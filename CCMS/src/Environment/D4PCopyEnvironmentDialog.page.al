@@ -6,6 +6,7 @@ page 62006 "D4P Copy Environment Dialog"
 {
     PageType = StandardDialog;
     Caption = 'Copy Environment';
+    ApplicationArea = All;
 
     layout
     {
@@ -13,18 +14,15 @@ page 62006 "D4P Copy Environment Dialog"
         {
             field(EnvironmentName; EnvironmentName)
             {
-                ApplicationArea = All;
                 Caption = 'Current Environment Name';
                 Editable = false;
             }
             field(NewEnvironmentName; NewEnvironmentName)
             {
-                ApplicationArea = All;
                 Caption = 'New Environment Name';
             }
             field(NewEnvironmentType; NewEnvironmentType)
             {
-                ApplicationArea = All;
                 Caption = 'New Environment Type';
             }
         }

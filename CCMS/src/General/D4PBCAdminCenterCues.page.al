@@ -9,6 +9,7 @@ page 62034 "D4P BC Admin Center Cues"
     SourceTable = "D4P BC Admin Center Cue";
     Caption = 'BC Admin Center';
     RefreshOnActivate = true;
+    ApplicationArea = All;
 
     layout
     {
@@ -20,7 +21,6 @@ page 62034 "D4P BC Admin Center Cues"
 
                 field("Customers Count"; Rec."Customers Count")
                 {
-                    ApplicationArea = All;
                     Caption = 'Customers';
                     DrillDownPageId = "D4P BC Customers List";
 
@@ -29,10 +29,8 @@ page 62034 "D4P BC Admin Center Cues"
                         Page.Run(Page::"D4P BC Customers List");
                     end;
                 }
-
                 field("Tenants Count"; Rec."Tenants Count")
                 {
-                    ApplicationArea = All;
                     Caption = 'Tenants';
                     DrillDownPageId = "D4P BC Tenant List";
 

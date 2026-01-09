@@ -86,7 +86,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(GetAvailableUpdates)
             {
-                ApplicationArea = All;
                 Caption = 'Get Available Updates';
                 Image = Refresh;
                 ToolTip = 'Get the list of available apps updates for the selected environment.';
@@ -101,7 +100,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(UpdateApp)
             {
-                ApplicationArea = All;
                 Caption = 'Update App';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected app to the latest version.';
@@ -116,7 +114,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(UpdateSelectedApps)
             {
-                ApplicationArea = All;
                 Caption = 'Update Selected Apps';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected apps (multiple) to the latest version.';
@@ -135,7 +132,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(DeleteAll)
             {
-                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched installed apps records.';
@@ -158,7 +154,6 @@ page 62008 "D4P BC Installed Apps List"
                     end;
                 end;
             }
-
         }
         area(Promoted)
         {

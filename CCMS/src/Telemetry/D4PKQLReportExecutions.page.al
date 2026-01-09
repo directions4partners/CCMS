@@ -5,16 +5,15 @@ using D4P.CCMS.Environment;
 #pragma warning disable AA0218
 page 62044 "D4P KQL Report Executions"
 {
-
     PageType = List;
     Caption = 'Report Executions', Locked = true;
-
     UsageCategory = None;
     SourceTable = "D4P KQL Report Execution";
     SourceTableView = sorting("Execution Date/Time") order(descending);
     InsertAllowed = false;
     ModifyAllowed = false;
     DeleteAllowed = false;
+    ApplicationArea = All;
 
     layout
     {
@@ -24,58 +23,43 @@ page 62044 "D4P KQL Report Executions"
             {
                 field("Company Name"; Rec."Company Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Environment Type"; Rec."Environment Type")
                 {
-                    ApplicationArea = All;
                 }
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ApplicationArea = All;
                 }
-
                 field("Report ID"; Rec."Report ID")
                 {
-                    ApplicationArea = All;
                 }
                 field("Report Name"; Rec."Report Name")
                 {
-                    ApplicationArea = all;
                 }
                 field("Extension Name"; Rec."Extension Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Execution Date"; Rec."Execution Date")
                 {
-                    ApplicationArea = All;
                 }
                 field("Execution Date/Time"; Rec."Execution Date/Time")
                 {
-                    ApplicationArea = All;
                 }
                 field("Average Execution Time"; Rec."Average Execution Time")
                 {
-                    ApplicationArea = All;
                 }
                 field("Average Rows"; Rec."Average Rows")
                 {
-                    ApplicationArea = All;
                 }
                 field("Max. Execution Time"; Rec."Max. Execution Time")
                 {
-                    ApplicationArea = All;
                 }
                 field("Max. Rows"; Rec."Max. Rows")
                 {
-                    ApplicationArea = All;
                 }
                 field("No. of Executions"; Rec."No. of Executions")
                 {
-                    ApplicationArea = All;
                 }
-
             }
         }
     }
@@ -88,7 +72,6 @@ page 62044 "D4P KQL Report Executions"
             {
                 Caption = 'Load';
                 ToolTip = 'Loads data from the API.';
-                ApplicationArea = All;
                 Image = Report;
                 Promoted = true;
                 PromotedCategory = Process;
