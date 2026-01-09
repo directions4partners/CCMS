@@ -868,9 +868,6 @@ codeunit 62030 "D4P AppInsights Client"
                             ConvertToFieldRef(TextValue, FldRef);
                         end;
                     OnDeserializeToRecordRefAfterSetFieldValue(TempBuffer.Name, RecRef, FldRef, TextValue);
-                end else begin
-                    // Debug: Show unmapped columns
-                    // Message('Column "%1" could not be mapped to any field', TempBuffer.Name);
                 end;
             until TempBuffer.Next() = 0;
     end;
