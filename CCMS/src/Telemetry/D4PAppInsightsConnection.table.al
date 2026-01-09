@@ -11,6 +11,7 @@ table 62046 "D4P AppInsights Connection"
         {
             Caption = 'Application Insights Connection String';
             DataClassification = CustomerContent;
+            NotBlank = true;
             ToolTip = 'Specifies the Application Insights connection string.';
         }
         field(20; "Description"; Text[50])

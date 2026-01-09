@@ -13,6 +13,7 @@ table 62033 "D4P KQL Query Store"
         field(1; Code; Code[20])
         {
             Caption = 'Code';
+            NotBlank = true;
         }
         field(2; Name; Text[100])
         {
