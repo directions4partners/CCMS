@@ -187,8 +187,8 @@ page 62008 "D4P BC Installed Apps List"
     begin
         // Set style for App Name and Available Update Version when update is available
         if Rec."Available Update Version" <> '' then
-            UpdateAvailableStyleExpr := 'Attention'
+            UpdateAvailableStyleExpr := Format(PageStyle::Attention)
         else
-            UpdateAvailableStyleExpr := 'Standard';
+            UpdateAvailableStyleExpr := Format(PageStyle::Standard);
     end;
 }

@@ -154,9 +154,9 @@ page 62042 "D4P KQL Extension Lifecycle"
         case
             Rec.Result of
             'Failure':
-                StyleExpression := 'Unfavorable';
+                StyleExpression := Format(PageStyle::Unfavorable);
             'Success':
-                StyleExpression := 'Favorable';
+                StyleExpression := Format(PageStyle::Favorable);
         end;
     end;
 

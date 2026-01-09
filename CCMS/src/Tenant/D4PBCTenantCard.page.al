@@ -214,11 +214,11 @@ page 62011 "D4P BC Tenant Card"
         DaysToExpiration := Rec."Backup SAS Token Exp. Date" - Today();
 
         if DaysToExpiration < 0 then
-            SASTokenExpirationStyle := 'Unfavorable'
+            SASTokenExpirationStyle := Format(PageStyle::Unfavorable)
         else
             if DaysToExpiration <= 30 then
-                SASTokenExpirationStyle := 'Attention'
+                SASTokenExpirationStyle := Format(PageStyle::Attention)
             else
-                SASTokenExpirationStyle := 'Favorable';
+                SASTokenExpirationStyle := Format(PageStyle::Favorable);
     end;
 }

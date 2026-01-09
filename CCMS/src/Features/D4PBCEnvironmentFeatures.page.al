@@ -180,8 +180,8 @@ page 62013 "D4P BC Environment Features"
     local procedure SetStatusStyle()
     begin
         if Rec."Is Enabled" = 'All Users' then
-            EnabledStatusStyle := 'Favorable'
+            EnabledStatusStyle := Format(PageStyle::Favorable)
         else
-            EnabledStatusStyle := 'Standard';
+            EnabledStatusStyle := Format(PageStyle::Standard);
     end;
 }

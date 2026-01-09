@@ -120,9 +120,9 @@ page 62025 "D4P Update Selection Dialog"
     local procedure SetRowStyle()
     begin
         if Rec.Selected then
-            RowStyleExpr := 'Favorable'
+            RowStyleExpr := Format(PageStyle::Favorable)
         else
-            RowStyleExpr := 'Standard';
+            RowStyleExpr := Format(PageStyle::Standard);
     end;
 
     local procedure UpdateFieldVisibility()

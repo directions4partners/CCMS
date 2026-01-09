@@ -530,9 +530,9 @@ page 62003 "D4P BC Environment List"
     begin
         // Set style for State field
         if Rec.State <> 'Active' then
-            StateStyleExpr := 'Unfavorable'
+            StateStyleExpr := Format(PageStyle::Unfavorable)
         else
-            StateStyleExpr := 'Standard';
+            StateStyleExpr := Format(PageStyle::Standard);
 
         // Calculate flowfields for telemetry information
         if Rec."Application Insights String" <> '' then
