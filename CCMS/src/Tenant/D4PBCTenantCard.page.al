@@ -1,8 +1,8 @@
 namespace D4P.CCMS.Tenant;
 
+using D4P.CCMS.Auth;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
-using D4P.CCMS.Auth;
 
 page 62011 "D4P BC Tenant Card"
 {

@@ -2,8 +2,8 @@ namespace D4P.CCMS.Telemetry;
 
 using D4P.CCMS.Environment;
 using D4P.CCMS.Setup;
-using System.Reflection;
 using Microsoft.Utilities;
+using System.Reflection;
 
 report 62032 "D4P Load Data"
 {

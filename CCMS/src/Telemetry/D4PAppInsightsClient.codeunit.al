@@ -1,12 +1,12 @@
 namespace D4P.CCMS.Telemetry;
 
-using System.Security.Authentication;
+using D4P.CCMS.Environment;
 using Microsoft.Utilities;
-using System.Utilities;
+using System.Environment;
 using System.IO;
 using System.Reflection;
-using System.Environment;
-using D4P.CCMS.Environment;
+using System.Security.Authentication;
+using System.Utilities;
 
 /// <summary>
 /// Provides access to Application Insights data.

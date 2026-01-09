@@ -1,7 +1,7 @@
 namespace D4P.CCMS.Customer;
 
-using D4P.CCMS.Tenant;
 using D4P.CCMS.Environment;
+using D4P.CCMS.Tenant;
 
 page 62000 "D4P BC Customers List"
 {

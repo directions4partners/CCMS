@@ -1,8 +1,8 @@
 namespace D4P.CCMS.Tenant;
 
-using D4P.CCMS.Setup;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
+using D4P.CCMS.Setup;
 
 page 62002 "D4P BC Tenant List"
 {

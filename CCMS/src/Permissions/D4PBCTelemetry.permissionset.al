@@ -1,8 +1,8 @@
 namespace D4P.CCMS.Permissions;
 
 using D4P.CCMS.Environment;
-using D4P.CCMS.Telemetry;
 using D4P.CCMS.Setup;
+using D4P.CCMS.Telemetry;
 
 permissionset 62003 "D4P BC TELEMETRY"
 {

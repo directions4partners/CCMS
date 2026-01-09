@@ -1,8 +1,8 @@
 namespace D4P.CCMS.Operations;
 
+using D4P.CCMS.General;
 using D4P.CCMS.Tenant;
 using System.Reflection;
-using D4P.CCMS.General;
 
 codeunit 62025 "D4P BC Operations Helper"
 {
