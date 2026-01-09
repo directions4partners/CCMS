@@ -72,7 +72,6 @@ codeunit 62030 "D4P AppInsights Client"
     local procedure GetPayload(QueryString: Text): Text
     var
         jw: Codeunit "Json Text Reader/Writer";
-        jo: JsonObject;
     begin
         jw.WriteStartObject('');
         jw.WriteStringProperty('query', QueryString);
@@ -255,17 +254,8 @@ codeunit 62030 "D4P AppInsights Client"
         RequestHeaders: HttpHeaders;
         HttpRequestMessage: HttpRequestMessage;
         HttpResponseMessage: HttpResponseMessage;
-        JsonArray: JsonArray;
-        JsonObjectLoop: JsonObject;
-        JsonResponse: JsonObject;
-        JsonToken: JsonToken;
-        JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1 %2';
         FailedToSendRequestErr: Label 'Failed to send HTTP request to Endpoint';
-        AuthToken: SecretText;
-        ErrorMessage: Text;
-        response: Text;
         ResponseText: Text;
     begin
         IngestionEndpointUrl := 'https://api.applicationinsights.io/v1/apps/' + ApplicationId() + '/query';
