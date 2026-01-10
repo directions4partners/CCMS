@@ -10,7 +10,7 @@ codeunit 62008 "D4P BC Nuget Processing"
         ServiceTypeUrl: Text;
         ServiceType: Label 'SearchQueryService', Locked = true;
     begin
-        DevOpsUpdateFactory(BCDevOpsUpdate, PTEApp.DevOps);
+        DevOpsUpdateFactory(BCDevOpsUpdate, PTEApp."DevOps Environment");
         if not BCDevOpsUpdate.IsEnabled() then
             exit;
         ServiceTypeUrl := BCDevOpsUpdate.GetNugetServiceTypeUrl(PTEApp, ServiceType);

@@ -18,27 +18,30 @@ table 62007 "D4P BC PTE App"
         field(2; "PTE Name"; Text[100])
         {
             Caption = 'PTE Name';
+            ToolTip = 'Specifies the name of the Per Tenant Extension.';
         }
         field(4; "Range From"; Integer)
         {
             Caption = 'Range From';
+            ToolTip = 'Specifies the starting range for the PTE app.';
         }
         field(5; "Range To"; Integer)
         {
             Caption = 'Range To';
+            ToolTip = 'Specifies the ending range for the PTE app.';
         }
         field(6; "Latest App Version"; Text[50])
         {
             Caption = 'App Version';
             ToolTip = 'Specifies the latest version of the PTE app.';
         }
-        field(7; DevOps; enum "D4P BC DevOps Environments")
+        field(7; "DevOps Environment"; enum "D4P BC DevOps Environments")
         {
             Caption = 'DevOps Environment';
             ToolTip = 'Specifies the DevOps environment associated with the PTE app.';
             trigger OnValidate()
             begin
-                if Rec.DevOps <> xRec.DevOps then
+                if Rec."DevOps Environment" <> xRec."DevOps Environment" then
                     ClearFieldsOnDevOpsChange();
             end;
         }
@@ -50,7 +53,7 @@ table 62007 "D4P BC PTE App"
             var
                 DevOpsOrganization: Record "D4P BC DevOps Organization";
             begin
-                DevOpsOrganization.SetRange(DevOps, Rec.DevOps);
+                DevOpsOrganization.SetRange("DevOps Environment", Rec."DevOps Environment");
                 if Page.RunModal(Page::"D4P BC DevOps Org. List", DevOpsOrganization) = Action::LookupOK then
                     Rec."DevOps Organization" := DevOpsOrganization.ID;
             end;

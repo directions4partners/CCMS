@@ -34,7 +34,7 @@ page 62035 "D4P BC PTE App Card"
             {
                 Caption = 'DevOps';
 
-                field(DevOps; Rec.DevOps)
+                field(DevOps; Rec."DevOps Environment")
                 {
                 }
                 field("DevOps Organization"; Rec."DevOps Organization")
@@ -73,7 +73,7 @@ page 62035 "D4P BC PTE App Card"
 
     local procedure SetVisibleFields()
     begin
-        if Rec.DevOps = Rec.DevOps::Azure then begin
+        if Rec."DevOps Environment" = Rec."DevOps Environment"::Azure then begin
             DevOpsPackageVisible := true;
             DevOpsFeedVisible := true;
         end else begin

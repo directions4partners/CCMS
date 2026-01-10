@@ -32,7 +32,7 @@ page 62029 "D4P BC PTE Apps List"
                 field("Range To"; Rec."Range To")
                 {
                 }
-                field(DevOps; Rec.DevOps)
+                field(DevOps; Rec."DevOps Environment")
                 {
                 }
                 field("DevOps Organization"; Rec."DevOps Organization")

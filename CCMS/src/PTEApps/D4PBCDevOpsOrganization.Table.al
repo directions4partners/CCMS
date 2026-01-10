@@ -8,7 +8,7 @@ table 62006 "D4P BC DevOps Organization"
 
     fields
     {
-        field(1; DevOps; enum "D4P BC DevOps Environments")
+        field(1; "DevOps Environment"; enum "D4P BC DevOps Environments")
         {
             Caption = 'DevOps Organization ID';
             ToolTip = 'Specifies the unique identifier for the DevOps organization.';
@@ -27,7 +27,7 @@ table 62006 "D4P BC DevOps Organization"
 
     keys
     {
-        key(PK; "DevOps", ID)
+        key(PK; "DevOps Environment", ID)
         {
             Clustered = true;
         }
@@ -37,7 +37,7 @@ table 62006 "D4P BC DevOps Organization"
     var
         TokenKey: Text;
     begin
-        TokenKey := StrSubstNo('%1-%2', Format(Rec.DevOps), Rec.ID);
+        TokenKey := StrSubstNo('%1-%2', Format(Rec."DevOps Environment"), Rec.ID);
         if IsolatedStorage.Contains(TokenKey) then
             IsolatedStorage.Delete(TokenKey);
     end;

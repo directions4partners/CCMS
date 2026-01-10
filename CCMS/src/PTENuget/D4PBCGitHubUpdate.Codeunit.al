@@ -9,7 +9,7 @@ codeunit 62003 "D4P BC GitHub Update" implements "D4P BC DevOps Update"
         RestClient: Codeunit "Rest Client";
         JsonToken: JsonToken;
     begin
-        RestClient.SetAuthorizationHeader(GetToken(StrSubstNo('%1-%2', PTEApp.DevOps, PTEApp."DevOps Organization")));
+        RestClient.SetAuthorizationHeader(GetToken(StrSubstNo('%1-%2', PTEApp."DevOps Environment", PTEApp."DevOps Organization")));
         JsonToken := RestClient.GetAsJson(GetNugetServiceURL(PTEApp));
         exit(ProcessServices(JsonToken, ServiceType));
     end;

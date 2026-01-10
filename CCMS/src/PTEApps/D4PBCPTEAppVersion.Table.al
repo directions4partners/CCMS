@@ -53,7 +53,7 @@ table 62010 "D4P BC PTE App Version"
     begin
         if not PTEApps.Get(Rec."PTE ID") then
             exit(DevOps::NoDevOps);
-        DevOps := PTEApps.DevOps;
+        DevOps := PTEApps."DevOps Environment";
     end;
 
     procedure GetPTEAppName(): Text[100]
