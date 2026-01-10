@@ -5,6 +5,7 @@ codeunit 62006 "D4P BC NoDevOps Update" implements "D4P BC DevOps Update"
 {
     procedure GetNugetServiceTypeUrl(PTEApp: Record "D4P BC PTE App"; ServiceType: Text[100]): Text
     begin
+
     end;
 
     procedure GetNugetServiceURL(PTEApp: Record "D4P BC PTE App"): Text
