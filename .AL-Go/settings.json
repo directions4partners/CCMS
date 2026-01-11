@@ -5,5 +5,5 @@
   "bcptTestFolders": [],
   "enableCodeCop": true,
   "enableUICop": true,
-  "rulesetFile": "App/.vscode/app.ruleset.json"
+  "rulesetFile": "CCMS/.vscode/app.ruleset.json"
 }
