@@ -24,14 +24,14 @@ page 62007 "D4P Rename Environment Dialog"
         }
     }
 
-    procedure SetBCTenant(_BCTenant: Record "D4P BC Tenant")
+    procedure SetBCTenant(CurrBCTenant: Record "D4P BC Tenant")
     begin
-        BCTenant := _BCTenant;
+        BCTenant := CurrBCTenant;
     end;
 
-    procedure SetCurrentBCEnvironment(_EnvironmentName: Text[100])
+    procedure SetCurrentBCEnvironment(CurrEnvironmentName: Text[100])
     begin
-        EnvironmentName := _EnvironmentName;
+        EnvironmentName := CurrEnvironmentName;
     end;
 
     procedure RenameEnvironment()
