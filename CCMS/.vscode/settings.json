@@ -8,5 +8,6 @@
         "${PerTenantExtensionCop}",
         "${CodeCop}",
         "${UICop}"        
-    ]
+    ],
+    "cSpell.ignoreWords": ["SECRETPLACEHOLDER", "SASURI", "bacpac"]
 }
