@@ -17,7 +17,7 @@ page 62041 "D4P KQL Query Preview"
             {
                 ShowCaption = false;
 
-                field(QueryText; GetQueryText())
+                field(QueryAsText; GetQueryText())
                 {
                     MultiLine = true;
                     Caption = 'Query';
