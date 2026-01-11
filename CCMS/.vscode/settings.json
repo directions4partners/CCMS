@@ -2,5 +2,11 @@
     "CRS.ObjectNamePrefix": "D4P",
     "CRS.RenameWithGit": false,
     "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectType>.al",
-    "CRS.FileNamePatternExtensions": "<BaseNameShort>.<ObjectTypeShort><BaseId>-Ext.al"
+    "CRS.FileNamePatternExtensions": "<BaseNameShort>.<ObjectTypeShort><BaseId>-Ext.al",
+    "al.ruleSetPath": "./.vscode/app.ruleset.json",
+    "al.codeAnalyzers": [
+        "${PerTenantExtensionCop}",
+        "${CodeCop}",
+        "${UICop}"        
+    ]
 }

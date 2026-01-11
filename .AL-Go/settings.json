@@ -2,5 +2,8 @@
   "$schema": "https://raw.githubusercontent.com/Freddy-D4P/AL-Go/main/Actions/.Modules/settings.schema.json",
   "appFolders": [],
   "testFolders": [],
-  "bcptTestFolders": []
+  "bcptTestFolders": [],
+  "enableCodeCop": true,
+  "enableUICop": true,
+  "rulesetFile": "App/.vscode/app.ruleset.json"
 }
