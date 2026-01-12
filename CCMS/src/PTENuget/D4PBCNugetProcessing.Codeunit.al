@@ -19,7 +19,7 @@ codeunit 62008 "D4P BC Nuget Processing"
         GetAppVersions(PTEApp, BCDevOpsUpdate, ServiceTypeUrl);
     end;
 
-    local procedure DevOpsUpdateFactory(var BCDevOpsUpdateInterface: Interface "D4P BC DevOps Update"; BCDevOpsEnvironments: Enum "D4P BC DevOps Environments")
+    local procedure DevOpsUpdateFactory(var BCDevOpsUpdateInterface: Interface "D4P BC DevOps Update"; BCDevOpsEnvironments: Enum "D4P BC DevOps Environment")
     begin
         BCDevOpsUpdateInterface := BCDevOpsEnvironments;
     end;

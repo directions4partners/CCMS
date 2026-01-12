@@ -47,7 +47,7 @@ table 62010 "D4P BC PTE App Version"
         exit(PTEAppVersion.Get(Rec."PTE ID", Rec."App Version"));
     end;
 
-    procedure GetPTEAppDevOps() DevOps: Enum "D4P BC DevOps Environments"
+    procedure GetPTEAppDevOps() DevOps: Enum "D4P BC DevOps Environment"
     var
         PTEApps: Record "D4P BC PTE App";
     begin

@@ -35,7 +35,7 @@ table 62007 "D4P BC PTE App"
             Caption = 'App Version';
             ToolTip = 'Specifies the latest version of the PTE app.';
         }
-        field(7; "DevOps Environment"; enum "D4P BC DevOps Environments")
+        field(7; "DevOps Environment"; enum "D4P BC DevOps Environment")
         {
             Caption = 'DevOps Environment';
             ToolTip = 'Specifies the DevOps environment associated with the PTE app.';
