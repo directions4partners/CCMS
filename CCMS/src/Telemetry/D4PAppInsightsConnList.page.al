@@ -6,7 +6,7 @@ page 62047 "D4P AppInsights Conn List"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "D4P AppInsights Connection";
-    Caption = 'D365 BC Application Insights';
+    Caption = 'D365BC Application Insights';
     CardPageId = "D4P AppInsights Conn Card";
     Editable = true;
     InsertAllowed = true;
