@@ -12,6 +12,7 @@ page 62008 "D4P BC Installed Apps List"
     InsertAllowed = false;
     ModifyAllowed = false;
     CardPageId = "D4P BC Installed App Card";
+    SourceTableView = sorting("Customer No.", "Tenant ID", "Environment Name", "App Name");
 
     layout
     {
