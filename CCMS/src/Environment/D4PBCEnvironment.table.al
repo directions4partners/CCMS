@@ -68,6 +68,7 @@ table 62002 "D4P BC Environment"
             Caption = 'Application Insights Connection String';
             TableRelation = "D4P AppInsights Connection"."AppInsights Connection String";
             ToolTip = 'Specifies the connection string for Application Insights. Use the lookup to select from existing configurations or type directly to create new entries.';
+            ValidateTableRelation = false;
         }
         field(12; "Friendly Name"; Text[100])
         {
