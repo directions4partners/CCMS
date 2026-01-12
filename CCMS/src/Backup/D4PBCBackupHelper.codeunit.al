@@ -12,12 +12,12 @@ codeunit 62015 "D4P BC Backup Helper"
     var
         BCTenant: Record "D4P BC Tenant";
         JsonObject: JsonObject;
-        ConfirmMsg: Label 'You are about to start a database export with the following settings:\\ Environment: %1\ Container: %2\ Blob File: %3\\These settings CANNOT be changed after the export starts.\\Do you want to continue?';
-        ExportStartedMsg: Label 'Database export for environment %1 successfully started.\Blob: %2';
-        FailedExportErr: Label 'Failed to start database export: %1';
+        ConfirmMsg: Label 'You are about to start a database export with the following settings:\\ Environment: %1\ Container: %2\ Blob File: %3\\These settings CANNOT be changed after the export starts.\\Do you want to continue?', Comment = '%1 = Environment Name, %2 = Container Name, %3 = Blob Name';
+        ExportStartedMsg: Label 'Database export for environment %1 successfully started.\Blob: %2', Comment = '%1 = Environment Name, %2 = Blob Name';
+        FailedExportErr: Label 'Failed to start database export: %1', Comment = '%1 = Error message';
         NoContainerErr: Label 'Backup Container Name is not configured for this tenant. Please configure it in the tenant settings before starting a database export.';
         NoSASURIErr: Label 'Backup SAS URI is not configured for this tenant. Please configure it in the tenant settings before starting a database export.';
-        NotProductionErr: Label 'Database exports can only be created from Production environments.\ Environment "%1" is of type "%2".\ Please select a Production environment to perform a database export.';
+        NotProductionErr: Label 'Database exports can only be created from Production environments.\ Environment "%1" is of type "%2".\ Please select a Production environment to perform a database export.', Comment = '%1 = Environment Name, %2 = Environment Type';
         BlobName: Text;
         ResponseText: Text;
     begin
@@ -63,8 +63,8 @@ codeunit 62015 "D4P BC Backup Helper"
         JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonValue: JsonValue;
-        FailedMetricsErr: Label 'Failed to get export metrics: %1';
-        MetricsMsg: Label 'Export Metrics for %1:\Exports Per Month: %2\Exports Remaining This Month: %3';
+        FailedMetricsErr: Label 'Failed to get export metrics: %1', Comment = '%1 = Error message';
+        MetricsMsg: Label 'Export Metrics for %1:\Exports Per Month: %2\Exports Remaining This Month: %3', Comment = '%1 = Environment Name, %2 = Exports Per Month, %3 = Exports Remaining';
         ParseMetricsErr: Label 'Failed to parse export metrics response.';
         ResponseText: Text;
     begin
@@ -105,8 +105,8 @@ codeunit 62015 "D4P BC Backup Helper"
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        FailedHistoryErr: Label 'Failed to get export history: %1';
-        HistorySuccessMsg: Label 'Export history retrieved successfully. Found %1 export(s) for %2.';
+        FailedHistoryErr: Label 'Failed to get export history: %1', Comment = '%1 = Error message';
+        HistorySuccessMsg: Label 'Export history retrieved successfully. Found %1 export(s) for %2.', Comment = '%1 = Number of exports, %2 = Environment Name';
         ParseHistoryErr: Label 'Failed to parse export history response.';
         EndTimeText: Text;
         ResponseText: Text;

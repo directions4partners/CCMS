@@ -6,12 +6,7 @@
             "action": "Info",
             "id": "AA0139",
             "justification": "Do not assign a text to a target with smaller size. - Temporarily demoted, legacy to be fixed with PRIO"
-        },
-        {
-            "action": "Info",
-            "id": "AA0470",
-            "justification": "Placeholders should have a comment explaining their content. - Temporarily demoted, legacy to be fixed later?"
-        },
+        },       
         {
             "action": "Info",
             "id": "AA0218",

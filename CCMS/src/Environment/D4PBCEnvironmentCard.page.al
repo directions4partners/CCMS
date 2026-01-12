@@ -337,7 +337,7 @@ page 62004 "D4P BC Environment Card"
                 var
                     BCTenant: Record "D4P BC Tenant";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
-                    DeleteMsg: Label 'Are you sure you want to delete the environment %1?';
+                    DeleteMsg: Label 'Are you sure you want to delete the environment %1?', Comment = '%1 = Environment Name';
                 begin
                     if Confirm(DeleteMsg, false, Rec.Name) then begin
                         BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
@@ -358,7 +358,7 @@ page 62004 "D4P BC Environment Card"
                     SelectedDate: Date;
                     ExpectedMonth: Integer;
                     ExpectedYear: Integer;
-                    NoUpdatesAvailableErr: Label 'No updates available for the environment %1.';
+                    NoUpdatesAvailableErr: Label 'No updates available for the environment %1.', Comment = '%1 = Environment Name';
                     TargetVersion: Text[100];
                 begin
                     // Get available updates from API
@@ -540,8 +540,8 @@ page 62004 "D4P BC Environment Card"
                 var
                     BCTenant: Record "D4P BC Tenant";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
-                    AppInsightsMsg: Label 'Are you sure you want to set the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.';
-                    RemoveAppInsightsMsg: Label 'Are you sure you want to remove the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.';
+                    AppInsightsMsg: Label 'Are you sure you want to set the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.', Comment = '%1 = Environment Name';
+                    RemoveAppInsightsMsg: Label 'Are you sure you want to remove the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.', Comment = '%1 = Environment Name';
                 begin
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     if Rec."Application Insights String" <> '' then begin

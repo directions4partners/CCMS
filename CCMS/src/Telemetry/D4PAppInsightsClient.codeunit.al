@@ -249,7 +249,7 @@ codeunit 62030 "D4P AppInsights Client"
         RequestHeaders: HttpHeaders;
         HttpRequestMessage: HttpRequestMessage;
         HttpResponseMessage: HttpResponseMessage;
-        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1 %2';
+        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1 %2', Comment = '%1 = HTTP Status, %2 = Error message';
         FailedToSendRequestErr: Label 'Failed to send HTTP request to Endpoint';
         ResponseText: Text;
     begin
@@ -347,7 +347,7 @@ codeunit 62030 "D4P AppInsights Client"
         TempCurrFields2: Record "Name/Value Buffer" temporary;
         jt: JsonToken;
         jv: JsonValue;
-        ColumnDoesNotExistErr: Label 'The column ''%1'' does not exist in the dataset.';
+        ColumnDoesNotExistErr: Label 'The column ''%1'' does not exist in the dataset.', Comment = '%1 = Column name';
     begin
         TempCurrFields2.Copy(TempCurrFields, true);
         TempCurrFields2.SetRange(Name, ColumnName);

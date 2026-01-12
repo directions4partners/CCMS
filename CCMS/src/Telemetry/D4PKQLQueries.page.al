@@ -77,9 +77,9 @@ page 62040 "D4P KQL Queries"
                 var
                     AIConnectionSetup: Record "D4P AppInsights Connection";
                     LoadData: Report "D4P Load Data";
-                    NoConnectionStringErr: Label 'The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.';
+                    NoConnectionStringErr: Label 'The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.', Comment = '%1 = Environment name';
                     NoEnvironmentContextErr: Label 'No environment context is set. Please open KQL Queries from the Environment Card to use the environment context directly.';
-                    SetupNotFoundErr: Label 'Application Insights connection setup not found for environment "%1". Please verify telemetry configuration.';
+                    SetupNotFoundErr: Label 'Application Insights connection setup not found for environment "%1". Please verify telemetry configuration.', Comment = '%1 = Environment name';
                 begin
                     // Check if we have environment context set
                     if not ShowEnvironmentContext then

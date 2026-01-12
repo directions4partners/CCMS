@@ -85,7 +85,7 @@ page 62025 "D4P Update Selection Dialog"
         DateFieldsVisible: Boolean;
         ExpectedFieldsVisible: Boolean;
         DateTooEarlyErr: Label 'Selected date cannot be earlier than current date and time.';
-        DateTooLateErr: Label 'Selected date cannot be later than %1.';
+        DateTooLateErr: Label 'Selected date cannot be later than %1.', Comment = '%1 = Maximum date';
         RowStyleExpr: Text;
 
     trigger OnOpenPage()

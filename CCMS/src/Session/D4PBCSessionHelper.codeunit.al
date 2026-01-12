@@ -20,10 +20,10 @@ codeunit 62017 "D4P BC Session Helper"
         JsonArray: JsonArray;
         JsonResponse: JsonObject;
         JsonToken: JsonToken;
-        FailedToRetrieveErr: Label 'Failed to retrieve sessions: %1';
+        FailedToRetrieveErr: Label 'Failed to retrieve sessions: %1', Comment = '%1 = Error message';
         NoSessionsMsg: Label 'No active sessions found.';
         ProcessingMsg: Label 'Retrieving sessions...\\Please wait.';
-        SuccessMsg: Label '%1 session(s) retrieved successfully.';
+        SuccessMsg: Label '%1 session(s) retrieved successfully.', Comment = '%1 = Number of sessions';
         Endpoint: Text;
         ResponseText: Text;
     begin
@@ -64,7 +64,7 @@ codeunit 62017 "D4P BC Session Helper"
         BCSession: Record "D4P BC Environment Session";
         BCTenant: Record "D4P BC Tenant";
         JsonResponse: JsonObject;
-        FailedToRetrieveErr: Label 'Failed to retrieve session details: %1';
+        FailedToRetrieveErr: Label 'Failed to retrieve session details: %1', Comment = '%1 = Error message';
         SessionDetailsRefreshedMsg: Label 'Session details refreshed.';
         SessionDetailsRetrievedMsg: Label 'Session details retrieved.';
         Endpoint: Text;
@@ -93,10 +93,10 @@ codeunit 62017 "D4P BC Session Helper"
     var
         BCSession: Record "D4P BC Environment Session";
         BCTenant: Record "D4P BC Tenant";
-        ConfirmMsg: Label 'Are you sure you want to terminate session %1 for user %2?';
-        FailedToTerminateErr: Label 'Failed to terminate session: %1';
-        SessionNotFoundErr: Label 'Session %1 not found.';
-        SessionTerminatedMsg: Label 'Session %1 terminated successfully.';
+        ConfirmMsg: Label 'Are you sure you want to terminate session %1 for user %2?', Comment = '%1 = Session ID, %2 = User ID';
+        FailedToTerminateErr: Label 'Failed to terminate session: %1', Comment = '%1 = Error message';
+        SessionNotFoundErr: Label 'Session %1 not found.', Comment = '%1 = Session ID';
+        SessionTerminatedMsg: Label 'Session %1 terminated successfully.', Comment = '%1 = Session ID';
         Endpoint: Text;
         ResponseText: Text;
     begin

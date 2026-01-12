@@ -60,7 +60,7 @@ page 62041 "D4P KQL Query Preview"
     var
         InStr: InStream;
         FileIsEmptyMsg: Label 'The selected file is empty.';
-        QueryUploadedMsg: Label 'Query uploaded successfully from file: %1';
+        QueryUploadedMsg: Label 'Query uploaded successfully from file: %1', Comment = '%1 = File name';
         OutStr: OutStream;
         FileName: Text;
         Line: Text;

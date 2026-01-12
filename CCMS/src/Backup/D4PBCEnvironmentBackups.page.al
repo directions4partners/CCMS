@@ -129,8 +129,8 @@ page 62014 "D4P BC Environment Backups"
                 var
                     Backup: Record "D4P BC Environment Backup";
                     RecordCount: Integer;
-                    DeletedSuccessMsg: Label '%1 backup records deleted.';
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched backup records?';
+                    DeletedSuccessMsg: Label '%1 backup records deleted.', Comment = '%1 = Number of records';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched backup records?', Comment = '%1 = Number of records';
                 begin
                     Backup.CopyFilters(Rec);
                     RecordCount := Backup.Count();
@@ -177,7 +177,7 @@ page 62014 "D4P BC Environment Backups"
         CurrentEnvironment: Record "D4P BC Environment";
         EnvironmentSet: Boolean;
         IsProductionEnvironment: Boolean;
-        PageCaptionTxt: Label 'Database Exports - %1 (%2) - %3';
+        PageCaptionTxt: Label 'Database Exports - %1 (%2) - %3', Comment = '%1 = Environment Name, %2 = Environment Type, %3 = Tenant Name';
 
     trigger OnOpenPage()
     begin

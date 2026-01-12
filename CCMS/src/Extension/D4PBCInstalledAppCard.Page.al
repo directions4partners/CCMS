@@ -123,8 +123,8 @@ page 62024 "D4P BC Installed App Card"
                 var
                     InstalledApp: Record "D4P BC Installed App";
                     RecordCount: Integer;
-                    DeletedSuccessMsg: Label '%1 installed apps records deleted.';
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?';
+                    DeletedSuccessMsg: Label '%1 installed apps records deleted.', Comment = '%1 = Number of records';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?', Comment = '%1 = Number of records';
                 begin
                     InstalledApp.CopyFilters(Rec);
                     RecordCount := InstalledApp.Count();

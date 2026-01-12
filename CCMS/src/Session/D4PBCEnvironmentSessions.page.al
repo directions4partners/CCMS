@@ -113,8 +113,8 @@ page 62016 "D4P BC Environment Sessions"
                 var
                     Session: Record "D4P BC Environment Session";
                     RecordCount: Integer;
-                    DeletedSuccessMsg: Label '%1 session records deleted.';
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched session records?';
+                    DeletedSuccessMsg: Label '%1 session records deleted.', Comment = '%1 = Number of records';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched session records?', Comment = '%1 = Number of records';
                 begin
                     Session.CopyFilters(Rec);
                     RecordCount := Session.Count();

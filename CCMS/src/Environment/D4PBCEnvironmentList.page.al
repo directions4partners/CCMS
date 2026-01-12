@@ -191,10 +191,10 @@ page 62003 "D4P BC Environment List"
                     ProgressDialog: Dialog;
                     ProcessedCount: Integer;
                     TotalCount: Integer;
-                    ConfirmMsg: Label 'This will get update information for %1 environment(s). Continue?';
+                    ConfirmMsg: Label 'This will get update information for %1 environment(s). Continue?', Comment = '%1 = Number of environments';
                     NoEnvironmentsToUpdateMsg: Label 'No environments to update.';
-                    ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@';
-                    SuccessMsg: Label 'Successfully processed %1 environment(s).';
+                    ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@', Comment = '%1 = index, %2 = total environments, %3 = Progress bar';
+                    SuccessMsg: Label 'Successfully processed %1 environment(s).', Comment = '%1 = Number of processed environments';
                 begin
                     // Copy filter from current view
                     BCEnvironment.CopyFilters(Rec);
@@ -285,8 +285,8 @@ page 62003 "D4P BC Environment List"
                     Environment: Record "D4P BC Environment";
                     EnvironmentHelper: Codeunit "D4P BC Environment Helper";
                     RecordCount: Integer;
-                    DeleteQst: Label 'Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.';
-                    EnvironmentRecordsDeletedMsg: Label '%1 environment record(s) and related data deleted from local database.';
+                    DeleteQst: Label 'Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.', Comment = '%1 = Number of selected records';
+                    EnvironmentRecordsDeletedMsg: Label '%1 environment record(s) and related data deleted from local database.', Comment = '%1 = Number of deleted records';
                 begin
                     CurrPage.SetSelectionFilter(Environment);
                     RecordCount := Environment.Count();
@@ -362,8 +362,8 @@ page 62003 "D4P BC Environment List"
                 var
                     BCTenant: Record "D4P BC Tenant";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
-                    AppInsightsMsg: Label 'Are you sure you want to set the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.';
-                    RemoveAppInsightsMsg: Label 'Are you sure you want to remove the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.';
+                    AppInsightsMsg: Label 'Are you sure you want to set the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.', Comment = '%1 = Environment Name';
+                    RemoveAppInsightsMsg: Label 'Are you sure you want to remove the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.', Comment = '%1 = Environment Name';
                 begin
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     if Rec."Application Insights String" <> '' then begin

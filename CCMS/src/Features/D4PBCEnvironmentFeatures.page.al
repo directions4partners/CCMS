@@ -86,7 +86,7 @@ page 62013 "D4P BC Environment Features"
                     FeaturesHelper: Codeunit "D4P BC Features Helper";
                     UpdateInBackground: Boolean;
                     StartDateTime: DateTime;
-                    ConfirmMsg: Label 'Do you want to activate feature "%1"?';
+                    ConfirmMsg: Label 'Do you want to activate feature "%1"?', Comment = '%1 = Feature Name';
                 begin
                     if not Confirm(ConfirmMsg, false, Rec."Feature Name") then
                         exit;
@@ -107,7 +107,7 @@ page 62013 "D4P BC Environment Features"
                 trigger OnAction()
                 var
                     FeaturesHelper: Codeunit "D4P BC Features Helper";
-                    ConfirmMsg: Label 'Do you want to deactivate feature "%1"?';
+                    ConfirmMsg: Label 'Do you want to deactivate feature "%1"?', Comment = '%1 = Feature Name';
                 begin
                     if not Confirm(ConfirmMsg, false, Rec."Feature Name") then
                         exit;
@@ -125,8 +125,8 @@ page 62013 "D4P BC Environment Features"
                 var
                     Feature: Record "D4P BC Environment Feature";
                     RecordCount: Integer;
-                    DeletedSuccessMsg: Label '%1 feature records deleted.';
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched feature records?';
+                    DeletedSuccessMsg: Label '%1 feature records deleted.', Comment = '%1 = Number of records';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched feature records?', Comment = '%1 = Number of records';
                 begin
                     Feature.CopyFilters(Rec);
                     RecordCount := Feature.Count();

@@ -197,7 +197,7 @@ report 62032 "D4P Load Data"
     local procedure RunQuery()
     var
         PleaseSelectQueryErr: Label 'Please select a Query Code';
-        QueryNotFoundErr: Label 'Query Code %1 was not found in the KQL Query Store.';
+        QueryNotFoundErr: Label 'Query Code %1 was not found in the KQL Query Store.', Comment = '%1 = Query code';
     begin
         if SelectedQueryCode = '' then
             Error(PleaseSelectQueryErr);
@@ -349,7 +349,7 @@ report 62032 "D4P Load Data"
         ReportExecutionsPage: Page "D4P KQL Report Executions";
         SlowALMethodsPage: Page "D4P KQL Slow AL Methods";
         QueryExecutedMsg: Label 'Query executed successfully. No specific results page configured.';
-        QueryExecutedWithResultsMsg: Label 'Query executed successfully. Results stored in Table ID %1.';
+        QueryExecutedWithResultsMsg: Label 'Query executed successfully. Results stored in Table ID %1.', Comment = '%1 = Table ID';
     begin
         if SelectedQuery."Result Table ID" = 0 then begin
             Message(QueryExecutedMsg);
