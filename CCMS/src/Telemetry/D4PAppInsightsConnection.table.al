@@ -2,8 +2,10 @@ namespace D4P.CCMS.Telemetry;
 
 table 62046 "D4P AppInsights Connection"
 {
-    Caption = 'Application Insights Connection Setup';
+    Caption = 'D365 BC Application Insights';
     DataClassification = SystemMetadata;
+    DrillDownPageId = "D4P AppInsights Conn List";
+    LookupPageId = "D4P AppInsights Conn List";
 
     fields
     {
