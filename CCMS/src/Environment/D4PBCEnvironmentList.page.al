@@ -11,13 +11,13 @@ using D4P.CCMS.Operations;
 
 page 62003 "D4P BC Environment List"
 {
-    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
-    SourceTable = "D4P BC Environment";
     Caption = 'D365BC Environments';
-    Editable = false;
     CardPageId = "D4P BC Environment Card";
+    Editable = false;
+    PageType = List;
+    SourceTable = "D4P BC Environment";
+    UsageCategory = Lists;
 
     layout
     {
@@ -53,51 +53,51 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Target Version"; Rec."Target Version")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Available"; Rec."Available")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Target Version Type"; Rec."Target Version Type")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Selected DateTime"; Rec."Selected DateTime")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Expected Availability"; Rec."Expected Availability")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Ignore Update Window"; Rec."Ignore Update Window")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Application Insights String"; Rec."Application Insights String")
                 {
@@ -140,13 +140,13 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Telemetry Tenant ID"; Rec."Telemetry Tenant ID")
                 {
-                    ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                     Editable = false;
+                    ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                 }
                 field("Telemetry Description"; Rec."Telemetry Description")
                 {
-                    ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from AppInsights Connection Setup).';
                     Editable = false;
+                    ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from AppInsights Connection Setup).';
                 }
             }
         }
@@ -401,13 +401,13 @@ page 62003 "D4P BC Environment List"
             {
                 ApplicationArea = All;
                 Caption = 'Backups';
+                Enabled = Rec.Type = 'Production';
                 Image = History;
                 RunObject = page "D4P BC Environment Backups";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
                 ToolTip = 'View and manage backups for this environment.';
-                Enabled = Rec.Type = 'Production';
             }
             action(Capacity)
             {
@@ -524,6 +524,35 @@ page 62003 "D4P BC Environment List"
         }
     }
 
+    views
+    {
+
+        view(ActiveEnvironments)
+        {
+            Caption = 'Active Environments';
+            Filters = where(State = const('Active'));
+        }
+        view(ActiveProductionEnvironments)
+        {
+            Caption = 'Active Production Environments';
+            Filters = where(Type = const('Production'), State = const('Active'));
+        }
+        view(ActiveWithoutTelemetry)
+        {
+            Caption = 'Active Production without Telemetry';
+            Filters = where(Type = const('Production'), State = const('Active'), "Application Insights String" = filter(''));
+        }
+        view(ActiveSandboxEnvironments)
+        {
+            Caption = 'Active Sandbox Environments';
+            Filters = where(Type = const('Sandbox'), State = const('Active'));
+        }
+        view(ActiveSandboxWithoutTelemetry)
+        {
+            Caption = 'Active Sandbox without Telemetry';
+            Filters = where(Type = const('Sandbox'), State = const('Active'), "Application Insights String" = filter(''));
+        }
+    }
     var
         StateStyleExpr: Text;
 
