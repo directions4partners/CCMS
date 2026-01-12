@@ -52,5 +52,16 @@ page 62032 "D4P BC PTE App Version Card"
                 end;
             }
         }
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
+
+                actionref(DownloadAppPackage_Promoted; DownloadAppPackage)
+                {
+                }
+            }
+        }
     }
 }
