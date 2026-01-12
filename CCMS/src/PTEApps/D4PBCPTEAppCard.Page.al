@@ -60,7 +60,6 @@ page 62035 "D4P BC PTE App Card"
             part(PTEAppVersionsFactBox; "D4P PTE App Versions FactBox")
             {
                 Caption = 'Versions';
-                ApplicationArea = All;
                 SubPageLink = "PTE ID" = field("PTE ID");
             }
         }

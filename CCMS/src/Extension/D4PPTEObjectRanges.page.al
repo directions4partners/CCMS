@@ -24,7 +24,6 @@ page 62009 "D4P PTE Object Ranges"
                 }
                 field("PTE ID"; Rec."PTE ID")
                 {
-                    ToolTip = 'Specifies the Per Tenant Extension''s ID.';
                     TableRelation = "D4P BC PTE App"."PTE ID";
 
                     trigger OnValidate()

@@ -5,12 +5,14 @@ table 62006 "D4P BC DevOps Organization"
 {
     DataClassification = CustomerContent;
     Caption = 'D365BC DevOps Organization';
+    LookupPageId = "D4P BC DevOps Org. List";
+    DrillDownPageId = "D4P BC DevOps Org. List";
 
     fields
     {
         field(1; "DevOps Environment"; enum "D4P BC DevOps Environments")
         {
-            Caption = 'DevOps Organization ID';
+            Caption = 'DevOps Organization';
             ToolTip = 'Specifies the unique identifier for the DevOps organization.';
         }
         field(2; ID; Code[20])

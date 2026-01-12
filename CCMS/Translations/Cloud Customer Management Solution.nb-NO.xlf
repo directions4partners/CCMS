@@ -2972,6 +2972,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Customer No. - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Table 348982333 - Field 883711285 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Specifies the entry number.</source>
+          <target>Angir psotens løpenummer</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Table D4P PTE Object Range - Field Entry No. - Property ToolTip</note>
+        </trans-unit>
         <trans-unit id="Table 348982333 - Field 883711285 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Entry No.</source>
           <target>Løpenr.</target>
@@ -3223,12 +3229,6 @@
           <target>PTE objektområder</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Property Caption</note>
-        </trans-unit>
-        <trans-unit id="Page 3331374484 - Control 4277803464 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Specifies the Per Tenant Extension's ID.</source>
-          <target>Angir ID-en til Per Tenant-utvidelsen.</target>
-          <note from="Developer" annotates="general" priority="2"></note>
-          <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE Object Ranges - Control PTE ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Enum 3693902586 - EnumValue 4140905748 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>Installed</source>
@@ -4140,8 +4140,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field DevOps Environment - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Table 4174934779 - Field 1536309794 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
-          <source>DevOps Organization ID</source>
-          <target>Devops Organisasjons ID</target>
+          <source>DevOps Organization</source>
+          <target>Devops Organisasjon</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Table D4P BC DevOps Organization - Field DevOps Environment - Property Caption</note>
         </trans-unit>
@@ -4424,7 +4424,7 @@
         </trans-unit>
         <trans-unit id="Page 1639015937 - Action 1736997633 - Method 1377591017 - NamedType 2046971401" size-unit="char" translate="yes" xml:space="preserve">
           <source>Failed to download app package.</source>
-          <target>Misklyktes å laste ned app pakken.</target>
+          <target>Mislyktes å laste ned app pakken.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC PTE App Version Card - Action DownloadAppPackage - Method OnAction - NamedType FailedDownload</note>
         </trans-unit>
@@ -4457,6 +4457,24 @@
           <target>D365BC Versjoner</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE App Versions FactBox - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1074736624 - Action 1736997633 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Download App Package</source>
+          <target>Last Ned App pakken</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE App Versions FactBox - Action DownloadAppPackage - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1074736624 - Action 1736997633 - Method 1377591017 - NamedType 446982473" size-unit="char" translate="yes" xml:space="preserve">
+          <source>App package has been downloaded.</source>
+          <target>App pakken er lastet ned.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE App Versions FactBox - Action DownloadAppPackage - Method OnAction - NamedType SuccessDownload</note>
+        </trans-unit>
+        <trans-unit id="Page 1074736624 - Action 1736997633 - Method 1377591017 - NamedType 2046971401" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Failed to download app package.</source>
+          <target>Mislyktes å laste ned app pakken.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P PTE App Versions FactBox - Action DownloadAppPackage - Method OnAction - NamedType FailedDownload</note>
         </trans-unit>
         <trans-unit id="Table 2570435454 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment Session</source>

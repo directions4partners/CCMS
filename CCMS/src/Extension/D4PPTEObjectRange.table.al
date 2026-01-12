@@ -28,6 +28,7 @@ table 62004 "D4P PTE Object Range"
         {
             DataClassification = SystemMetadata;
             Caption = 'Entry No.';
+            ToolTip = 'Specifies the entry number.';
             AutoIncrement = true;
         }
         field(4; "PTE ID"; Guid)

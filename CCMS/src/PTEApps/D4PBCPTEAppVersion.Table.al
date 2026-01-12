@@ -40,7 +40,7 @@ table 62010 "D4P BC PTE App Version"
         }
     }
 
-    procedure DoExists(): boolean
+    procedure DoExists(): Boolean
     var
         PTEAppVersion: Record "D4P BC PTE App Version";
     begin
@@ -65,7 +65,7 @@ table 62010 "D4P BC PTE App Version"
         exit(PTEApps."PTE Name");
     end;
 
-    procedure GetPTEOrganizationName(): Text[100]
+    procedure GetPTEOrganizationName(): Text[128]
     var
         PTEApps: Record "D4P BC PTE App";
     begin
