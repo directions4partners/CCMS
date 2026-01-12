@@ -77,6 +77,16 @@ page 62029 "D4P BC PTE App List"
                 end;
             }
         }
-    }
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
 
+                actionref(GetLatestVersions_Promoted; GetLatestVersions)
+                {
+                }
+            }
+        }
+    }
 }
