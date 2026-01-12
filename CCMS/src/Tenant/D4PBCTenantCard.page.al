@@ -149,7 +149,7 @@ page 62011 "D4P BC Tenant Card"
                     CapacityWorksheet: Page "D4P BC Capacity Worksheet";
                 begin
                     CapacityHeader.SetRange("Customer No.", Rec."Customer No.");
-                    CapacityHeader.SetRange("Tenant ID", Format(Rec."Tenant ID"));
+                    CapacityHeader.SetRange("Tenant ID", Rec."Tenant ID");
                     CapacityWorksheet.SetTableView(CapacityHeader);
                     CapacityWorksheet.Run();
                 end;

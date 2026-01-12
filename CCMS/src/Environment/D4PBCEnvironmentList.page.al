@@ -422,7 +422,7 @@ page 62003 "D4P BC Environment List"
                     CapacityWorksheet: Page "D4P BC Capacity Worksheet";
                 begin
                     CapacityHeader.SetRange("Customer No.", Rec."Customer No.");
-                    CapacityHeader.SetRange("Tenant ID", Format(Rec."Tenant ID"));
+                    CapacityHeader.SetRange("Tenant ID", Rec."Tenant ID");
                     CapacityWorksheet.SetTableView(CapacityHeader);
                     CapacityWorksheet.Run();
                 end;
