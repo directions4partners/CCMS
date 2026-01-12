@@ -1,4 +1,7 @@
 namespace D4P.CCMS.PTEApps;
+
+using D4P.CCMS.Nuget;
+
 page 62035 "D4P BC PTE App Card"
 {
     ApplicationArea = All;
@@ -60,6 +63,44 @@ page 62035 "D4P BC PTE App Card"
             {
                 Caption = 'Versions';
                 SubPageLink = "PTE ID" = field("PTE ID");
+            }
+        }
+    }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(GetLatestVersions)
+            {
+                Caption = 'Get Latest Versions';
+                ApplicationArea = All;
+                Image = Refresh;
+                trigger OnAction()
+                var
+                    NugetProcessing: Codeunit "D4P BC Nuget Processing";
+                    OldLatestAppVersion: Text;
+                    NoNewVersionsFound: Label 'No newer versions were found.';
+                    LatestVersionsUpdated: Label 'Latest versions have been updated.';
+                begin
+                    OldLatestAppVersion := Rec."Latest App Version";
+                    NugetProcessing.GetPTEAppVersions(Rec);
+                    if Rec."Latest App Version" <> OldLatestAppVersion then
+                        Message(LatestVersionsUpdated)
+                    else
+                        Message(NoNewVersionsFound);
+                end;
+            }
+        }
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
+
+                actionref(GetLatestVersions_Promoted; GetLatestVersions)
+                {
+                }
             }
         }
     }
