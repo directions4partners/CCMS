@@ -62,7 +62,7 @@ table 62010 "D4P BC PTE App Version"
     begin
         if not PTEApps.Get(Rec."PTE ID") then
             exit('');
-        exit(PTEApps."PTE Name");
+        exit(PTEApps."Name");
     end;
 
     procedure GetPTEOrganizationName(): Text[128]

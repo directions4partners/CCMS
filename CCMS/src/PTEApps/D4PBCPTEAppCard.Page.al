@@ -17,13 +17,13 @@ page 62035 "D4P BC PTE App Card"
             {
                 Caption = 'General';
 
-                field("PTE ID"; Rec."PTE ID")
+                field("ID"; Rec."ID")
                 {
                 }
-                field("PTE Name"; Rec."PTE Name")
+                field("Name"; Rec."Name")
                 {
                 }
-                field("App Version"; Rec."Latest App Version")
+                field("Latest App Version"; Rec."Latest App Version")
                 {
                 }
                 field("Range From"; Rec."Range From")
@@ -62,7 +62,7 @@ page 62035 "D4P BC PTE App Card"
             part(PTEAppVersionsFactBox; "D4P PTE App Versions FactBox")
             {
                 Caption = 'Versions';
-                SubPageLink = "PTE ID" = field("PTE ID");
+                SubPageLink = "PTE ID" = field("ID");
             }
         }
     }

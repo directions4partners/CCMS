@@ -24,7 +24,7 @@ page 62009 "D4P PTE Object Ranges"
                 }
                 field("PTE ID"; Rec."PTE ID")
                 {
-                    TableRelation = "D4P BC PTE App"."PTE ID";
+                    TableRelation = "D4P BC PTE App"."ID";
 
                     trigger OnValidate()
                     begin

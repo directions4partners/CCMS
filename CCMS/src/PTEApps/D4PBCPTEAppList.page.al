@@ -18,13 +18,13 @@ page 62029 "D4P BC PTE App List"
         {
             repeater(General)
             {
-                field("PTE ID"; Rec."PTE ID")
+                field("ID"; Rec."ID")
                 {
                 }
-                field("PTE Name"; Rec."PTE Name")
+                field("Name"; Rec."Name")
                 {
                 }
-                field("App Version"; Rec."Latest App Version")
+                field("Latest App Version"; Rec."Latest App Version")
                 {
                 }
                 field("Range From"; Rec."Range From")
