@@ -5,8 +5,8 @@ table 62007 "D4P BC PTE App"
 {
     DataClassification = CustomerContent;
     Caption = 'D365BC PTE App';
-    DrillDownPageId = "D4P BC PTE Apps List";
-    LookupPageId = "D4P BC PTE Apps List";
+    DrillDownPageId = "D4P BC PTE App List";
+    LookupPageId = "D4P BC PTE App List";
 
     fields
     {
