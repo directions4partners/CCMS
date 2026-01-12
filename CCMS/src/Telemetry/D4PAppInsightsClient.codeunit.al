@@ -132,7 +132,7 @@ codeunit 62030 "D4P AppInsights Client"
                 TelemetryApplicationId := AIConnectionSetup."Telemetry Application Id";
                 TelemetryAPIKey := AIConnectionSetup."Telemetry API Key";
                 TelemetryTenantId := AIConnectionSetup."Tenant Id";
-                AIConnectionString := AIConnectionSetup."AppInsights Connection String";
+                AIConnectionString := AIConnectionSetup."Connection String";
 
                 if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then
                     // Use the actual connection string for initialization

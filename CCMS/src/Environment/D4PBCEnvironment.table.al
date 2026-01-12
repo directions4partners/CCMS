@@ -66,7 +66,7 @@ table 62002 "D4P BC Environment"
         field(11; "Application Insights String"; Text[1024])
         {
             Caption = 'Application Insights Connection String';
-            TableRelation = "D4P AppInsights Connection"."AppInsights Connection String";
+            TableRelation = "D4P AppInsights Connection"."Connection String";
             ToolTip = 'Specifies the connection string for Application Insights. Use the lookup to select from existing configurations or type directly to create new entries.';
             ValidateTableRelation = false;
         }
@@ -178,7 +178,7 @@ table 62002 "D4P BC Environment"
         {
             Caption = 'Telemetry API Key';
             FieldClass = FlowField;
-            CalcFormula = lookup("D4P AppInsights Connection"."Telemetry API Key" where("AppInsights Connection String" = field("Application Insights String")));
+            CalcFormula = lookup("D4P AppInsights Connection"."Telemetry API Key" where("Connection String" = field("Application Insights String")));
             Editable = false;
             ToolTip = 'Specifies the API key for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
         }
@@ -186,7 +186,7 @@ table 62002 "D4P BC Environment"
         {
             Caption = 'Telemetry Application ID';
             FieldClass = FlowField;
-            CalcFormula = lookup("D4P AppInsights Connection"."Telemetry Application Id" where("AppInsights Connection String" = field("Application Insights String")));
+            CalcFormula = lookup("D4P AppInsights Connection"."Telemetry Application Id" where("Connection String" = field("Application Insights String")));
             Editable = false;
             ToolTip = 'Specifies the Application ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
         }
@@ -194,7 +194,7 @@ table 62002 "D4P BC Environment"
         {
             Caption = 'Telemetry Tenant ID';
             FieldClass = FlowField;
-            CalcFormula = lookup("D4P AppInsights Connection"."Tenant Id" where("AppInsights Connection String" = field("Application Insights String")));
+            CalcFormula = lookup("D4P AppInsights Connection"."Tenant Id" where("Connection String" = field("Application Insights String")));
             Editable = false;
             ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from Application Insights Connection Setup).';
         }
@@ -202,7 +202,7 @@ table 62002 "D4P BC Environment"
         {
             Caption = 'Telemetry Description';
             FieldClass = FlowField;
-            CalcFormula = lookup("D4P AppInsights Connection"."Description" where("AppInsights Connection String" = field("Application Insights String")));
+            CalcFormula = lookup("D4P AppInsights Connection"."Description" where("Connection String" = field("Application Insights String")));
             Editable = false;
             ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from Application Insights Connection Setup).';
         }

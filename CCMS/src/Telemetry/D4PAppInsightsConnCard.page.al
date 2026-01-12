@@ -15,7 +15,7 @@ page 62048 "D4P AppInsights Conn Card"
             group(General)
             {
                 Caption = 'General Information';
-                field("AppInsights Connection String"; Rec."AppInsights Connection String")
+                field("AppInsights Connection String"; Rec."Connection String")
                 {
                     ShowMandatory = true;
                     MaskType = Concealed;

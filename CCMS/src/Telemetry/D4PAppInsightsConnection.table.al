@@ -9,7 +9,7 @@ table 62046 "D4P AppInsights Connection"
 
     fields
     {
-        field(10; "AppInsights Connection String"; Text[1024])
+        field(10; "Connection String"; Text[1024])
         {
             Caption = 'Application Insights Connection String';
             DataClassification = CustomerContent;
@@ -43,7 +43,7 @@ table 62046 "D4P AppInsights Connection"
 
     keys
     {
-        key(Key1; "AppInsights Connection String")
+        key(Key1; "Connection String")
         {
             Clustered = true;
         }

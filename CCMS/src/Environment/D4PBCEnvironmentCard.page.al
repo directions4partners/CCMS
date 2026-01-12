@@ -173,7 +173,7 @@ page 62004 "D4P BC Environment Card"
                         if (Rec."Application Insights String" <> '') and (not AIConnectionSetup.Get(Rec."Application Insights String")) then
                             if Confirm('The connection string "%1" does not exist in the setup. Do you want to create it now?', false, Rec."Application Insights String") then begin
                                 AIConnectionSetup.Init();
-                                AIConnectionSetup."AppInsights Connection String" := Rec."Application Insights String";
+                                AIConnectionSetup."Connection String" := Rec."Application Insights String";
                                 AIConnectionSetup.Insert(true);
 
                                 Commit(); // Save the new record before opening the card
@@ -199,7 +199,7 @@ page 62004 "D4P BC Environment Card"
                         AIConnectionSetupList.LookupMode(true);
                         if AIConnectionSetupList.RunModal() = ACTION::LookupOK then begin
                             AIConnectionSetupList.GetRecord(AIConnectionSetup);
-                            Rec."Application Insights String" := AIConnectionSetup."AppInsights Connection String";
+                            Rec."Application Insights String" := AIConnectionSetup."Connection String";
                             Rec.Modify();
 
                             // Refresh flowfields after lookup
