@@ -124,7 +124,7 @@ page 62034 "D4P BC Admin Center Cues"
                     var
                         BCEnvironment: Record "D4P BC Environment";
                     begin
-                        FilterForUpdatesInDays(BCEnvironment, 7);
+                        Rec.FilterForUpdatesInDays(BCEnvironment, 7);
                         Page.Run(Page::"D4P BC Environment List", BCEnvironment);
                     end;
                 }
@@ -138,7 +138,7 @@ page 62034 "D4P BC Admin Center Cues"
                     var
                         BCEnvironment: Record "D4P BC Environment";
                     begin
-                        FilterForUpdatesInDays(BCEnvironment, 14);
+                        Rec.FilterForUpdatesInDays(BCEnvironment, 14);
                         Page.Run(Page::"D4P BC Environment List", BCEnvironment);
                     end;
                 }
@@ -183,18 +183,9 @@ page 62034 "D4P BC Admin Center Cues"
     trigger OnAfterGetCurrRecord()
     begin
         Rec.CalcFields("Tenants >90% Capacity", "Act. Prod Env. No Telemetry", "Act. Sandbox Env. No Telemetry", "Apps with Available Update",
-        "Tenants Count", "Customers Count", "Active Environments", "Active Production Environ.", "Active Sandbox Environ.");
+        "Tenants Count", "Customers Count", "Active Environments", "Active Production Environ.", "Active Sandbox Environ.", "Apps w. Av. upd. No Microsoft");
         Updates7Days := Rec.GetNumberOfEnvironmentsForUpdates(7);
         Updates14Days := Rec.GetNumberOfEnvironmentsForUpdates(14);
-    end;
-
-    local procedure FilterForUpdatesInDays(var BCEnvironment: Record "D4P BC Environment"; NoOfDays: Integer)
-    var
-        EndDate: DateTime;
-    begin
-        EndDate := CreateDateTime(CalcDate(StrSubstNo('<%1D>', NoOfDays), Today()), 235959T);
-        BCEnvironment.SetRange(Available, true);
-        BCEnvironment.SetFilter("Selected DateTime", '%1..%2', CreateDateTime(Today, 0T), EndDate);
     end;
 
     var

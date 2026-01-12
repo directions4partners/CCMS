@@ -92,6 +92,7 @@ table 62047 "D4P BC Admin Center Cue"
                                                               Type = const('Sandbox'),
                                                               "Application Insights String" = filter('')));
             Caption = 'Act. Sandbox without Telemetry';
+            Editable = false;
             FieldClass = FlowField;
             ToolTip = 'Number of active sandbox environments without telemetry enabled';
         }
@@ -114,14 +115,20 @@ table 62047 "D4P BC Admin Center Cue"
         }
     }
 
-    procedure GetNumberOfEnvironmentsForUpdates(NoOfDays: Integer): Integer
+    procedure FilterForUpdatesInDays(var BCEnvironment: Record "D4P BC Environment"; NoOfDays: Integer)
     var
-        BCEnvironment: Record "D4P BC Environment";
         EndDate: DateTime;
     begin
         EndDate := CreateDateTime(CalcDate(StrSubstNo('<%1D>', NoOfDays), Today()), 235959T);
         BCEnvironment.SetRange(Available, true);
         BCEnvironment.SetFilter("Selected DateTime", '%1..%2', CreateDateTime(Today, 0T), EndDate);
+    end;
+
+    procedure GetNumberOfEnvironmentsForUpdates(NoOfDays: Integer): Integer
+    var
+        BCEnvironment: Record "D4P BC Environment";
+    begin
+        FilterForUpdatesInDays(BCEnvironment, NoOfDays);
         exit(BCEnvironment.Count());
     end;
 }
