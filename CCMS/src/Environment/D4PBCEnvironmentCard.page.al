@@ -176,6 +176,8 @@ page 62004 "D4P BC Environment Card"
                                 AIConnectionSetup."AppInsights Connection String" := Rec."Application Insights String";
                                 AIConnectionSetup.Insert(true);
 
+                                Commit(); // Save the new record before opening the card
+
                                 // Open the card for the user to fill in additional details
                                 AIConnectionSetupCard.SetRecord(AIConnectionSetup);
                                 AIConnectionSetupCard.RunModal();
