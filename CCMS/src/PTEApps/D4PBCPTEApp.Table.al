@@ -12,12 +12,12 @@ table 62007 "D4P BC PTE App"
     {
         field(1; "ID"; Guid)
         {
-            Caption = 'PTE ID';
+            Caption = 'ID';
             ToolTip = 'Specifies the ID of the Per Tenant Extension.';
         }
         field(2; "Name"; Text[100])
         {
-            Caption = 'PTE Name';
+            Caption = 'Name';
             ToolTip = 'Specifies the name of the Per Tenant Extension.';
         }
         field(4; "Range From"; Integer)
