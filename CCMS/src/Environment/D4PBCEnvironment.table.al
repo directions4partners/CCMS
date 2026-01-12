@@ -63,7 +63,7 @@ table 62002 "D4P BC Environment"
             Caption = 'Selected Date Time';
             ToolTip = 'Indicates the datetime for which the update to the target version has been scheduled.';
         }
-        field(11; "Application Insights String"; Text[1024])
+        field(11; "Application Insights String"; Text[2048])
         {
             Caption = 'Application Insights Connection String';
             TableRelation = "D4P AppInsights Connection"."Connection String";

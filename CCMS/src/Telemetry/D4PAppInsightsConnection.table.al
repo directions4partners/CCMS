@@ -9,7 +9,7 @@ table 62046 "D4P AppInsights Connection"
 
     fields
     {
-        field(10; "Connection String"; Text[1024])
+        field(10; "Connection String"; Text[2048])
         {
             Caption = 'Connection String';
             DataClassification = CustomerContent;

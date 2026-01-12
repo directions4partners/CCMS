@@ -101,7 +101,7 @@ report 62032 "D4P Load Data"
         TelemetryApplicationId: Text[50];
         TelemetryTenantId: Text[50];
         EnvironmentName: Text[100];
-        AIConnectionString: Text[1000];
+        AIConnectionString: Text[2048];
 
     trigger OnPreReport()
     begin
