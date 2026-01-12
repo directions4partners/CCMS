@@ -50,6 +50,15 @@ page 62029 "D4P BC PTE App List"
                 }
             }
         }
+
+        area(FactBoxes)
+        {
+            part(PTEAppVersionsFactBox; "D4P PTE App Versions FactBox")
+            {
+                Caption = 'Versions';
+                SubPageLink = "PTE ID" = field("ID");
+            }
+        }
     }
 
     actions
