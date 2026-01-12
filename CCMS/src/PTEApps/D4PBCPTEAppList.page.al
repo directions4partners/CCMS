@@ -6,6 +6,7 @@ page 62029 "D4P BC PTE App List"
 {
     ApplicationArea = All;
     Caption = 'D365BC PTE App List';
+    Editable = false;
     PageType = List;
     SourceTable = "D4P BC PTE App";
     UsageCategory = Administration;
