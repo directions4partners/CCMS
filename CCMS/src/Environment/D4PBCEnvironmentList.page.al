@@ -18,6 +18,7 @@ page 62003 "D4P BC Environment List"
     Caption = 'D365BC Environments';
     Editable = false;
     CardPageId = "D4P BC Environment Card";
+    SourceTableView = sorting("Customer No.", "Tenant ID", Type, Name);
 
     layout
     {
