@@ -86,7 +86,7 @@ page 62008 "D4P BC Installed Apps List"
                         EnvironmentManagement.GetInstalledApps(BCEnvironment);
                     end else
                         if Confirm(ConfirmationGetInstalledAppsQst, true) then
-                            EnvironmentManagement.GetInstalledApps();
+                            EnvironmentManagement.GetAllInstalledApps(true);
                 end;
             }
             action(GetAvailableUpdates)
@@ -106,7 +106,7 @@ page 62008 "D4P BC Installed Apps List"
                         EnvironmentManagement.GetAvailableAppUpdates(BCEnvironment, true);
                     end else
                         if Confirm(ConfirmationGetAvailableUpdatesQst, true) then
-                            EnvironmentManagement.GetAvailableAppUpdates();
+                            EnvironmentManagement.GetAllAvailableAppUpdates(true);
                 end;
             }
             action(UpdateApp)

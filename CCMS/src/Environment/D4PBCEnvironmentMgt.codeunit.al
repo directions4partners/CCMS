@@ -151,15 +151,34 @@ codeunit 62000 "D4P BC Environment Mgt"
         end;
     end;
 
-    procedure GetInstalledApps()
+    procedure GetAllInstalledApps(ShowProgressDialog: Boolean)
     var
-        D4PBCEnvironment: Record "D4P BC Environment";
+        BCEnvironment: Record "D4P BC Environment";
+        ProgressDialog: Dialog;
+        TotalCount, ProcessedCount : Integer;
+        ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@', Comment = '%1 - Processed count, %2 - Total count, %3 - Percentage complete';
     begin
-        if not D4PBCEnvironment.FindSet() then
+        BCEnvironment.SetRange("State", 'Active');
+
+        if not BCEnvironment.FindSet() then
             exit;
+
+        TotalCount := BCEnvironment.Count();
+        if ShowProgressDialog and GuiAllowed then begin
+            ProgressDialog.Open(ProcessingMsg);
+            ProgressDialog.Update(2, TotalCount);
+        end;
         repeat
-            GetInstalledApps(D4PBCEnvironment);
-        until D4PBCEnvironment.Next() = 0;
+            if ShowProgressDialog and GuiAllowed then begin
+                ProcessedCount += 1;
+                ProgressDialog.Update(1, ProcessedCount);
+                ProgressDialog.Update(3, Round(ProcessedCount / TotalCount * 10000, 1));
+            end;
+            GetInstalledApps(BCEnvironment);
+        until BCEnvironment.Next() = 0;
+
+        if ShowProgressDialog and GuiAllowed then
+            ProgressDialog.Close();
     end;
 
     procedure GetInstalledApps(var BCEnvironment: Record "D4P BC Environment")
@@ -414,16 +433,34 @@ codeunit 62000 "D4P BC Environment Mgt"
                 Error(FailedToFetchErr, ResponseText);
     end;
 
-    procedure GetAvailableAppUpdates()
-
+    procedure GetAllAvailableAppUpdates(ShowProgressDialog: Boolean)
     var
         BCEnvironment: Record "D4P BC Environment";
+        ProgressDialog: Dialog;
+        TotalCount, ProcessedCount : Integer;
+        ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@', Comment = '%1 - Processed count, %2 - Total count, %3 - Percentage complete';
     begin
+        BCEnvironment.SetRange("State", 'Active');
         if not BCEnvironment.FindSet() then
             exit;
+
+        if ShowProgressDialog and GuiAllowed then begin
+            TotalCount := BCEnvironment.Count();
+            ProgressDialog.Open(ProcessingMsg);
+            ProgressDialog.Update(2, TotalCount);
+        end;
+
         repeat
+            if ShowProgressDialog and GuiAllowed then begin
+                ProcessedCount += 1;
+                ProgressDialog.Update(1, ProcessedCount);
+                ProgressDialog.Update(3, Round(ProcessedCount / TotalCount * 10000, 1));
+            end;
             GetAvailableAppUpdates(BCEnvironment, false);
         until BCEnvironment.Next() = 0;
+
+        if ShowProgressDialog and GuiAllowed then
+            ProgressDialog.Close();
     end;
 
     procedure GetAvailableAppUpdates(var BCEnvironment: Record "D4P BC Environment"; ShowMessage: Boolean)
