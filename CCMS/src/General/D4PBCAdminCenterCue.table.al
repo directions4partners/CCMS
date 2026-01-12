@@ -82,6 +82,7 @@ table 62047 "D4P BC Admin Center Cue"
                                                               Type = const('Production'),
                                                               "Application Insights String" = filter('')));
             Caption = 'Act. Production without Telemetry';
+            Editable = false;
             FieldClass = FlowField;
             ToolTip = 'Number of active production environments without telemetry enabled';
         }
