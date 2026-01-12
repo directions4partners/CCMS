@@ -23,11 +23,13 @@ table 62007 "D4P BC PTE App"
         field(4; "Range From"; Integer)
         {
             Caption = 'Range From';
+            MinValue = 0;
             ToolTip = 'Specifies the starting range for the PTE app.';
         }
         field(5; "Range To"; Integer)
         {
             Caption = 'Range To';
+            MinValue = 0;
             ToolTip = 'Specifies the ending range for the PTE app.';
         }
         field(6; "Latest App Version"; Text[50])
