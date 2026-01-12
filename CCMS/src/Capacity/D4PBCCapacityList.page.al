@@ -1,3 +1,5 @@
+namespace D4P.CCMS.Capacity;
+
 page 62031 "D4P BC Capacity List"
 {
     Caption = 'BC Capacities';
@@ -23,6 +25,10 @@ page 62031 "D4P BC Capacity List"
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
+                }
+                field("Tenant Name"; Rec."Tenant Name")
+                {
+                    DrillDown = false;
                 }
                 field("Total Storage Used GB"; Rec."Total Storage Used GB")
                 {
