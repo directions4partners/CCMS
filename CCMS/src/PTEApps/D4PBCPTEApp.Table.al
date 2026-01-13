@@ -5,29 +5,31 @@ table 62007 "D4P BC PTE App"
 {
     DataClassification = CustomerContent;
     Caption = 'D365BC PTE App';
-    DrillDownPageId = "D4P BC PTE Apps List";
-    LookupPageId = "D4P BC PTE Apps List";
+    DrillDownPageId = "D4P BC PTE App List";
+    LookupPageId = "D4P BC PTE App List";
 
     fields
     {
-        field(1; "PTE ID"; Guid)
+        field(1; "ID"; Guid)
         {
-            Caption = 'PTE ID';
-            ToolTip = 'Specifies the Per Tenant Extension''s ID.';
+            Caption = 'ID';
+            ToolTip = 'Specifies the ID of the Per Tenant Extension.';
         }
-        field(2; "PTE Name"; Text[100])
+        field(2; "Name"; Text[100])
         {
-            Caption = 'PTE Name';
+            Caption = 'Name';
             ToolTip = 'Specifies the name of the Per Tenant Extension.';
         }
         field(4; "Range From"; Integer)
         {
             Caption = 'Range From';
+            MinValue = 0;
             ToolTip = 'Specifies the starting range for the PTE app.';
         }
         field(5; "Range To"; Integer)
         {
             Caption = 'Range To';
+            MinValue = 0;
             ToolTip = 'Specifies the ending range for the PTE app.';
         }
         field(6; "Latest App Version"; Text[50])
@@ -35,7 +37,7 @@ table 62007 "D4P BC PTE App"
             Caption = 'App Version';
             ToolTip = 'Specifies the latest version of the PTE app.';
         }
-        field(7; "DevOps Environment"; enum "D4P BC DevOps Environments")
+        field(7; "DevOps Environment"; Enum "D4P BC DevOps Environment")
         {
             Caption = 'DevOps Environment';
             ToolTip = 'Specifies the DevOps environment associated with the PTE app.';
@@ -77,7 +79,7 @@ table 62007 "D4P BC PTE App"
 
     keys
     {
-        key(PK; "PTE ID")
+        key(PK; "ID")
         {
             Clustered = true;
         }
@@ -85,16 +87,16 @@ table 62007 "D4P BC PTE App"
 
     fieldgroups
     {
-        fieldgroup(DropDown; "PTE ID", "PTE Name")
+        fieldgroup(DropDown; "ID", "Name")
         { }
-        fieldgroup(Brick; "PTE ID", "PTE Name")
+        fieldgroup(Brick; "ID", "Name")
         { }
     }
     trigger OnDelete()
     var
         PTEAppVersion: Record "D4P BC PTE App Version";
     begin
-        PTEAppVersion.SetRange("PTE ID", Rec."PTE ID");
+        PTEAppVersion.SetRange("PTE ID", Rec."ID");
         if not PTEAppVersion.IsEmpty() then
             PTEAppVersion.DeleteAll(true);
     end;

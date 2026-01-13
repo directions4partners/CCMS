@@ -1,5 +1,5 @@
 namespace D4P.CCMS.Nuget;
-enum 62009 "D4P BC DevOps Environments" implements "D4P BC DevOps Update"
+enum 62009 "D4P BC DevOps Environment" implements "D4P BC DevOps Update"
 {
     Extensible = true;
 

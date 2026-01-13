@@ -1,4 +1,7 @@
 namespace D4P.CCMS.PTEApps;
+
+using D4P.CCMS.Nuget;
+
 page 62035 "D4P BC PTE App Card"
 {
     ApplicationArea = All;
@@ -14,13 +17,13 @@ page 62035 "D4P BC PTE App Card"
             {
                 Caption = 'General';
 
-                field("PTE ID"; Rec."PTE ID")
+                field("ID"; Rec."ID")
                 {
                 }
-                field("PTE Name"; Rec."PTE Name")
+                field("Name"; Rec."Name")
                 {
                 }
-                field("App Version"; Rec."Latest App Version")
+                field("Latest App Version"; Rec."Latest App Version")
                 {
                 }
                 field("Range From"; Rec."Range From")
@@ -42,7 +45,6 @@ page 62035 "D4P BC PTE App Card"
                 }
                 field("DevOps Package"; Rec."DevOps Package")
                 {
-                    Caption = 'Package';
                     Visible = DevOpsPackageVisible;
                 }
                 field("DevOps Feed"; Rec."DevOps Feed")
@@ -60,7 +62,45 @@ page 62035 "D4P BC PTE App Card"
             part(PTEAppVersionsFactBox; "D4P PTE App Versions FactBox")
             {
                 Caption = 'Versions';
-                SubPageLink = "PTE ID" = field("PTE ID");
+                SubPageLink = "PTE ID" = field("ID");
+            }
+        }
+    }
+
+    actions
+    {
+        area(Processing)
+        {
+            action(GetLatestVersions)
+            {
+                Caption = 'Get Latest Versions';
+                ApplicationArea = All;
+                Image = Refresh;
+                trigger OnAction()
+                var
+                    NugetProcessing: Codeunit "D4P BC Nuget Processing";
+                    OldLatestAppVersion: Text;
+                    NoNewVersionsFound: Label 'No newer versions were found.';
+                    LatestVersionsUpdated: Label 'Latest versions have been updated.';
+                begin
+                    OldLatestAppVersion := Rec."Latest App Version";
+                    NugetProcessing.GetPTEAppVersions(Rec);
+                    if Rec."Latest App Version" <> OldLatestAppVersion then
+                        Message(LatestVersionsUpdated)
+                    else
+                        Message(NoNewVersionsFound);
+                end;
+            }
+        }
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
+
+                actionref(GetLatestVersions_Promoted; GetLatestVersions)
+                {
+                }
             }
         }
     }

@@ -6,6 +6,7 @@ page 62033 "D4P PTE App Versions FactBox"
 {
     ApplicationArea = All;
     Caption = 'D365BC Versions';
+    Editable = false;
     PageType = ListPart;
     SourceTable = "D4P BC PTE App Version";
     CardPageId = "D4P BC PTE App Version Card";

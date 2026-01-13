@@ -67,7 +67,7 @@ table 62004 "D4P PTE Object Range"
     begin
         if not PTEApp.Get(PTEID) then
             exit;
-        Rec."PTE Name" := PTEApp."PTE Name";
+        Rec."PTE Name" := PTEApp."Name";
         Rec."Range From" := PTEApp."Range From";
         Rec."Range To" := PTEApp."Range To";
     end;

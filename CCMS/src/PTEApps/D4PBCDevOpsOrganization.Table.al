@@ -10,10 +10,10 @@ table 62006 "D4P BC DevOps Organization"
 
     fields
     {
-        field(1; "DevOps Environment"; enum "D4P BC DevOps Environments")
+        field(1; "DevOps Environment"; Enum "D4P BC DevOps Environment")
         {
-            Caption = 'DevOps Organization';
-            ToolTip = 'Specifies the unique identifier for the DevOps organization.';
+            Caption = 'DevOps Environment';
+            ToolTip = 'Specifies the environment for the DevOps organization.';
         }
         field(2; ID; Code[20])
         {

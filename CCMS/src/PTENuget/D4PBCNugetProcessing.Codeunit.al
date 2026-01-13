@@ -19,7 +19,7 @@ codeunit 62008 "D4P BC Nuget Processing"
         GetAppVersions(PTEApp, BCDevOpsUpdate, ServiceTypeUrl);
     end;
 
-    local procedure DevOpsUpdateFactory(var BCDevOpsUpdateInterface: Interface "D4P BC DevOps Update"; BCDevOpsEnvironments: Enum "D4P BC DevOps Environments")
+    local procedure DevOpsUpdateFactory(var BCDevOpsUpdateInterface: Interface "D4P BC DevOps Update"; BCDevOpsEnvironments: Enum "D4P BC DevOps Environment")
     begin
         BCDevOpsUpdateInterface := BCDevOpsEnvironments;
     end;
@@ -58,7 +58,7 @@ codeunit 62008 "D4P BC Nuget Processing"
         foreach JsonToken in JsonArray do begin
 
             PTEAppVersion.Init();
-            PTEAppVersion."PTE ID" := PTEApp."PTE ID";
+            PTEAppVersion."PTE ID" := PTEApp."ID";
             PTEAppVersion."App Version" := JsonToken.AsObject().GetText('version');
             if PTEAppVersion.DoExists() then
                 PTEAppVersion.Modify(true)

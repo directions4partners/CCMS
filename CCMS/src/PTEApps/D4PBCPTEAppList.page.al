@@ -2,10 +2,11 @@ namespace D4P.CCMS.PTEApps;
 
 using D4P.CCMS.Nuget;
 
-page 62029 "D4P BC PTE Apps List"
+page 62029 "D4P BC PTE App List"
 {
     ApplicationArea = All;
-    Caption = 'D365BC PTE Apps List';
+    Caption = 'D365BC PTE App List';
+    Editable = false;
     PageType = List;
     SourceTable = "D4P BC PTE App";
     UsageCategory = Administration;
@@ -17,13 +18,13 @@ page 62029 "D4P BC PTE Apps List"
         {
             repeater(General)
             {
-                field("PTE ID"; Rec."PTE ID")
+                field("ID"; Rec."ID")
                 {
                 }
-                field("PTE Name"; Rec."PTE Name")
+                field("Name"; Rec."Name")
                 {
                 }
-                field("App Version"; Rec."Latest App Version")
+                field("Latest App Version"; Rec."Latest App Version")
                 {
                 }
                 field("Range From"; Rec."Range From")
@@ -47,6 +48,15 @@ page 62029 "D4P BC PTE Apps List"
                 field("NuGet Package Name"; Rec."NuGet Package Name")
                 {
                 }
+            }
+        }
+
+        area(FactBoxes)
+        {
+            part(PTEAppVersionsFactBox; "D4P PTE App Versions FactBox")
+            {
+                Caption = 'Versions';
+                SubPageLink = "PTE ID" = field("ID");
             }
         }
     }
@@ -76,6 +86,16 @@ page 62029 "D4P BC PTE Apps List"
                 end;
             }
         }
-    }
+        area(Promoted)
+        {
+            group(Category_Process)
+            {
+                Caption = 'Process';
 
+                actionref(GetLatestVersions_Promoted; GetLatestVersions)
+                {
+                }
+            }
+        }
+    }
 }

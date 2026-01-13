@@ -106,7 +106,7 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P BC Customer FactBox" = X,
         page "D4P BC DevOps Org. List" = X,
         page "D4P BC PTE App Card" = X,
-        page "D4P BC PTE Apps List" = X,
+        page "D4P BC PTE App List" = X,
         page "D4P BC Input Token" = X,
         page "D4P BC PTE App Version Card" = X,
         page "D4P PTE App Versions FactBox" = X,

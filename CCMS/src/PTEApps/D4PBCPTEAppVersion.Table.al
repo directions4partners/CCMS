@@ -47,7 +47,7 @@ table 62010 "D4P BC PTE App Version"
         exit(PTEAppVersion.Get(Rec."PTE ID", Rec."App Version"));
     end;
 
-    procedure GetPTEAppDevOps() DevOps: Enum "D4P BC DevOps Environments"
+    procedure GetPTEAppDevOps() DevOps: Enum "D4P BC DevOps Environment"
     var
         PTEApps: Record "D4P BC PTE App";
     begin
@@ -62,7 +62,7 @@ table 62010 "D4P BC PTE App Version"
     begin
         if not PTEApps.Get(Rec."PTE ID") then
             exit('');
-        exit(PTEApps."PTE Name");
+        exit(PTEApps."Name");
     end;
 
     procedure GetPTEOrganizationName(): Text[128]
