@@ -27,7 +27,6 @@ page 62030 "D4P BC Customer FactBox"
                         Page.Run(Page::"D4P BC Tenant List", BCTenant);
                     end;
                 }
-
                 field("All Active Environments"; Rec."All Active Environments")
                 {
                     trigger OnDrillDown()
@@ -39,7 +38,6 @@ page 62030 "D4P BC Customer FactBox"
                         Page.Run(Page::"D4P BC Environment List", BCEnvironment);
                     end;
                 }
-
                 field("Active Prod. Environments"; Rec."Active Prod. Environments")
                 {
                     trigger OnDrillDown()
@@ -52,7 +50,6 @@ page 62030 "D4P BC Customer FactBox"
                         Page.Run(Page::"D4P BC Environment List", BCEnvironment);
                     end;
                 }
-
                 field("Active Sand. Environments"; Rec."Active Sand. Environments")
                 {
                     trigger OnDrillDown()

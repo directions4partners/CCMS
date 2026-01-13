@@ -1,8 +1,8 @@
 namespace D4P.CCMS.Operations;
 
+using D4P.CCMS.General;
 using D4P.CCMS.Tenant;
 using System.Reflection;
-using D4P.CCMS.General;
 
 codeunit 62025 "D4P BC Operations Helper"
 {
@@ -18,8 +18,8 @@ codeunit 62025 "D4P BC Operations Helper"
     procedure GetEnvironmentOperations(CustomerNo: Code[20]; TenantID: Guid; EnvironmentName: Text[100])
     var
         BCTenant: Record "D4P BC Tenant";
-        TenantNotFoundForCustomerErr: Label 'Tenant %1 not found for customer %2.';
-        OperationFetchErr: Label 'Failed to retrieve operations for environment %1.';
+        TenantNotFoundForCustomerErr: Label 'Tenant %1 not found for customer %2.', Comment = '%1 = Tenant ID, %2 = Customer No.';
+        OperationFetchErr: Label 'Failed to retrieve operations for environment %1.', Comment = '%1 = Environment Name';
         ResponseText: Text;
         Endpoint: Text;
     begin
@@ -37,7 +37,7 @@ codeunit 62025 "D4P BC Operations Helper"
     local procedure ParseOperationsResponse(CustomerNo: Code[20]; TenantID: Text[50]; ResponseText: Text; EnvironmentName: Text[100])
     var
         ParsingErr: Label 'Failed to parse response.';
-        OperationsRetrievedMsg: Label '%1 operation(s) retrieved successfully.';
+        OperationsRetrievedMsg: Label '%1 operation(s) retrieved successfully.', Comment = '%1 = Number of operations';
         JObject: JsonObject;
         JArray: JsonArray;
         JToken: JsonToken;

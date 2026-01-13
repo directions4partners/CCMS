@@ -1,7 +1,7 @@
 namespace D4P.CCMS.Tenant;
 
-using D4P.CCMS.Customer;
 using D4P.CCMS.Auth;
+using D4P.CCMS.Customer;
 
 table 62001 "D4P BC Tenant"
 {

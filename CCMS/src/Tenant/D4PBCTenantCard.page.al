@@ -1,8 +1,8 @@
 namespace D4P.CCMS.Tenant;
 
+using D4P.CCMS.Auth;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
-using D4P.CCMS.Auth;
 
 page 62011 "D4P BC Tenant Card"
 {
@@ -129,7 +129,6 @@ page 62011 "D4P BC Tenant Card"
             }
             action(Environments)
             {
-                ApplicationArea = All;
                 Caption = 'Environments';
                 Image = ViewDetails;
                 RunObject = page "D4P BC Environment List";
@@ -139,7 +138,6 @@ page 62011 "D4P BC Tenant Card"
             }
             action(PTEObjectRanges)
             {
-                ApplicationArea = All;
                 Caption = 'PTE Object Ranges';
                 Image = NumberSetup;
                 RunObject = page "D4P PTE Object Ranges";
@@ -225,11 +223,11 @@ page 62011 "D4P BC Tenant Card"
         DaysToExpiration := Rec."Backup SAS Token Exp. Date" - Today();
 
         if DaysToExpiration < 0 then
-            SASTokenExpirationStyle := 'Unfavorable'
+            SASTokenExpirationStyle := Format(PageStyle::Unfavorable)
         else
             if DaysToExpiration <= 30 then
-                SASTokenExpirationStyle := 'Attention'
+                SASTokenExpirationStyle := Format(PageStyle::Attention)
             else
-                SASTokenExpirationStyle := 'Favorable';
+                SASTokenExpirationStyle := Format(PageStyle::Favorable);
     end;
 }

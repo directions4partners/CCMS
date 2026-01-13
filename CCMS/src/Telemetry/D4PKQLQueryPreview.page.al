@@ -7,6 +7,7 @@ page 62041 "D4P KQL Query Preview"
     PageType = CardPart;
     SourceTable = "D4P KQL Query Store";
     Caption = 'Query Preview';
+    ApplicationArea = All;
 
     layout
     {
@@ -16,9 +17,8 @@ page 62041 "D4P KQL Query Preview"
             {
                 ShowCaption = false;
 
-                field(QueryText; GetQueryText())
+                field(QueryAsText; GetQueryText())
                 {
-                    ApplicationArea = All;
                     MultiLine = true;
                     Caption = 'Query';
                     Editable = false;
@@ -34,7 +34,6 @@ page 62041 "D4P KQL Query Preview"
             action(UploadQuery)
             {
                 Caption = 'Upload Query';
-                ApplicationArea = All;
                 Image = Import;
                 ToolTip = 'Upload a KQL query from a text file';
 
@@ -46,7 +45,6 @@ page 62041 "D4P KQL Query Preview"
             action(DownloadQuery)
             {
                 Caption = 'Download Query';
-                ApplicationArea = All;
                 Image = Export;
                 ToolTip = 'Download the KQL query to a text file';
 
@@ -62,8 +60,7 @@ page 62041 "D4P KQL Query Preview"
     var
         InStr: InStream;
         FileIsEmptyMsg: Label 'The selected file is empty.';
-        PleaseSelectRecordMsg: Label 'Please select a query record first.';
-        QueryUploadedMsg: Label 'Query uploaded successfully from file: %1';
+        QueryUploadedMsg: Label 'Query uploaded successfully from file: %1', Comment = '%1 = File name';
         OutStr: OutStream;
         FileName: Text;
         Line: Text;

@@ -9,7 +9,7 @@ codeunit 62001 "D4P BC Debug Helper"
         BCSetup: Record "D4P BC Setup";
         EnvironmentMgt: Codeunit "D4P BC Environment Mgt";
         DebugModeDisabledMsg: Label 'Debug Mode is currently disabled. Enable it in Setup to see debug messages.';
-        TestMsg: Label 'Debug Mode is %1. Setup record exists: %2';
+        TestMsg: Label 'Debug Mode is %1. Setup record exists: %2', Comment = '%1 = Debug Mode value, %2 = Record exists value';
         TestResponse: Text;
     begin
         BCSetup := BCSetup.GetSetup();

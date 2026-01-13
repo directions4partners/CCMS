@@ -86,7 +86,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(GetAvailableUpdates)
             {
-                ApplicationArea = All;
                 Caption = 'Get Available Updates';
                 Image = Refresh;
                 ToolTip = 'Get the list of available apps updates for the selected environment.';
@@ -101,7 +100,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(UpdateApp)
             {
-                ApplicationArea = All;
                 Caption = 'Update App';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected app to the latest version.';
@@ -116,7 +114,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(UpdateSelectedApps)
             {
-                ApplicationArea = All;
                 Caption = 'Update Selected Apps';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected apps (multiple) to the latest version.';
@@ -135,7 +132,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(DeleteAll)
             {
-                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched installed apps records.';
@@ -143,8 +139,8 @@ page 62008 "D4P BC Installed Apps List"
                 var
                     InstalledApp: Record "D4P BC Installed App";
                     RecordCount: Integer;
-                    DeletedSuccessMsg: Label '%1 installed apps records deleted.';
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?';
+                    DeletedSuccessMsg: Label '%1 installed apps records deleted.', Comment = '%1 = Number of records';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?', Comment = '%1 = Number of records';
                 begin
                     InstalledApp.CopyFilters(Rec);
                     RecordCount := InstalledApp.Count();
@@ -158,7 +154,6 @@ page 62008 "D4P BC Installed Apps List"
                     end;
                 end;
             }
-
         }
         area(Promoted)
         {
@@ -187,8 +182,8 @@ page 62008 "D4P BC Installed Apps List"
     begin
         // Set style for App Name and Available Update Version when update is available
         if Rec."Available Update Version" <> '' then
-            UpdateAvailableStyleExpr := 'Attention'
+            UpdateAvailableStyleExpr := Format(PageStyle::Attention)
         else
-            UpdateAvailableStyleExpr := 'Standard';
+            UpdateAvailableStyleExpr := Format(PageStyle::Standard);
     end;
 }

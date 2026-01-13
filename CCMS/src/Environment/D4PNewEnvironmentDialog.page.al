@@ -6,6 +6,7 @@ page 62005 "D4P New Environment Dialog"
 {
     PageType = StandardDialog;
     Caption = 'New Environment Creation';
+    ApplicationArea = All;
 
     layout
     {
@@ -13,17 +14,14 @@ page 62005 "D4P New Environment Dialog"
         {
             field(EnvironmentName; EnvironmentName)
             {
-                ApplicationArea = All;
                 Caption = 'Environment Name';
             }
             field(Localization; Localization)
             {
-                ApplicationArea = All;
                 Caption = 'Localization';
             }
             field(EnvironmentType; EnvironmentType)
             {
-                ApplicationArea = All;
                 Caption = 'Environment Type';
             }
         }

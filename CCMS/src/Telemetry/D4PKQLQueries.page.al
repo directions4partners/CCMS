@@ -72,15 +72,14 @@ page 62040 "D4P KQL Queries"
             action(RunQuery)
             {
                 Caption = 'Run Query';
-                ApplicationArea = All;
                 Image = Start;
                 trigger OnAction()
                 var
                     AIConnectionSetup: Record "D4P AppInsights Connection";
                     LoadData: Report "D4P Load Data";
-                    NoConnectionStringErr: Label 'The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.';
+                    NoConnectionStringErr: Label 'The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.', Comment = '%1 = Environment name';
                     NoEnvironmentContextErr: Label 'No environment context is set. Please open KQL Queries from the Environment Card to use the environment context directly.';
-                    SetupNotFoundErr: Label 'Application Insights connection setup not found for environment "%1". Please verify telemetry configuration.';
+                    SetupNotFoundErr: Label 'Application Insights connection setup not found for environment "%1". Please verify telemetry configuration.', Comment = '%1 = Environment name';
                 begin
                     // Check if we have environment context set
                     if not ShowEnvironmentContext then
@@ -101,7 +100,6 @@ page 62040 "D4P KQL Queries"
             action(InitializeQueries)
             {
                 Caption = 'Initialize Default Queries';
-                ApplicationArea = All;
                 Image = Setup;
                 trigger OnAction()
                 var
@@ -169,20 +167,20 @@ page 62040 "D4P KQL Queries"
 
         if CurrentEnvironment."Application Insights String" = '' then begin
             TelemetryStatusText := 'Not Configured';
-            TelemetryStatusStyle := 'Unfavorable';
+            TelemetryStatusStyle := Format(PageStyle::Unfavorable);
         end else
             if AIConnectionSetup.Get(CurrentEnvironment."Application Insights String") then begin
                 if (AIConnectionSetup."Telemetry Application Id" <> '') and
                    (AIConnectionSetup."Telemetry API Key" <> '') then begin
                     TelemetryStatusText := 'Ready';
-                    TelemetryStatusStyle := 'Favorable';
+                    TelemetryStatusStyle := Format(PageStyle::Favorable);
                 end else begin
                     TelemetryStatusText := 'Incomplete Setup';
-                    TelemetryStatusStyle := 'Ambiguous';
+                    TelemetryStatusStyle := Format(PageStyle::Ambiguous);
                 end;
             end else begin
                 TelemetryStatusText := 'Setup Not Found';
-                TelemetryStatusStyle := 'Unfavorable';
+                TelemetryStatusStyle := Format(PageStyle::Unfavorable);
             end;
     end;
 

@@ -4,6 +4,8 @@ table 62046 "D4P AppInsights Connection"
 {
     Caption = 'Application Insights Connection Setup';
     DataClassification = SystemMetadata;
+    DrillDownPageId = "D4P AppInsights Conn List";
+    LookupPageId = "D4P AppInsights Conn List";
 
     fields
     {
@@ -11,6 +13,7 @@ table 62046 "D4P AppInsights Connection"
         {
             Caption = 'Application Insights Connection String';
             DataClassification = CustomerContent;
+            NotBlank = true;
             ToolTip = 'Specifies the Application Insights connection string.';
         }
         field(20; "Description"; Text[50])

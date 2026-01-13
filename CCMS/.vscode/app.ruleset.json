@@ -1,0 +1,21 @@
+{
+    "name": "App Specific Rules",
+    "description": "App Specific ruleset",
+    "rules": [    
+        {
+            "action": "Info",
+            "id": "AA0139",
+            "justification": "Do not assign a text to a target with smaller size. - Temporarily demoted, legacy to be fixed with PRIO"
+        },       
+        {
+            "action": "Info",
+            "id": "AA0218",
+            "justification": "You must write a tooltip in the Tooltip property for all controls of type Action and Field that exist on page objects. - Temporarily demoted, legacy to be fixed later?"
+        },
+        {
+            "action": "Info",
+            "id": "AA0217",
+            "justification": "Use a text constant or label for format string in StrSubstNo. - Temporarily demoted, legacy to be fixed later?"
+        }    
+    ]
+}

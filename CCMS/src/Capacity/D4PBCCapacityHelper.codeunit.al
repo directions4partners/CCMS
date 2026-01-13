@@ -1,8 +1,8 @@
 namespace D4P.CCMS.Capacity;
 
 using D4P.CCMS.Environment;
-using D4P.CCMS.Tenant;
 using D4P.CCMS.General;
+using D4P.CCMS.Tenant;
 
 codeunit 62018 "D4P BC Capacity Helper"
 {

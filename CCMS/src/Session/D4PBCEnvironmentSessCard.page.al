@@ -104,7 +104,6 @@ page 62019 "D4P BC Environment Sess Card"
             }
             action(TerminateSession)
             {
-                ApplicationArea = All;
                 Caption = 'Terminate Session';
                 Image = Stop;
                 ToolTip = 'Terminate this session.';

@@ -6,7 +6,6 @@ permissionset 62002 "D4P BC SETUP"
 {
     Assignable = true;
     Caption = 'D365BC Admin Center - Setup Only';
-
     Permissions =
         // Setup table only
         tabledata "D4P BC Setup" = RIMD,
