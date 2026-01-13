@@ -10,6 +10,7 @@ page 62015 "D4P BC Environments FactBox"
     Editable = false;
     InsertAllowed = false;
     DeleteAllowed = false;
+    SourceTableView = sorting("Customer No.", "Tenant ID", Type, Name);
 
     layout
     {

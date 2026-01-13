@@ -12,6 +12,7 @@ page 62018 "D4P BC Installed Apps FactBox"
     Editable = false;
     InsertAllowed = false;
     DeleteAllowed = false;
+    SourceTableView = sorting("Customer No.", "Tenant ID", "Environment Name", "App Name");
 
     layout
     {

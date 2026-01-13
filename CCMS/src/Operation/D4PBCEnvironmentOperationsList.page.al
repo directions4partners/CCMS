@@ -47,6 +47,11 @@ page 62028 "D4P BC Environment Operations"
                 }
                 field("Error Message"; Rec."Error Message")
                 {
+                    trigger OnDrillDown()
+                    begin
+                        if Rec."Error Message" <> '' then
+                            Message(Rec."Error Message");
+                    end;
                 }
                 field("Operation ID"; Rec."Operation ID")
                 {
