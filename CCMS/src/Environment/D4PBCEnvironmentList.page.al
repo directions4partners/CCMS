@@ -26,6 +26,8 @@ page 62003 "D4P BC Environment List"
         {
             repeater(GroupName)
             {
+                FreezeColumn = Name;
+
                 field("Customer No."; Rec."Customer No.")
                 {
                     Editable = false;
