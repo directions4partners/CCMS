@@ -1,4 +1,6 @@
 namespace D4P.CCMS.Extension;
+
+using D4P.CCMS.PTEApps;
 page 62009 "D4P PTE Object Ranges"
 {
     PageType = List;
@@ -22,6 +24,15 @@ page 62009 "D4P PTE Object Ranges"
                 }
                 field("PTE ID"; Rec."PTE ID")
                 {
+                    TableRelation = "D4P BC PTE App"."ID";
+
+                    trigger OnValidate()
+                    begin
+                        if IsNullGuid(Rec."PTE ID") then
+                            exit;
+
+                        Rec.CopyValuesFromApp(Rec."PTE ID");
+                    end;
                 }
                 field("PTE Name"; Rec."PTE Name")
                 {

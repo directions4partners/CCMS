@@ -11,6 +11,7 @@ using D4P.CCMS.Backup;
 using D4P.CCMS.Capacity;
 using D4P.CCMS.Session;
 using D4P.CCMS.Telemetry;
+using D4P.CCMS.PTEApps;
 
 permissionset 62001 "D4P BC ADMIN READ"
 {
@@ -36,6 +37,9 @@ permissionset 62001 "D4P BC ADMIN READ"
         tabledata "D4P KQL Slow AL Method" = RIMD,
         tabledata "D4P AppInsights Connection" = R,
         tabledata "D4P PTE Object Range" = R,
+        tabledata "D4P BC PTE App" = R,
+        tabledata "D4P BC PTE App Version" = R,
+        tabledata "D4P BC DevOps Organization" = R,
         tabledata "D4P BC Environment Operation" = R,
 
         // Table Objects
@@ -56,6 +60,9 @@ permissionset 62001 "D4P BC ADMIN READ"
         table "D4P KQL Slow AL Method" = X,
         table "D4P AppInsights Connection" = X,
         table "D4P PTE Object Range" = X,
+        table "D4P BC PTE App" = X,
+        table "D4P BC PTE App Version" = X,
+        table "D4P BC DevOps Organization" = X,
         table "D4P BC Environment Operation" = X,
 
         // Pages - List and Card pages for viewing
@@ -83,6 +90,12 @@ permissionset 62001 "D4P BC ADMIN READ"
         page "D4P PTE Object Ranges" = X,
         page "D4P BC Environment Operations" = X,
         page "D4P BC Customer FactBox" = X,
+        page "D4P BC DevOps Org. List" = X,
+        page "D4P BC PTE App Card" = X,
+        page "D4P BC PTE App List" = X,
+        page "D4P BC Input Token" = X,
+        page "D4P BC PTE App Version Card" = X,
+        page "D4P PTE App Versions FactBox" = X,
 
         // Codeunit for reading data
         codeunit "D4P BC Environment Mgt" = X,

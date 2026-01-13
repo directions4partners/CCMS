@@ -8,6 +8,7 @@ using D4P.CCMS.Extension;
 using D4P.CCMS.General;
 using D4P.CCMS.Setup;
 using D4P.CCMS.Features;
+using D4P.CCMS.PTEApps;
 using D4P.CCMS.Backup;
 using D4P.CCMS.Capacity;
 using D4P.CCMS.Session;
@@ -40,6 +41,9 @@ permissionset 62000 "D4P BC ADMIN"
         tabledata "D4P AppInsights Connection" = RIMD,
         tabledata "D4P BC Admin Center Cue" = RIMD,
         tabledata "D4P PTE Object Range" = RIMD,
+        tabledata "D4P BC PTE App" = RIMD,
+        tabledata "D4P BC PTE App Version" = RIMD,
+        tabledata "D4P BC DevOps Organization" = RIMD,
         tabledata "D4P BC Environment Operation" = RIMD,
 
         // Table Objects
@@ -62,6 +66,9 @@ permissionset 62000 "D4P BC ADMIN"
         table "D4P AppInsights Connection" = X,
         table "D4P BC Admin Center Cue" = X,
         table "D4P PTE Object Range" = X,
+        table "D4P BC PTE App" = X,
+        table "D4P BC PTE App Version" = X,
+        table "D4P BC DevOps Organization" = X,
         table "D4P BC Environment Operation" = X,
 
         // Pages
@@ -97,6 +104,12 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P PTE Object Ranges" = X,
         page "D4P BC Environment Operations" = X,
         page "D4P BC Customer FactBox" = X,
+        page "D4P BC DevOps Org. List" = X,
+        page "D4P BC PTE App Card" = X,
+        page "D4P BC PTE App List" = X,
+        page "D4P BC Input Token" = X,
+        page "D4P BC PTE App Version Card" = X,
+        page "D4P PTE App Versions FactBox" = X,
 
         // Codeunits
         codeunit "D4P BC Environment Mgt" = X,
