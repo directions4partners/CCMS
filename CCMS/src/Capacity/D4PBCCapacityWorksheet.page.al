@@ -16,6 +16,24 @@ page 62021 "D4P BC Capacity Worksheet"
     {
         area(Content)
         {
+            group(GeneralInfo)
+            {
+                Caption = 'General Information';
+                field("Customer No."; Rec."Customer No.")
+                {
+                }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    DrillDown = false;
+                }
+                field("Tenant ID"; Rec."Tenant ID")
+                {
+                }
+                field("Tenant Name"; Rec."Tenant Name")
+                {
+                    DrillDown = false;
+                }
+            }
             group(StorageCapacityUsage)
             {
                 Caption = 'Storage capacity usage';
@@ -31,6 +49,9 @@ page 62021 "D4P BC Capacity Worksheet"
                 field("Storage Available GB"; Rec."Storage Available GB")
                 {
                     Caption = 'GB available';
+                }
+                field("Usage %"; Rec."Usage %")
+                {
                 }
                 field("Last Update Date"; Rec."Last Update Date")
                 {
@@ -120,23 +141,21 @@ page 62021 "D4P BC Capacity Worksheet"
                 var
                     BCTenant: Record "D4P BC Tenant";
                     CapacityHelper: Codeunit "D4P BC Capacity Helper";
-                    TenantIdGuid: Guid;
+                    TenantNotConfiguredErr: Label 'No tenant configured. Please add a tenant in the setup first.';
+                    TenantNotFoundErr: Label 'Tenant not found for Customer %1, Tenant ID %2', Comment = '%1 - Customer No., %2 - Tenant ID';
                 begin
                     // If no header record exists, use first tenant
-                    if Rec."Tenant ID" = '' then begin
+                    if IsNullGuid(Rec."Tenant ID") then begin
                         if BCTenant.FindFirst() then begin
                             CapacityHelper.GetCapacityData(BCTenant."Customer No.", BCTenant."Tenant ID");
-                            if Rec.Get(BCTenant."Customer No.", Format(BCTenant."Tenant ID")) then;
+                            if Rec.Get(BCTenant."Customer No.", BCTenant."Tenant ID") then;
                         end else
-                            Error('No tenant configured. Please add a tenant in the setup first.');
-                    end else begin
-                        // Convert Text Tenant ID to GUID
-                        Evaluate(TenantIdGuid, Rec."Tenant ID");
-                        if BCTenant.Get(Rec."Customer No.", TenantIdGuid) then
+                            Error(TenantNotConfiguredErr);
+                    end else
+                        if BCTenant.Get(Rec."Customer No.", Rec."Tenant ID") then
                             CapacityHelper.GetCapacityData(Rec."Customer No.", BCTenant."Tenant ID")
                         else
-                            Error('Tenant not found for Customer %1, Tenant ID %2', Rec."Customer No.", Rec."Tenant ID");
-                    end;
+                            Error(TenantNotFoundErr, Rec."Customer No.", Rec."Tenant ID");
                     CurrPage.Update(false);
                 end;
             }

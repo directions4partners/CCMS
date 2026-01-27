@@ -1,11 +1,14 @@
 namespace D4P.CCMS.Capacity;
 
 using D4P.CCMS.Customer;
+using D4P.CCMS.Tenant;
 
 table 62019 "D4P BC Capacity Header"
 {
-    DataClassification = CustomerContent;
     Caption = 'D365BC Capacity Header';
+    DataClassification = CustomerContent;
+    DrillDownPageId = "D4P BC Capacity List";
+    LookupPageId = "D4P BC Capacity List";
 
     fields
     {
@@ -13,10 +16,12 @@ table 62019 "D4P BC Capacity Header"
         {
             Caption = 'Customer No.';
             TableRelation = "D4P BC Customer"."No.";
+            ToolTip = 'Specifies the customer number.';
         }
-        field(2; "Tenant ID"; Text[50])
+        field(2; "Tenant ID"; Guid)
         {
             Caption = 'Tenant ID';
+            ToolTip = 'Specifies the tenant ID.';
         }
         field(10; "Last Update Date"; DateTime)
         {
@@ -81,6 +86,29 @@ table 62019 "D4P BC Capacity Header"
             Caption = 'Storage Available GB';
             DecimalPlaces = 2 : 2;
             ToolTip = 'Specifies the available database storage capacity.';
+        }
+        field(43; "Usage %"; Decimal)
+        {
+            Caption = 'Usage %';
+            DecimalPlaces = 2 : 2;
+            Editable = false;
+            ToolTip = 'Specifies the percentage of storage capacity used.';
+        }
+        field(44; "Customer Name"; Text[100])
+        {
+            CalcFormula = Lookup("D4P BC Customer"."Name" where("No." = field("Customer No.")));
+            Caption = 'Customer Name';
+            Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Specifies the name of the customer.';
+        }
+        field(45; "Tenant Name"; Text[100])
+        {
+            CalcFormula = Lookup("D4P BC Tenant"."Tenant Name" where("Tenant ID" = field("Tenant ID")));
+            Caption = 'Tenant Name';
+            Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Specifies the name of the tenant.';
         }
         // Environment quotas
         field(50; "Max Production Environments"; Integer)

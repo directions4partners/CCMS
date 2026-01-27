@@ -7,6 +7,7 @@ using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
 using D4P.CCMS.Setup;
 using D4P.CCMS.Features;
+using D4P.CCMS.General;
 using D4P.CCMS.Backup;
 using D4P.CCMS.Capacity;
 using D4P.CCMS.Session;
@@ -83,6 +84,8 @@ permissionset 62001 "D4P BC ADMIN READ"
         page "D4P PTE Object Ranges" = X,
         page "D4P BC Environment Operations" = X,
         page "D4P BC Customer FactBox" = X,
+        page "D4P BC Admin Headline" = X,
+        page "D4P BC Capacity List" = X,
 
         // Codeunit for reading data
         codeunit "D4P BC Environment Mgt" = X,
@@ -93,5 +96,6 @@ permissionset 62001 "D4P BC ADMIN READ"
         codeunit "D4P BC Operations Helper" = X,
 
         // Reports - needed for telemetry queries
-        report "D4P Load Data" = X;
+        report "D4P Load Data" = X,
+        report "D4P Get Installed Apps" = X;
 }

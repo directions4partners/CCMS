@@ -15,7 +15,7 @@ table 62015 "D4P BC Capacity Line"
             TableRelation = "D4P BC Customer"."No.";
             ToolTip = 'Specifies the customer number.';
         }
-        field(5; "Tenant ID"; Text[50])
+        field(5; "Tenant ID"; Guid)
         {
             Caption = 'Tenant ID';
             ToolTip = 'Specifies the tenant ID.';
