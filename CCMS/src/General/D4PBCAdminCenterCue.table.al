@@ -103,7 +103,7 @@ table 62047 "D4P BC Admin Center Cue"
             Caption = 'Available Updates (non-Microsoft)';
             Editable = false;
             FieldClass = FlowField;
-            ToolTip = 'Number of apps with available updates';
+            ToolTip = 'Number of apps with available updates not published by Microsoft';
         }
     }
 

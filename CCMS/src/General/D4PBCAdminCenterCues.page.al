@@ -143,7 +143,7 @@ page 62034 "D4P BC Admin Center Cues"
                     end;
                 }
             }
-            cuegroup("Apps & Capacity")
+            cuegroup(Applications)
             {
                 Caption = 'Applications';
 
