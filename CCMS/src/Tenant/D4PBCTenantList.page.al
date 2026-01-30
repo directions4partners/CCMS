@@ -1,18 +1,19 @@
 namespace D4P.CCMS.Tenant;
 
-using D4P.CCMS.Setup;
+using D4P.CCMS.Capacity;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
+using D4P.CCMS.Setup;
 
 page 62002 "D4P BC Tenant List"
 {
-    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
-    SourceTable = "D4P BC Tenant";
     Caption = 'D365BC Entra Tenants';
     CardPageId = "D4P BC Tenant Card";
     Editable = false;
+    PageType = List;
+    SourceTable = "D4P BC Tenant";
+    UsageCategory = Lists;
 
     layout
     {
@@ -94,6 +95,23 @@ page 62002 "D4P BC Tenant List"
                             "Tenant ID" = field("Tenant ID");
                 ToolTip = 'View Business Central environments for this tenant.';
             }
+            action(Capacity)
+            {
+                Caption = 'Capacity';
+                Image = Capacity;
+                ToolTip = 'View capacity information for all environments.';
+
+                trigger OnAction()
+                var
+                    CapacityHeader: Record "D4P BC Capacity Header";
+                    CapacityWorksheet: Page "D4P BC Capacity Worksheet";
+                begin
+                    CapacityHeader.SetRange("Customer No.", Rec."Customer No.");
+                    CapacityHeader.SetRange("Tenant ID", Rec."Tenant ID");
+                    CapacityWorksheet.SetTableView(CapacityHeader);
+                    CapacityWorksheet.Run();
+                end;
+            }
             action(PTEObjectRanges)
             {
                 ApplicationArea = All;
@@ -114,6 +132,9 @@ page 62002 "D4P BC Tenant List"
                 {
                 }
                 actionref(EnvironmentsPromoted; Environments)
+                {
+                }
+                actionref(CapacityPromoted; Capacity)
                 {
                 }
                 actionref(PTEObjectRangesPromoted; PTEObjectRanges)
