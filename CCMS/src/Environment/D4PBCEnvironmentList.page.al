@@ -11,13 +11,13 @@ using D4P.CCMS.Operations;
 
 page 62003 "D4P BC Environment List"
 {
-    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
-    SourceTable = "D4P BC Environment";
     Caption = 'D365BC Environments';
-    Editable = false;
     CardPageId = "D4P BC Environment Card";
+    Editable = false;
+    PageType = List;
+    SourceTable = "D4P BC Environment";
+    UsageCategory = Lists;
 
     layout
     {
@@ -56,41 +56,49 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Target Version"; Rec."Target Version")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Available"; Rec."Available")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Target Version Type"; Rec."Target Version Type")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Selected DateTime"; Rec."Selected DateTime")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Expected Availability"; Rec."Expected Availability")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Ignore Update Window"; Rec."Ignore Update Window")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
@@ -138,6 +146,13 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Telemetry Description"; Rec."Telemetry Description")
                 {
+                    Editable = false;
+                    ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
+                }
+                field("Telemetry Description"; Rec."Telemetry Description")
+                {
+                    Editable = false;
+                    ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from AppInsights Connection Setup).';
                 }
             }
         }
@@ -392,13 +407,13 @@ page 62003 "D4P BC Environment List"
             {
                 ApplicationArea = All;
                 Caption = 'Backups';
+                Enabled = Rec.Type = 'Production';
                 Image = History;
                 RunObject = page "D4P BC Environment Backups";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
                 ToolTip = 'View and manage backups for this environment.';
-                Enabled = Rec.Type = 'Production';
             }
             action(Capacity)
             {
@@ -413,7 +428,7 @@ page 62003 "D4P BC Environment List"
                     CapacityWorksheet: Page "D4P BC Capacity Worksheet";
                 begin
                     CapacityHeader.SetRange("Customer No.", Rec."Customer No.");
-                    CapacityHeader.SetRange("Tenant ID", Format(Rec."Tenant ID"));
+                    CapacityHeader.SetRange("Tenant ID", Rec."Tenant ID");
                     CapacityWorksheet.SetTableView(CapacityHeader);
                     CapacityWorksheet.Run();
                 end;
@@ -515,6 +530,35 @@ page 62003 "D4P BC Environment List"
         }
     }
 
+    views
+    {
+
+        view(ActiveEnvironments)
+        {
+            Caption = 'Active Environments';
+            Filters = where(State = const('Active'));
+        }
+        view(ActiveProductionEnvironments)
+        {
+            Caption = 'Active Production Environments';
+            Filters = where(Type = const('Production'), State = const('Active'));
+        }
+        view(ActiveWithoutTelemetry)
+        {
+            Caption = 'Active Production without Telemetry';
+            Filters = where(Type = const('Production'), State = const('Active'), "Application Insights String" = filter(''));
+        }
+        view(ActiveSandboxEnvironments)
+        {
+            Caption = 'Active Sandbox Environments';
+            Filters = where(Type = const('Sandbox'), State = const('Active'));
+        }
+        view(ActiveSandboxWithoutTelemetry)
+        {
+            Caption = 'Active Sandbox without Telemetry';
+            Filters = where(Type = const('Sandbox'), State = const('Active'), "Application Insights String" = filter(''));
+        }
+    }
     var
         StateStyleExpr: Text;
 

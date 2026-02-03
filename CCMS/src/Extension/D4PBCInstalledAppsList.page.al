@@ -190,6 +190,22 @@ page 62008 "D4P BC Installed Apps List"
         }
     }
 
+    views
+    {
+        view(NonMicrosoftApps)
+        {
+            Caption = 'Non-Microsoft Apps';
+            Filters = where("App Publisher" = filter(<> 'Microsoft'));
+
+        }
+        view(AppsWithUpdates)
+        {
+            Caption = 'Apps with Available Updates';
+            Filters = where("Available Update Version" = filter(<> ''));
+
+        }
+    }
+
     var
         UpdateAvailableStyleExpr: Text;
 

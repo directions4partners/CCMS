@@ -116,4 +116,12 @@ table 62001 "D4P BC Tenant"
 
         ClientSecret := AppRegistration.GetClientSecret("Client ID");
     end;
+
+    internal procedure OpenAdminCenter()
+    begin
+        if IsNullGuid("Tenant ID") then
+            exit;
+
+        Hyperlink(StrSubstNo('https://businesscentral.dynamics.com/%1/admin', "Tenant ID".ToText().ToLower().Replace('{', '').Replace('}', '')));
+    end;
 }
