@@ -149,11 +149,6 @@ page 62003 "D4P BC Environment List"
                     Editable = false;
                     ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                 }
-                field("Telemetry Description"; Rec."Telemetry Description")
-                {
-                    Editable = false;
-                    ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from AppInsights Connection Setup).';
-                }
             }
         }
         area(FactBoxes)
