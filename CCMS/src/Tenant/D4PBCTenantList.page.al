@@ -24,6 +24,10 @@ page 62002 "D4P BC Tenant List"
                 field("Customer No."; Rec."Customer No.")
                 {
                 }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    DrillDown = false;
+                }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
                 }

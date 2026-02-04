@@ -27,7 +27,10 @@ page 62003 "D4P BC Environment List"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
-                    Editable = false;
+                }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    DrillDown = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
@@ -101,7 +104,8 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Application Insights String"; Rec."Application Insights String")
                 {
-                    MaskType = Concealed;
+                    ExtendedDatatype = Masked;
+                    Visible = false;
                 }
                 field("Friendly Name"; Rec."Friendly Name")
                 {
@@ -131,22 +135,19 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Telemetry API Key"; Rec."Telemetry API Key")
                 {
-                    Editable = false;
                     ExtendedDatatype = Masked;
+                    Visible = false;
                 }
                 field("Telemetry Application ID"; Rec."Telemetry Application ID")
                 {
-                    Editable = false;
                 }
                 field("Telemetry Tenant ID"; Rec."Telemetry Tenant ID")
                 {
-                    Editable = false;
-                    ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                 }
                 field("Telemetry Description"; Rec."Telemetry Description")
                 {
                     Editable = false;
-                    ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from AppInsights Connection Setup).';
+                    ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                 }
             }
         }

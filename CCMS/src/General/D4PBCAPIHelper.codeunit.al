@@ -13,7 +13,7 @@ codeunit 62049 "D4P BC API Helper"
         Headers: HttpHeaders;
         HttpRequestMessage: HttpRequestMessage;
         HttpResponseMessage: HttpResponseMessage;
-        FailedToObtainTokenErr: Label 'Failed to obtain access token.';
+        FailedToObtainTokenErr: Label 'Failed to obtain access token for tenant %1.', Comment = '%1 - Tenant identifier';
         FailedToSendRequestErr: Label 'Failed to send HTTP request';
         AuthToken: SecretText;
         EndpointUrl: Text;
@@ -21,7 +21,7 @@ codeunit 62049 "D4P BC API Helper"
         // Get OAuth token
         AuthToken := GetOAuthToken(BCTenant);
         if AuthToken.IsEmpty() then
-            Error(FailedToObtainTokenErr);
+            Error(FailedToObtainTokenErr, BCTenant."Tenant ID".ToText().Replace('{', '').Replace('}', ''));
 
         // Build full endpoint URL
         EndpointUrl := GetAdminAPIBaseUrl() + Endpoint;
