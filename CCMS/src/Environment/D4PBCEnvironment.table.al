@@ -129,31 +129,6 @@ table 62002 "D4P BC Environment"
             Caption = 'Latest Selectable Date';
             ToolTip = 'Indicates the last date for which the update to this target version can be scheduled.';
         }
-        field(33; "Ignore Update Window"; Boolean)
-        {
-            Caption = 'Ignore Update Window';
-            ToolTip = 'Indicates whether the update window for the environment may be ignored.';
-        }
-        field(34; "Rollout Status"; Text[50])
-        {
-            Caption = 'Rollout Status';
-            ToolTip = 'Indicates the rollout status of updates to this target version.';
-        }
-        field(35; "Target Version Type"; Text[20])
-        {
-            Caption = 'Target Version Type';
-            ToolTip = 'Indicates the type of the target version (GA or Preview).';
-        }
-        field(36; "Expected Availability"; Text[20])
-        {
-            Caption = 'Expected Availability';
-            ToolTip = 'Expected availability month/year for unreleased versions.';
-        }
-        field(37; "Available"; Boolean)
-        {
-            Caption = 'Available';
-            ToolTip = 'Indicates whether the target version has been released.';
-        }
         field(25; "Grace Period Start Date"; DateTime)
         {
             Caption = 'Grace Period Start Date';
@@ -205,6 +180,39 @@ table 62002 "D4P BC Environment"
             CalcFormula = lookup("D4P AppInsights Connection"."Description" where("Connection String" = field("Application Insights String")));
             Editable = false;
             ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from Application Insights Connection Setup).';
+        }
+        field(33; "Ignore Update Window"; Boolean)
+        {
+            Caption = 'Ignore Update Window';
+            ToolTip = 'Indicates whether the update window for the environment may be ignored.';
+        }
+        field(34; "Rollout Status"; Text[50])
+        {
+            Caption = 'Rollout Status';
+            ToolTip = 'Indicates the rollout status of updates to this target version.';
+        }
+        field(35; "Target Version Type"; Text[20])
+        {
+            Caption = 'Target Version Type';
+            ToolTip = 'Indicates the type of the target version (GA or Preview).';
+        }
+        field(36; "Expected Availability"; Text[20])
+        {
+            Caption = 'Expected Availability';
+            ToolTip = 'Expected availability month/year for unreleased versions.';
+        }
+        field(37; "Available"; Boolean)
+        {
+            Caption = 'Available';
+            ToolTip = 'Indicates whether the target version has been released.';
+        }
+        field(38; "Customer Name"; Text[100])
+        {
+            CalcFormula = lookup("D4P BC Customer".Name where("No." = field("Customer No.")));
+            Caption = 'Customer Name';
+            Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Specifies the name of the customer associated with this environment.';
         }
     }
 
