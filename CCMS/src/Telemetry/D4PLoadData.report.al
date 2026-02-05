@@ -101,7 +101,7 @@ report 62032 "D4P Load Data"
         TelemetryApplicationId: Text[50];
         TelemetryTenantId: Text[50];
         EnvironmentName: Text[100];
-        AIConnectionString: Text[1000];
+        AIConnectionString: Text[2048];
 
     trigger OnPreReport()
     begin
@@ -185,7 +185,7 @@ report 62032 "D4P Load Data"
         EnvironmentName := CopyStr(Environment.Name, 1, MaxStrLen(EnvironmentName));
         EnvironmentType := CopyStr(Environment.Type, 1, MaxStrLen(EnvironmentType));
         EnvironmentAADTenantId := Environment."Tenant ID";
-        AIConnectionString := AIConnectionSetup."AppInsights Connection String";
+        AIConnectionString := AIConnectionSetup."Connection String";
         TelemetryApplicationId := AIConnectionSetup."Telemetry Application Id";
         TelemetryAPIKey := AIConnectionSetup."Telemetry API Key";
         TelemetryTenantId := AIConnectionSetup."Tenant Id";

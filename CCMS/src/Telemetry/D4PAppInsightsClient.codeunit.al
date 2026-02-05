@@ -36,7 +36,7 @@ codeunit 62030 "D4P AppInsights Client"
         TelemetryAPIKey: Text[50];
         TelemetryApplicationId: Text[50];
         TelemetryTenantId: Text[50];
-        AIConnectionString: Text[1000];
+        AIConnectionString: Text[2048];
 
     procedure GetConfigurationKeys(): List of [Text[250]]
     var
@@ -103,7 +103,7 @@ codeunit 62030 "D4P AppInsights Client"
             _uniqueSessionId := ActiveSession."Session Unique ID";
     end;
 
-    procedure Initialize(ApplicationId: Text[50]; APIKey: Text[50]; TenantId: Text[50]; ConnectionString: Text[1000])
+    procedure Initialize(ApplicationId: Text[50]; APIKey: Text[50]; TenantId: Text[50]; ConnectionString: Text[2048]);
     begin
         TelemetryApplicationId := ApplicationId;
         TelemetryAPIKey := APIKey;
@@ -126,7 +126,7 @@ codeunit 62030 "D4P AppInsights Client"
                 TelemetryApplicationId := AIConnectionSetup."Telemetry Application Id";
                 TelemetryAPIKey := AIConnectionSetup."Telemetry API Key";
                 TelemetryTenantId := AIConnectionSetup."Tenant Id";
-                AIConnectionString := AIConnectionSetup."AppInsights Connection String";
+                AIConnectionString := AIConnectionSetup."Connection String";
 
                 if (TelemetryApplicationId <> '') and (TelemetryAPIKey <> '') then
                     // Use the actual connection string for initialization

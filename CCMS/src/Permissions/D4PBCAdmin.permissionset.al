@@ -96,6 +96,8 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P PTE Object Ranges" = X,
         page "D4P BC Environment Operations" = X,
         page "D4P BC Customer FactBox" = X,
+        page "D4P BC Admin Headline" = X,
+        page "D4P BC Capacity List" = X,
 
         // Codeunits
         codeunit "D4P BC Environment Mgt" = X,
@@ -108,5 +110,6 @@ permissionset 62000 "D4P BC ADMIN"
         codeunit "D4P BC Operations Helper" = X,
 
         // Reports
-        report "D4P Load Data" = X;
+        report "D4P Load Data" = X,
+        report "D4P Get Installed Apps" = X;
 }

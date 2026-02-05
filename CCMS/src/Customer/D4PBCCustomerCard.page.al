@@ -3,14 +3,15 @@ namespace D4P.CCMS.Customer;
 using D4P.CCMS.Setup;
 using D4P.CCMS.Tenant;
 using Microsoft.Utilities;
+using D4P.CCMS.Environment;
 
 page 62001 "D4P BC Customer Card"
 {
-    PageType = Card;
     ApplicationArea = All;
-    UsageCategory = None;
-    SourceTable = "D4P BC Customer";
     Caption = 'D365BC Customer Card';
+    PageType = Card;
+    SourceTable = "D4P BC Customer";
+    UsageCategory = None;
 
     layout
     {
@@ -81,16 +82,29 @@ page 62001 "D4P BC Customer Card"
         {
             action(BCTenants)
             {
+                ApplicationArea = All;
                 Caption = 'BC Tenants';
                 Image = List;
                 RunObject = page "D4P BC Tenant List";
                 RunPageLink = "Customer No." = field("No.");
                 ToolTip = 'View Business Central tenants for this customer.';
             }
+            action(BCEnvironments)
+            {
+                ApplicationArea = All;
+                Caption = 'Environments';
+                Image = ViewDetails;
+                RunObject = page "D4P BC Environment List";
+                RunPageLink = "Customer No." = field("No.");
+                ToolTip = 'View Business Central environments for this customer.';
+            }
         }
         area(Promoted)
         {
             actionref(BCTenantsPromoted; BCTenants)
+            {
+            }
+            actionref(BCEnvironmentsPromoted; BCEnvironments)
             {
             }
         }

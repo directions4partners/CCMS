@@ -5,12 +5,13 @@ using D4P.CCMS.Tenant;
 
 page 62000 "D4P BC Customers List"
 {
-    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
-    SourceTable = "D4P BC Customer";
     Caption = 'D365BC Customers - Environment Management';
     CardPageId = "D4P BC Customer Card";
+    Editable = false;
+    PageType = List;
+    SourceTable = "D4P BC Customer";
+    UsageCategory = Lists;
 
     layout
     {
@@ -52,17 +53,31 @@ page 62000 "D4P BC Customers List"
         {
             action(BCTenants)
             {
+                ApplicationArea = All;
                 Caption = 'BC Tenants';
                 Image = List;
                 RunObject = page "D4P BC Tenant List";
                 RunPageLink = "Customer No." = field("No.");
                 ToolTip = 'View Business Central tenants for this customer.';
             }
+            action(BCEnvironments)
+            {
+                ApplicationArea = All;
+                Caption = 'Environments';
+                Image = ViewDetails;
+                RunObject = page "D4P BC Environment List";
+                RunPageLink = "Customer No." = field("No.");
+                ToolTip = 'View Business Central environments for this customer.';
+            }
         }
         area(Promoted)
         {
             actionref(BCTenantsPromoted; BCTenants)
             {
+            }
+            actionref(BCEnvironmentsPromoted; BCEnvironments)
+            {
+
             }
         }
     }

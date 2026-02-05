@@ -29,26 +29,24 @@ codeunit 62018 "D4P BC Capacity Helper"
         CapacityHeader: Record "D4P BC Capacity Header";
         CapacityLine: Record "D4P BC Capacity Line";
         BCTenant: Record "D4P BC Tenant";
-        TenantIdText: Text[50];
     begin
         // Get the tenant record
         if not BCTenant.Get(CustomerNo, TenantID) then
             exit;
 
         // Delete existing capacity lines first
-        TenantIdText := Format(TenantID);
         CapacityLine.SetRange("Customer No.", CustomerNo);
-        CapacityLine.SetRange("Tenant ID", TenantIdText);
+        CapacityLine.SetRange("Tenant ID", TenantID);
         CapacityLine.DeleteAll();
 
         // Delete existing capacity header
-        if CapacityHeader.Get(CustomerNo, TenantIdText) then
+        if CapacityHeader.Get(CustomerNo, TenantID) then
             CapacityHeader.Delete();
 
         // Create new header
         CapacityHeader.Init();
         CapacityHeader."Customer No." := CustomerNo;
-        CapacityHeader."Tenant ID" := TenantIdText;
+        CapacityHeader."Tenant ID" := TenantID;
         CapacityHeader."Last Update Date" := CurrentDateTime();
         CapacityHeader.Insert();
 
@@ -201,6 +199,11 @@ codeunit 62018 "D4P BC Capacity Helper"
         CapacityHeader."Total Storage Used KB" := TotalStorageKB;
         CapacityHeader."Total Storage Used GB" := Round(TotalStorageKB / 1024 / 1024, 0.01);
         CapacityHeader."Storage Available GB" := CapacityHeader."Storage Total GB" - CapacityHeader."Total Storage Used GB";
+
+        if CapacityHeader."Storage Total GB" > 0 then
+            CapacityHeader."Usage %" := Round((CapacityHeader."Total Storage Used GB" / CapacityHeader."Storage Total GB") * 100, 0.01)
+        else
+            CapacityHeader."Usage %" := 0;
 
         // Count environments from header/lines
         CapacityHeader."Production Environments Used" := ProductionCount;
