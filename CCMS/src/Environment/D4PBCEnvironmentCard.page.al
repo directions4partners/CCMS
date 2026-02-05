@@ -29,6 +29,10 @@ page 62004 "D4P BC Environment Card"
                 {
                     Editable = false;
                 }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    DrillDown = false;
+                }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
                     Editable = false;
@@ -173,8 +177,10 @@ page 62004 "D4P BC Environment Card"
                         if (Rec."Application Insights String" <> '') and (not AIConnectionSetup.Get(Rec."Application Insights String")) then
                             if Confirm('The connection string "%1" does not exist in the setup. Do you want to create it now?', false, Rec."Application Insights String") then begin
                                 AIConnectionSetup.Init();
-                                AIConnectionSetup."AppInsights Connection String" := Rec."Application Insights String";
+                                AIConnectionSetup."Connection String" := Rec."Application Insights String";
                                 AIConnectionSetup.Insert(true);
+
+                                Commit(); // Save the new record before opening the card
 
                                 // Open the card for the user to fill in additional details
                                 AIConnectionSetupCard.SetRecord(AIConnectionSetup);
@@ -197,7 +203,7 @@ page 62004 "D4P BC Environment Card"
                         AIConnectionSetupList.LookupMode(true);
                         if AIConnectionSetupList.RunModal() = ACTION::LookupOK then begin
                             AIConnectionSetupList.GetRecord(AIConnectionSetup);
-                            Rec."Application Insights String" := AIConnectionSetup."AppInsights Connection String";
+                            Rec."Application Insights String" := AIConnectionSetup."Connection String";
                             Rec.Modify();
 
                             // Refresh flowfields after lookup
@@ -293,7 +299,7 @@ page 62004 "D4P BC Environment Card"
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
-                    EnvironmentManagement.GetAvailableAppUpdates(Rec);
+                    EnvironmentManagement.GetAvailableAppUpdates(Rec, true);
                 end;
             }
             action(CopyEnvironment)

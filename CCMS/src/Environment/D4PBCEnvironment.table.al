@@ -63,11 +63,12 @@ table 62002 "D4P BC Environment"
             Caption = 'Selected Date Time';
             ToolTip = 'Indicates the datetime for which the update to the target version has been scheduled.';
         }
-        field(11; "Application Insights String"; Text[1024])
+        field(11; "Application Insights String"; Text[2048])
         {
             Caption = 'Application Insights Connection String';
-            TableRelation = "D4P AppInsights Connection"."AppInsights Connection String";
+            TableRelation = "D4P AppInsights Connection"."Connection String";
             ToolTip = 'Specifies the connection string for Application Insights. Use the lookup to select from existing configurations or type directly to create new entries.';
+            ValidateTableRelation = false;
         }
         field(12; "Friendly Name"; Text[100])
         {
@@ -128,6 +129,58 @@ table 62002 "D4P BC Environment"
             Caption = 'Latest Selectable Date';
             ToolTip = 'Indicates the last date for which the update to this target version can be scheduled.';
         }
+        field(25; "Grace Period Start Date"; DateTime)
+        {
+            Caption = 'Grace Period Start Date';
+            ToolTip = 'Specifies the grace period start date for the current major version.';
+        }
+        field(26; "Enforced Update Period Start"; DateTime)
+        {
+            Caption = 'Enforced Update Period Start Date';
+            ToolTip = 'Specifies the enforced update period start date for the current major version.';
+        }
+        field(27; "Platform Version"; Text[50])
+        {
+            Caption = 'Platform Version';
+            ToolTip = 'Specifies the platform version of the environment.';
+        }
+        field(28; "Linked PowerPlatform Env ID"; Text[100])
+        {
+            Caption = 'Linked Power Platform Environment ID';
+            ToolTip = 'Specifies the linked Power Platform environment ID.';
+        }
+        field(29; "Telemetry API Key"; Text[50])
+        {
+            Caption = 'Telemetry API Key';
+            FieldClass = FlowField;
+            CalcFormula = lookup("D4P AppInsights Connection"."Telemetry API Key" where("Connection String" = field("Application Insights String")));
+            Editable = false;
+            ToolTip = 'Specifies the API key for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
+        }
+        field(30; "Telemetry Application ID"; Text[50])
+        {
+            Caption = 'Telemetry Application ID';
+            FieldClass = FlowField;
+            CalcFormula = lookup("D4P AppInsights Connection"."Telemetry Application Id" where("Connection String" = field("Application Insights String")));
+            Editable = false;
+            ToolTip = 'Specifies the Application ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
+        }
+        field(31; "Telemetry Tenant ID"; Text[50])
+        {
+            Caption = 'Telemetry Tenant ID';
+            FieldClass = FlowField;
+            CalcFormula = lookup("D4P AppInsights Connection"."Tenant Id" where("Connection String" = field("Application Insights String")));
+            Editable = false;
+            ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from Application Insights Connection Setup).';
+        }
+        field(32; "Telemetry Description"; Text[50])
+        {
+            Caption = 'Telemetry Description';
+            FieldClass = FlowField;
+            CalcFormula = lookup("D4P AppInsights Connection"."Description" where("Connection String" = field("Application Insights String")));
+            Editable = false;
+            ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from Application Insights Connection Setup).';
+        }
         field(33; "Ignore Update Window"; Boolean)
         {
             Caption = 'Ignore Update Window';
@@ -153,57 +206,13 @@ table 62002 "D4P BC Environment"
             Caption = 'Available';
             ToolTip = 'Indicates whether the target version has been released.';
         }
-        field(25; "Grace Period Start Date"; DateTime)
+        field(38; "Customer Name"; Text[100])
         {
-            Caption = 'Grace Period Start Date';
-            ToolTip = 'Specifies the grace period start date for the current major version.';
-        }
-        field(26; "Enforced Update Period Start"; DateTime)
-        {
-            Caption = 'Enforced Update Period Start Date';
-            ToolTip = 'Specifies the enforced update period start date for the current major version.';
-        }
-        field(27; "Platform Version"; Text[50])
-        {
-            Caption = 'Platform Version';
-            ToolTip = 'Specifies the platform version of the environment.';
-        }
-        field(28; "Linked PowerPlatform Env ID"; Text[100])
-        {
-            Caption = 'Linked Power Platform Environment ID';
-            ToolTip = 'Specifies the linked Power Platform environment ID.';
-        }
-        field(29; "Telemetry API Key"; Text[50])
-        {
-            Caption = 'Telemetry API Key';
-            FieldClass = FlowField;
-            CalcFormula = lookup("D4P AppInsights Connection"."Telemetry API Key" where("AppInsights Connection String" = field("Application Insights String")));
+            CalcFormula = lookup("D4P BC Customer".Name where("No." = field("Customer No.")));
+            Caption = 'Customer Name';
             Editable = false;
-            ToolTip = 'Specifies the API key for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
-        }
-        field(30; "Telemetry Application ID"; Text[50])
-        {
-            Caption = 'Telemetry Application ID';
             FieldClass = FlowField;
-            CalcFormula = lookup("D4P AppInsights Connection"."Telemetry Application Id" where("AppInsights Connection String" = field("Application Insights String")));
-            Editable = false;
-            ToolTip = 'Specifies the Application ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
-        }
-        field(31; "Telemetry Tenant ID"; Text[50])
-        {
-            Caption = 'Telemetry Tenant ID';
-            FieldClass = FlowField;
-            CalcFormula = lookup("D4P AppInsights Connection"."Tenant Id" where("AppInsights Connection String" = field("Application Insights String")));
-            Editable = false;
-            ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from Application Insights Connection Setup).';
-        }
-        field(32; "Telemetry Description"; Text[50])
-        {
-            Caption = 'Telemetry Description';
-            FieldClass = FlowField;
-            CalcFormula = lookup("D4P AppInsights Connection"."Description" where("AppInsights Connection String" = field("Application Insights String")));
-            Editable = false;
-            ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from Application Insights Connection Setup).';
+            ToolTip = 'Specifies the name of the customer associated with this environment.';
         }
     }
 

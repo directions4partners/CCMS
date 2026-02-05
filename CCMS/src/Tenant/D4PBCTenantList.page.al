@@ -1,18 +1,19 @@
 namespace D4P.CCMS.Tenant;
 
-using D4P.CCMS.Setup;
+using D4P.CCMS.Capacity;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
+using D4P.CCMS.Setup;
 
 page 62002 "D4P BC Tenant List"
 {
-    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
-    SourceTable = "D4P BC Tenant";
     Caption = 'D365BC Entra Tenants';
     CardPageId = "D4P BC Tenant Card";
     Editable = false;
+    PageType = List;
+    SourceTable = "D4P BC Tenant";
+    UsageCategory = Lists;
 
     layout
     {
@@ -22,6 +23,10 @@ page 62002 "D4P BC Tenant List"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
+                }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    DrillDown = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
@@ -73,6 +78,17 @@ page 62002 "D4P BC Tenant List"
         }
         area(Navigation)
         {
+            action(AdminCenter)
+            {
+                ApplicationArea = All;
+                Caption = 'Admin Center';
+                Image = LaunchWeb;
+                ToolTip = 'Open the Dynamics 365 Business Central Admin Center for this tenant.';
+                trigger OnAction()
+                begin
+                    Rec.OpenAdminCenter();
+                end;
+            }
             action(Environments)
             {
                 ApplicationArea = All;
@@ -82,6 +98,23 @@ page 62002 "D4P BC Tenant List"
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID");
                 ToolTip = 'View Business Central environments for this tenant.';
+            }
+            action(Capacity)
+            {
+                Caption = 'Capacity';
+                Image = Capacity;
+                ToolTip = 'View capacity information for all environments.';
+
+                trigger OnAction()
+                var
+                    CapacityHeader: Record "D4P BC Capacity Header";
+                    CapacityWorksheet: Page "D4P BC Capacity Worksheet";
+                begin
+                    CapacityHeader.SetRange("Customer No.", Rec."Customer No.");
+                    CapacityHeader.SetRange("Tenant ID", Rec."Tenant ID");
+                    CapacityWorksheet.SetTableView(CapacityHeader);
+                    CapacityWorksheet.Run();
+                end;
             }
             action(PTEObjectRanges)
             {
@@ -99,7 +132,13 @@ page 62002 "D4P BC Tenant List"
             group(Category_Navigation)
             {
                 Caption = 'Navigation';
+                actionref(AdminCenterPromoted; AdminCenter)
+                {
+                }
                 actionref(EnvironmentsPromoted; Environments)
+                {
+                }
+                actionref(CapacityPromoted; Capacity)
                 {
                 }
                 actionref(PTEObjectRangesPromoted; PTEObjectRanges)

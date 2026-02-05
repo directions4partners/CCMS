@@ -151,6 +151,36 @@ codeunit 62000 "D4P BC Environment Mgt"
         end;
     end;
 
+    procedure GetAllInstalledApps(ShowProgressDialog: Boolean)
+    var
+        BCEnvironment: Record "D4P BC Environment";
+        ProgressDialog: Dialog;
+        TotalCount, ProcessedCount : Integer;
+        ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@', Comment = '%1 - Processed count, %2 - Total count, %3 - Percentage complete';
+    begin
+        BCEnvironment.SetRange("State", 'Active');
+
+        if not BCEnvironment.FindSet() then
+            exit;
+
+        TotalCount := BCEnvironment.Count();
+        if ShowProgressDialog and GuiAllowed then begin
+            ProgressDialog.Open(ProcessingMsg);
+            ProgressDialog.Update(2, TotalCount);
+        end;
+        repeat
+            if ShowProgressDialog and GuiAllowed then begin
+                ProcessedCount += 1;
+                ProgressDialog.Update(1, ProcessedCount);
+                ProgressDialog.Update(3, Round(ProcessedCount / TotalCount * 10000, 1));
+            end;
+            GetInstalledApps(BCEnvironment);
+        until BCEnvironment.Next() = 0;
+
+        if ShowProgressDialog and GuiAllowed then
+            ProgressDialog.Close();
+    end;
+
     procedure GetInstalledApps(var BCEnvironment: Record "D4P BC Environment")
     var
         InstalledApp: Record "D4P BC Installed App";
@@ -221,7 +251,7 @@ codeunit 62000 "D4P BC Environment Mgt"
                     case LowerCase(JsonValue.AsText()) of
                         'global':
                             InstalledApp."App Type" := Enum::"D4P App Type"::Global;
-                        'pte':
+                        'pte', 'tenant':
                             InstalledApp."App Type" := Enum::"D4P App Type"::PTE;
                         'dev':
                             InstalledApp."App Type" := Enum::"D4P App Type"::DEV;
@@ -403,7 +433,37 @@ codeunit 62000 "D4P BC Environment Mgt"
                 Error(FailedToFetchErr, ResponseText);
     end;
 
-    procedure GetAvailableAppUpdates(var BCEnvironment: Record "D4P BC Environment")
+    procedure GetAllAvailableAppUpdates(ShowProgressDialog: Boolean)
+    var
+        BCEnvironment: Record "D4P BC Environment";
+        ProgressDialog: Dialog;
+        TotalCount, ProcessedCount : Integer;
+        ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@', Comment = '%1 - Processed count, %2 - Total count, %3 - Percentage complete';
+    begin
+        BCEnvironment.SetRange("State", 'Active');
+        if not BCEnvironment.FindSet() then
+            exit;
+
+        if ShowProgressDialog and GuiAllowed then begin
+            TotalCount := BCEnvironment.Count();
+            ProgressDialog.Open(ProcessingMsg);
+            ProgressDialog.Update(2, TotalCount);
+        end;
+
+        repeat
+            if ShowProgressDialog and GuiAllowed then begin
+                ProcessedCount += 1;
+                ProgressDialog.Update(1, ProcessedCount);
+                ProgressDialog.Update(3, Round(ProcessedCount / TotalCount * 10000, 1));
+            end;
+            GetAvailableAppUpdates(BCEnvironment, false);
+        until BCEnvironment.Next() = 0;
+
+        if ShowProgressDialog and GuiAllowed then
+            ProgressDialog.Close();
+    end;
+
+    procedure GetAvailableAppUpdates(var BCEnvironment: Record "D4P BC Environment"; ShowMessage: Boolean)
     var
         InstalledApp: Record "D4P BC Installed App";
         BCTenant: Record "D4P BC Tenant";
@@ -455,10 +515,12 @@ codeunit 62000 "D4P BC Environment Mgt"
                     InstalledApp.Modify();
                 end;
             end;
-            Message(AvailableUpdatesFetchedMsg);
+            if ShowMessage and GuiAllowed then
+                Message(AvailableUpdatesFetchedMsg);
         end
         else
-            Message(NoAvailableUpdatesMsg);
+            if ShowMessage and GuiAllowed then
+                Message(NoAvailableUpdatesMsg);
     end;
 
     procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid; showNotification: Boolean)
