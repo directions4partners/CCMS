@@ -12,7 +12,6 @@ page 62034 "D4P BC Admin Center Cues"
     Caption = 'BC Admin Center';
     PageType = CardPart;
     RefreshOnActivate = true;
-    ApplicationArea = All;
     SourceTable = "D4P BC Admin Center Cue";
 
     layout
