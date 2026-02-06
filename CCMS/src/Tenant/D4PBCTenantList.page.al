@@ -56,7 +56,6 @@ page 62002 "D4P BC Tenant List"
         {
             action(Setup)
             {
-                ApplicationArea = All;
                 Caption = 'Setup';
                 Image = Setup;
                 RunObject = page "D4P BC Setup";
@@ -64,7 +63,6 @@ page 62002 "D4P BC Tenant List"
             }
             action(TestDebugMode)
             {
-                ApplicationArea = All;
                 Caption = 'Test Debug Mode';
                 Image = TestReport;
                 ToolTip = 'Test if debug mode is working properly.';
@@ -91,7 +89,6 @@ page 62002 "D4P BC Tenant List"
             }
             action(Environments)
             {
-                ApplicationArea = All;
                 Caption = 'Environments';
                 Image = ViewDetails;
                 RunObject = page "D4P BC Environment List";
@@ -118,7 +115,6 @@ page 62002 "D4P BC Tenant List"
             }
             action(PTEObjectRanges)
             {
-                ApplicationArea = All;
                 Caption = 'PTE Object Ranges';
                 Image = NumberSetup;
                 RunObject = page "D4P PTE Object Ranges";
