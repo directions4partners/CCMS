@@ -34,6 +34,11 @@ table 62009 "D4P BC Setup"
             TableRelation = "No. Series";
             ToolTip = 'Specifies the number series used to assign customer numbers automatically.';
         }
+        field(6; "Use Microsoft Sales Customer"; Boolean)
+        {
+            Caption = 'Use Microsoft Sales Customer';
+            ToolTip = 'Specifies whether to use Microsoft Sales Customer table relation.';
+        }
     }
 
     keys
