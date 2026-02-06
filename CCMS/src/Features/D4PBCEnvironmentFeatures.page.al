@@ -25,9 +25,6 @@ page 62013 "D4P BC Environment Features"
                 {
                     StyleExpr = EnabledStatusStyle;
 
-                    trigger OnDrillDown()
-                    begin
-                    end;
                 }
                 field("Feature Description"; Rec."Feature Description")
                 {
@@ -64,7 +61,6 @@ page 62013 "D4P BC Environment Features"
         {
             action(GetFeatures)
             {
-                ApplicationArea = All;
                 Caption = 'Get Features';
                 Image = GetEntries;
                 ToolTip = 'Retrieve the list of available features for this environment.';
@@ -81,7 +77,6 @@ page 62013 "D4P BC Environment Features"
             }
             action(ActivateFeature)
             {
-                ApplicationArea = All;
                 Caption = 'Activate Feature';
                 Image = Action;
                 ToolTip = 'Activate the selected feature.';
@@ -91,7 +86,7 @@ page 62013 "D4P BC Environment Features"
                     FeaturesHelper: Codeunit "D4P BC Features Helper";
                     UpdateInBackground: Boolean;
                     StartDateTime: DateTime;
-                    ConfirmMsg: Label 'Do you want to activate feature "%1"?';
+                    ConfirmMsg: Label 'Do you want to activate feature "%1"?', Comment = '%1 = Feature Name';
                 begin
                     if not Confirm(ConfirmMsg, false, Rec."Feature Name") then
                         exit;
@@ -105,7 +100,6 @@ page 62013 "D4P BC Environment Features"
             }
             action(DeactivateFeature)
             {
-                ApplicationArea = All;
                 Caption = 'Deactivate Feature';
                 Image = Cancel;
                 ToolTip = 'Deactivate the selected feature.';
@@ -113,7 +107,7 @@ page 62013 "D4P BC Environment Features"
                 trigger OnAction()
                 var
                     FeaturesHelper: Codeunit "D4P BC Features Helper";
-                    ConfirmMsg: Label 'Do you want to deactivate feature "%1"?';
+                    ConfirmMsg: Label 'Do you want to deactivate feature "%1"?', Comment = '%1 = Feature Name';
                 begin
                     if not Confirm(ConfirmMsg, false, Rec."Feature Name") then
                         exit;
@@ -124,7 +118,6 @@ page 62013 "D4P BC Environment Features"
             }
             action(DeleteAll)
             {
-                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched feature records.';
@@ -132,8 +125,8 @@ page 62013 "D4P BC Environment Features"
                 var
                     Feature: Record "D4P BC Environment Feature";
                     RecordCount: Integer;
-                    DeletedSuccessMsg: Label '%1 feature records deleted.';
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched feature records?';
+                    DeletedSuccessMsg: Label '%1 feature records deleted.', Comment = '%1 = Number of records';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched feature records?', Comment = '%1 = Number of records';
                 begin
                     Feature.CopyFilters(Rec);
                     RecordCount := Feature.Count();
@@ -180,8 +173,8 @@ page 62013 "D4P BC Environment Features"
     local procedure SetStatusStyle()
     begin
         if Rec."Is Enabled" = 'All Users' then
-            EnabledStatusStyle := 'Favorable'
+            EnabledStatusStyle := Format(PageStyle::Favorable)
         else
-            EnabledStatusStyle := 'Standard';
+            EnabledStatusStyle := Format(PageStyle::Standard);
     end;
 }

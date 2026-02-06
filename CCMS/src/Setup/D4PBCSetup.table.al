@@ -12,6 +12,7 @@ table 62009 "D4P BC Setup"
         field(1; "Primary Key"; Code[10])
         {
             Caption = 'Primary Key';
+            NotBlank = false;
         }
         field(2; "Debug Mode"; Boolean)
         {

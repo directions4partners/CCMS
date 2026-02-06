@@ -4,7 +4,6 @@ table 62038 "D4P KQL Slow AL Method"
 {
     DataClassification = SystemMetadata;
     Caption = 'Long Running AL Method', Locked = true;
-
     DrillDownPageId = "D4P KQL Slow AL Methods";
     LookupPageId = "D4P KQL Slow AL Methods";
 
@@ -105,5 +104,4 @@ table 62038 "D4P KQL Slow AL Method"
             Clustered = true;
         }
     }
-
 }

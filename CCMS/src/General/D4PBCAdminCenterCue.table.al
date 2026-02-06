@@ -16,6 +16,7 @@ table 62047 "D4P BC Admin Center Cue"
         field(1; "Primary Key"; Code[10])
         {
             Caption = 'Primary Key';
+            NotBlank = false;
             ToolTip = 'Primary key for the cue record.';
         }
         field(2; "Customers Count"; Integer)

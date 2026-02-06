@@ -37,7 +37,6 @@ page 62018 "D4P BC Installed Apps FactBox"
         {
             action(GetInstalledApps)
             {
-                ApplicationArea = All;
                 Caption = 'Get Installed Apps';
                 Image = Refresh;
                 ToolTip = 'Get the list of installed apps for the selected environment.';

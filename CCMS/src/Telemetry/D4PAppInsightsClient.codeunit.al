@@ -1,12 +1,12 @@
 namespace D4P.CCMS.Telemetry;
 
-using System.Security.Authentication;
+using D4P.CCMS.Environment;
 using Microsoft.Utilities;
-using System.Utilities;
+using System.Environment;
 using System.IO;
 using System.Reflection;
-using System.Environment;
-using D4P.CCMS.Environment;
+using System.Security.Authentication;
+using System.Utilities;
 
 /// <summary>
 /// Provides access to Application Insights data.
@@ -38,7 +38,7 @@ codeunit 62030 "D4P AppInsights Client"
         TelemetryTenantId: Text[50];
         AIConnectionString: Text[2048];
 
-    procedure GetConfigurationKeys(): List of [Text[250]];
+    procedure GetConfigurationKeys(): List of [Text[250]]
     var
         Result: List of [Text[250]];
     begin
@@ -46,7 +46,7 @@ codeunit 62030 "D4P AppInsights Client"
         exit(Result);
     end;
 
-    procedure GetSecretConfigurationKeys(): List of [Text[250]];
+    procedure GetSecretConfigurationKeys(): List of [Text[250]]
     var
         Result: List of [Text[250]];
     begin
@@ -54,25 +54,19 @@ codeunit 62030 "D4P AppInsights Client"
         exit(Result);
     end;
 
-    local procedure ApplicationId(): Text
+    local procedure GetApplicationId(): Text
     begin
         exit(TelemetryApplicationId);
     end;
 
-    local procedure ApiKey(): Text
+    local procedure GetApiKey(): Text
     begin
         exit(TelemetryAPIKey);
-    end;
-
-    local procedure GetQueryBaseUri(): Text
-    begin
-        exit('https://api.applicationinsights.io');
     end;
 
     local procedure GetPayload(QueryString: Text): Text
     var
         jw: Codeunit "Json Text Reader/Writer";
-        jo: JsonObject;
     begin
         jw.WriteStartObject('');
         jw.WriteStringProperty('query', QueryString);
@@ -100,7 +94,7 @@ codeunit 62030 "D4P AppInsights Client"
     /// Enables log posting to Application Insights.using the given connection string.
     /// </summary>
     /// <param name="ConnectionString">The connection string to use.</param>
-    procedure InitializeForPost(ConnectionString: Text);
+    procedure InitializeForPost(ConnectionString: Text)
     var
         ActiveSession: Record "Active Session";
     begin
@@ -121,7 +115,7 @@ codeunit 62030 "D4P AppInsights Client"
             InitializeForPost(AIConnectionString);
     end;
 
-    procedure InitializeFromEnvironment(Environment: Record "D4P BC Environment");
+    procedure InitializeFromEnvironment(Environment: Record "D4P BC Environment")
     var
         AIConnectionSetup: Record "D4P AppInsights Connection";
     begin
@@ -255,24 +249,15 @@ codeunit 62030 "D4P AppInsights Client"
         RequestHeaders: HttpHeaders;
         HttpRequestMessage: HttpRequestMessage;
         HttpResponseMessage: HttpResponseMessage;
-        JsonArray: JsonArray;
-        JsonObjectLoop: JsonObject;
-        JsonResponse: JsonObject;
-        JsonToken: JsonToken;
-        JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
-        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1 %2';
+        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1 %2', Comment = '%1 = HTTP Status, %2 = Error message';
         FailedToSendRequestErr: Label 'Failed to send HTTP request to Endpoint';
-        AuthToken: SecretText;
-        ErrorMessage: Text;
-        response: Text;
         ResponseText: Text;
     begin
-        IngestionEndpointUrl := 'https://api.applicationinsights.io/v1/apps/' + ApplicationId() + '/query';
+        IngestionEndpointUrl := 'https://api.applicationinsights.io/v1/apps/' + GetApplicationId() + '/query';
         HttpRequestMessage.SetRequestUri(IngestionEndpointUrl);
         HttpRequestMessage.Method := 'POST';
         HttpRequestMessage.GetHeaders(RequestHeaders);
-        RequestHeaders.Add('X-API-Key', ApiKey());
+        RequestHeaders.Add('X-API-Key', GetApiKey());
 
         //QueryString := 'traces | limit 10';
         HttpContentMessage.WriteFrom(GetPayload(QueryString));
@@ -362,7 +347,7 @@ codeunit 62030 "D4P AppInsights Client"
         TempCurrFields2: Record "Name/Value Buffer" temporary;
         jt: JsonToken;
         jv: JsonValue;
-        ColumnDoesNotExistErr: Label 'The column ''%1'' does not exist in the dataset.';
+        ColumnDoesNotExistErr: Label 'The column ''%1'' does not exist in the dataset.', Comment = '%1 = Column name';
     begin
         TempCurrFields2.Copy(TempCurrFields, true);
         TempCurrFields2.SetRange(Name, ColumnName);
@@ -878,9 +863,6 @@ codeunit 62030 "D4P AppInsights Client"
                             ConvertToFieldRef(TextValue, FldRef);
                         end;
                     OnDeserializeToRecordRefAfterSetFieldValue(TempBuffer.Name, RecRef, FldRef, TextValue);
-                end else begin
-                    // Debug: Show unmapped columns
-                    // Message('Column "%1" could not be mapped to any field', TempBuffer.Name);
                 end;
             until TempBuffer.Next() = 0;
     end;

@@ -1,14 +1,13 @@
 namespace D4P.CCMS.Permissions;
 
 using D4P.CCMS.Environment;
-using D4P.CCMS.Telemetry;
 using D4P.CCMS.Setup;
+using D4P.CCMS.Telemetry;
 
 permissionset 62003 "D4P BC TELEMETRY"
 {
     Assignable = true;
     Caption = 'D365BC Admin Center - Telemetry Only';
-
     Permissions =
         // Core environment data (read-only for telemetry)
         tabledata "D4P BC Environment" = R,

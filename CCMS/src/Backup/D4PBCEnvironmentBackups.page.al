@@ -55,7 +55,6 @@ page 62014 "D4P BC Environment Backups"
         {
             action(StartExport)
             {
-                ApplicationArea = All;
                 Caption = 'Start Database Export';
                 Image = Export;
                 ToolTip = 'Start a new database export of the environment. Only available for Production environments.';
@@ -71,7 +70,6 @@ page 62014 "D4P BC Environment Backups"
             }
             action(GetExportHistory)
             {
-                ApplicationArea = All;
                 Caption = 'Get Export History';
                 Image = History;
                 ToolTip = 'Retrieve the history of database exports.';
@@ -96,7 +94,6 @@ page 62014 "D4P BC Environment Backups"
             }
             action(GetExportMetrics)
             {
-                ApplicationArea = All;
                 Caption = 'Get Export Metrics';
                 Image = Statistics;
                 ToolTip = 'Get information about export quotas and usage.';
@@ -112,7 +109,6 @@ page 62014 "D4P BC Environment Backups"
             }
             action(PITRestore)
             {
-                ApplicationArea = All;
                 Caption = 'PIT Restore';
                 Image = Restore;
                 ToolTip = 'Perform a Point-in-Time restore of an environment.';
@@ -126,7 +122,6 @@ page 62014 "D4P BC Environment Backups"
             }
             action(DeleteAll)
             {
-                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched backup records.';
@@ -134,8 +129,8 @@ page 62014 "D4P BC Environment Backups"
                 var
                     Backup: Record "D4P BC Environment Backup";
                     RecordCount: Integer;
-                    DeletedSuccessMsg: Label '%1 backup records deleted.';
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched backup records?';
+                    DeletedSuccessMsg: Label '%1 backup records deleted.', Comment = '%1 = Number of records';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched backup records?', Comment = '%1 = Number of records';
                 begin
                     Backup.CopyFilters(Rec);
                     RecordCount := Backup.Count();
@@ -182,7 +177,7 @@ page 62014 "D4P BC Environment Backups"
         CurrentEnvironment: Record "D4P BC Environment";
         EnvironmentSet: Boolean;
         IsProductionEnvironment: Boolean;
-        PageCaptionTxt: Label 'Database Exports - %1 (%2) - %3';
+        PageCaptionTxt: Label 'Database Exports - %1 (%2) - %3', Comment = '%1 = Environment Name, %2 = Environment Type, %3 = Tenant Name';
 
     trigger OnOpenPage()
     begin

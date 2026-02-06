@@ -4,7 +4,6 @@ table 62035 "D4P KQL Extension Lifecycle"
 {
     DataClassification = SystemMetadata;
     Caption = 'KQL Extension Lifecycle', Locked = true;
-
     DrillDownPageId = "D4P KQL Extension Lifecycle";
     LookupPageId = "D4P KQL Extension Lifecycle";
 
@@ -91,5 +90,4 @@ table 62035 "D4P KQL Extension Lifecycle"
             Clustered = true;
         }
     }
-
 }

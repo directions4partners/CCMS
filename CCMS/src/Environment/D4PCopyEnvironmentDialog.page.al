@@ -6,6 +6,7 @@ page 62006 "D4P Copy Environment Dialog"
 {
     PageType = StandardDialog;
     Caption = 'Copy Environment';
+    ApplicationArea = All;
 
     layout
     {
@@ -13,31 +14,28 @@ page 62006 "D4P Copy Environment Dialog"
         {
             field(EnvironmentName; EnvironmentName)
             {
-                ApplicationArea = All;
                 Caption = 'Current Environment Name';
                 Editable = false;
             }
             field(NewEnvironmentName; NewEnvironmentName)
             {
-                ApplicationArea = All;
                 Caption = 'New Environment Name';
             }
             field(NewEnvironmentType; NewEnvironmentType)
             {
-                ApplicationArea = All;
                 Caption = 'New Environment Type';
             }
         }
     }
 
-    procedure SetBCTenant(var _BCTenant: Record "D4P BC Tenant")
+    procedure SetBCTenant(CurrBCTenant: Record "D4P BC Tenant")
     begin
-        BCTenant := _BCTenant;
+        BCTenant := CurrBCTenant;
     end;
 
-    procedure SetCurrentBCEnvironment(var _EnvironmentName: Text[100])
+    procedure SetCurrentBCEnvironment(CurrEnvironmentName: Text[100])
     begin
-        EnvironmentName := _EnvironmentName;
+        EnvironmentName := CurrEnvironmentName;
     end;
 
     procedure CopyEnvironment()

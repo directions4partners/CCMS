@@ -47,7 +47,6 @@ page 62048 "D4P AppInsights Conn Card"
         {
             action(TestConnection)
             {
-                ApplicationArea = All;
                 Caption = 'Test Connection';
                 Image = TestDatabase;
                 ToolTip = 'Test the Application Insights connection with the specified parameters.';

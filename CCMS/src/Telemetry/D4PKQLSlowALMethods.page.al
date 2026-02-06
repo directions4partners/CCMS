@@ -5,7 +5,6 @@ using D4P.CCMS.Environment;
 #pragma warning disable AA0218
 page 62045 "D4P KQL Slow AL Methods"
 {
-
     PageType = List;
     UsageCategory = None;
     SourceTable = "D4P KQL Slow AL Method";
@@ -13,6 +12,7 @@ page 62045 "D4P KQL Slow AL Methods"
     InsertAllowed = false;
     ModifyAllowed = false;
     DeleteAllowed = false;
+    ApplicationArea = All;
 
     layout
     {
@@ -20,74 +20,56 @@ page 62045 "D4P KQL Slow AL Methods"
         {
             repeater(Lines)
             {
-
                 field("Execution Date"; Rec."Execution Date")
                 {
-                    ApplicationArea = All;
                 }
                 field("Execution Date/Time"; Rec."Execution Date/Time")
                 {
-                    ApplicationArea = All;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
-                    ApplicationArea = All;
                 }
                 field("Environment Type"; Rec."Environment Type")
                 {
-                    ApplicationArea = All;
                 }
                 field("Environment Name"; Rec."Environment Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Extension ID"; Rec."Extension ID")
                 {
-                    ApplicationArea = All;
                 }
                 field("Extension Name"; Rec."Extension Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Company Name"; Rec."Company Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("AL Object ID"; Rec."AL Object ID")
                 {
-                    ApplicationArea = All;
                 }
                 field("AL Object Type"; Rec."AL Object Type")
                 {
-                    ApplicationArea = All;
                 }
                 field("AL Object Name"; Rec."AL Object Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("AL Method"; Rec."Method Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Client Type"; Rec."Client Type")
                 {
-                    ApplicationArea = All;
                 }
                 field("No. of Executions"; Rec."No. of Executions")
                 {
-                    ApplicationArea = All;
                 }
                 field("Max. Execution Time"; Rec."Max. Execution Time")
                 {
-                    ApplicationArea = All;
                 }
                 field(Publisher; Rec.Publisher)
                 {
-                    ApplicationArea = All;
                 }
                 field("Version"; Rec."Version")
                 {
-                    ApplicationArea = All;
                 }
             }
         }
@@ -101,7 +83,6 @@ page 62045 "D4P KQL Slow AL Methods"
             {
                 Caption = 'Load';
                 ToolTip = 'Loads data from the API.';
-                ApplicationArea = All;
                 Image = Report;
                 Promoted = true;
                 PromotedCategory = Process;
@@ -144,6 +125,7 @@ page 62045 "D4P KQL Slow AL Methods"
     /// <summary>
     /// Sets the environment context for this page
     /// </summary>
+    /// <param name="Environment">The environment to set as context</param>
     procedure SetEnvironmentContext(Environment: Record "D4P BC Environment")
     begin
         EnvironmentContext := Environment;
