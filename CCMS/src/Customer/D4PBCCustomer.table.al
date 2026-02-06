@@ -1,6 +1,7 @@
 namespace D4P.CCMS.Customer;
 
 using D4P.CCMS.Environment;
+using Microsoft.Sales.Customer;
 using D4P.CCMS.Setup;
 using D4P.CCMS.Tenant;
 using Microsoft.Foundation.Address;
@@ -21,6 +22,12 @@ table 62000 "D4P BC Customer"
         {
             Caption = 'No.';
             ToolTip = 'Specifies the customer number.';
+
+            trigger OnLookup()
+            begin
+                LookupSalesCustomer();
+            end;
+
             trigger OnValidate()
             begin
                 TestNoSeries();
@@ -159,7 +166,7 @@ table 62000 "D4P BC Customer"
     trigger OnInsert()
     begin
         if "No." = '' then begin
-            CCMSSetup.Get();
+            GetCCMSSetup();
             CCMSSetup.TestField("Customer Nos.");
             "No. Series" := CCMSSetup."Customer Nos.";
             if NoSeries.AreRelated("No. Series", xRec."No. Series") then
@@ -172,19 +179,66 @@ table 62000 "D4P BC Customer"
         CCMSSetup: Record "D4P BC Setup";
         PostCode: Record "Post Code";
         NoSeries: Codeunit "No. Series";
+        IsCCMSSetupLoaded: Boolean;
 
     procedure AssistEdit(OldCustomer: Record "D4P BC Customer"): Boolean
     var
         D4PBCCustomer: Record "D4P BC Customer";
     begin
         D4PBCCustomer := Rec;
-        CCMSSetup.Get();
+        GetCCMSSetup();
         CCMSSetup.TestField("Customer Nos.");
         if NoSeries.LookupRelatedNoSeries(CCMSSetup."Customer Nos.", OldCustomer."No. Series", D4PBCCustomer."No. Series") then begin
             "No." := NoSeries.GetNextNo(D4PBCCustomer."No. Series");
             Rec := D4PBCCustomer;
             exit(true);
         end;
+    end;
+
+    /// <summary>
+    /// Retrieves the CCMS setup record using a lazy-loading pattern.
+    /// Only loads the setup once by checking the IsCCMSSetupLoaded flag.
+    /// Populates the CCMSSetup global variable with the CCMS setup configuration.
+    /// </summary>
+    local procedure GetCCMSSetup()
+    begin
+        if IsCCMSSetupLoaded then
+            exit;
+
+        IsCCMSSetupLoaded := CCMSSetup.Get();
+    end;
+
+    /// <summary>
+    /// Opens the Microsoft sales customer lookup and populates this record when a customer is selected.
+    /// The lookup is only available when using Microsoft sales customers is enabled in setup.
+    /// </summary>
+    local procedure LookupSalesCustomer()
+    var
+        Customer: Record Customer;
+    begin
+        GetCCMSSetup();
+        if not CCMSSetup."Use Microsoft Sales Customer" then
+            exit;
+
+        if Page.RunModal(Page::"Customer Lookup", Customer) = Action::LookupOK then
+            PopulateFromSalesCustomer(Customer);
+    end;
+
+    /// <summary>
+    /// Populates the current CCMS customer record with data from the selected Microsoft sales customer.
+    /// </summary>
+    /// <param name="Customer">The Microsoft sales customer record to copy data from.</param>
+    local procedure PopulateFromSalesCustomer(var Customer: Record Customer)
+    begin
+        Rec.Validate("No.", Customer."No.");
+        Rec.Validate(Name, Customer.Name);
+        Rec.Validate("Address", Customer."Address");
+        Rec.Validate("City", Customer."City");
+        Rec.Validate("Post Code", Customer."Post Code");
+        Rec.Validate(County, Customer.County);
+        Rec.Validate("Country/Region Code", Customer."Country/Region Code");
+        Rec.Validate("Contact Person Name", Customer.Contact);
+        Rec.Validate("Contact Person Email", Customer."E-Mail");
     end;
 
     local procedure TestNoSeries()
@@ -199,7 +253,7 @@ table 62000 "D4P BC Customer"
 
         if "No." <> xRec."No." then
             if not D4PBCCustomer.Get(Rec."No.") then begin
-                CCMSSetup.Get();
+                GetCCMSSetup();
                 NoSeries.TestManual(CCMSSetup."Customer Nos.");
                 "No. Series" := '';
             end;
