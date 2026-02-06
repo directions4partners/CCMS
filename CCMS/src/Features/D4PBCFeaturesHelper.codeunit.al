@@ -1,10 +1,10 @@
 namespace D4P.CCMS.Features;
 
-using System.Security.Authentication;
 using D4P.CCMS.Environment;
-using D4P.CCMS.Tenant;
-using D4P.CCMS.Setup;
 using D4P.CCMS.General;
+using D4P.CCMS.Setup;
+using D4P.CCMS.Tenant;
+using System.Security.Authentication;
 
 codeunit 62014 "D4P BC Features Helper"
 {
@@ -13,7 +13,7 @@ codeunit 62014 "D4P BC Features Helper"
         BCEnvironment: Record "D4P BC Environment";
         BCTenant: Record "D4P BC Tenant";
         APIHelper: Codeunit "D4P BC API Helper";
-        APIRequestFailedErr: Label 'API request failed. Error details: %1';
+        APIRequestFailedErr: Label 'API request failed. Error details: %1', Comment = '%1 = Error message';
         EnvironmentNotFoundErr: Label 'Environment not found.';
         FailedToObtainTokenErr: Label 'Failed to obtain authentication token.';
         TenantNotFoundErr: Label 'Tenant not found.';
@@ -61,7 +61,7 @@ codeunit 62014 "D4P BC Features Helper"
         JToken: JsonToken;
         CouldNotFindCompanyErr: Label 'Could not find company ID in response.';
         FailedToParseErr: Label 'Failed to parse companies response.';
-        FeaturesAPIFailedErr: Label 'Features API request failed. Error details: %1';
+        FeaturesAPIFailedErr: Label 'Features API request failed. Error details: %1', Comment = '%1 = Error message';
         NoCompaniesErr: Label 'No companies found in the environment.';
         NoValueArrayErr: Label 'No value array found in companies response.';
         CompanyId: Text;
@@ -212,7 +212,7 @@ codeunit 62014 "D4P BC Features Helper"
     local procedure ShowDebugMessage(ResponseText: Text; ActionName: Text)
     var
         BCSetup: Record "D4P BC Setup";
-        DebugMsg: Label 'DEBUG - %1 Response:\%2';
+        DebugMsg: Label 'DEBUG - %1 Response:\%2', Comment = '%1 = Response type, %2 = Response body';
     begin
         BCSetup := BCSetup.GetSetup();
         if BCSetup."Debug Mode" then
@@ -225,9 +225,9 @@ codeunit 62014 "D4P BC Features Helper"
         BCTenant: Record "D4P BC Tenant";
         APIHelper: Codeunit "D4P BC API Helper";
         EnvironmentNotFoundErr: Label 'Environment not found.';
-        FailedToActivateErr: Label 'Failed to activate feature. Error details: %1';
+        FailedToActivateErr: Label 'Failed to activate feature. Error details: %1', Comment = '%1 = Error message';
         FailedToObtainTokenErr: Label 'Failed to obtain authentication token.';
-        FeatureActivatedMsg: Label 'Feature "%1" activated successfully.';
+        FeatureActivatedMsg: Label 'Feature "%1" activated successfully.', Comment = '%1 = Feature Name';
         TenantNotFoundErr: Label 'Tenant not found.';
         AuthToken: SecretText;
         CompanyId: Text;
@@ -286,9 +286,9 @@ codeunit 62014 "D4P BC Features Helper"
         BCTenant: Record "D4P BC Tenant";
         APIHelper: Codeunit "D4P BC API Helper";
         EnvironmentNotFoundErr: Label 'Environment not found.';
-        FailedToDeactivateErr: Label 'Failed to deactivate feature. Error details: %1';
+        FailedToDeactivateErr: Label 'Failed to deactivate feature. Error details: %1', Comment = '%1 = Error message';
         FailedToObtainTokenErr: Label 'Failed to obtain authentication token.';
-        FeatureDeactivatedMsg: Label 'Feature "%1" deactivated successfully.';
+        FeatureDeactivatedMsg: Label 'Feature "%1" deactivated successfully.', Comment = '%1 = Feature Name';
         TenantNotFoundErr: Label 'Tenant not found.';
         AuthToken: SecretText;
         CompanyId: Text;
@@ -342,7 +342,7 @@ codeunit 62014 "D4P BC Features Helper"
         JObject: JsonObject;
         JToken: JsonToken;
         CouldNotFindCompanyErr: Label 'Could not find company ID in response.';
-        FailedToGetCompanyErr: Label 'Failed to get company ID. Error details: %1';
+        FailedToGetCompanyErr: Label 'Failed to get company ID. Error details: %1', Comment = '%1 = Error message';
         FailedToParseErr: Label 'Failed to parse companies response.';
         NoCompaniesErr: Label 'No companies found in the environment.';
         NoValueArrayErr: Label 'No value array found in companies response.';

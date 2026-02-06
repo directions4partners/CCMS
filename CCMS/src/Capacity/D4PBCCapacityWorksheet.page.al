@@ -129,7 +129,6 @@ page 62021 "D4P BC Capacity Worksheet"
         {
             action(GetCapacity)
             {
-                ApplicationArea = All;
                 Caption = 'Get Capacity';
                 Image = Refresh;
                 ToolTip = 'Retrieve current capacity information from Admin Center API.';

@@ -1,10 +1,10 @@
 namespace D4P.CCMS.Environment;
 
-using System.Security.Authentication;
-using D4P.CCMS.Tenant;
-using D4P.CCMS.Setup;
 using D4P.CCMS.Extension;
 using D4P.CCMS.General;
+using D4P.CCMS.Setup;
+using D4P.CCMS.Tenant;
+using System.Security.Authentication;
 
 codeunit 62000 "D4P BC Environment Mgt"
 {
@@ -27,7 +27,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonTokenField: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
+        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
         BCEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
@@ -191,7 +191,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
+        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
@@ -302,10 +302,10 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        FailedToFetchErr: Label 'Failed to fetch environment updates: %1';
+        FailedToFetchErr: Label 'Failed to fetch environment updates: %1', Comment = '%1 = Error message';
         NoAvailableUpdatesMsg: Label 'No available updates found for the selected environment.';
         NoSelectedUpdateMsg: Label 'No selected update found for the selected environment.';
-        SelectedUpdateVersionFetchedMsg: Label 'Selected update version %1 has been fetched successfully.';
+        SelectedUpdateVersionFetchedMsg: Label 'Selected update version %1 has been fetched successfully.', Comment = '%1 = Version number';
         Endpoint: Text;
         expectedAvailability: Text;
         ResponseText: Text;
@@ -475,7 +475,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
         AvailableUpdatesFetchedMsg: Label 'Available updates for the selected environment have been fetched successfully.';
-        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1';
+        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
         NoAvailableUpdatesMsg: Label 'No available updates found for the selected environment.';
         appVersion: Text;
         ResponseText: Text;
@@ -530,8 +530,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         AppUpdateNotification: Notification;
         JsonObject: JsonObject;
         AppNotFoundErr: Label 'App not found';
-        AppUpdateScheduledMsg: Label 'App %1 update to version %2 successfully scheduled.';
-        FailedToUpdateErr: Label 'Failed to update app: %1';
+        AppUpdateScheduledMsg: Label 'App %1 update to version %2 successfully scheduled.', Comment = '%1 = App Name, %2 = Version';
+        FailedToUpdateErr: Label 'Failed to update app: %1', Comment = '%1 = Error message';
         NoUpdateAvailableErr: Label 'No update available for this app';
         ResponseText: Text;
     begin
@@ -563,8 +563,8 @@ codeunit 62000 "D4P BC Environment Mgt"
     procedure CreateNewBCEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100]; Localization: Code[2]; EnvironmentType: Enum "D4P Environment Type")
     var
         JsonObject: JsonObject;
-        EnvironmentCreatedMsg: Label 'New environment %1 successfully created.';
-        FailedToCreateErr: Label 'Failed to create new environment: %1';
+        EnvironmentCreatedMsg: Label 'New environment %1 successfully created.', Comment = '%1 = Environment Name';
+        FailedToCreateErr: Label 'Failed to create new environment: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
         JsonObject.Add('environmentType', Format(EnvironmentType));
@@ -576,14 +576,13 @@ codeunit 62000 "D4P BC Environment Mgt"
             Error(FailedToCreateErr, ResponseText);
 
         Message(EnvironmentCreatedMsg, EnvironmentName);
-
     end;
 
     procedure CopyBCEnvironment(var BCTenant: Record "D4P BC Tenant"; SourceEnvironmentName: Text[100]; NewEnvironmentName: Text[100]; NewEnvironmentType: Enum "D4P Environment Type")
     var
         JsonObject: JsonObject;
-        CopyEnvironmentScheduledMsg: Label 'Copy environment %1 to %2 successfully scheduled.';
-        FailedToCreateErr: Label 'Failed to create new environment: %1';
+        CopyEnvironmentScheduledMsg: Label 'Copy environment %1 to %2 successfully scheduled.', Comment = '%1 = Source Environment Name, %2 = Target Environment Name';
+        FailedToCreateErr: Label 'Failed to create new environment: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
         JsonObject.Add('environmentName', NewEnvironmentName);
@@ -600,8 +599,8 @@ codeunit 62000 "D4P BC Environment Mgt"
     procedure RenameBCEnvironment(var BCTenant: Record "D4P BC Tenant"; SourceEnvironmentName: Text[100]; NewEnvironmentName: Text[100])
     var
         JsonObject: JsonObject;
-        EnvironmentRenamedMsg: Label 'Environment %1 successfully renamed to %2.';
-        FailedToRenameErr: Label 'Failed to rename environment: %1';
+        EnvironmentRenamedMsg: Label 'Environment %1 successfully renamed to %2.', Comment = '%1 = Old Environment Name, %2 = New Environment Name';
+        FailedToRenameErr: Label 'Failed to rename environment: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
         JsonObject.Add('NewEnvironmentName', NewEnvironmentName);
@@ -616,8 +615,8 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure DeleteBCEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100])
     var
-        EnvironmentMarkedForDeletionMsg: Label 'Environment %1 successfully marked for deletion.';
-        FailedToDeleteErr: Label 'Failed to delete environment: %1';
+        EnvironmentMarkedForDeletionMsg: Label 'Environment %1 successfully marked for deletion.', Comment = '%1 = Environment Name';
+        FailedToDeleteErr: Label 'Failed to delete environment: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'DELETE',
@@ -625,7 +624,6 @@ codeunit 62000 "D4P BC Environment Mgt"
             Error(FailedToDeleteErr, ResponseText);
 
         Message(EnvironmentMarkedForDeletionMsg, EnvironmentName);
-
     end;
 
     procedure GetAvailableUpdates(var BCEnvironment: Record "D4P BC Environment"; var TempAvailableUpdate: Record "D4P BC Available Update" temporary)
@@ -644,10 +642,10 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
         JsonValue: JsonValue;
-        FailedToFetchErr: Label 'Failed to fetch available updates: %1';
+        FailedToFetchErr: Label 'Failed to fetch available updates: %1', Comment = '%1 = Error message';
         FetchingUpdatesMsg: Label 'Fetching available updates...';
-        NoUpdatesFoundMsg: Label 'No updates found in API response for environment %1.';
-        ProcessingUpdateMsg: Label 'Processing update #1#### of #2####: #3####################';
+        NoUpdatesFoundMsg: Label 'No updates found in API response for environment %1.', Comment = '%1 = Environment Name';
+        ProcessingUpdateMsg: Label 'Processing update #1#### of #2####: #3####################', Comment = '%1 = index, %2 = total number of updates, %3 = Progress bar';
         Endpoint: Text;
         ResponseText: Text;
     begin
@@ -792,9 +790,9 @@ codeunit 62000 "D4P BC Environment Mgt"
         SelectedDateTime: DateTime;
         JsonObject: JsonObject;
         JsonScheduleDetails: JsonObject;
-        FailedToSelectErr: Label 'Failed to select target version: %1';
-        UpdateScheduledMsg: Label 'Update to version %1 successfully scheduled for %2.';
-        UpdateSelectedMsg: Label 'Update to version %1 successfully selected. Expected availability: %2/%3.';
+        FailedToSelectErr: Label 'Failed to select target version: %1', Comment = '%1 = Error message';
+        UpdateScheduledMsg: Label 'Update to version %1 successfully scheduled for %2.', Comment = '%1 = Version, %2 = Date';
+        UpdateSelectedMsg: Label 'Update to version %1 successfully selected. Expected availability: %2/%3.', Comment = '%1 = Version, %2 = Month, %3 = Year';
         Endpoint: Text;
         RequestBody: Text;
         ResponseText: Text;
@@ -848,8 +846,8 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure RescheduleBCEnvironmentUpgrade(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100]; TargetVersion: Text[100]; UpgradeDate: DateTime)
     var
-        EnvironmentUpgradeScheduledMsg: Label 'Environment %1 successfully scheduled for upgrade to version %2 on Date %3.';
-        FailedToUpgradeErr: Label 'Failed to upgrade environment: %1';
+        EnvironmentUpgradeScheduledMsg: Label 'Environment %1 successfully scheduled for upgrade to version %2 on Date %3.', Comment = '%1 = Environment Name, %2 = Version, %3 = Date';
+        FailedToUpgradeErr: Label 'Failed to upgrade environment: %1', Comment = '%1 = Error message';
         Endpoint: Text;
         ResponseText: Text;
     begin
@@ -859,7 +857,6 @@ codeunit 62000 "D4P BC Environment Mgt"
             Message(EnvironmentUpgradeScheduledMsg, EnvironmentName, TargetVersion, UpgradeDate)
         else
             Error(FailedToUpgradeErr, ResponseText);
-
     end;
 
     procedure SetApplicationInsightsConnectionString(var BCEnvironment: Record "D4P BC Environment")
@@ -867,9 +864,9 @@ codeunit 62000 "D4P BC Environment Mgt"
         BCTenant: Record "D4P BC Tenant";
         IsRemoving: Boolean;
         JsonObject: JsonObject;
-        ConnectionStringRemovedMsg: Label 'Application Insights connection string successfully removed for environment %1.';
-        ConnectionStringSetMsg: Label 'Application Insights connection string successfully set for environment %1.';
-        FailedToSetKeyErr: Label 'Failed to set Application Insights key: %1';
+        ConnectionStringRemovedMsg: Label 'Application Insights connection string successfully removed for environment %1.', Comment = '%1 = Environment Name';
+        ConnectionStringSetMsg: Label 'Application Insights connection string successfully set for environment %1.', Comment = '%1 = Environment Name';
+        FailedToSetKeyErr: Label 'Failed to set Application Insights key: %1', Comment = '%1 = Error message';
         Endpoint: Text;
         RequestBody: Text;
         ResponseText: Text;
@@ -893,5 +890,4 @@ codeunit 62000 "D4P BC Environment Mgt"
         end else
             Error(FailedToSetKeyErr, ResponseText);
     end;
-
 }

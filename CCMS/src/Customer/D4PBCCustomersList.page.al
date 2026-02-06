@@ -1,7 +1,7 @@
 namespace D4P.CCMS.Customer;
 
-using D4P.CCMS.Tenant;
 using D4P.CCMS.Environment;
+using D4P.CCMS.Tenant;
 
 page 62000 "D4P BC Customers List"
 {
@@ -54,7 +54,7 @@ page 62000 "D4P BC Customers List"
             action(BCTenants)
             {
                 ApplicationArea = All;
-                Caption = 'Tenants';
+                Caption = 'BC Tenants';
                 Image = List;
                 RunObject = page "D4P BC Tenant List";
                 RunPageLink = "Customer No." = field("No.");
@@ -74,7 +74,6 @@ page 62000 "D4P BC Customers List"
         {
             actionref(BCTenantsPromoted; BCTenants)
             {
-
             }
             actionref(BCEnvironmentsPromoted; BCEnvironments)
             {

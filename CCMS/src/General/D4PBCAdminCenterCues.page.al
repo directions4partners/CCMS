@@ -24,10 +24,8 @@ page 62034 "D4P BC Admin Center Cues"
 
                 field("Customers Count"; Rec."Customers Count")
                 {
-                    trigger OnDrillDown()
-                    begin
-                        Page.Run(Page::"D4P BC Customers List");
-                    end;
+                    Caption = 'Customers';
+                    DrillDownPageId = "D4P BC Customers List";
                 }
             }
             cuegroup(Tenants)
@@ -36,10 +34,8 @@ page 62034 "D4P BC Admin Center Cues"
 
                 field("Tenants Count"; Rec."Tenants Count")
                 {
-                    trigger OnDrillDown()
-                    begin
-                        Page.Run(Page::"D4P BC Tenant List");
-                    end;
+                    Caption = 'Tenants';
+                    DrillDownPageId = "D4P BC Tenant List";
                 }
 
                 field("Tenants >90% Capacity"; Rec."Tenants >90% Capacity")

@@ -21,7 +21,6 @@ page 62047 "D4P AppInsights Conn List"
             {
                 field("Connection String"; Rec."Connection String")
                 {
-                    MaskType = Concealed;
                 }
                 field("Description"; Rec."Description")
                 {
@@ -46,7 +45,6 @@ page 62047 "D4P AppInsights Conn List"
         {
             action(New)
             {
-                ApplicationArea = All;
                 Caption = 'New';
                 Image = New;
                 RunObject = page "D4P AppInsights Conn Card";
@@ -55,7 +53,6 @@ page 62047 "D4P AppInsights Conn List"
             }
             action(Edit)
             {
-                ApplicationArea = All;
                 Caption = 'Edit';
                 Image = Edit;
                 RunObject = page "D4P AppInsights Conn Card";
