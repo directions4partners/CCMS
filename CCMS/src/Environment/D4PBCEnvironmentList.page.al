@@ -14,9 +14,10 @@ page 62003 "D4P BC Environment List"
     ApplicationArea = All;
     Caption = 'D365BC Environments';
     CardPageId = "D4P BC Environment Card";
+    SourceTable = "D4P BC Environment";
+    SourceTableView = sorting("Customer No.", "Tenant ID", Type, Name);
     Editable = false;
     PageType = List;
-    SourceTable = "D4P BC Environment";
     UsageCategory = Lists;
 
     layout
@@ -25,6 +26,8 @@ page 62003 "D4P BC Environment List"
         {
             repeater(GroupName)
             {
+                FreezeColumn = Name;
+
                 field("Customer No."; Rec."Customer No.")
                 {
                 }
