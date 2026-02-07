@@ -233,6 +233,7 @@ table 62000 "D4P BC Customer"
         Rec.Validate("No.", Customer."No.");
         Rec.Validate(Name, Customer.Name);
         Rec.Validate("Address", Customer."Address");
+        Rec.Validate("Address 2", Customer."Address 2");
         Rec.Validate("City", Customer."City");
         Rec.Validate("Post Code", Customer."Post Code");
         Rec.Validate(County, Customer.County);
