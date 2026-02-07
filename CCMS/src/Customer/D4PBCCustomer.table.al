@@ -240,6 +240,8 @@ table 62000 "D4P BC Customer"
         Rec.Validate("Country/Region Code", Customer."Country/Region Code");
         Rec.Validate("Contact Person Name", Customer.Contact);
         Rec.Validate("Contact Person Email", Customer."E-Mail");
+
+        OnAfterPopulateFromSalesCustomer(Rec, xRec, Customer);
     end;
 
     local procedure TestNoSeries()
@@ -267,6 +269,11 @@ table 62000 "D4P BC Customer"
         if "Contact Person Email" = '' then
             exit;
         MailManagement.CheckValidEmailAddresses("Contact Person Email");
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterPopulateFromSalesCustomer(var D4PBCCustomer: Record "D4P BC Customer"; xD4PBCCustomer: Record "D4P BC Customer"; MicrosoftSalesCustomer: Record Customer)
+    begin
     end;
 
     [IntegrationEvent(false, false)]
