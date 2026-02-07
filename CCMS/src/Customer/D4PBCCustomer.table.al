@@ -1,11 +1,11 @@
 namespace D4P.CCMS.Customer;
 
 using D4P.CCMS.Environment;
-using Microsoft.Sales.Customer;
 using D4P.CCMS.Setup;
 using D4P.CCMS.Tenant;
 using Microsoft.Foundation.Address;
 using Microsoft.Foundation.NoSeries;
+using Microsoft.Sales.Customer;
 using System.EMail;
 
 table 62000 "D4P BC Customer"
