@@ -205,7 +205,8 @@ table 62000 "D4P BC Customer"
         if IsCCMSSetupLoaded then
             exit;
 
-        IsCCMSSetupLoaded := CCMSSetup.Get();
+        CCMSSetup := CCMSSetup.GetSetup();
+        IsCCMSSetupLoaded := true;
     end;
 
     /// <summary>
