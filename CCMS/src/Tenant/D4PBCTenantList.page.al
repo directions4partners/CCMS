@@ -73,6 +73,17 @@ page 62002 "D4P BC Tenant List"
         }
         area(Navigation)
         {
+            action(AdminCenter)
+            {
+                ApplicationArea = All;
+                Caption = 'Admin Center';
+                Image = LaunchWeb;
+                ToolTip = 'Open the Dynamics 365 Business Central Admin Center for this tenant.';
+                trigger OnAction()
+                begin
+                    Rec.OpenAdminCenter();
+                end;
+            }
             action(Environments)
             {
                 ApplicationArea = All;
@@ -99,6 +110,9 @@ page 62002 "D4P BC Tenant List"
             group(Category_Navigation)
             {
                 Caption = 'Navigation';
+                actionref(AdminCenterPromoted; AdminCenter)
+                {
+                }
                 actionref(EnvironmentsPromoted; Environments)
                 {
                 }
