@@ -35,6 +35,7 @@ table 62004 "D4P PTE Object Range"
         {
             Caption = 'PTE ID';
             ToolTip = 'Specifies the Per Tenant Extension''s ID.';
+            TableRelation = "D4P BC PTE App"."ID";
         }
         field(5; "PTE Name"; Text[100])
         {
@@ -43,11 +44,15 @@ table 62004 "D4P PTE Object Range"
         }
         field(6; "Range From"; Integer)
         {
+            ObsoleteReason = 'Added new table to make it possible to have several object ranges on same app';
+            ObsoleteState = Pending;
             Caption = 'Range From';
             ToolTip = 'Specifies the starting range.';
         }
         field(7; "Range To"; Integer)
         {
+            ObsoleteReason = 'Added new table to make it possible to have several object ranges on same app';
+            ObsoleteState = Pending;
             Caption = 'Range To';
             ToolTip = 'Specifies the ending range.';
         }
@@ -68,7 +73,5 @@ table 62004 "D4P PTE Object Range"
         if not PTEApp.Get(PTEID) then
             exit;
         Rec."PTE Name" := PTEApp."Name";
-        Rec."Range From" := PTEApp."Range From";
-        Rec."Range To" := PTEApp."Range To";
     end;
 }

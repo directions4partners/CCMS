@@ -43,7 +43,4 @@ table 62006 "D4P BC DevOps Organization"
         if IsolatedStorage.Contains(TokenKey) then
             IsolatedStorage.Delete(TokenKey);
     end;
-
-
-
 }

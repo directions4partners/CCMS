@@ -26,12 +26,6 @@ page 62035 "D4P BC PTE App Card"
                 field("Latest App Version"; Rec."Latest App Version")
                 {
                 }
-                field("Range From"; Rec."Range From")
-                {
-                }
-                field("Range To"; Rec."Range To")
-                {
-                }
             }
             group(DevOpsGroup)
             {
@@ -59,6 +53,11 @@ page 62035 "D4P BC PTE App Card"
 
         area(FactBoxes)
         {
+            part(PTEAppPObjectRangeFactBox; "D4P BC PTE Obj. Ranges FactBox")
+            {
+                Caption = 'Object Range';
+                SubPageLink = "PTE ID" = field("ID");
+            }
             part(PTEAppVersionsFactBox; "D4P PTE App Versions FactBox")
             {
                 Caption = 'Versions';
@@ -92,6 +91,23 @@ page 62035 "D4P BC PTE App Card"
                 end;
             }
         }
+        area(Navigation)
+        {
+            action(ObjectRanges)
+            {
+                Caption = 'Object Ranges';
+                ToolTip = 'View and edit per tenant extension object ranges for this app.';
+                ApplicationArea = All;
+                Image = EditLines;
+                trigger OnAction()
+                var
+                    ObjectRanges: Page "D4P BC PTE Object Range";
+                begin
+                    ObjectRanges.SetAppId(Rec."ID");
+                    ObjectRanges.Run();
+                end;
+            }
+        }
         area(Promoted)
         {
             group(Category_Process)
@@ -99,6 +115,14 @@ page 62035 "D4P BC PTE App Card"
                 Caption = 'Process';
 
                 actionref(GetLatestVersions_Promoted; GetLatestVersions)
+                {
+                }
+            }
+            group(Category_Navigation)
+            {
+                Caption = 'Navigation';
+
+                actionref(ObjectRanges_Promoted; ObjectRanges)
                 {
                 }
             }

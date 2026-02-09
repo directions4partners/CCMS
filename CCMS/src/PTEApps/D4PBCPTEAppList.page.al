@@ -27,12 +27,6 @@ page 62029 "D4P BC PTE App List"
                 field("Latest App Version"; Rec."Latest App Version")
                 {
                 }
-                field("Range From"; Rec."Range From")
-                {
-                }
-                field("Range To"; Rec."Range To")
-                {
-                }
                 field(DevOps; Rec."DevOps Environment")
                 {
                 }
@@ -53,6 +47,11 @@ page 62029 "D4P BC PTE App List"
 
         area(FactBoxes)
         {
+            part(PTEAppPObjectRangeFactBox; "D4P BC PTE Obj. Ranges FactBox")
+            {
+                Caption = 'Object Range';
+                SubPageLink = "PTE ID" = field("ID");
+            }
             part(PTEAppVersionsFactBox; "D4P PTE App Versions FactBox")
             {
                 Caption = 'Versions';

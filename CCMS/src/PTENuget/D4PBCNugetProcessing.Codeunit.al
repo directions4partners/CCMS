@@ -31,7 +31,7 @@ codeunit 62008 "D4P BC Nuget Processing"
         SearchURLLbl: Label '%1?q=%2', Locked = true, Comment = '%1 is Service Type URL, %2 is Package Name';
         SearchURL: Text;
     begin
-        RestClient.SetAuthorizationHeader(BCDevOpsUpdate.GetToken(PTEApp."DevOps Organization"));
+        RestClient.SetAuthorizationHeader(BCDevOpsUpdate.GetToken(StrSubstNo('%1-%2', PTEApp."DevOps Environment", PTEApp."DevOps Organization")));
         SearchURL := StrSubstNo(SearchURLLbl, ServiceTypeUrl, PTEApp."NuGet Package Name");
         JsonToken := RestClient.GetAsJson(SearchURL);
         ProcessVersions(JsonToken, PTEApp, BCDevOpsUpdate);
@@ -65,17 +65,17 @@ codeunit 62008 "D4P BC Nuget Processing"
             else
                 PTEAppVersion.Insert(true);
 
-            PTEAppVersion."Package Content Url" := GetPackageContentUrl(PTEAppVersion, JsonToken.AsObject().GetText('@id'), BCDevOpsUpdate);
+            PTEAppVersion."Package Content Url" := GetPackageContentUrl(PTEApp, PTEAppVersion, JsonToken.AsObject().GetText('@id'), BCDevOpsUpdate);
             PTEAppVersion.Modify(true);
         end;
     end;
 
-    procedure GetPackageContentUrl(PTEAppVersion: Record "D4P BC PTE App Version"; PackageVersionUrl: Text; BCDevOpsUpdate: Interface "D4P BC DevOps Update"): Text
+    procedure GetPackageContentUrl(PTEApp: Record "D4P BC PTE App"; PTEAppVersion: Record "D4P BC PTE App Version"; PackageVersionUrl: Text; BCDevOpsUpdate: Interface "D4P BC DevOps Update"): Text
     var
         RestClient: Codeunit "Rest Client";
         JsonToken: JsonToken;
     begin
-        RestClient.SetAuthorizationHeader(BCDevOpsUpdate.GetToken(PTEAppVersion.GetPTEOrganizationName()));
+        RestClient.SetAuthorizationHeader(BCDevOpsUpdate.GetToken(StrSubstNo('%1-%2', PTEApp."DevOps Environment", PTEApp."DevOps Organization")));
         JsonToken := RestClient.GetAsJson(PackageVersionUrl);
         if not JsonToken.IsObject() then
             exit('');
@@ -86,19 +86,40 @@ codeunit 62008 "D4P BC Nuget Processing"
     procedure DownloadPackageContent(PTEAppVersion: Record "D4P BC PTE App Version"): Boolean
     var
         BCDevOpsUpdate: Interface "D4P BC DevOps Update";
+        PTEApp: Record "D4P BC PTE App";
         RestClient: Codeunit "Rest Client";
         Response: Codeunit "HTTP Response Message";
         Instream: InStream;
         FileName: Text;
     begin
+        if not PTEApp.Get(PTEAppVersion."PTE ID") then
+            exit(false);
+
         DevOpsUpdateFactory(BCDevOpsUpdate, PTEAppVersion.GetPTEAppDevOps());
-        RestClient.SetAuthorizationHeader(BCDevOpsUpdate.GetToken(PTEAppVersion.GetPTEOrganizationName()));
+        RestClient.SetAuthorizationHeader(BCDevOpsUpdate.GetToken(StrSubstNo('%1-%2', PTEApp."DevOps Environment", PTEApp."DevOps Organization")));
         Response := RestClient.Get(PTEAppVersion."Package Content Url");
         if not Response.GetIsSuccessStatusCode() then
             exit(false);
         Instream := Response.GetContent().AsInStream();
-        FileName := PTEAppVersion.GetPTEAppName() + '_' + PTEAppVersion."App Version" + '.app';
+        FileName := SanitizeFileName(PTEAppVersion.GetPTEAppName() + '_' + PTEAppVersion."App Version" + '.app');
         exit(DownloadFromStream(Instream, 'Download App Package', '', '', FileName));
+    end;
+
+
+    local procedure SanitizeFileName(UnsafeFileName: Text): Text
+    var
+        SafeFileName: Text;
+    begin
+        SafeFileName := UnsafeFileName.Trim();
+        SafeFileName := DelChr(SafeFileName, '=', '\/:*?"<>|');
+
+        while StrPos(SafeFileName, '..') > 0 do
+            SafeFileName := SafeFileName.Replace('..', '.');
+
+        if SafeFileName = '' then
+            exit('PTEAppPackage.app');
+
+        exit(SafeFileName);
     end;
 
 }
