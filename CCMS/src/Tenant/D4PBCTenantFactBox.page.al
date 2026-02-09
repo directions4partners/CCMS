@@ -7,6 +7,7 @@ page 62012 "D4P BC Tenant FactBox"
     PageType = CardPart;
     SourceTable = "D4P BC Tenant";
     Caption = 'Tenant Details';
+    ApplicationArea = All;
 
     layout
     {
@@ -17,11 +18,9 @@ page 62012 "D4P BC Tenant FactBox"
                 Caption = 'Authentication';
                 field("Client ID"; Rec."Client ID")
                 {
-                    ApplicationArea = All;
                 }
                 field("Secret Expiration Date"; GetSecretExpirationDate())
                 {
-                    ApplicationArea = All;
                     Caption = 'Secret Expiration Date';
                     ToolTip = 'Specifies when the client secret will expire.';
                 }
@@ -31,16 +30,13 @@ page 62012 "D4P BC Tenant FactBox"
                 Caption = 'Backup Configuration';
                 field("Backup SAS URI"; Rec."Backup SAS URI")
                 {
-                    ApplicationArea = All;
                     ExtendedDatatype = Masked;
                 }
                 field("Backup Container Name"; Rec."Backup Container Name")
                 {
-                    ApplicationArea = All;
                 }
                 field("Backup SAS Token Exp. Date"; Rec."Backup SAS Token Exp. Date")
                 {
-                    ApplicationArea = All;
                 }
             }
         }

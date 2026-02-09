@@ -1,18 +1,19 @@
 namespace D4P.CCMS.Tenant;
 
-using D4P.CCMS.Setup;
+using D4P.CCMS.Capacity;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
+using D4P.CCMS.Setup;
 
 page 62002 "D4P BC Tenant List"
 {
-    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
-    SourceTable = "D4P BC Tenant";
     Caption = 'D365BC Entra Tenants';
     CardPageId = "D4P BC Tenant Card";
     Editable = false;
+    PageType = List;
+    SourceTable = "D4P BC Tenant";
+    UsageCategory = Lists;
 
     layout
     {
@@ -22,6 +23,10 @@ page 62002 "D4P BC Tenant List"
             {
                 field("Customer No."; Rec."Customer No.")
                 {
+                }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    DrillDown = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
@@ -51,7 +56,6 @@ page 62002 "D4P BC Tenant List"
         {
             action(Setup)
             {
-                ApplicationArea = All;
                 Caption = 'Setup';
                 Image = Setup;
                 RunObject = page "D4P BC Setup";
@@ -59,7 +63,6 @@ page 62002 "D4P BC Tenant List"
             }
             action(TestDebugMode)
             {
-                ApplicationArea = All;
                 Caption = 'Test Debug Mode';
                 Image = TestReport;
                 ToolTip = 'Test if debug mode is working properly.';
@@ -86,7 +89,6 @@ page 62002 "D4P BC Tenant List"
             }
             action(Environments)
             {
-                ApplicationArea = All;
                 Caption = 'Environments';
                 Image = ViewDetails;
                 RunObject = page "D4P BC Environment List";
@@ -94,9 +96,25 @@ page 62002 "D4P BC Tenant List"
                             "Tenant ID" = field("Tenant ID");
                 ToolTip = 'View Business Central environments for this tenant.';
             }
+            action(Capacity)
+            {
+                Caption = 'Capacity';
+                Image = Capacity;
+                ToolTip = 'View capacity information for all environments.';
+
+                trigger OnAction()
+                var
+                    CapacityHeader: Record "D4P BC Capacity Header";
+                    CapacityWorksheet: Page "D4P BC Capacity Worksheet";
+                begin
+                    CapacityHeader.SetRange("Customer No.", Rec."Customer No.");
+                    CapacityHeader.SetRange("Tenant ID", Rec."Tenant ID");
+                    CapacityWorksheet.SetTableView(CapacityHeader);
+                    CapacityWorksheet.Run();
+                end;
+            }
             action(PTEObjectRanges)
             {
-                ApplicationArea = All;
                 Caption = 'PTE Object Ranges';
                 Image = NumberSetup;
                 RunObject = page "D4P PTE Object Ranges";
@@ -114,6 +132,9 @@ page 62002 "D4P BC Tenant List"
                 {
                 }
                 actionref(EnvironmentsPromoted; Environments)
+                {
+                }
+                actionref(CapacityPromoted; Capacity)
                 {
                 }
                 actionref(PTEObjectRangesPromoted; PTEObjectRanges)

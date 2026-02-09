@@ -47,6 +47,11 @@ page 62028 "D4P BC Environment Operations"
                 }
                 field("Error Message"; Rec."Error Message")
                 {
+                    trigger OnDrillDown()
+                    begin
+                        if Rec."Error Message" <> '' then
+                            Message(Rec."Error Message");
+                    end;
                 }
                 field("Operation ID"; Rec."Operation ID")
                 {
@@ -61,7 +66,6 @@ page 62028 "D4P BC Environment Operations"
         {
             action(GetOperations)
             {
-                ApplicationArea = All;
                 Caption = 'Get Operations';
                 Image = Refresh;
                 ToolTip = 'Get the list of operations for this environment.';
@@ -80,7 +84,6 @@ page 62028 "D4P BC Environment Operations"
             }
             action(ViewParameters)
             {
-                ApplicationArea = All;
                 Caption = 'View Parameters';
                 Image = ViewDetails;
                 ToolTip = 'View the operation parameters.';
@@ -122,7 +125,6 @@ page 62028 "D4P BC Environment Operations"
     var
         CurrentEnvironment: Record "D4P BC Environment";
         StatusStyle: Text;
-
 
     local procedure FormatJsonParameters(JsonText: Text): Text
     var
@@ -168,13 +170,13 @@ page 62028 "D4P BC Environment Operations"
     begin
         case LowerCase(Rec.Status) of
             'succeeded':
-                StatusStyle := 'Favorable';
+                StatusStyle := Format(PageStyle::Favorable);
             'failed':
-                StatusStyle := 'Unfavorable';
+                StatusStyle := Format(PageStyle::Unfavorable);
             'running':
-                StatusStyle := 'Ambiguous';
+                StatusStyle := Format(PageStyle::Ambiguous);
             else
-                StatusStyle := 'Standard';
+                StatusStyle := Format(PageStyle::Standard);
         end;
     end;
 }

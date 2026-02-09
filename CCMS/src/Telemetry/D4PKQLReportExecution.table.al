@@ -4,7 +4,6 @@ table 62037 "D4P KQL Report Execution"
 {
     DataClassification = SystemMetadata;
     Caption = 'KQL Report Execution', Locked = true;
-
     LookupPageId = "D4P KQL Report Executions";
     DrillDownPageId = "D4P KQL Report Executions";
 
@@ -92,5 +91,4 @@ table 62037 "D4P KQL Report Execution"
         }
         key(Key2; "Environment Code", "User ID", "Execution Date/Time") { }
     }
-
 }

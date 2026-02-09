@@ -1,25 +1,26 @@
 namespace D4P.CCMS.Permissions;
 
+using D4P.CCMS.Auth;
+using D4P.CCMS.Backup;
+using D4P.CCMS.Capacity;
 using D4P.CCMS.Customer;
-using D4P.CCMS.Tenant;
-using D4P.CCMS.Operations;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
-using D4P.CCMS.General;
-using D4P.CCMS.Setup;
 using D4P.CCMS.Features;
 using D4P.CCMS.PTEApps;
 using D4P.CCMS.Backup;
 using D4P.CCMS.Capacity;
+using D4P.CCMS.General;
+using D4P.CCMS.Operations;
 using D4P.CCMS.Session;
+using D4P.CCMS.Setup;
 using D4P.CCMS.Telemetry;
-using D4P.CCMS.Auth;
+using D4P.CCMS.Tenant;
 
 permissionset 62000 "D4P BC ADMIN"
 {
     Assignable = true;
     Caption = 'D365BC Admin Center - Full Access';
-
     Permissions =
         // Tables
         tabledata "D4P BC Customer" = RIMD,
@@ -114,6 +115,8 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P PTE App Versions FactBox" = X,
         page "D4P BC PTE Object Range" = X,
         page "D4P BC PTE Obj. Ranges FactBox" = X,
+        page "D4P BC Admin Headline" = X,
+        page "D4P BC Capacity List" = X,
 
         // Codeunits
         codeunit "D4P BC Environment Mgt" = X,
@@ -127,5 +130,6 @@ permissionset 62000 "D4P BC ADMIN"
         codeunit "D4P BC App Registration" = X,
 
         // Reports
-        report "D4P Load Data" = X;
+        report "D4P Load Data" = X,
+        report "D4P Get Installed Apps" = X;
 }

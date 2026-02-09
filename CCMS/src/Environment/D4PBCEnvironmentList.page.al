@@ -2,22 +2,23 @@ namespace D4P.CCMS.Environment;
 
 using D4P.CCMS.Backup;
 using D4P.CCMS.Capacity;
-using D4P.CCMS.Tenant;
 using D4P.CCMS.Extension;
 using D4P.CCMS.Features;
-using D4P.CCMS.Telemetry;
-using D4P.CCMS.Session;
 using D4P.CCMS.Operations;
+using D4P.CCMS.Session;
+using D4P.CCMS.Telemetry;
+using D4P.CCMS.Tenant;
 
 page 62003 "D4P BC Environment List"
 {
-    PageType = List;
     ApplicationArea = All;
-    UsageCategory = Lists;
-    SourceTable = "D4P BC Environment";
     Caption = 'D365BC Environments';
-    Editable = false;
     CardPageId = "D4P BC Environment Card";
+    SourceTable = "D4P BC Environment";
+    SourceTableView = sorting("Customer No.", "Tenant ID", Type, Name);
+    Editable = false;
+    PageType = List;
+    UsageCategory = Lists;
 
     layout
     {
@@ -25,9 +26,14 @@ page 62003 "D4P BC Environment List"
         {
             repeater(GroupName)
             {
+                FreezeColumn = Name;
+
                 field("Customer No."; Rec."Customer No.")
                 {
-                    Editable = false;
+                }
+                field("Customer Name"; Rec."Customer Name")
+                {
+                    DrillDown = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
@@ -53,55 +59,56 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Target Version"; Rec."Target Version")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Available"; Rec."Available")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Target Version Type"; Rec."Target Version Type")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Selected DateTime"; Rec."Selected DateTime")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Expected Availability"; Rec."Expected Availability")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Ignore Update Window"; Rec."Ignore Update Window")
                 {
+                    Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
-                    Editable = false;
                 }
                 field("Application Insights String"; Rec."Application Insights String")
                 {
-                    MaskType = Concealed;
+                    ExtendedDatatype = Masked;
+                    Visible = false;
                 }
                 field("Friendly Name"; Rec."Friendly Name")
                 {
@@ -131,22 +138,19 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Telemetry API Key"; Rec."Telemetry API Key")
                 {
-                    Editable = false;
                     ExtendedDatatype = Masked;
+                    Visible = false;
                 }
                 field("Telemetry Application ID"; Rec."Telemetry Application ID")
                 {
-                    Editable = false;
                 }
                 field("Telemetry Tenant ID"; Rec."Telemetry Tenant ID")
                 {
-                    ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
-                    Editable = false;
                 }
                 field("Telemetry Description"; Rec."Telemetry Description")
                 {
-                    ToolTip = 'Specifies the description for the telemetry connection (automatically retrieved from AppInsights Connection Setup).';
                     Editable = false;
+                    ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                 }
             }
         }
@@ -167,7 +171,6 @@ page 62003 "D4P BC Environment List"
         {
             action(GetEnvironments)
             {
-                ApplicationArea = All;
                 Caption = 'Get';
                 Image = Refresh;
                 ToolTip = 'Get the list of environments.';
@@ -182,7 +185,6 @@ page 62003 "D4P BC Environment List"
             }
             action(GetEnvironmentUpdateInfo)
             {
-                ApplicationArea = All;
                 Caption = 'Get Updates';
                 Image = UpdateDescription;
                 ToolTip = 'Returns information about the available version updates for all environments in the list.';
@@ -194,10 +196,10 @@ page 62003 "D4P BC Environment List"
                     ProgressDialog: Dialog;
                     ProcessedCount: Integer;
                     TotalCount: Integer;
-                    ConfirmMsg: Label 'This will get update information for %1 environment(s). Continue?';
+                    ConfirmMsg: Label 'This will get update information for %1 environment(s). Continue?', Comment = '%1 = Number of environments';
                     NoEnvironmentsToUpdateMsg: Label 'No environments to update.';
-                    ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@';
-                    SuccessMsg: Label 'Successfully processed %1 environment(s).';
+                    ProcessingMsg: Label 'Processing environment #1#### of #2#### @3@@@@@@@@@@@@@@@@@@@@@@@@', Comment = '%1 = index, %2 = total environments, %3 = Progress bar';
+                    SuccessMsg: Label 'Successfully processed %1 environment(s).', Comment = '%1 = Number of processed environments';
                 begin
                     // Copy filter from current view
                     BCEnvironment.CopyFilters(Rec);
@@ -230,7 +232,6 @@ page 62003 "D4P BC Environment List"
             }
             action(CreateNewEnvironment)
             {
-                ApplicationArea = All;
                 Caption = 'New';
                 Image = NewProperties;
                 ToolTip = 'Creates a new environment.';
@@ -247,7 +248,6 @@ page 62003 "D4P BC Environment List"
             }
             action(CopyEnvironment)
             {
-                ApplicationArea = All;
                 Caption = 'Copy';
                 Image = Copy;
                 ToolTip = 'Creates a copy for the selected environment.';
@@ -265,7 +265,6 @@ page 62003 "D4P BC Environment List"
             }
             action(RenameEnvironment)
             {
-                ApplicationArea = All;
                 Caption = 'Rename';
                 Image = NewStatusChange;
                 ToolTip = 'Renames selected environment.';
@@ -283,7 +282,6 @@ page 62003 "D4P BC Environment List"
             }
             action(DeleteAllFetched)
             {
-                ApplicationArea = All;
                 Caption = 'Delete Selected';
                 Image = Delete;
                 ToolTip = 'Delete selected environment records and related data from the local database.';
@@ -292,8 +290,8 @@ page 62003 "D4P BC Environment List"
                     Environment: Record "D4P BC Environment";
                     EnvironmentHelper: Codeunit "D4P BC Environment Helper";
                     RecordCount: Integer;
-                    DeleteQst: Label 'Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.';
-                    EnvironmentRecordsDeletedMsg: Label '%1 environment record(s) and related data deleted from local database.';
+                    DeleteQst: Label 'Are you sure you want to delete %1 selected environment record(s) and all related data from the local database?\This will NOT delete the actual environments in Business Central.', Comment = '%1 = Number of selected records';
+                    EnvironmentRecordsDeletedMsg: Label '%1 environment record(s) and related data deleted from local database.', Comment = '%1 = Number of deleted records';
                 begin
                     CurrPage.SetSelectionFilter(Environment);
                     RecordCount := Environment.Count();
@@ -316,7 +314,6 @@ page 62003 "D4P BC Environment List"
         {
             action(EnvironmentDetails)
             {
-                ApplicationArea = All;
                 Caption = 'Details';
                 Image = ViewDetails;
                 RunObject = page "D4P BC Environment Card";
@@ -327,7 +324,6 @@ page 62003 "D4P BC Environment List"
             }
             action(InstalledApps)
             {
-                ApplicationArea = All;
                 Caption = 'Installed Apps';
                 Image = ExternalDocument;
                 RunObject = page "D4P BC Installed Apps List";
@@ -338,7 +334,6 @@ page 62003 "D4P BC Environment List"
             }
             action(RunTelemetryQuery)
             {
-                ApplicationArea = All;
                 Caption = 'Run Query';
                 Image = Start;
                 ToolTip = 'Select and run a telemetry query directly using the selected environment''s configuration.';
@@ -352,7 +347,6 @@ page 62003 "D4P BC Environment List"
             }
             action(KQLQueries)
             {
-                ApplicationArea = All;
                 Caption = 'KQL Queries';
                 Image = Log;
                 ToolTip = 'View and execute KQL queries for telemetry data analysis on the selected environment.';
@@ -366,7 +360,6 @@ page 62003 "D4P BC Environment List"
             }
             action(SetAppInsightsConnectionString)
             {
-                ApplicationArea = All;
                 Caption = 'Set Application Insights Connection String';
                 Image = Setup;
                 ToolTip = 'Sets the Application Insights connection string for the selected environment (telemetry).';
@@ -374,8 +367,8 @@ page 62003 "D4P BC Environment List"
                 var
                     BCTenant: Record "D4P BC Tenant";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
-                    AppInsightsMsg: Label 'Are you sure you want to set the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.';
-                    RemoveAppInsightsMsg: Label 'Are you sure you want to remove the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.';
+                    AppInsightsMsg: Label 'Are you sure you want to set the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.', Comment = '%1 = Environment Name';
+                    RemoveAppInsightsMsg: Label 'Are you sure you want to remove the Application Insights connection string for environment %1?\Please be aware that this will RESTART the environment.', Comment = '%1 = Environment Name';
                 begin
                     BCTenant.Get(Rec."Customer No.", Rec."Tenant ID");
                     if Rec."Application Insights String" <> '' then begin
@@ -388,7 +381,6 @@ page 62003 "D4P BC Environment List"
             }
             action(Features)
             {
-                ApplicationArea = All;
                 Caption = 'Features';
                 Image = Setup;
                 RunObject = page "D4P BC Environment Features";
@@ -399,19 +391,17 @@ page 62003 "D4P BC Environment List"
             }
             action(Backups)
             {
-                ApplicationArea = All;
                 Caption = 'Backups';
+                Enabled = Rec.Type = 'Production';
                 Image = History;
                 RunObject = page "D4P BC Environment Backups";
                 RunPageLink = "Customer No." = field("Customer No."),
                             "Tenant ID" = field("Tenant ID"),
                             "Environment Name" = field(Name);
                 ToolTip = 'View and manage backups for this environment.';
-                Enabled = Rec.Type = 'Production';
             }
             action(Capacity)
             {
-                ApplicationArea = All;
                 Caption = 'Capacity';
                 Image = Capacity;
                 ToolTip = 'View capacity information for all environments.';
@@ -422,14 +412,13 @@ page 62003 "D4P BC Environment List"
                     CapacityWorksheet: Page "D4P BC Capacity Worksheet";
                 begin
                     CapacityHeader.SetRange("Customer No.", Rec."Customer No.");
-                    CapacityHeader.SetRange("Tenant ID", Format(Rec."Tenant ID"));
+                    CapacityHeader.SetRange("Tenant ID", Rec."Tenant ID");
                     CapacityWorksheet.SetTableView(CapacityHeader);
                     CapacityWorksheet.Run();
                 end;
             }
             action(Sessions)
             {
-                ApplicationArea = All;
                 Caption = 'Sessions';
                 Image = Users;
                 ToolTip = 'View active sessions for this environment.';
@@ -444,7 +433,6 @@ page 62003 "D4P BC Environment List"
             }
             action(Operations)
             {
-                ApplicationArea = All;
                 Caption = 'Operations';
                 Image = ServiceTasks;
                 ToolTip = 'View operations history for this environment.';
@@ -524,6 +512,35 @@ page 62003 "D4P BC Environment List"
         }
     }
 
+    views
+    {
+
+        view(ActiveEnvironments)
+        {
+            Caption = 'Active Environments';
+            Filters = where(State = const('Active'));
+        }
+        view(ActiveProductionEnvironments)
+        {
+            Caption = 'Active Production Environments';
+            Filters = where(Type = const('Production'), State = const('Active'));
+        }
+        view(ActiveWithoutTelemetry)
+        {
+            Caption = 'Active Production without Telemetry';
+            Filters = where(Type = const('Production'), State = const('Active'), "Application Insights String" = filter(''));
+        }
+        view(ActiveSandboxEnvironments)
+        {
+            Caption = 'Active Sandbox Environments';
+            Filters = where(Type = const('Sandbox'), State = const('Active'));
+        }
+        view(ActiveSandboxWithoutTelemetry)
+        {
+            Caption = 'Active Sandbox without Telemetry';
+            Filters = where(Type = const('Sandbox'), State = const('Active'), "Application Insights String" = filter(''));
+        }
+    }
     var
         StateStyleExpr: Text;
 
@@ -531,9 +548,9 @@ page 62003 "D4P BC Environment List"
     begin
         // Set style for State field
         if Rec.State <> 'Active' then
-            StateStyleExpr := 'Unfavorable'
+            StateStyleExpr := Format(PageStyle::Unfavorable)
         else
-            StateStyleExpr := 'Standard';
+            StateStyleExpr := Format(PageStyle::Standard);
 
         // Calculate flowfields for telemetry information
         if Rec."Application Insights String" <> '' then

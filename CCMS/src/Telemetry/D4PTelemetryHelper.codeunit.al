@@ -12,7 +12,7 @@ codeunit 62032 "D4P Telemetry Helper"
     procedure ValidateEnvironmentTelemetrySetup(Environment: Record "D4P BC Environment"): Boolean
     var
         AIConnectionSetup: Record "D4P AppInsights Connection";
-        NoConnectionStringErr: Label 'The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.';
+        NoConnectionStringErr: Label 'The environment "%1" does not have an Application Insights connection string configured. Please configure telemetry first.', Comment = '%1 = Environment name';
     begin
         // Verify environment has telemetry configuration
         if Environment."Application Insights String" = '' then

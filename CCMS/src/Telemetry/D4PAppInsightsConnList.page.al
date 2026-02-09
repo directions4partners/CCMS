@@ -6,7 +6,7 @@ page 62047 "D4P AppInsights Conn List"
     ApplicationArea = All;
     UsageCategory = Administration;
     SourceTable = "D4P AppInsights Connection";
-    Caption = 'Application Insights Connection Setup';
+    Caption = 'D365BC Application Insights';
     CardPageId = "D4P AppInsights Conn Card";
     Editable = true;
     InsertAllowed = true;
@@ -19,9 +19,8 @@ page 62047 "D4P AppInsights Conn List"
         {
             repeater(Group)
             {
-                field("AppInsights Connection String"; Rec."AppInsights Connection String")
+                field("Connection String"; Rec."Connection String")
                 {
-                    MaskType = Concealed;
                 }
                 field("Description"; Rec."Description")
                 {
@@ -46,7 +45,6 @@ page 62047 "D4P AppInsights Conn List"
         {
             action(New)
             {
-                ApplicationArea = All;
                 Caption = 'New';
                 Image = New;
                 RunObject = page "D4P AppInsights Conn Card";
@@ -55,11 +53,10 @@ page 62047 "D4P AppInsights Conn List"
             }
             action(Edit)
             {
-                ApplicationArea = All;
                 Caption = 'Edit';
                 Image = Edit;
                 RunObject = page "D4P AppInsights Conn Card";
-                RunPageLink = "AppInsights Connection String" = field("AppInsights Connection String");
+                RunPageLink = "Connection String" = field("Connection String");
                 ToolTip = 'Edit the selected Application Insights connection setup.';
             }
         }

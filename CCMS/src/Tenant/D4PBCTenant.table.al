@@ -1,7 +1,7 @@
 namespace D4P.CCMS.Tenant;
 
-using D4P.CCMS.Customer;
 using D4P.CCMS.Auth;
+using D4P.CCMS.Customer;
 
 table 62001 "D4P BC Tenant"
 {
@@ -83,6 +83,14 @@ table 62001 "D4P BC Tenant"
                 if "App Registration Type" <> xRec."App Registration Type" then
                     Clear("Client ID");
             end;
+        }
+        field(11; "Customer Name"; Text[100])
+        {
+            CalcFormula = lookup("D4P BC Customer".Name where("No." = field("Customer No.")));
+            Caption = 'Customer Name';
+            Editable = false;
+            FieldClass = FlowField;
+            ToolTip = 'Specifies the name of the customer associated with this tenant.';
         }
     }
 

@@ -1,8 +1,8 @@
 namespace D4P.CCMS.General;
 
-using System.Security.Authentication;
-using D4P.CCMS.Tenant;
 using D4P.CCMS.Setup;
+using D4P.CCMS.Tenant;
+using System.Security.Authentication;
 
 codeunit 62049 "D4P BC API Helper"
 {
@@ -13,7 +13,7 @@ codeunit 62049 "D4P BC API Helper"
         Headers: HttpHeaders;
         HttpRequestMessage: HttpRequestMessage;
         HttpResponseMessage: HttpResponseMessage;
-        FailedToObtainTokenErr: Label 'Failed to obtain access token.';
+        FailedToObtainTokenErr: Label 'Failed to obtain access token for tenant %1.', Comment = '%1 - Tenant identifier';
         FailedToSendRequestErr: Label 'Failed to send HTTP request';
         AuthToken: SecretText;
         EndpointUrl: Text;
@@ -21,7 +21,7 @@ codeunit 62049 "D4P BC API Helper"
         // Get OAuth token
         AuthToken := GetOAuthToken(BCTenant);
         if AuthToken.IsEmpty() then
-            Error(FailedToObtainTokenErr);
+            Error(FailedToObtainTokenErr, BCTenant."Tenant ID".ToText().Replace('{', '').Replace('}', ''));
 
         // Build full endpoint URL
         EndpointUrl := GetAdminAPIBaseUrl() + Endpoint;
@@ -102,7 +102,7 @@ codeunit 62049 "D4P BC API Helper"
     procedure GetOAuthToken(var BCTenant: Record "D4P BC Tenant") AuthToken: SecretText
     var
         OAuth2: Codeunit OAuth2;
-        FailedToGetTokenErr: Label 'Failed to get access token from response\%1';
+        FailedToGetTokenErr: Label 'Failed to get access token from response\%1', Comment = '%1 = Error response';
         Scopes: List of [Text];
         ClientSecret: SecretText;
         AccessTokenURL: Text;
@@ -121,7 +121,7 @@ codeunit 62049 "D4P BC API Helper"
     procedure GetAutomationApiOAuthToken(AADTenantId: Guid; ClientID: Text; ClientSecret: SecretText) AuthToken: SecretText
     var
         OAuth2: Codeunit OAuth2;
-        FailedToGetTokenErr: Label 'Failed to get Automation API access token: %1';
+        FailedToGetTokenErr: Label 'Failed to get Automation API access token: %1', Comment = '%1 = Error message';
         Scopes: List of [Text];
         AADTenantIdText: Text;
         AccessTokenURL: Text;
@@ -142,7 +142,7 @@ codeunit 62049 "D4P BC API Helper"
     local procedure ShowDebugMessage(ResponseText: Text; ActionName: Text)
     var
         BCSetup: Record "D4P BC Setup";
-        DebugMsg: Label 'DEBUG - %1:\%2';
+        DebugMsg: Label 'DEBUG - %1:\%2', Comment = '%1 = Label, %2 = Message body';
     begin
         if BCSetup.Get() then
             if BCSetup."Debug Mode" then

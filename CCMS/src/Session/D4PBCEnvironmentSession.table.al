@@ -6,12 +6,15 @@ table 62016 "D4P BC Environment Session"
 {
     Caption = 'D365BC Environment Session';
     DataClassification = SystemMetadata;
+    DrillDownPageId = "D4P BC Environment Sessions";
+    LookupPageId = "D4P BC Environment Sessions";
 
     fields
     {
         field(1; "Session ID"; Text[50])
         {
             Caption = 'Session ID';
+            NotBlank = true;
             ToolTip = 'Specifies the unique session identifier.';
         }
         field(5; "Customer No."; Code[20])

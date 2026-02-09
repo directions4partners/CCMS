@@ -17,6 +17,7 @@ page 62020 "D4P Export History Dialog"
                 field(TimePeriod; TimePeriodOption)
                 {
                     Caption = 'Time Period';
+                    OptionCaption = 'Current Month,Last 12 Months,Custom';
                     ToolTip = 'Select the time period for which to retrieve export history.';
 
                     trigger OnValidate()

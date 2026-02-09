@@ -12,6 +12,7 @@ page 62008 "D4P BC Installed Apps List"
     InsertAllowed = false;
     ModifyAllowed = false;
     CardPageId = "D4P BC Installed App Card";
+    SourceTableView = sorting("Customer No.", "Tenant ID", "Environment Name", "App Name");
 
     layout
     {
@@ -79,14 +80,18 @@ page 62008 "D4P BC Installed Apps List"
                 var
                     BCEnvironment: Record "D4P BC Environment";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                    ConfirmationGetInstalledAppsQst: Label 'Do you want to get installed apps for all tenants and all environments?';
                 begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.GetInstalledApps(BCEnvironment);
+                    if Rec.GetFilter("Environment Name") <> '' then begin
+                        BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
+                        EnvironmentManagement.GetInstalledApps(BCEnvironment);
+                    end else
+                        if Confirm(ConfirmationGetInstalledAppsQst, true) then
+                            EnvironmentManagement.GetAllInstalledApps(true);
                 end;
             }
             action(GetAvailableUpdates)
             {
-                ApplicationArea = All;
                 Caption = 'Get Available Updates';
                 Image = Refresh;
                 ToolTip = 'Get the list of available apps updates for the selected environment.';
@@ -94,14 +99,18 @@ page 62008 "D4P BC Installed Apps List"
                 var
                     BCEnvironment: Record "D4P BC Environment";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                    ConfirmationGetAvailableUpdatesQst: Label 'Do you want to get available app updates for all tenants and all environments?';
                 begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.GetAvailableAppUpdates(BCEnvironment);
+                    if Rec.GetFilter("Environment Name") <> '' then begin
+                        BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
+                        EnvironmentManagement.GetAvailableAppUpdates(BCEnvironment, true);
+                    end else
+                        if Confirm(ConfirmationGetAvailableUpdatesQst, true) then
+                            EnvironmentManagement.GetAllAvailableAppUpdates(true);
                 end;
             }
             action(UpdateApp)
             {
-                ApplicationArea = All;
                 Caption = 'Update App';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected app to the latest version.';
@@ -116,7 +125,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(UpdateSelectedApps)
             {
-                ApplicationArea = All;
                 Caption = 'Update Selected Apps';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected apps (multiple) to the latest version.';
@@ -135,7 +143,6 @@ page 62008 "D4P BC Installed Apps List"
             }
             action(DeleteAll)
             {
-                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched installed apps records.';
@@ -143,8 +150,8 @@ page 62008 "D4P BC Installed Apps List"
                 var
                     InstalledApp: Record "D4P BC Installed App";
                     RecordCount: Integer;
-                    DeletedSuccessMsg: Label '%1 installed apps records deleted.';
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?';
+                    DeletedSuccessMsg: Label '%1 installed apps records deleted.', Comment = '%1 = Number of records';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched installed apps records?', Comment = '%1 = Number of records';
                 begin
                     InstalledApp.CopyFilters(Rec);
                     RecordCount := InstalledApp.Count();
@@ -158,7 +165,6 @@ page 62008 "D4P BC Installed Apps List"
                     end;
                 end;
             }
-
         }
         area(Promoted)
         {
@@ -180,6 +186,22 @@ page 62008 "D4P BC Installed Apps List"
         }
     }
 
+    views
+    {
+        view(NonMicrosoftApps)
+        {
+            Caption = 'Non-Microsoft Apps';
+            Filters = where("App Publisher" = filter(<> 'Microsoft'));
+
+        }
+        view(AppsWithUpdates)
+        {
+            Caption = 'Apps with Available Updates';
+            Filters = where("Available Update Version" = filter(<> ''));
+
+        }
+    }
+
     var
         UpdateAvailableStyleExpr: Text;
 
@@ -187,8 +209,8 @@ page 62008 "D4P BC Installed Apps List"
     begin
         // Set style for App Name and Available Update Version when update is available
         if Rec."Available Update Version" <> '' then
-            UpdateAvailableStyleExpr := 'Attention'
+            UpdateAvailableStyleExpr := Format(PageStyle::Attention)
         else
-            UpdateAvailableStyleExpr := 'Standard';
+            UpdateAvailableStyleExpr := Format(PageStyle::Standard);
     end;
 }

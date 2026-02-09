@@ -47,7 +47,6 @@ page 62010 "D4P BC Setup"
         {
             action(RestoreDefaults)
             {
-                ApplicationArea = All;
                 Caption = 'Restore Defaults';
                 Image = Restore;
                 ToolTip = 'Restore default values for API configuration.';

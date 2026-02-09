@@ -66,7 +66,6 @@ page 62023 "D4P BC Capacity Card"
         {
             action(GetCapacity)
             {
-                ApplicationArea = All;
                 Caption = 'Get Capacity';
                 Image = Refresh;
                 ToolTip = 'Refresh capacity information for this environment from Admin Center API.';

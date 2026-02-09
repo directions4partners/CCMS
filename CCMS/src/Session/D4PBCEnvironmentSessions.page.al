@@ -64,7 +64,6 @@ page 62016 "D4P BC Environment Sessions"
         {
             action(GetSessions)
             {
-                ApplicationArea = All;
                 Caption = 'Get Sessions';
                 Image = Users;
                 ToolTip = 'Retrieve current session information for this environment.';
@@ -79,7 +78,6 @@ page 62016 "D4P BC Environment Sessions"
             }
             action(SessionDetails)
             {
-                ApplicationArea = All;
                 Caption = 'Session Details';
                 Image = Document;
                 ToolTip = 'View detailed information for the selected session.';
@@ -94,7 +92,6 @@ page 62016 "D4P BC Environment Sessions"
             }
             action(TerminateSession)
             {
-                ApplicationArea = All;
                 Caption = 'Terminate Session';
                 Image = Stop;
                 ToolTip = 'Terminate the selected session.';
@@ -109,7 +106,6 @@ page 62016 "D4P BC Environment Sessions"
             }
             action(DeleteAll)
             {
-                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched session records.';
@@ -117,8 +113,8 @@ page 62016 "D4P BC Environment Sessions"
                 var
                     Session: Record "D4P BC Environment Session";
                     RecordCount: Integer;
-                    DeletedSuccessMsg: Label '%1 session records deleted.';
-                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched session records?';
+                    DeletedSuccessMsg: Label '%1 session records deleted.', Comment = '%1 = Number of records';
+                    DeleteMsg: Label 'Are you sure you want to delete all %1 fetched session records?', Comment = '%1 = Number of records';
                 begin
                     Session.CopyFilters(Rec);
                     RecordCount := Session.Count();

@@ -2,12 +2,11 @@ namespace D4P.CCMS.Telemetry;
 
 using D4P.CCMS.Environment;
 using D4P.CCMS.Setup;
-using System.Reflection;
 using Microsoft.Utilities;
+using System.Reflection;
 
 report 62032 "D4P Load Data"
 {
-
     UsageCategory = None;
     ProcessingOnly = true;
     Caption = 'Telemetry Analysis - Load Data';
@@ -81,7 +80,8 @@ report 62032 "D4P Load Data"
 
         trigger OnOpenPage()
         begin
-            if (TimeCompression = '') then TimeCompression := '30d';
+            if (TimeCompression = '') then
+                TimeCompression := '30d';
             if (FromDateTime = 0DT) and (ToDateTime = 0DT) then
                 SetDates(CreateDateTime(CalcDate('<-30D>', Today()), 000000T), CreateDateTime(Today(), 235959T));
         end;
@@ -101,7 +101,7 @@ report 62032 "D4P Load Data"
         TelemetryApplicationId: Text[50];
         TelemetryTenantId: Text[50];
         EnvironmentName: Text[100];
-        AIConnectionString: Text[1000];
+        AIConnectionString: Text[2048];
 
     trigger OnPreReport()
     begin
@@ -185,7 +185,7 @@ report 62032 "D4P Load Data"
         EnvironmentName := CopyStr(Environment.Name, 1, MaxStrLen(EnvironmentName));
         EnvironmentType := CopyStr(Environment.Type, 1, MaxStrLen(EnvironmentType));
         EnvironmentAADTenantId := Environment."Tenant ID";
-        AIConnectionString := AIConnectionSetup."AppInsights Connection String";
+        AIConnectionString := AIConnectionSetup."Connection String";
         TelemetryApplicationId := AIConnectionSetup."Telemetry Application Id";
         TelemetryAPIKey := AIConnectionSetup."Telemetry API Key";
         TelemetryTenantId := AIConnectionSetup."Tenant Id";
@@ -197,7 +197,7 @@ report 62032 "D4P Load Data"
     local procedure RunQuery()
     var
         PleaseSelectQueryErr: Label 'Please select a Query Code';
-        QueryNotFoundErr: Label 'Query Code %1 was not found in the KQL Query Store.';
+        QueryNotFoundErr: Label 'Query Code %1 was not found in the KQL Query Store.', Comment = '%1 = Query code';
     begin
         if SelectedQueryCode = '' then
             Error(PleaseSelectQueryErr);
@@ -349,7 +349,7 @@ report 62032 "D4P Load Data"
         ReportExecutionsPage: Page "D4P KQL Report Executions";
         SlowALMethodsPage: Page "D4P KQL Slow AL Methods";
         QueryExecutedMsg: Label 'Query executed successfully. No specific results page configured.';
-        QueryExecutedWithResultsMsg: Label 'Query executed successfully. Results stored in Table ID %1.';
+        QueryExecutedWithResultsMsg: Label 'Query executed successfully. Results stored in Table ID %1.', Comment = '%1 = Table ID';
     begin
         if SelectedQuery."Result Table ID" = 0 then begin
             Message(QueryExecutedMsg);
@@ -486,7 +486,8 @@ report 62032 "D4P Load Data"
 
             repeat
                 RowCounter += 1;
-                if RowCounter > 3 then break;
+                if RowCounter > 3 then
+                    break;
 
                 Client.GetFields(TempBuffer);
                 ValueList := '';
@@ -536,5 +537,4 @@ report 62032 "D4P Load Data"
 
         Message(DebugText);
     end;
-
 }
