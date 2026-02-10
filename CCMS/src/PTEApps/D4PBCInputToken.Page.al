@@ -1,6 +1,6 @@
 namespace D4P.CCMS.PTEApps;
 
-page 62032 "D4P BC Input Token"
+page 62033 "D4P BC Input Token"
 {
     ApplicationArea = All;
     Caption = 'D365BC Input Token';
