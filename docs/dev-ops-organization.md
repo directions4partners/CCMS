@@ -17,10 +17,10 @@ This page contains this fields:
 ![Actions Menu](./media/DevopsOrganisationListActionMenu.png)
 
 **Import Token** - This action opens a dialog for importing a Personal Access Token (PAT) for use
-                 with Github repositories.
+                 with GitHub repositories.
 
-## Github Token
+## GitHub Token
 
 To get it work the classic PAT needs this configuration:
 
-![Github Token Rights](../docs/media/Github-Classic-Token-Rights.png)
+![GitHub Token Rights](./media/Github-Classic-Token-Rights.png)
