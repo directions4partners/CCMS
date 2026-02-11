@@ -32,6 +32,9 @@ page 62011 "D4P BC Tenant Card"
                 field("Tenant Name"; Rec."Tenant Name")
                 {
                 }
+                field("Partner Center Code"; Rec."Partner Center Code")
+                {
+                }
             }
             group(Authentication)
             {

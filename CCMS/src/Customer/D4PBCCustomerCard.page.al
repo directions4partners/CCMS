@@ -36,6 +36,9 @@ page 62001 "D4P BC Customer Card"
                 {
                     Importance = Promoted;
                 }
+                field("Partner Center Code"; Rec."Partner Center Code")
+                {
+                }
             }
             group("Address & Contact")
             {

@@ -2,6 +2,7 @@ namespace D4P.CCMS.Tenant;
 
 using D4P.CCMS.Auth;
 using D4P.CCMS.Customer;
+using D4P.CCMS.PartnerCenter;
 
 table 62001 "D4P BC Tenant"
 {
@@ -92,6 +93,13 @@ table 62001 "D4P BC Tenant"
             FieldClass = FlowField;
             ToolTip = 'Specifies the name of the customer associated with this tenant.';
         }
+        field(12; "Partner Center Code"; Code[20])
+        {
+            Caption = 'Partner Center';
+            ToolTip = 'Unique code to identify the Partner Center';
+            TableRelation = "D4P BC Partner Center".Code;
+            ValidateTableRelation = true;
+        }
     }
 
     keys
@@ -102,6 +110,16 @@ table 62001 "D4P BC Tenant"
         }
     }
 
+    trigger OnInsert()
+    var
+        D4PBCCustomer: Record "D4P BC Customer";
+    begin
+        if "Customer No." <> '' then begin
+            D4PBCCustomer.Get("Customer No.");
+            "Partner Center Code" := D4PBCCustomer."Partner Center Code";
+        end;
+
+    end;
     /// <summary>
     /// Gets the client secret from isolated storage for this tenant's configured Client ID.
     /// If the Client ID is a null GUID, or a secret has not been set for this Client ID then an empty SecretText will be returned.

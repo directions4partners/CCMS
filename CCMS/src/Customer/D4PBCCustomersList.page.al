@@ -25,6 +25,9 @@ page 62000 "D4P BC Customers List"
                 field(Name; Rec.Name)
                 {
                 }
+                field("Partner Center Code"; Rec."Partner Center Code")
+                {
+                }
                 field(City; Rec.City)
                 {
                 }

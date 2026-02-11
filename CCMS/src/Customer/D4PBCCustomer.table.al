@@ -3,6 +3,7 @@ namespace D4P.CCMS.Customer;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Setup;
 using D4P.CCMS.Tenant;
+using D4P.CCMS.PartnerCenter;
 using Microsoft.Foundation.Address;
 using Microsoft.Foundation.NoSeries;
 using System.EMail;
@@ -146,6 +147,25 @@ table 62000 "D4P BC Customer"
             FieldClass = FlowField;
             ToolTip = 'Number of active sandbox environments for this customer';
         }
+        field(24; "Partner Center Code"; Code[20])
+        {
+            Caption = 'Partner Center';
+            TableRelation = "D4P BC Partner Center".Code;
+            ToolTip = 'Unique code to identify the Partner Center';
+            ValidateTableRelation = true;
+
+            trigger OnValidate()
+            var
+                D4PBCTenant: Record "D4P BC Tenant";
+            begin
+                D4PBCTenant.SetRange("Customer No.", "No.");
+                if D4PBCTenant.FindSet() then
+                    repeat
+                        D4PBCTenant.Validate("Partner Center Code", "Partner Center Code");
+                        D4PBCTenant.Modify();
+                    until D4PBCTenant.Next() = 0;
+            end;
+        }
     }
 
     keys
@@ -153,6 +173,10 @@ table 62000 "D4P BC Customer"
         key(Key1; "No.")
         {
             Clustered = true;
+        }
+        key(Key2; "Partner Center Code")
+        {
+            Clustered = false;
         }
     }
 
