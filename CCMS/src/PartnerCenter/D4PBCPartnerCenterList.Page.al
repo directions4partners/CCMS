@@ -4,6 +4,7 @@ page 62032 "D4P BC Partner Center List"
 {
     ApplicationArea = All;
     Caption = 'Partner Center List';
+    Editable = false;
     PageType = List;
     SourceTable = "D4P BC Partner Center";
     UsageCategory = Lists;
