@@ -150,19 +150,22 @@ table 62000 "D4P BC Customer"
         field(24; "Partner Center Code"; Code[20])
         {
             Caption = 'Partner Center';
-            TableRelation = "D4P BC Partner Center".Code;
+            TableRelation = "D4P BC Partner Center";
             ToolTip = 'Unique code to identify the Partner Center';
             ValidateTableRelation = true;
 
             trigger OnValidate()
             var
                 D4PBCTenant: Record "D4P BC Tenant";
+                ConfirmPartnerCenterCodeChangeTxt: Label 'Change Partner Center Code from %1 to %2?';
             begin
+                if Confirm(ConfirmPartnerCenterCodeChangeTxt, true, xRec."Partner Center Code", Rec."Partner Center Code") then
+                    exit;
                 D4PBCTenant.SetRange("Customer No.", "No.");
                 if D4PBCTenant.FindSet() then
                     repeat
                         D4PBCTenant.Validate("Partner Center Code", "Partner Center Code");
-                        D4PBCTenant.Modify();
+                        D4PBCTenant.Modify(true);
                     until D4PBCTenant.Next() = 0;
             end;
         }

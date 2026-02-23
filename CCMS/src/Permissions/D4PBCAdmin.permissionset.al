@@ -101,7 +101,6 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P BC Customer FactBox" = X,
         page "D4P BC Admin Headline" = X,
         page "D4P BC Capacity List" = X,
-        page "D4P BC Partner Center Card" = X,
         page "D4P BC Partner Center List" = X,
 
         // Codeunits

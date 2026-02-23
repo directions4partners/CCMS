@@ -88,7 +88,6 @@ permissionset 62001 "D4P BC ADMIN READ"
         page "D4P BC Customer FactBox" = X,
         page "D4P BC Admin Headline" = X,
         page "D4P BC Capacity List" = X,
-        page "D4P BC Partner Center Card" = X,
         page "D4P BC Partner Center List" = X,
 
         // Codeunit for reading data
