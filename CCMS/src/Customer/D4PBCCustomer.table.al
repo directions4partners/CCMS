@@ -157,9 +157,9 @@ table 62000 "D4P BC Customer"
             trigger OnValidate()
             var
                 D4PBCTenant: Record "D4P BC Tenant";
-                ConfirmPartnerCenterCodeChangeTxt: Label 'Change Partner Center Code from %1 to %2?';
+                ConfirmPartnerCenterCodeChangeTxt: Label 'Change Partner Center Code from %1 to %2?', Comment = '%1 is the old Partner Center Code, %2 is the new Partner Center Code.';
             begin
-                if Confirm(ConfirmPartnerCenterCodeChangeTxt, true, xRec."Partner Center Code", Rec."Partner Center Code") then
+                if not Confirm(ConfirmPartnerCenterCodeChangeTxt, true, xRec."Partner Center Code", Rec."Partner Center Code") then
                     exit;
                 D4PBCTenant.SetRange("Customer No.", "No.");
                 if D4PBCTenant.FindSet() then
