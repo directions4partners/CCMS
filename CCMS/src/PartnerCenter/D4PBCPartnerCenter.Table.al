@@ -1,4 +1,5 @@
 namespace D4P.CCMS.PartnerCenter;
+using D4P.CCMS.Customer;
 
 table 62006 "D4P BC Partner Center"
 {
@@ -20,6 +21,13 @@ table 62006 "D4P BC Partner Center"
             Caption = 'Description';
             ToolTip = 'Partner Center description';
         }
+        field(3; "Assigned Customer Count"; Integer)
+        {
+            Caption = 'Assigned Customer Count';
+            FieldClass = FlowField;
+            CalcFormula = Count("D4P BC Customer" where("Partner Center Code" = field("Code")));
+            ToolTip = 'Number of customers associated with the Partner Center';
+        }
     }
     keys
     {
@@ -28,4 +36,12 @@ table 62006 "D4P BC Partner Center"
             Clustered = true;
         }
     }
+
+    trigger OnDelete()
+    begin
+        CalcFields("Assigned Customer Count");
+        if "Assigned Customer Count" > 0 then
+            if not Confirm('There are %1 customers associated with this Partner Center. Are you sure you want to delete it?', false, "Assigned Customer Count") then
+                Error('Deletion of Partner Center cancelled.');
+    end;
 }
