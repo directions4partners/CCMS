@@ -18,6 +18,16 @@ table 62001 "D4P BC Tenant"
             Caption = 'Customer No.';
             TableRelation = "D4P BC Customer";
             ToolTip = 'Specifies the customer number associated with this tenant.';
+
+            trigger OnValidate()
+            var
+                D4PBCCustomer: Record "D4P BC Customer";
+            begin
+                if "Customer No." <> '' then begin
+                    D4PBCCustomer.Get("Customer No.");
+                    Validate("Partner Center Code", D4PBCCustomer."Partner Center Code");
+                end;
+            end;
         }
         field(2; "Tenant ID"; Guid)
         {
@@ -110,16 +120,6 @@ table 62001 "D4P BC Tenant"
         }
     }
 
-    trigger OnInsert()
-    var
-        D4PBCCustomer: Record "D4P BC Customer";
-    begin
-        if "Customer No." <> '' then begin
-            D4PBCCustomer.Get("Customer No.");
-            "Partner Center Code" := D4PBCCustomer."Partner Center Code";
-        end;
-
-    end;
     /// <summary>
     /// Gets the client secret from isolated storage for this tenant's configured Client ID.
     /// If the Client ID is a null GUID, or a secret has not been set for this Client ID then an empty SecretText will be returned.
