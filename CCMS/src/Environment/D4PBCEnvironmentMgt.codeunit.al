@@ -24,9 +24,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonResponse: JsonObject;
         JsonVersionDetails: JsonObject;
         JsonToken: JsonToken;
-        JsonTokenField: JsonToken;
         JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
+        TextValue: Text;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
@@ -47,104 +46,58 @@ codeunit 62000 "D4P BC Environment Mgt"
 
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
-                if JsonObjectLoop.Get('name', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment.Name := JsonValue.AsText();
+                if GetJsonText(JsonObjectLoop, 'name', TextValue) then
+                    BCEnvironment.Name := TextValue;
+                if GetJsonText(JsonObjectLoop, 'applicationFamily', TextValue) then
+                    BCEnvironment."Application Family" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'type', TextValue) then
+                    BCEnvironment.Type := TextValue;
+                if GetJsonText(JsonObjectLoop, 'status', TextValue) then
+                    BCEnvironment.State := TextValue;
+                if GetJsonText(JsonObjectLoop, 'countryCode', TextValue) then
+                    BCEnvironment."Country/Region" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'applicationVersion', TextValue) then
+                    BCEnvironment."Current Version" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'friendlyName', TextValue) then
+                    BCEnvironment."Friendly Name" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'aadTenantId', TextValue) then
+                    if not Evaluate(BCEnvironment."AAD Tenant ID", TextValue) then
+                        BCEnvironment."AAD Tenant ID" := CreateGuid();
+                if GetJsonText(JsonObjectLoop, 'webClientLoginUrl', TextValue) then
+                    BCEnvironment."Web Client Login URL" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'webServiceUrl', TextValue) then
+                    BCEnvironment."Web Service URL" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'locationName', TextValue) then
+                    BCEnvironment."Location Name" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'geoName', TextValue) then
+                    BCEnvironment."Geo Name" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'ringName', TextValue) then
+                    BCEnvironment."Ring Name" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'appInsightsKey', TextValue) then
+                    BCEnvironment."Application Insights String" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'SoftDeletedOn', TextValue) then
+                    if not Evaluate(BCEnvironment."Soft Deleted On", TextValue) then
+                        BCEnvironment."Soft Deleted On" := 0DT;
+                if GetJsonText(JsonObjectLoop, 'HardDeletePendingOn', TextValue) then
+                    if not Evaluate(BCEnvironment."Hard Delete Pending On", TextValue) then
+                        BCEnvironment."Hard Delete Pending On" := 0DT;
+                if GetJsonText(JsonObjectLoop, 'DeleteReason', TextValue) then
+                    BCEnvironment."Delete Reason" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'appSourceAppsUpdateCadence', TextValue) then
+                    BCEnvironment."AppSource Apps Update Cadence" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'platformVersion', TextValue) then
+                    BCEnvironment."Platform Version" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'linkedPowerPlatformEnvironmentId', TextValue) then
+                    BCEnvironment."Linked PowerPlatform Env ID" := TextValue;
+
+                if GetJsonObject(JsonObjectLoop, 'versionDetails', JsonVersionDetails) then begin
+                    if GetJsonText(JsonVersionDetails, 'gracePeriodStartDate', TextValue) then
+                        if not Evaluate(BCEnvironment."Grace Period Start Date", TextValue) then
+                            BCEnvironment."Grace Period Start Date" := 0DT;
+                    if GetJsonText(JsonVersionDetails, 'enforcedUpdatePeriodStartDate', TextValue) then
+                        if not Evaluate(BCEnvironment."Enforced Update Period Start", TextValue) then
+                            BCEnvironment."Enforced Update Period Start" := 0DT;
                 end;
-                if JsonObjectLoop.Get('applicationFamily', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Application Family" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('type', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment.Type := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('status', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment.State := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('countryCode', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Country/Region" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('applicationVersion', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Current Version" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('friendlyName', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Friendly Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('aadTenantId', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    if not Evaluate(BCEnvironment."AAD Tenant ID", JsonValue.AsText()) then
-                        BCEnvironment."AAD Tenant ID" := CreateGuid(); // Fallback if evaluation fails
-                end;
-                if JsonObjectLoop.Get('webClientLoginUrl', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Web Client Login URL" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('webServiceUrl', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Web Service URL" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('locationName', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Location Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('geoName', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Geo Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('ringName', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Ring Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('appInsightsKey', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Application Insights String" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('SoftDeletedOn', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    if not Evaluate(BCEnvironment."Soft Deleted On", JsonValue.AsText()) then
-                        BCEnvironment."Soft Deleted On" := 0DT; // Clear if evaluation fails
-                end;
-                if JsonObjectLoop.Get('HardDeletePendingOn', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    if not Evaluate(BCEnvironment."Hard Delete Pending On", JsonValue.AsText()) then
-                        BCEnvironment."Hard Delete Pending On" := 0DT; // Clear if evaluation fails
-                end;
-                if JsonObjectLoop.Get('DeleteReason', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Delete Reason" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('appSourceAppsUpdateCadence', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."AppSource Apps Update Cadence" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('platformVersion', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Platform Version" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('linkedPowerPlatformEnvironmentId', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Linked PowerPlatform Env ID" := JsonValue.AsText();
-                end;
-                // Handle nested versionDetails object
-                if JsonObjectLoop.Get('versionDetails', JsonTokenField) then
-                    if JsonTokenField.IsObject() then begin
-                        JsonVersionDetails := JsonTokenField.AsObject();
-                        if JsonVersionDetails.Get('gracePeriodStartDate', JsonTokenField) then begin
-                            JsonValue := JsonTokenField.AsValue();
-                            if not Evaluate(BCEnvironment."Grace Period Start Date", JsonValue.AsText()) then
-                                BCEnvironment."Grace Period Start Date" := 0DT; // Clear if evaluation fails
-                        end;
-                        if JsonVersionDetails.Get('enforcedUpdatePeriodStartDate', JsonTokenField) then begin
-                            JsonValue := JsonTokenField.AsValue();
-                            if not Evaluate(BCEnvironment."Enforced Update Period Start", JsonValue.AsText()) then
-                                BCEnvironment."Enforced Update Period Start" := 0DT; // Clear if evaluation fails
-                        end;
-                    end;
 
                 BCEnvironment.Insert();
             end;
@@ -185,12 +138,13 @@ codeunit 62000 "D4P BC Environment Mgt"
     var
         InstalledApp: Record "D4P BC Installed App";
         BCTenant: Record "D4P BC Tenant";
+        appId: Guid;
         JsonArray: JsonArray;
         JsonObjectLoop: JsonObject;
         JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
+        TextValue: Text;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
@@ -217,25 +171,16 @@ codeunit 62000 "D4P BC Environment Mgt"
 
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
-                if JsonObjectLoop.Get('id', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."App ID" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('name', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."App Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('publisher', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."App Publisher" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('version', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."App Version" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('state', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    case JsonValue.AsText() of
+                if GetJsonText(JsonObjectLoop, 'id', TextValue) then
+                    InstalledApp."App ID" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'name', TextValue) then
+                    InstalledApp."App Name" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'publisher', TextValue) then
+                    InstalledApp."App Publisher" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'version', TextValue) then
+                    InstalledApp."App Version" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'state', TextValue) then
+                    case TextValue of
                         'Installed':
                             InstalledApp.State := Enum::"D4P App State"::Installed;
                         'UpdatePending':
@@ -245,10 +190,8 @@ codeunit 62000 "D4P BC Environment Mgt"
                         else
                             InstalledApp.State := Enum::"D4P App State"::Installed;
                     end;
-                end;
-                if JsonObjectLoop.Get('appType', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    case LowerCase(JsonValue.AsText()) of
+                if GetJsonText(JsonObjectLoop, 'appType', TextValue) then
+                    case LowerCase(TextValue) of
                         'global':
                             InstalledApp."App Type" := Enum::"D4P App Type"::Global;
                         'pte', 'tenant':
@@ -258,14 +201,10 @@ codeunit 62000 "D4P BC Environment Mgt"
                         else
                             InstalledApp."App Type" := Enum::"D4P App Type"::" ";
                     end;
-                end;
-                if JsonObjectLoop.Get('lastOperationId', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."Last Operation Id" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('lastUpdateAttemptResult', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    case JsonValue.AsText() of
+                if GetJsonText(JsonObjectLoop, 'lastOperationId', TextValue) then
+                    InstalledApp."Last Operation Id" := TextValue;
+                if GetJsonText(JsonObjectLoop, 'lastUpdateAttemptResult', TextValue) then
+                    case TextValue of
                         'Succeeded':
                             InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
                         'Failed':
@@ -277,7 +216,6 @@ codeunit 62000 "D4P BC Environment Mgt"
                         else
                             InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
                     end;
-                end;
                 InstalledApp."Available Update Version" := '';
                 InstalledApp.Insert();
             end;
@@ -303,7 +241,6 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonScheduleDetails: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
         FailedToFetchErr: Label 'Failed to fetch environment updates: %1', Comment = '%1 = Error message';
         NoAvailableUpdatesMsg: Label 'No available updates found for the selected environment.';
         NoSelectedUpdateMsg: Label 'No selected update found for the selected environment.';
@@ -317,7 +254,6 @@ codeunit 62000 "D4P BC Environment Mgt"
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
-        // Call Admin API to get environment updates
         Endpoint := '/applications/' + BCEnvironment."Application Family" + '/environments/' + BCEnvironment.Name + '/updates';
         if APIHelper.SendAdminAPIRequest(BCTenant, 'GET', Endpoint, '', ResponseText) then begin
             JsonResponse.ReadFrom(ResponseText);
@@ -329,102 +265,44 @@ codeunit 62000 "D4P BC Environment Mgt"
                 foreach JsonTokenLoop in JsonArray do begin
                     JsonObjectLoop := JsonTokenLoop.AsObject();
 
-                    // Check if this version is selected
                     selected := false;
-                    if JsonObjectLoop.Get('selected', JsonTokenLoop) then begin
-                        JsonValue := JsonTokenLoop.AsValue();
-                        selected := JsonValue.AsBoolean();
-                    end;
+                    GetJsonBoolean(JsonObjectLoop, 'selected', selected);
 
                     if selected then begin
-                        // Get the target version
-                        if JsonObjectLoop.Get('targetVersion', JsonTokenLoop) then begin
-                            JsonValue := JsonTokenLoop.AsValue();
-                            targetVersion := JsonValue.AsText();
-                        end;
-
-                        // Get availability status
+                        GetJsonText(JsonObjectLoop, 'targetVersion', targetVersion);
                         available := false;
-                        if JsonObjectLoop.Get('available', JsonTokenLoop) then begin
-                            JsonValue := JsonTokenLoop.AsValue();
-                            available := JsonValue.AsBoolean();
-                        end;
-
-                        // Get target version type
+                        GetJsonBoolean(JsonObjectLoop, 'available', available);
                         targetVersionType := '';
-                        if JsonObjectLoop.Get('targetVersionType', JsonTokenLoop) then begin
-                            JsonValue := JsonTokenLoop.AsValue();
-                            targetVersionType := JsonValue.AsText();
-                        end;
+                        GetJsonText(JsonObjectLoop, 'targetVersionType', targetVersionType);
 
-                        // Get schedule details if available (for released versions)
-                        if JsonObjectLoop.Get('scheduleDetails', JsonTokenLoop) then begin
-                            JsonScheduleDetails := JsonTokenLoop.AsObject();
+                        if GetJsonObject(JsonObjectLoop, 'scheduleDetails', JsonScheduleDetails) then begin
+                            TryGetJsonDateTime(JsonScheduleDetails, 'selectedDateTime', selectedDateTime);
 
-                            if JsonScheduleDetails.Get('selectedDateTime', JsonTokenLoop) then begin
-                                JsonValue := JsonTokenLoop.AsValue();
-                                if not JsonValue.IsNull() then begin
-                                    ParsedDateTime := 0DT;
-                                    if Evaluate(ParsedDateTime, JsonValue.AsText()) then
-                                        selectedDateTime := ParsedDateTime;
-                                end;
+                            ParsedDateTime := 0DT;
+                            if not TryGetJsonDateTime(JsonScheduleDetails, 'latestSelectableDateTime', ParsedDateTime) then begin
+                                ParsedDate := 0D;
+                                if TryGetJsonDate(JsonScheduleDetails, 'latestSelectableDate', ParsedDate) then
+                                    ParsedDateTime := CreateDateTime(ParsedDate, 0T);
                             end;
-
-                            if JsonScheduleDetails.Get('latestSelectableDateTime', JsonTokenLoop) then begin
-                                JsonValue := JsonTokenLoop.AsValue();
-                                if not JsonValue.IsNull() then begin
-                                    ParsedDateTime := 0DT;
-                                    if Evaluate(ParsedDateTime, JsonValue.AsText()) then
-                                        latestSelectableDate := ParsedDateTime;
-                                end;
-                            end else
-                                if JsonScheduleDetails.Get('latestSelectableDate', JsonTokenLoop) then begin
-                                    JsonValue := JsonTokenLoop.AsValue();
-                                    if not JsonValue.IsNull() then begin
-                                        ParsedDate := 0D;
-                                        ParsedDateTime := 0DT;
-                                        if Evaluate(ParsedDate, JsonValue.AsText()) then
-                                            latestSelectableDate := CreateDateTime(ParsedDate, 0T)
-                                        else
-                                            if Evaluate(ParsedDateTime, JsonValue.AsText()) then
-                                                latestSelectableDate := ParsedDateTime;
-                                    end;
-                                end;
+                            latestSelectableDate := ParsedDateTime;
 
                             ignoreUpdateWindow := false;
-                            if JsonScheduleDetails.Get('ignoreUpdateWindow', JsonTokenLoop) then begin
-                                JsonValue := JsonTokenLoop.AsValue();
-                                ignoreUpdateWindow := JsonValue.AsBoolean();
-                            end;
-
+                            GetJsonBoolean(JsonScheduleDetails, 'ignoreUpdateWindow', ignoreUpdateWindow);
                             rolloutStatus := '';
-                            if JsonScheduleDetails.Get('rolloutStatus', JsonTokenLoop) then begin
-                                JsonValue := JsonTokenLoop.AsValue();
-                                rolloutStatus := JsonValue.AsText();
-                            end;
+                            GetJsonText(JsonScheduleDetails, 'rolloutStatus', rolloutStatus);
                         end;
 
-                        // Get expected availability if available (for unreleased versions)
                         expectedAvailability := '';
-                        if JsonObjectLoop.Get('expectedAvailability', JsonTokenLoop) then begin
-                            JsonExpectedAvailability := JsonTokenLoop.AsObject();
-
-                            if JsonExpectedAvailability.Get('month', JsonTokenLoop) then begin
-                                JsonValue := JsonTokenLoop.AsValue();
-                                month := JsonValue.AsInteger();
-                            end;
-
-                            if JsonExpectedAvailability.Get('year', JsonTokenLoop) then begin
-                                JsonValue := JsonTokenLoop.AsValue();
-                                year := JsonValue.AsInteger();
-                            end;
-
-                            expectedAvailability := Format(year) + '/' + PadStr('', 2 - StrLen(Format(month)), '0') + Format(month);
+                        if GetJsonObject(JsonObjectLoop, 'expectedAvailability', JsonExpectedAvailability) then begin
+                            month := 0;
+                            GetJsonInteger(JsonExpectedAvailability, 'month', month);
+                            year := 0;
+                            GetJsonInteger(JsonExpectedAvailability, 'year', year);
+                            expectedAvailability := FormatExpectedAvailability(year, month);
                         end;
                     end;
                 end;
 
-                // Update the environment with the selected update information
                 if targetVersion <> '' then begin
                     BCEnvironment."Target Version" := targetVersion;
                     BCEnvironment."Available" := available;
@@ -489,7 +367,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
+        TextValue: Text;
         AvailableUpdatesFetchedMsg: Label 'Available updates for the selected environment have been fetched successfully.';
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
         NoAvailableUpdatesMsg: Label 'No available updates found for the selected environment.';
@@ -509,23 +387,9 @@ codeunit 62000 "D4P BC Environment Mgt"
 
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
-                if JsonObjectLoop.Get('appId', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    appId := JsonValue.AsText();
-                end;
-                // if JsonObjectLoop.Get('name', JsonTokenLoop) then begin
-                //     JsonValue := JsonTokenLoop.AsValue();
-                //     appName := JsonValue.AsText();
-                // end;
-                // if JsonObjectLoop.Get('publisher', JsonTokenLoop) then begin
-                //     JsonValue := JsonTokenLoop.AsValue();
-                //     appPublisher := JsonValue.AsText();
-                // end;
-                if JsonObjectLoop.Get('version', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    appVersion := JsonValue.AsText();
-                end;
-                //Update the app entry
+                if GetJsonText(JsonObjectLoop, 'appId', TextValue) then
+                    appId := TextValue;
+                GetJsonText(JsonObjectLoop, 'version', appVersion);
                 if InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, appId) then begin
                     InstalledApp."Available Update Version" := appVersion;
                     InstalledApp.Modify();
@@ -659,7 +523,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonScheduleDetails: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
+        TextValue: Text;
         FailedToFetchErr: Label 'Failed to fetch available updates: %1', Comment = '%1 = Error message';
         FetchingUpdatesMsg: Label 'Fetching available updates...';
         NoUpdatesFoundMsg: Label 'No updates found in API response for environment %1.', Comment = '%1 = Environment Name';
@@ -710,85 +574,36 @@ codeunit 62000 "D4P BC Environment Mgt"
                 ProgressDialog.Update(1, CurrentUpdate);
                 ProgressDialog.Update(2, TotalUpdates);
 
-                if JsonObjectLoop.Get('targetVersion', JsonToken) then begin
-                    JsonValue := JsonToken.AsValue();
-                    TempAvailableUpdate."Target Version" := CopyStr(JsonValue.AsText(), 1, MaxStrLen(TempAvailableUpdate."Target Version"));
+                if GetJsonText(JsonObjectLoop, 'targetVersion', TextValue) then begin
+                    TempAvailableUpdate."Target Version" := CopyStr(TextValue, 1, MaxStrLen(TempAvailableUpdate."Target Version"));
                     ProgressDialog.Update(3, TempAvailableUpdate."Target Version");
                 end;
 
-                if JsonObjectLoop.Get('available', JsonToken) then begin
-                    JsonValue := JsonToken.AsValue();
-                    TempAvailableUpdate.Available := JsonValue.AsBoolean();
+                GetJsonBoolean(JsonObjectLoop, 'available', TempAvailableUpdate.Available);
+                GetJsonBoolean(JsonObjectLoop, 'selected', TempAvailableUpdate.Selected);
+
+                if GetJsonText(JsonObjectLoop, 'targetVersionType', TextValue) then
+                    TempAvailableUpdate."Target Version Type" := CopyStr(TextValue, 1, MaxStrLen(TempAvailableUpdate."Target Version Type"));
+
+                if GetJsonObject(JsonObjectLoop, 'scheduleDetails', JsonScheduleDetails) then begin
+                    ParsedDateTime := 0DT;
+                    if TryGetJsonDateTime(JsonScheduleDetails, 'selectedDateTime', ParsedDateTime) then
+                        TempAvailableUpdate."Selected DateTime" := DT2Date(ParsedDateTime);
+
+                    ParsedDate := 0D;
+                    if not TryGetJsonDate(JsonScheduleDetails, 'latestSelectableDateTime', ParsedDate) then
+                        TryGetJsonDate(JsonScheduleDetails, 'latestSelectableDate', ParsedDate);
+                    TempAvailableUpdate."Latest Selectable Date" := ParsedDate;
+
+                    GetJsonBoolean(JsonScheduleDetails, 'ignoreUpdateWindow', TempAvailableUpdate."Ignore Update Window");
+
+                    if GetJsonText(JsonScheduleDetails, 'rolloutStatus', TextValue) then
+                        TempAvailableUpdate."Rollout Status" := CopyStr(TextValue, 1, MaxStrLen(TempAvailableUpdate."Rollout Status"));
                 end;
 
-                if JsonObjectLoop.Get('selected', JsonToken) then begin
-                    JsonValue := JsonToken.AsValue();
-                    TempAvailableUpdate.Selected := JsonValue.AsBoolean();
-                end;
-
-                if JsonObjectLoop.Get('targetVersionType', JsonToken) then begin
-                    JsonValue := JsonToken.AsValue();
-                    TempAvailableUpdate."Target Version Type" := CopyStr(JsonValue.AsText(), 1, MaxStrLen(TempAvailableUpdate."Target Version Type"));
-                end;
-
-                if JsonObjectLoop.Get('scheduleDetails', JsonToken) then begin
-                    JsonScheduleDetails := JsonToken.AsObject();
-
-                    if JsonScheduleDetails.Get('selectedDateTime', JsonToken) then begin
-                        JsonValue := JsonToken.AsValue();
-                        if not JsonValue.IsNull() then begin
-                            ParsedDateTime := 0DT;
-                            if Evaluate(ParsedDateTime, JsonValue.AsText()) then
-                                TempAvailableUpdate."Selected DateTime" := DT2Date(ParsedDateTime);
-                        end;
-                    end;
-
-                    if JsonScheduleDetails.Get('latestSelectableDateTime', JsonToken) then begin
-                        JsonValue := JsonToken.AsValue();
-                        if not JsonValue.IsNull() then begin
-                            ParsedDate := 0D;
-                            ParsedDateTime := 0DT;
-                            if not Evaluate(ParsedDate, JsonValue.AsText()) then
-                                if Evaluate(ParsedDateTime, JsonValue.AsText()) then
-                                    ParsedDate := DT2Date(ParsedDateTime);
-                            TempAvailableUpdate."Latest Selectable Date" := ParsedDate;
-                        end;
-                    end else
-                        if JsonScheduleDetails.Get('latestSelectableDate', JsonToken) then begin
-                            JsonValue := JsonToken.AsValue();
-                            if not JsonValue.IsNull() then begin
-                                ParsedDate := 0D;
-                                ParsedDateTime := 0DT;
-                                if not Evaluate(ParsedDate, JsonValue.AsText()) then
-                                    if Evaluate(ParsedDateTime, JsonValue.AsText()) then
-                                        ParsedDate := DT2Date(ParsedDateTime);
-                                TempAvailableUpdate."Latest Selectable Date" := ParsedDate;
-                            end;
-                        end;
-
-                    if JsonScheduleDetails.Get('ignoreUpdateWindow', JsonToken) then begin
-                        JsonValue := JsonToken.AsValue();
-                        TempAvailableUpdate."Ignore Update Window" := JsonValue.AsBoolean();
-                    end;
-
-                    if JsonScheduleDetails.Get('rolloutStatus', JsonToken) then begin
-                        JsonValue := JsonToken.AsValue();
-                        TempAvailableUpdate."Rollout Status" := CopyStr(JsonValue.AsText(), 1, MaxStrLen(TempAvailableUpdate."Rollout Status"));
-                    end;
-                end;
-
-                if JsonObjectLoop.Get('expectedAvailability', JsonToken) then begin
-                    JsonExpectedAvailability := JsonToken.AsObject();
-
-                    if JsonExpectedAvailability.Get('month', JsonToken) then begin
-                        JsonValue := JsonToken.AsValue();
-                        TempAvailableUpdate."Expected Month" := JsonValue.AsInteger();
-                    end;
-
-                    if JsonExpectedAvailability.Get('year', JsonToken) then begin
-                        JsonValue := JsonToken.AsValue();
-                        TempAvailableUpdate."Expected Year" := JsonValue.AsInteger();
-                    end;
+                if GetJsonObject(JsonObjectLoop, 'expectedAvailability', JsonExpectedAvailability) then begin
+                    GetJsonInteger(JsonExpectedAvailability, 'month', TempAvailableUpdate."Expected Month");
+                    GetJsonInteger(JsonExpectedAvailability, 'year', TempAvailableUpdate."Expected Year");
                 end;
 
                 TempAvailableUpdate.Insert();
@@ -850,7 +665,7 @@ codeunit 62000 "D4P BC Environment Mgt"
             Message(UpdateScheduledMsg, TargetVersion, SelectedDate);
         end else begin
             BCEnvironment."Selected DateTime" := 0DT;
-            BCEnvironment."Expected Availability" := Format(ExpectedYear) + '/' + PadStr('', 2 - StrLen(Format(ExpectedMonth)), '0') + Format(ExpectedMonth);
+            BCEnvironment."Expected Availability" := FormatExpectedAvailability(ExpectedYear, ExpectedMonth);
             Message(UpdateSelectedMsg, TargetVersion, ExpectedMonth, ExpectedYear);
         end;
         BCEnvironment.Modify();
@@ -901,5 +716,104 @@ codeunit 62000 "D4P BC Environment Mgt"
                 Message(ConnectionStringSetMsg, BCEnvironment.Name);
         end else
             Error(FailedToSetKeyErr, ResponseText);
+    end;
+
+    local procedure GetJsonText(JsonObj: JsonObject; FieldName: Text; var Value: Text): Boolean
+    var
+        JsonToken: JsonToken;
+        JsonValue: JsonValue;
+    begin
+        if not JsonObj.Get(FieldName, JsonToken) then
+            exit(false);
+        JsonValue := JsonToken.AsValue();
+        if JsonValue.IsNull() then
+            exit(false);
+        Value := JsonValue.AsText();
+        exit(true);
+    end;
+
+    local procedure GetJsonBoolean(JsonObj: JsonObject; FieldName: Text; var Value: Boolean): Boolean
+    var
+        JsonToken: JsonToken;
+        JsonValue: JsonValue;
+    begin
+        if not JsonObj.Get(FieldName, JsonToken) then
+            exit(false);
+        JsonValue := JsonToken.AsValue();
+        if JsonValue.IsNull() then
+            exit(false);
+        Value := JsonValue.AsBoolean();
+        exit(true);
+    end;
+
+    local procedure GetJsonInteger(JsonObj: JsonObject; FieldName: Text; var Value: Integer): Boolean
+    var
+        JsonToken: JsonToken;
+        JsonValue: JsonValue;
+    begin
+        if not JsonObj.Get(FieldName, JsonToken) then
+            exit(false);
+        JsonValue := JsonToken.AsValue();
+        if JsonValue.IsNull() then
+            exit(false);
+        Value := JsonValue.AsInteger();
+        exit(true);
+    end;
+
+    local procedure GetJsonObject(JsonObj: JsonObject; FieldName: Text; var ChildObj: JsonObject): Boolean
+    var
+        JsonToken: JsonToken;
+    begin
+        if not JsonObj.Get(FieldName, JsonToken) then
+            exit(false);
+        if not JsonToken.IsObject() then
+            exit(false);
+        ChildObj := JsonToken.AsObject();
+        exit(true);
+    end;
+
+    local procedure FormatExpectedAvailability(Year: Integer; Month: Integer): Text
+    begin
+        exit(Format(Year) + '/' + PadStr('', 2 - StrLen(Format(Month)), '0') + Format(Month));
+    end;
+
+    internal procedure TryGetJsonDate(JsonObj: JsonObject; FieldName: Text; var ResultDate: Date): Boolean
+    var
+        JsonToken: JsonToken;
+        JsonValue: JsonValue;
+        ResultDateTime: DateTime;
+        TextValue: Text;
+    begin
+        ResultDate := 0D;
+        if not JsonObj.Get(FieldName, JsonToken) then
+            exit(false);
+        JsonValue := JsonToken.AsValue();
+        if JsonValue.IsNull() then
+            exit(false);
+        TextValue := JsonValue.AsText();
+        if Evaluate(ResultDate, TextValue) then
+            exit(true);
+        ResultDateTime := 0DT;
+        if Evaluate(ResultDateTime, TextValue) then begin
+            ResultDate := DT2Date(ResultDateTime);
+            exit(true);
+        end;
+        exit(false);
+    end;
+
+    internal procedure TryGetJsonDateTime(JsonObj: JsonObject; FieldName: Text; var ResultDateTime: DateTime): Boolean
+    var
+        JsonToken: JsonToken;
+        JsonValue: JsonValue;
+        TextValue: Text;
+    begin
+        ResultDateTime := 0DT;
+        if not JsonObj.Get(FieldName, JsonToken) then
+            exit(false);
+        JsonValue := JsonToken.AsValue();
+        if JsonValue.IsNull() then
+            exit(false);
+        TextValue := JsonValue.AsText();
+        exit(Evaluate(ResultDateTime, TextValue));
     end;
 }
