@@ -138,7 +138,6 @@ codeunit 62000 "D4P BC Environment Mgt"
     var
         InstalledApp: Record "D4P BC Installed App";
         BCTenant: Record "D4P BC Tenant";
-        appId: Guid;
         JsonArray: JsonArray;
         JsonObjectLoop: JsonObject;
         JsonResponse: JsonObject;
@@ -387,13 +386,15 @@ codeunit 62000 "D4P BC Environment Mgt"
 
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
+                Clear(appId);
+                Clear(appVersion);
                 if GetJsonText(JsonObjectLoop, 'appId', TextValue) then
                     appId := TextValue;
-                GetJsonText(JsonObjectLoop, 'version', appVersion);
-                if InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, appId) then begin
-                    InstalledApp."Available Update Version" := appVersion;
-                    InstalledApp.Modify();
-                end;
+                if GetJsonText(JsonObjectLoop, 'version', appVersion) then
+                    if InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, appId) then begin
+                        InstalledApp."Available Update Version" := appVersion;
+                        InstalledApp.Modify();
+                    end;
             end;
             if ShowMessage and GuiAllowed then
                 Message(AvailableUpdatesFetchedMsg);
@@ -616,7 +617,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         end;
     end;
 
-    procedure SelectTargetVersion(var BCEnvironment: Record "D4P BC Environment"; TargetVersion: Text[100]; SelectedDate: Date; ExpectedMonth: Integer; ExpectedYear: Integer; IgnoreUpdateWindow: Boolean)
+    internal procedure SelectTargetVersion(var BCEnvironment: Record "D4P BC Environment"; TargetVersion: Text[100]; SelectedDate: Date; ExpectedMonth: Integer; ExpectedYear: Integer; IgnoreUpdateWindow: Boolean)
     var
         BCSetup: Record "D4P BC Setup";
         BCTenant: Record "D4P BC Tenant";

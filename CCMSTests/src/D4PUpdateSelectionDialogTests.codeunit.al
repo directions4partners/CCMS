@@ -113,9 +113,17 @@ codeunit 62050 "D4P Update Selection Dialog Tests"
         ExpectedMonth: Integer;
         ExpectedYear: Integer;
         IgnoreUpdateWindow: Boolean;
+        ExpectedUpdateMonth: Integer;
+        ExpectedUpdateYear: Integer;
     begin
         // Arrange
         InsertAvailableUpdate(TempUpdate, 1, '25.2.0.0', true, CalcDate('<+14D>', Today()), true);
+        ExpectedUpdateMonth := Date2DMY(Today(), 2);
+        ExpectedUpdateYear := Date2DMY(Today(), 3);
+        TempUpdate.FindFirst();
+        TempUpdate."Expected Month" := ExpectedUpdateMonth;
+        TempUpdate."Expected Year" := ExpectedUpdateYear;
+        TempUpdate.Modify();
 
         // Act
         UpdateSelectionDialog.SetData(TempUpdate);
@@ -126,6 +134,8 @@ codeunit 62050 "D4P Update Selection Dialog Tests"
         VerifyTextEqual(TargetVersion, '25.2.0.0', 'TargetVersion');
         VerifyDateEqual(SelectedDate, CalcDate('<+14D>', Today()), 'SelectedDate');
         VerifyIsTrue(IgnoreUpdateWindow, 'IgnoreUpdateWindow');
+        VerifyIntEqual(ExpectedMonth, ExpectedUpdateMonth, 'ExpectedMonth');
+        VerifyIntEqual(ExpectedYear, ExpectedUpdateYear, 'ExpectedYear');
     end;
 
     [Test]
