@@ -634,6 +634,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         CurrentUpdate: Integer;
         EntryNo: Integer;
         TotalUpdates: Integer;
+        ParsedDate: Date;
+        ParsedDateTime: DateTime;
         JsonArray: JsonArray;
         JsonExpectedAvailability: JsonObject;
         JsonObjectLoop: JsonObject;
@@ -654,17 +656,14 @@ codeunit 62000 "D4P BC Environment Mgt"
         TempAvailableUpdate.Reset();
         TempAvailableUpdate.DeleteAll();
 
-        // Show progress dialog
         ProgressDialog.Open(FetchingUpdatesMsg);
 
-        // Call Admin API to get available updates
         Endpoint := '/applications/' + BCEnvironment."Application Family" + '/environments/' + BCEnvironment.Name + '/updates';
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'GET', Endpoint, '', ResponseText) then begin
             ProgressDialog.Close();
             Error(FailedToFetchErr, ResponseText);
         end;
 
-        // Debug mode: Show API response
         if BCSetup."Debug Mode" then
             Message('DEBUG - Get Available Updates:\%1', ResponseText);
 
@@ -692,72 +691,76 @@ codeunit 62000 "D4P BC Environment Mgt"
                 TempAvailableUpdate.Init();
                 TempAvailableUpdate."Entry No." := EntryNo;
 
-                // Update progress dialog
                 ProgressDialog.Update(1, CurrentUpdate);
                 ProgressDialog.Update(2, TotalUpdates);
 
-                // Get target version
                 if JsonObjectLoop.Get('targetVersion', JsonToken) then begin
                     JsonValue := JsonToken.AsValue();
                     TempAvailableUpdate."Target Version" := CopyStr(JsonValue.AsText(), 1, MaxStrLen(TempAvailableUpdate."Target Version"));
                     ProgressDialog.Update(3, TempAvailableUpdate."Target Version");
                 end;
 
-                // Get availability status
                 if JsonObjectLoop.Get('available', JsonToken) then begin
                     JsonValue := JsonToken.AsValue();
                     TempAvailableUpdate.Available := JsonValue.AsBoolean();
                 end;
 
-                // Get selected status
                 if JsonObjectLoop.Get('selected', JsonToken) then begin
                     JsonValue := JsonToken.AsValue();
                     TempAvailableUpdate.Selected := JsonValue.AsBoolean();
                 end;
 
-                // Get target version type
                 if JsonObjectLoop.Get('targetVersionType', JsonToken) then begin
                     JsonValue := JsonToken.AsValue();
                     TempAvailableUpdate."Target Version Type" := CopyStr(JsonValue.AsText(), 1, MaxStrLen(TempAvailableUpdate."Target Version Type"));
                 end;
 
-                // Get schedule details if available (for released versions)
                 if JsonObjectLoop.Get('scheduleDetails', JsonToken) then begin
                     JsonScheduleDetails := JsonToken.AsObject();
 
-                    // Get selected date time
                     if JsonScheduleDetails.Get('selectedDateTime', JsonToken) then begin
                         JsonValue := JsonToken.AsValue();
-                        if not JsonValue.IsNull() then
-                            TempAvailableUpdate."Selected DateTime" := DT2Date(JsonValue.AsDateTime());
+                        if not JsonValue.IsNull() then begin
+                            ParsedDateTime := 0DT;
+                            if Evaluate(ParsedDateTime, JsonValue.AsText()) then
+                                TempAvailableUpdate."Selected DateTime" := DT2Date(ParsedDateTime);
+                        end;
                     end;
 
-                    // Get latest selectable date - try both field names (API inconsistency)
                     if JsonScheduleDetails.Get('latestSelectableDateTime', JsonToken) then begin
                         JsonValue := JsonToken.AsValue();
-                        if not JsonValue.IsNull() then
-                            TempAvailableUpdate."Latest Selectable Date" := DT2Date(JsonValue.AsDateTime());
+                        if not JsonValue.IsNull() then begin
+                            ParsedDate := 0D;
+                            ParsedDateTime := 0DT;
+                            if not Evaluate(ParsedDate, JsonValue.AsText()) then
+                                if Evaluate(ParsedDateTime, JsonValue.AsText()) then
+                                    ParsedDate := DT2Date(ParsedDateTime);
+                            TempAvailableUpdate."Latest Selectable Date" := ParsedDate;
+                        end;
                     end else
                         if JsonScheduleDetails.Get('latestSelectableDate', JsonToken) then begin
                             JsonValue := JsonToken.AsValue();
-                            if not JsonValue.IsNull() then
-                                TempAvailableUpdate."Latest Selectable Date" := DT2Date(JsonValue.AsDateTime());
+                            if not JsonValue.IsNull() then begin
+                                ParsedDate := 0D;
+                                ParsedDateTime := 0DT;
+                                if not Evaluate(ParsedDate, JsonValue.AsText()) then
+                                    if Evaluate(ParsedDateTime, JsonValue.AsText()) then
+                                        ParsedDate := DT2Date(ParsedDateTime);
+                                TempAvailableUpdate."Latest Selectable Date" := ParsedDate;
+                            end;
                         end;
 
-                    // Get ignore update window
                     if JsonScheduleDetails.Get('ignoreUpdateWindow', JsonToken) then begin
                         JsonValue := JsonToken.AsValue();
                         TempAvailableUpdate."Ignore Update Window" := JsonValue.AsBoolean();
                     end;
 
-                    // Get rollout status
                     if JsonScheduleDetails.Get('rolloutStatus', JsonToken) then begin
                         JsonValue := JsonToken.AsValue();
                         TempAvailableUpdate."Rollout Status" := CopyStr(JsonValue.AsText(), 1, MaxStrLen(TempAvailableUpdate."Rollout Status"));
                     end;
                 end;
 
-                // Get expected availability if available (for unreleased versions)
                 if JsonObjectLoop.Get('expectedAvailability', JsonToken) then begin
                     JsonExpectedAvailability := JsonToken.AsObject();
 
@@ -782,7 +785,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         end;
     end;
 
-    procedure SelectTargetVersion(var BCEnvironment: Record "D4P BC Environment"; TargetVersion: Text[100]; SelectedDate: Date; ExpectedMonth: Integer; ExpectedYear: Integer)
+    procedure SelectTargetVersion(var BCEnvironment: Record "D4P BC Environment"; TargetVersion: Text[100]; SelectedDate: Date; ExpectedMonth: Integer; ExpectedYear: Integer; IgnoreUpdateWindow: Boolean)
     var
         BCSetup: Record "D4P BC Setup";
         BCTenant: Record "D4P BC Tenant";
@@ -800,38 +803,31 @@ codeunit 62000 "D4P BC Environment Mgt"
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
         BCSetup.Get();
 
-        // Determine if the version is available (has a date) or not (has month/year)
         IsAvailable := (SelectedDate <> 0D);
 
-        // Build JSON request body
         JsonObject.Add('selected', true);
 
         if IsAvailable then begin
-            // Convert Date to DateTime (at midnight)
             SelectedDateTime := CreateDateTime(SelectedDate, 0T);
-            // For available versions, include schedule details
             JsonScheduleDetails.Add('selectedDateTime', SelectedDateTime);
-            JsonScheduleDetails.Add('ignoreUpdateWindow', false);
+            JsonScheduleDetails.Add('ignoreUpdateWindow', IgnoreUpdateWindow);
             JsonObject.Add('scheduleDetails', JsonScheduleDetails);
         end;
 
         JsonObject.WriteTo(RequestBody);
 
-        // Debug mode: Show request body
         if BCSetup."Debug Mode" then
             Message('DEBUG - Select Target Version Request:\Target Version: %1\Request Body: %2', TargetVersion, RequestBody);
 
-        // Call Admin API to select target version
         Endpoint := '/applications/' + BCEnvironment."Application Family" + '/environments/' + BCEnvironment.Name + '/updates/' + TargetVersion;
         if not APIHelper.SendAdminAPIRequest(BCTenant, 'PATCH', Endpoint, RequestBody, ResponseText) then
             Error(FailedToSelectErr, ResponseText);
 
-        // Debug mode: Show API response
         if BCSetup."Debug Mode" then
             Message('DEBUG - Select Target Version Response:\%1', ResponseText);
 
-        // Update environment record
         BCEnvironment."Target Version" := TargetVersion;
+        BCEnvironment."Ignore Update Window" := IgnoreUpdateWindow;
         if IsAvailable then begin
             BCEnvironment."Selected DateTime" := SelectedDateTime;
             BCEnvironment."Expected Availability" := '';
