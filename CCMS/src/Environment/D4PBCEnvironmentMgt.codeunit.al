@@ -292,6 +292,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         selected: Boolean;
         latestSelectableDate: DateTime;
         selectedDateTime: DateTime;
+        ParsedDate: Date;
+        ParsedDateTime: DateTime;
         month: Integer;
         year: Integer;
         JsonArray: JsonArray;
@@ -359,28 +361,42 @@ codeunit 62000 "D4P BC Environment Mgt"
                         if JsonObjectLoop.Get('scheduleDetails', JsonTokenLoop) then begin
                             JsonScheduleDetails := JsonTokenLoop.AsObject();
 
-                            // Get selected date time
                             if JsonScheduleDetails.Get('selectedDateTime', JsonTokenLoop) then begin
                                 JsonValue := JsonTokenLoop.AsValue();
-                                if not JsonValue.IsNull() then
-                                    selectedDateTime := JsonValue.AsDateTime();
+                                if not JsonValue.IsNull() then begin
+                                    ParsedDateTime := 0DT;
+                                    if Evaluate(ParsedDateTime, JsonValue.AsText()) then
+                                        selectedDateTime := ParsedDateTime;
+                                end;
                             end;
 
-                            // Get latest selectable date
-                            if JsonScheduleDetails.Get('latestSelectableDate', JsonTokenLoop) then begin
+                            if JsonScheduleDetails.Get('latestSelectableDateTime', JsonTokenLoop) then begin
                                 JsonValue := JsonTokenLoop.AsValue();
-                                if not JsonValue.IsNull() then
-                                    latestSelectableDate := JsonValue.AsDateTime();
-                            end;
+                                if not JsonValue.IsNull() then begin
+                                    ParsedDateTime := 0DT;
+                                    if Evaluate(ParsedDateTime, JsonValue.AsText()) then
+                                        latestSelectableDate := ParsedDateTime;
+                                end;
+                            end else
+                                if JsonScheduleDetails.Get('latestSelectableDate', JsonTokenLoop) then begin
+                                    JsonValue := JsonTokenLoop.AsValue();
+                                    if not JsonValue.IsNull() then begin
+                                        ParsedDate := 0D;
+                                        ParsedDateTime := 0DT;
+                                        if Evaluate(ParsedDate, JsonValue.AsText()) then
+                                            latestSelectableDate := CreateDateTime(ParsedDate, 0T)
+                                        else
+                                            if Evaluate(ParsedDateTime, JsonValue.AsText()) then
+                                                latestSelectableDate := ParsedDateTime;
+                                    end;
+                                end;
 
-                            // Get ignore update window
                             ignoreUpdateWindow := false;
                             if JsonScheduleDetails.Get('ignoreUpdateWindow', JsonTokenLoop) then begin
                                 JsonValue := JsonTokenLoop.AsValue();
                                 ignoreUpdateWindow := JsonValue.AsBoolean();
                             end;
 
-                            // Get rollout status
                             rolloutStatus := '';
                             if JsonScheduleDetails.Get('rolloutStatus', JsonTokenLoop) then begin
                                 JsonValue := JsonTokenLoop.AsValue();
