@@ -2,7 +2,7 @@ namespace D4P.CCMS.Environment.Tests;
 
 using D4P.CCMS.Environment;
 
-codeunit 62050 "D4P Update Selection Dialog Tests"
+codeunit 62050 "D4P Update Selection Dlg Tests"
 {
     Subtype = Test;
 
