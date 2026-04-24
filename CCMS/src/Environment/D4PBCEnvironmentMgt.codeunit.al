@@ -387,13 +387,14 @@ codeunit 62000 "D4P BC Environment Mgt"
                 JsonObjectLoop := JsonTokenLoop.AsObject();
                 Clear(appId);
                 Clear(appVersion);
-                if GetJsonText(JsonObjectLoop, 'appId', TextValue) then
+                if GetJsonText(JsonObjectLoop, 'appId', TextValue) then begin
                     appId := TextValue;
-                if GetJsonText(JsonObjectLoop, 'version', appVersion) then
-                    if InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, appId) then begin
-                        InstalledApp."Available Update Version" := appVersion;
-                        InstalledApp.Modify();
-                    end;
+                    if GetJsonText(JsonObjectLoop, 'version', appVersion) then
+                        if InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, appId) then begin
+                            InstalledApp."Available Update Version" := appVersion;
+                            InstalledApp.Modify();
+                        end;
+                end;
             end;
             if ShowMessage and GuiAllowed then
                 Message(AvailableUpdatesFetchedMsg);
