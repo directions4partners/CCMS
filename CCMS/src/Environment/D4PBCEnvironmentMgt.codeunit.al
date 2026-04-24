@@ -40,11 +40,11 @@ codeunit 62000 "D4P BC Environment Mgt"
 
         if JsonResponse.Get('value', JsonToken) then begin
             JsonArray := JsonToken.AsArray();
-            BCEnvironment.Init();
-            BCEnvironment."Customer No." := BCTenant."Customer No.";
-            BCEnvironment."Tenant ID" := BCTenant."Tenant ID";
 
             foreach JsonTokenLoop in JsonArray do begin
+                BCEnvironment.Init();
+                BCEnvironment."Customer No." := BCTenant."Customer No.";
+                BCEnvironment."Tenant ID" := BCTenant."Tenant ID";
                 JsonObjectLoop := JsonTokenLoop.AsObject();
                 if GetJsonText(JsonObjectLoop, 'name', TextValue) then
                     BCEnvironment.Name := TextValue;
@@ -163,12 +163,11 @@ codeunit 62000 "D4P BC Environment Mgt"
         if JsonResponse.Get('value', JsonToken) then begin
             JsonArray := JsonToken.AsArray();
 
-            InstalledApp.Init();
-            InstalledApp."Customer No." := BCTenant."Customer No.";
-            InstalledApp."Tenant ID" := BCTenant."Tenant ID";
-            InstalledApp."Environment Name" := BCEnvironment.Name;
-
             foreach JsonTokenLoop in JsonArray do begin
+                InstalledApp.Init();
+                InstalledApp."Customer No." := BCTenant."Customer No.";
+                InstalledApp."Tenant ID" := BCTenant."Tenant ID";
+                InstalledApp."Environment Name" := BCEnvironment.Name;
                 JsonObjectLoop := JsonTokenLoop.AsObject();
                 if GetJsonText(JsonObjectLoop, 'id', TextValue) then
                     InstalledApp."App ID" := TextValue;
@@ -792,10 +791,10 @@ codeunit 62000 "D4P BC Environment Mgt"
         if JsonValue.IsNull() then
             exit(false);
         TextValue := JsonValue.AsText();
-        if Evaluate(ResultDate, TextValue) then
+        if Evaluate(ResultDate, TextValue, 9) then
             exit(true);
         ResultDateTime := 0DT;
-        if Evaluate(ResultDateTime, TextValue) then begin
+        if Evaluate(ResultDateTime, TextValue, 9) then begin
             ResultDate := DT2Date(ResultDateTime);
             exit(true);
         end;
@@ -815,6 +814,6 @@ codeunit 62000 "D4P BC Environment Mgt"
         if JsonValue.IsNull() then
             exit(false);
         TextValue := JsonValue.AsText();
-        exit(Evaluate(ResultDateTime, TextValue));
+        exit(Evaluate(ResultDateTime, TextValue, 9));
     end;
 }
