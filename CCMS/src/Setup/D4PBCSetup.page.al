@@ -20,7 +20,7 @@ page 62010 "D4P BC Setup"
                 field("Debug Mode"; Rec."Debug Mode")
                 {
                 }
-                field("Use Microsoft Sales Customer"; Rec."Use Microsoft Sales Customer")
+                field("Use Business Central Customer"; Rec."Use Business Central Customer")
                 {
                 }
             }

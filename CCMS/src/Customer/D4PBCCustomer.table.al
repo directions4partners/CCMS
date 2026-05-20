@@ -210,15 +210,15 @@ table 62000 "D4P BC Customer"
     end;
 
     /// <summary>
-    /// Opens the Microsoft sales customer lookup and populates this record when a customer is selected.
-    /// The lookup is only available when using Microsoft sales customers is enabled in setup.
+    /// Opens the Business Central Customer lookup and populates this record when a customer is selected.
+    /// The lookup is only available when using Business Central customers is enabled in setup.
     /// </summary>
     local procedure LookupSalesCustomer()
     var
         Customer: Record Customer;
     begin
         GetCCMSSetup();
-        if not CCMSSetup."Use Microsoft Sales Customer" then
+        if not CCMSSetup."Use Business Central Customer" then
             exit;
 
         if Page.RunModal(Page::"Customer Lookup", Customer) = Action::LookupOK then
@@ -226,9 +226,9 @@ table 62000 "D4P BC Customer"
     end;
 
     /// <summary>
-    /// Populates the current CCMS customer record with data from the selected Microsoft sales customer.
+    /// Populates the current CCMS customer record with data from the selected Business Central customer.
     /// </summary>
-    /// <param name="Customer">The Microsoft sales customer record to copy data from.</param>
+    /// <param name="Customer">The Business Central customer record to copy data from.</param>
     local procedure PopulateFromSalesCustomer(var Customer: Record Customer)
     begin
         Rec.Validate("No.", Customer."No.");
