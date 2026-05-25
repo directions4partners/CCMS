@@ -251,7 +251,7 @@ codeunit 62000 "D4P BC Environment Mgt"
                     case LowerCase(JsonValue.AsText()) of
                         'global':
                             InstalledApp."App Type" := Enum::"D4P App Type"::Global;
-                        'pte', 'tenant':
+                        'tenant':
                             InstalledApp."App Type" := Enum::"D4P App Type"::PTE;
                         'dev':
                             InstalledApp."App Type" := Enum::"D4P App Type"::DEV;

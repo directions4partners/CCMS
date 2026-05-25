@@ -2,6 +2,7 @@ namespace D4P.CCMS.Extension;
 
 using D4P.CCMS.Customer;
 using D4P.CCMS.Tenant;
+using D4P.CCMS.PTEApps;
 table 62004 "D4P PTE Object Range"
 {
     Caption = 'PTE Object Range';
@@ -27,12 +28,14 @@ table 62004 "D4P PTE Object Range"
         {
             DataClassification = SystemMetadata;
             Caption = 'Entry No.';
+            ToolTip = 'Specifies the entry number.';
             AutoIncrement = true;
         }
         field(4; "PTE ID"; Guid)
         {
             Caption = 'PTE ID';
             ToolTip = 'Specifies the Per Tenant Extension''s ID.';
+            TableRelation = "D4P BC PTE App"."ID";
         }
         field(5; "PTE Name"; Text[100])
         {
@@ -41,11 +44,15 @@ table 62004 "D4P PTE Object Range"
         }
         field(6; "Range From"; Integer)
         {
+            ObsoleteReason = 'Added new table to make it possible to have several object ranges on same app';
+            ObsoleteState = Pending;
             Caption = 'Range From';
             ToolTip = 'Specifies the starting range.';
         }
         field(7; "Range To"; Integer)
         {
+            ObsoleteReason = 'Added new table to make it possible to have several object ranges on same app';
+            ObsoleteState = Pending;
             Caption = 'Range To';
             ToolTip = 'Specifies the ending range.';
         }
@@ -58,4 +65,13 @@ table 62004 "D4P PTE Object Range"
             Clustered = true;
         }
     }
+
+    procedure CopyValuesFromApp(PTEID: Guid)
+    var
+        PTEApp: Record "D4P BC PTE App";
+    begin
+        if not PTEApp.Get(PTEID) then
+            exit;
+        Rec."PTE Name" := PTEApp."Name";
+    end;
 }
