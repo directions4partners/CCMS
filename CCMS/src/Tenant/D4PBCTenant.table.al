@@ -24,6 +24,7 @@ table 62001 "D4P BC Tenant"
                 D4PBCCustomer: Record "D4P BC Customer";
             begin
                 if "Customer No." <> '' then begin
+                    D4PBCCustomer.SetLoadFields("Partner Center Code");
                     D4PBCCustomer.Get("Customer No.");
                     Validate("Partner Center Code", D4PBCCustomer."Partner Center Code");
                 end;

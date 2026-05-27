@@ -38,10 +38,13 @@ table 62006 "D4P BC Partner Center"
     }
 
     trigger OnDelete()
+    var
+        ConfirmDeleteTxt: Label 'The Partner Center %1 is associated with %2 customers. Are you sure you want to delete it?', Comment = '%1 = Partner Center code, %2 = Assigned Customer Count';
+        CancelTxt: Label 'Deletion of Partner Center cancelled.', Comment = 'Message displayed when deletion of Partner Center is cancelled';
     begin
         CalcFields("Assigned Customer Count");
         if "Assigned Customer Count" > 0 then
-            if not Confirm('There are %1 customers associated with this Partner Center. Are you sure you want to delete it?', false, "Assigned Customer Count") then
-                Error('Deletion of Partner Center cancelled.');
+            if not Confirm(ConfirmDeleteTxt, false, "Code", "Assigned Customer Count") then
+                Error(CancelTxt);
     end;
 }
