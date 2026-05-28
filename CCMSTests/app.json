@@ -1,0 +1,40 @@
+{
+  "id": "f10bf877-caa5-49c6-882e-22922fca331c",
+  "name": "Cloud Customer Management Solution Tests",
+  "publisher": "Directions for partners",
+  "version": "0.0.2.0",
+  "brief": "Test app for CCMS.",
+  "description": "Automated tests for the Cloud Customer Management Solution.",
+  "privacyStatement": "",
+  "EULA": "",
+  "help": "",
+  "url": "",
+  "logo": "",
+  "dependencies": [
+    {
+      "id": "e33746ef-a796-46ca-8a1a-fb3840a42c48",
+      "name": "Cloud Customer Management Solution",
+      "publisher": "Directions for partners",
+      "version": "0.0.2.0"
+    }
+  ],
+  "screenshots": [],
+  "platform": "1.0.0.0",
+  "application": "27.0.0.0",
+  "idRanges": [
+    {
+      "from": 62050,
+      "to": 62099
+    }
+  ],
+  "resourceExposurePolicy": {
+    "allowDebugging": true,
+    "allowDownloadingSource": true,
+    "includeSourceInSymbolFile": true
+  },
+  "runtime": "16.0",
+  "features": [
+    "NoImplicitWith",
+    "TranslationFile"
+  ]
+}

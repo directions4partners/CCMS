@@ -1,7 +1,9 @@
 {
   "$schema": "https://raw.githubusercontent.com/Freddy-D4P/AL-Go/main/Actions/.Modules/settings.schema.json",
   "appFolders": [],
-  "testFolders": [],
+  "testFolders": [
+    "CCMSTests"
+  ],
   "bcptTestFolders": [],
   "enableCodeCop": true,
   "enableUICop": true,

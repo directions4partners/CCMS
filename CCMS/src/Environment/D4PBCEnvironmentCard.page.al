@@ -364,20 +364,19 @@ page 62004 "D4P BC Environment Card"
                     SelectedDate: Date;
                     ExpectedMonth: Integer;
                     ExpectedYear: Integer;
+                    IgnoreUpdateWindow: Boolean;
                     NoUpdatesAvailableErr: Label 'No updates available for the environment %1.', Comment = '%1 = Environment Name';
                     TargetVersion: Text[100];
                 begin
-                    // Get available updates from API
                     EnvironmentManagement.GetAvailableUpdates(Rec, TempAvailableUpdate);
 
                     if TempAvailableUpdate.IsEmpty() then
                         Error(NoUpdatesAvailableErr, Rec.Name);
 
-                    // Pass data to selection dialog and show it
                     UpdateSelectionDialog.SetData(TempAvailableUpdate);
                     if UpdateSelectionDialog.RunModal() = Action::OK then begin
-                        UpdateSelectionDialog.GetSelectedVersion(TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
-                        EnvironmentManagement.SelectTargetVersion(Rec, TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
+                        UpdateSelectionDialog.GetSelectedVersion(TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear, IgnoreUpdateWindow);
+                        EnvironmentManagement.SelectTargetVersion(Rec, TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear, IgnoreUpdateWindow);
                         CurrPage.Update(false);
                     end;
                 end;

@@ -29,5 +29,12 @@
   "features": [
     "NoImplicitWith",
     "TranslationFile"
+  ],
+  "internalsVisibleTo": [
+    {
+      "id": "f10bf877-caa5-49c6-882e-22922fca331c",
+      "name": "Cloud Customer Management Solution Tests",
+      "publisher": "Directions for partners"
+    }
   ]
 }
