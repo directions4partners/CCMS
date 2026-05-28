@@ -7,6 +7,7 @@ using D4P.CCMS.Customer;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Extension;
 using D4P.CCMS.Features;
+using D4P.CCMS.PartnerCenter;
 using D4P.CCMS.General;
 using D4P.CCMS.Operations;
 using D4P.CCMS.Session;
@@ -40,6 +41,7 @@ permissionset 62000 "D4P BC ADMIN"
         tabledata "D4P BC Admin Center Cue" = RIMD,
         tabledata "D4P PTE Object Range" = RIMD,
         tabledata "D4P BC Environment Operation" = RIMD,
+        tabledata "D4P BC Partner Center" = RIMD,
 
         // Table Objects
         table "D4P BC Customer" = X,
@@ -62,6 +64,7 @@ permissionset 62000 "D4P BC ADMIN"
         table "D4P BC Admin Center Cue" = X,
         table "D4P PTE Object Range" = X,
         table "D4P BC Environment Operation" = X,
+        table "D4P BC Partner Center" = X,
 
         // Pages
         page "D4P BC Customers List" = X,
@@ -98,6 +101,7 @@ permissionset 62000 "D4P BC ADMIN"
         page "D4P BC Customer FactBox" = X,
         page "D4P BC Admin Headline" = X,
         page "D4P BC Capacity List" = X,
+        page "D4P BC Partner Center List" = X,
 
         // Codeunits
         codeunit "D4P BC Environment Mgt" = X,

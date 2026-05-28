@@ -34,6 +34,9 @@ page 62002 "D4P BC Tenant List"
                 field("Tenant Name"; Rec."Tenant Name")
                 {
                 }
+                field("Partner Center Code"; Rec."Partner Center Code")
+                {
+                }
             }
         }
         area(FactBoxes)

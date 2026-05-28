@@ -18,15 +18,16 @@ report 62000 "D4P Get Installed Apps"
                 D4PBCEnvironmentMgt: Codeunit "D4P BC Environment Mgt";
             begin
                 D4PBCEnvironmentMgt.GetInstalledApps("D4P BC Environment");
-                // After merge of previous PR this should be uncommented. Reason - the GetAvailableAppUpdates method now has second parameter to not show messages.
-                // if UpdateApps then
-                //     D4PBCEnvironmentMgt.GetAvailableAppUpdates("D4P BC Environment",true);
+                if GetAppUpdates then
+                    D4PBCEnvironmentMgt.GetAvailableAppUpdates("D4P BC Environment", false);
             end;
         }
     }
 
     requestpage
     {
+        SaveValues = true;
+
         layout
         {
             area(Content)
@@ -34,10 +35,10 @@ report 62000 "D4P Get Installed Apps"
                 group(Options)
                 {
                     Caption = 'Options';
-                    field(UpdateAppsOption; UpdateApps)
+                    field(GetAppUpdatesOption; GetAppUpdates)
                     {
                         ApplicationArea = All;
-                        Caption = 'Update Apps After Retrieval';
+                        Caption = 'Get App Updates After Retrieval';
                         ToolTip = 'If selected, the system will also check for available updates for the installed apps after retrieval.';
                     }
                 }
@@ -45,5 +46,5 @@ report 62000 "D4P Get Installed Apps"
         }
     }
     var
-        UpdateApps: Boolean;
+        GetAppUpdates: Boolean;
 }

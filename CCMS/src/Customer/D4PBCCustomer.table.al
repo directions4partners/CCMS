@@ -3,9 +3,12 @@ namespace D4P.CCMS.Customer;
 using D4P.CCMS.Environment;
 using D4P.CCMS.Setup;
 using D4P.CCMS.Tenant;
+using D4P.CCMS.PartnerCenter;
 using Microsoft.Foundation.Address;
 using Microsoft.Foundation.NoSeries;
+using Microsoft.Sales.Customer;
 using System.EMail;
+using System.Utilities;
 
 table 62000 "D4P BC Customer"
 {
@@ -21,6 +24,12 @@ table 62000 "D4P BC Customer"
         {
             Caption = 'No.';
             ToolTip = 'Specifies the customer number.';
+
+            trigger OnLookup()
+            begin
+                LookupSalesCustomer();
+            end;
+
             trigger OnValidate()
             begin
                 TestNoSeries();
@@ -146,6 +155,28 @@ table 62000 "D4P BC Customer"
             FieldClass = FlowField;
             ToolTip = 'Number of active sandbox environments for this customer';
         }
+        field(24; "Partner Center Code"; Code[20])
+        {
+            Caption = 'Partner Center';
+            TableRelation = "D4P BC Partner Center";
+            ToolTip = 'Unique code to identify the Partner Center';
+
+            trigger OnValidate()
+            var
+                D4PBCTenant: Record "D4P BC Tenant";
+                ConfirmManagement: Codeunit "Confirm Management";
+                ConfirmPartnerCenterCodeChangeTxt: Label 'Change Partner Center Code from %1 to %2?', Comment = '%1 is the old Partner Center Code, %2 is the new Partner Center Code.';
+            begin
+                if not ConfirmManagement.GetResponseOrDefault(StrSubstNo(ConfirmPartnerCenterCodeChangeTxt, xRec."Partner Center Code", Rec."Partner Center Code")) then
+                    exit;
+                D4PBCTenant.SetRange("Customer No.", "No.");
+                if D4PBCTenant.FindSet() then
+                    repeat
+                        D4PBCTenant.Validate("Partner Center Code", "Partner Center Code");
+                        D4PBCTenant.Modify(true);
+                    until D4PBCTenant.Next() = 0;
+            end;
+        }
     }
 
     keys
@@ -154,12 +185,16 @@ table 62000 "D4P BC Customer"
         {
             Clustered = true;
         }
+        key(Key2; "Partner Center Code")
+        {
+            Clustered = false;
+        }
     }
 
     trigger OnInsert()
     begin
         if "No." = '' then begin
-            CCMSSetup.Get();
+            GetCCMSSetup();
             CCMSSetup.TestField("Customer Nos.");
             "No. Series" := CCMSSetup."Customer Nos.";
             if NoSeries.AreRelated("No. Series", xRec."No. Series") then
@@ -172,19 +207,70 @@ table 62000 "D4P BC Customer"
         CCMSSetup: Record "D4P BC Setup";
         PostCode: Record "Post Code";
         NoSeries: Codeunit "No. Series";
+        IsCCMSSetupLoaded: Boolean;
 
     procedure AssistEdit(OldCustomer: Record "D4P BC Customer"): Boolean
     var
         D4PBCCustomer: Record "D4P BC Customer";
     begin
         D4PBCCustomer := Rec;
-        CCMSSetup.Get();
+        GetCCMSSetup();
         CCMSSetup.TestField("Customer Nos.");
         if NoSeries.LookupRelatedNoSeries(CCMSSetup."Customer Nos.", OldCustomer."No. Series", D4PBCCustomer."No. Series") then begin
             "No." := NoSeries.GetNextNo(D4PBCCustomer."No. Series");
             Rec := D4PBCCustomer;
             exit(true);
         end;
+    end;
+
+    /// <summary>
+    /// Retrieves the CCMS setup record using a lazy-loading pattern.
+    /// Only loads the setup once by checking the IsCCMSSetupLoaded flag.
+    /// Populates the CCMSSetup global variable with the CCMS setup configuration.
+    /// </summary>
+    local procedure GetCCMSSetup()
+    begin
+        if IsCCMSSetupLoaded then
+            exit;
+
+        CCMSSetup := CCMSSetup.GetSetup();
+        IsCCMSSetupLoaded := true;
+    end;
+
+    /// <summary>
+    /// Opens the Business Central Customer lookup and populates this record when a customer is selected.
+    /// The lookup is only available when using Business Central customers is enabled in setup.
+    /// </summary>
+    local procedure LookupSalesCustomer()
+    var
+        Customer: Record Customer;
+    begin
+        GetCCMSSetup();
+        if not CCMSSetup."Use Business Central Customer" then
+            exit;
+
+        if Page.RunModal(Page::"Customer Lookup", Customer) = Action::LookupOK then
+            PopulateFromSalesCustomer(Customer);
+    end;
+
+    /// <summary>
+    /// Populates the current CCMS customer record with data from the selected Business Central customer.
+    /// </summary>
+    /// <param name="Customer">The Business Central customer record to copy data from.</param>
+    local procedure PopulateFromSalesCustomer(var Customer: Record Customer)
+    begin
+        Rec.Validate("No.", Customer."No.");
+        Rec.Validate(Name, Customer.Name);
+        Rec.Validate("Address", Customer."Address");
+        Rec.Validate("Address 2", Customer."Address 2");
+        Rec.Validate("City", Customer."City");
+        Rec.Validate("Post Code", Customer."Post Code");
+        Rec.Validate(County, Customer.County);
+        Rec.Validate("Country/Region Code", Customer."Country/Region Code");
+        Rec.Validate("Contact Person Name", Customer.Contact);
+        Rec.Validate("Contact Person Email", Customer."E-Mail");
+
+        OnAfterPopulateFromSalesCustomer(Rec, xRec, Customer);
     end;
 
     local procedure TestNoSeries()
@@ -199,7 +285,7 @@ table 62000 "D4P BC Customer"
 
         if "No." <> xRec."No." then
             if not D4PBCCustomer.Get(Rec."No.") then begin
-                CCMSSetup.Get();
+                GetCCMSSetup();
                 NoSeries.TestManual(CCMSSetup."Customer Nos.");
                 "No. Series" := '';
             end;
@@ -212,6 +298,11 @@ table 62000 "D4P BC Customer"
         if "Contact Person Email" = '' then
             exit;
         MailManagement.CheckValidEmailAddresses("Contact Person Email");
+    end;
+
+    [IntegrationEvent(false, false)]
+    local procedure OnAfterPopulateFromSalesCustomer(var D4PBCCustomer: Record "D4P BC Customer"; xD4PBCCustomer: Record "D4P BC Customer"; MicrosoftSalesCustomer: Record Customer)
+    begin
     end;
 
     [IntegrationEvent(false, false)]

@@ -35,6 +35,11 @@ table 62009 "D4P BC Setup"
             TableRelation = "No. Series";
             ToolTip = 'Specifies the number series used to assign customer numbers automatically.';
         }
+        field(6; "Use Business Central Customer"; Boolean)
+        {
+            Caption = 'Use Business Central Customer';
+            ToolTip = 'Specifies whether to use Business Central Customer table relation.';
+        }
     }
 
     keys
