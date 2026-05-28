@@ -20,6 +20,9 @@ page 62010 "D4P BC Setup"
                 field("Debug Mode"; Rec."Debug Mode")
                 {
                 }
+                field("Use Business Central Customer"; Rec."Use Business Central Customer")
+                {
+                }
             }
             group(Numbering)
             {
