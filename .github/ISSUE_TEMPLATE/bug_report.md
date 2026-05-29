@@ -8,9 +8,9 @@ labels: [bug]
 A clear, concise description of the problem.
 
 ## Steps to reproduce
-1.
-2.
-3.
+1. 
+2. 
+3. 
 
 ## Expected behavior
 What you expected to happen.
