@@ -80,10 +80,10 @@ codeunit 62014 "D4P BC Features Helper"
     local procedure ProcessFeaturesResponse(Features: JsonObject; var EnvironmentFeature: Record "D4P BC Environment Feature")
     var
         Feature: Record "D4P BC Environment Feature";
-        i: Integer;
         JArray: JsonArray;
         JToken: JsonToken;
         JValue: JsonValue;
+        JObject: JsonObject;
         FailedToParseErr: Label 'Failed to parse features JSON response.';
         NoValueArrayErr: Label 'No value array found in features response.';
     begin
@@ -99,9 +99,8 @@ codeunit 62014 "D4P BC Features Helper"
         JArray := JToken.AsArray();
 
         // Process each feature
-        for i := 0 to JArray.Count() - 1 do begin
-            JArray.Get(i, JToken);
-            Features := JToken.AsObject();
+        foreach JToken in JArray do begin
+            JObject := JToken.AsObject();
 
             Feature.Init();
             Feature."Customer No." := EnvironmentFeature."Customer No.";
@@ -109,62 +108,62 @@ codeunit 62014 "D4P BC Features Helper"
             Feature."Environment Name" := EnvironmentFeature."Environment Name";
 
             // Get feature key (id)
-            if Features.Get('id', JToken) then begin
+            if JObject.Get('id', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Feature Key" := CopyStr(JValue.AsText(), 1, MaxStrLen(Feature."Feature Key"));
                 Feature."Feature Name" := Feature."Feature Key"; // Use key as name initially
             end;
 
             // Get enabled status (text field: "All Users", "None", etc.)
-            if Features.Get('enabled', JToken) then begin
+            if JObject.Get('enabled', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Is Enabled" := CopyStr(JValue.AsText(), 1, MaxStrLen(Feature."Is Enabled"));
             end;
 
             // Get description
-            if Features.Get('description', JToken) then begin
+            if JObject.Get('description', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Feature Description" := CopyStr(JValue.AsText(), 1, MaxStrLen(Feature."Feature Description"));
             end;
 
             // Get descriptionInEnglish
-            if Features.Get('descriptionInEnglish', JToken) then begin
+            if JObject.Get('descriptionInEnglish', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Description In English" := CopyStr(JValue.AsText(), 1, MaxStrLen(Feature."Description In English"));
             end;
 
             // Get learnMoreLink
-            if Features.Get('learnMoreLink', JToken) then begin
+            if JObject.Get('learnMoreLink', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Learn More Link" := CopyStr(JValue.AsText(), 1, MaxStrLen(Feature."Learn More Link"));
             end;
 
             // Get mandatoryBy
-            if Features.Get('mandatoryBy', JToken) then begin
+            if JObject.Get('mandatoryBy', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Mandatory By" := CopyStr(JValue.AsText(), 1, MaxStrLen(Feature."Mandatory By"));
             end;
 
             // Get mandatoryByVersion
-            if Features.Get('mandatoryByVersion', JToken) then begin
+            if JObject.Get('mandatoryByVersion', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Mandatory By Version" := CopyStr(JValue.AsText(), 1, MaxStrLen(Feature."Mandatory By Version"));
             end;
 
             // Get canTry
-            if Features.Get('canTry', JToken) then begin
+            if JObject.Get('canTry', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Can Try" := JValue.AsBoolean();
             end;
 
             // Get isOneWay
-            if Features.Get('isOneWay', JToken) then begin
+            if JObject.Get('isOneWay', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Is One Way" := JValue.AsBoolean();
             end;
 
             // Get dataUpdateRequired
-            if Features.Get('dataUpdateRequired', JToken) then begin
+            if JObject.Get('dataUpdateRequired', JToken) then begin
                 JValue := JToken.AsValue();
                 Feature."Data Update Required" := JValue.AsBoolean();
             end;

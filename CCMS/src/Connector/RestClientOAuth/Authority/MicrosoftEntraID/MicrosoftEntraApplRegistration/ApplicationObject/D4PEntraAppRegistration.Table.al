@@ -85,9 +85,6 @@ table 62007 "D4P Entra App Registration"
     }
 
     var
-        RequiredResourceAccessCollection: Dictionary of [Text, Dictionary of [Text, Text]];
-        PublicClientRedirectUris: List of [Text];
-        ConfidentialClientRedirectUris: List of [Text];
         AzAppCodeTxt: Label 'AZAPP', Locked = true;
 
     trigger OnInsert()
