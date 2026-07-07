@@ -34,6 +34,7 @@ page 62037 "D4P Entra Secret Subform"
     }
 
     var
+        [NonDebuggable]
         SecretTxt: Text;
         SecretEditable: Boolean;
 

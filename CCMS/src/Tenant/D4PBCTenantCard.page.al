@@ -191,6 +191,7 @@ page 62011 "D4P BC Tenant Card"
 
     var
         SecretPlaceholderLbl: Label 'SECRETPLACEHOLDER', Locked = true;
+        [NonDebuggable]
         ClientSecretValue: Text;
         SASTokenExpirationStyle: Text;
         SecretExpirationStyle: Text;
@@ -217,15 +218,13 @@ page 62011 "D4P BC Tenant Card"
     local procedure StoreClientSecret()
     var
         AppRegistration: Record "D4P BC App Registration";
-        SecretText: SecretText;
     begin
         Rec.TestField("Client ID");
 
         if ClientSecretValue = SecretPlaceholderLbl then
             exit;
 
-        SecretText := ClientSecretValue;
-        AppRegistration.SetClientSecret(Rec."Client ID", SecretText);
+        AppRegistration.SetClientSecret(Rec."Client ID", ClientSecretValue);
     end;
 
     local procedure UpdateSecretExpirationStyle()

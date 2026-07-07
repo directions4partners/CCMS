@@ -71,10 +71,10 @@ table 62010 "D4P Entra Secret"
             IsolatedStorage.Get("Isolated Storage Id", DataScope::Module, ReturnValue);
     end;
 
-    procedure SetSecretText(SecretText: Text[215])
+    procedure SetSecretText(SecretText: SecretText)
     begin
         RemoveSecretText();
-        
+
         Rec."Isolated Storage Id" := CreateGuid();
         Rec.Modify();
 
