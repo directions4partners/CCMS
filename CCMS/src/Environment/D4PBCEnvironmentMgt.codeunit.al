@@ -209,6 +209,7 @@ codeunit 62000 "D4P BC Environment Mgt"
             InstalledApp."Customer No." := BCTenant."Customer No.";
             InstalledApp."Tenant ID" := BCTenant."Tenant ID";
             InstalledApp."Environment Name" := BCEnvironment.Name;
+            InstalledApp."Environment Type" := BCEnvironment.Type;
 
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();

@@ -49,6 +49,8 @@ page 62008 "D4P BC Installed Apps List"
                 {
                     StyleExpr = UpdateAvailableStyleExpr;
                 }
+                field("Environment Type"; Rec."Environment Type")
+                { }
                 field("Environment Name"; Rec."Environment Name")
                 {
                 }
