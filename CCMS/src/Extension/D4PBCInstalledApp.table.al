@@ -85,6 +85,11 @@ table 62003 "D4P BC Installed App"
             Caption = 'Available Update Version';
             ToolTip = 'Specifies the version of the app that is available for update.';
         }
+        field(16; "Environment Type"; Text[50])
+        {
+            Caption = 'Environment Type';
+            ToolTip = 'Specifies the type of the environment where the app is installed.';
+        }
     }
 
     keys
