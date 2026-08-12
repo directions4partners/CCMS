@@ -70,6 +70,7 @@ page 62044 "D4P KQL Report Executions"
         {
             action(LoadDataAction)
             {
+                ApplicationArea = All;
                 Caption = 'Load';
                 ToolTip = 'Loads data from the API.';
                 Image = Report;

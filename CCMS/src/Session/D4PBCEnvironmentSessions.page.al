@@ -31,7 +31,7 @@ page 62016 "D4P BC Environment Sessions"
                 field("Login Date"; Rec."Login Date")
                 {
                 }
-                field(Duration; SessionDuration)
+                field("Duration"; SessionDuration)
                 {
                     Caption = 'Duration';
                     ToolTip = 'Specifies the session duration since login.';
@@ -64,6 +64,7 @@ page 62016 "D4P BC Environment Sessions"
         {
             action(GetSessions)
             {
+                ApplicationArea = All;
                 Caption = 'Get Sessions';
                 Image = Users;
                 ToolTip = 'Retrieve current session information for this environment.';
@@ -78,6 +79,7 @@ page 62016 "D4P BC Environment Sessions"
             }
             action(SessionDetails)
             {
+                ApplicationArea = All;
                 Caption = 'Session Details';
                 Image = Document;
                 ToolTip = 'View detailed information for the selected session.';
@@ -92,6 +94,7 @@ page 62016 "D4P BC Environment Sessions"
             }
             action(TerminateSession)
             {
+                ApplicationArea = All;
                 Caption = 'Terminate Session';
                 Image = Stop;
                 ToolTip = 'Terminate the selected session.';
@@ -104,8 +107,9 @@ page 62016 "D4P BC Environment Sessions"
                     CurrPage.Update(false);
                 end;
             }
-            action(DeleteAll)
+            action("DeleteAll")
             {
+                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched session records.';

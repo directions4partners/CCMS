@@ -33,6 +33,7 @@ page 62041 "D4P KQL Query Preview"
         {
             action(UploadQuery)
             {
+                ApplicationArea = All;
                 Caption = 'Upload Query';
                 Image = Import;
                 ToolTip = 'Upload a KQL query from a text file';
@@ -44,6 +45,7 @@ page 62041 "D4P KQL Query Preview"
             }
             action(DownloadQuery)
             {
+                ApplicationArea = All;
                 Caption = 'Download Query';
                 Image = Export;
                 ToolTip = 'Download the KQL query to a text file';

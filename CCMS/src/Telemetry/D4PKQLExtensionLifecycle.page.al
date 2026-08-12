@@ -86,6 +86,7 @@ page 62042 "D4P KQL Extension Lifecycle"
         {
             action(LoadDataAction)
             {
+                ApplicationArea = All;
                 Caption = 'Load';
                 ToolTip = 'Loads data from the API.';
                 Image = Report;

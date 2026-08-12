@@ -56,6 +56,7 @@ page 62022 "D4P BC Capacity Subform"
         {
             action(CapacityCard)
             {
+                ApplicationArea = All;
                 Caption = 'Capacity Card';
                 Image = Capacity;
                 ToolTip = 'View detailed capacity information for this environment.';
@@ -65,8 +66,9 @@ page 62022 "D4P BC Capacity Subform"
                     Page.Run(Page::"D4P BC Capacity Card", Rec);
                 end;
             }
-            action(DeleteAll)
+            action("DeleteAll")
             {
+                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all capacity line records.';
@@ -81,6 +83,7 @@ page 62022 "D4P BC Capacity Subform"
             }
             action(EnvironmentCard)
             {
+                ApplicationArea = All;
                 Caption = 'Environment Card';
                 Image = Certificate;
                 ToolTip = 'Open the environment card.';

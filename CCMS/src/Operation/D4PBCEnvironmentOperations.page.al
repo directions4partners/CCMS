@@ -66,6 +66,7 @@ page 62028 "D4P BC Environment Operations"
         {
             action(GetOperations)
             {
+                ApplicationArea = All;
                 Caption = 'Get Operations';
                 Image = Refresh;
                 ToolTip = 'Get the list of operations for this environment.';
@@ -84,6 +85,7 @@ page 62028 "D4P BC Environment Operations"
             }
             action(ViewParameters)
             {
+                ApplicationArea = All;
                 Caption = 'View Parameters';
                 Image = ViewDetails;
                 ToolTip = 'View the operation parameters.';

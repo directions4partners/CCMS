@@ -81,6 +81,7 @@ page 62045 "D4P KQL Slow AL Methods"
         {
             action(LoadDataAction)
             {
+                ApplicationArea = All;
                 Caption = 'Load';
                 ToolTip = 'Loads data from the API.';
                 Image = Report;

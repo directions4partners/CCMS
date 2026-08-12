@@ -61,6 +61,7 @@ page 62043 "D4P KQL Page Executions"
         {
             action(LoadDataAction)
             {
+                ApplicationArea = All;
                 Caption = 'Load';
                 ToolTip = 'Loads data from the API.';
                 Image = Report;

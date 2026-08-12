@@ -61,6 +61,7 @@ page 62013 "D4P BC Environment Features"
         {
             action(GetFeatures)
             {
+                ApplicationArea = All;
                 Caption = 'Get Features';
                 Image = GetEntries;
                 ToolTip = 'Retrieve the list of available features for this environment.';
@@ -77,6 +78,7 @@ page 62013 "D4P BC Environment Features"
             }
             action(ActivateFeature)
             {
+                ApplicationArea = All;
                 Caption = 'Activate Feature';
                 Image = Action;
                 ToolTip = 'Activate the selected feature. Currently disabled due to potential issues with features requiring data upgrade';
@@ -101,6 +103,7 @@ page 62013 "D4P BC Environment Features"
             }
             action(DeactivateFeature)
             {
+                ApplicationArea = All;
                 Caption = 'Deactivate Feature';
                 Image = Cancel;
                 ToolTip = 'Deactivate the selected feature.';
@@ -117,8 +120,9 @@ page 62013 "D4P BC Environment Features"
                     CurrPage.Update(false);
                 end;
             }
-            action(DeleteAll)
+            action("DeleteAll")
             {
+                ApplicationArea = All;
                 Caption = 'Delete All';
                 Image = Delete;
                 ToolTip = 'Delete all fetched feature records.';

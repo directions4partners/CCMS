@@ -64,7 +64,7 @@ page 62003 "D4P BC Environment List"
                     Style = Favorable;
                     StyleExpr = true;
                 }
-                field("Available"; Rec."Available")
+                field(Available; Rec."Available")
                 {
                     Editable = false;
                     Style = Favorable;
@@ -172,6 +172,7 @@ page 62003 "D4P BC Environment List"
         {
             action(GetEnvironments)
             {
+                ApplicationArea = All;
                 Caption = 'Get';
                 Image = Refresh;
                 ToolTip = 'Get the list of environments.';
@@ -189,6 +190,7 @@ page 62003 "D4P BC Environment List"
             }
             action(GetEnvironmentUpdateInfo)
             {
+                ApplicationArea = All;
                 Caption = 'Get Updates';
                 Image = UpdateDescription;
                 ToolTip = 'Returns information about the available version updates for all environments in the list.';
@@ -236,6 +238,7 @@ page 62003 "D4P BC Environment List"
             }
             action(CreateNewEnvironment)
             {
+                ApplicationArea = All;
                 Caption = 'New';
                 Image = NewProperties;
                 ToolTip = 'Creates a new environment.';
@@ -252,6 +255,7 @@ page 62003 "D4P BC Environment List"
             }
             action(CopyEnvironment)
             {
+                ApplicationArea = All;
                 Caption = 'Copy';
                 Image = Copy;
                 ToolTip = 'Creates a copy for the selected environment.';
@@ -269,6 +273,7 @@ page 62003 "D4P BC Environment List"
             }
             action(RenameEnvironment)
             {
+                ApplicationArea = All;
                 Caption = 'Rename';
                 Image = NewStatusChange;
                 ToolTip = 'Renames selected environment.';
@@ -286,6 +291,7 @@ page 62003 "D4P BC Environment List"
             }
             action(DeleteAllFetched)
             {
+                ApplicationArea = All;
                 Caption = 'Delete Selected';
                 Image = Delete;
                 ToolTip = 'Delete selected environment records and related data from the local database.';
@@ -318,6 +324,7 @@ page 62003 "D4P BC Environment List"
         {
             action(EnvironmentDetails)
             {
+                ApplicationArea = All;
                 Caption = 'Details';
                 Image = ViewDetails;
                 RunObject = page "D4P BC Environment Card";
@@ -328,6 +335,7 @@ page 62003 "D4P BC Environment List"
             }
             action(InstalledApps)
             {
+                ApplicationArea = All;
                 Caption = 'Installed Apps';
                 Image = ExternalDocument;
                 RunObject = page "D4P BC Installed Apps List";
@@ -338,6 +346,7 @@ page 62003 "D4P BC Environment List"
             }
             action(RunTelemetryQuery)
             {
+                ApplicationArea = All;
                 Caption = 'Run Query';
                 Image = Start;
                 ToolTip = 'Select and run a telemetry query directly using the selected environment''s configuration.';
@@ -351,6 +360,7 @@ page 62003 "D4P BC Environment List"
             }
             action(KQLQueries)
             {
+                ApplicationArea = All;
                 Caption = 'KQL Queries';
                 Image = Log;
                 ToolTip = 'View and execute KQL queries for telemetry data analysis on the selected environment.';
@@ -364,6 +374,7 @@ page 62003 "D4P BC Environment List"
             }
             action(SetAppInsightsConnectionString)
             {
+                ApplicationArea = All;
                 Caption = 'Set Application Insights Connection String';
                 Image = Setup;
                 ToolTip = 'Sets the Application Insights connection string for the selected environment (telemetry).';
@@ -385,6 +396,7 @@ page 62003 "D4P BC Environment List"
             }
             action(Features)
             {
+                ApplicationArea = All;
                 Caption = 'Features';
                 Image = Setup;
                 RunObject = page "D4P BC Environment Features";
@@ -395,6 +407,7 @@ page 62003 "D4P BC Environment List"
             }
             action(Backups)
             {
+                ApplicationArea = All;
                 Caption = 'Backups';
                 Enabled = Rec.Type = 'Production';
                 Image = History;
@@ -406,6 +419,7 @@ page 62003 "D4P BC Environment List"
             }
             action(Capacity)
             {
+                ApplicationArea = All;
                 Caption = 'Capacity';
                 Image = Capacity;
                 ToolTip = 'View capacity information for all environments.';
@@ -423,6 +437,7 @@ page 62003 "D4P BC Environment List"
             }
             action(Sessions)
             {
+                ApplicationArea = All;
                 Caption = 'Sessions';
                 Image = Users;
                 ToolTip = 'View active sessions for this environment.';
@@ -437,6 +452,7 @@ page 62003 "D4P BC Environment List"
             }
             action(Operations)
             {
+                ApplicationArea = All;
                 Caption = 'Operations';
                 Image = ServiceTasks;
                 ToolTip = 'View operations history for this environment.';
