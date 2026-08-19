@@ -111,7 +111,21 @@ page 62024 "D4P BC Installed App Card"
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
                     BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false);
+                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false, false);
+                end;
+            }
+            action(ScheduleAppUpdate)
+            {
+                Caption = 'Schedule App Update';
+                Image = UpdateXML;
+                ToolTip = 'Schedule the selected app to be updated to the latest version. The app will be updated in the next environment update window.';
+                trigger OnAction()
+                var
+                    BCEnvironment: Record "D4P BC Environment";
+                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                begin
+                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
+                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false, true);
                 end;
             }
             action(DeleteAll)
@@ -148,6 +162,9 @@ page 62024 "D4P BC Installed App Card"
             {
             }
             actionref(UpdateAppPromoted; UpdateApp)
+            {
+            }
+            actionref(ScheduleAppUpdatePromoted; ScheduleAppUpdate)
             {
             }
             actionref(DeleteAllPromoted; DeleteAll)
