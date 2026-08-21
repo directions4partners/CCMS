@@ -21,11 +21,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonArray: JsonArray;
         JsonObjectLoop: JsonObject;
         JsonResponse: JsonObject;
-        JsonVersionDetails: JsonObject;
         JsonToken: JsonToken;
-        JsonTokenField: JsonToken;
         JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
     begin
         BCEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
@@ -44,108 +41,140 @@ codeunit 62000 "D4P BC Environment Mgt"
 
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
-                if JsonObjectLoop.Get('name', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment.Name := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('applicationFamily', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Application Family" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('type', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment.Type := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('status', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment.State := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('countryCode', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Country/Region" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('applicationVersion', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Current Version" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('friendlyName', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Friendly Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('aadTenantId', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    if not Evaluate(BCEnvironment."AAD Tenant ID", JsonValue.AsText()) then
-                        BCEnvironment."AAD Tenant ID" := CreateGuid(); // Fallback if evaluation fails
-                end;
-                if JsonObjectLoop.Get('webClientLoginUrl', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Web Client Login URL" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('webServiceUrl', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Web Service URL" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('locationName', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Location Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('geoName', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Geo Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('ringName', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Ring Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('appInsightsKey', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Application Insights String" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('SoftDeletedOn', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    if not Evaluate(BCEnvironment."Soft Deleted On", JsonValue.AsText()) then
-                        BCEnvironment."Soft Deleted On" := 0DT; // Clear if evaluation fails
-                end;
-                if JsonObjectLoop.Get('HardDeletePendingOn', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    if not Evaluate(BCEnvironment."Hard Delete Pending On", JsonValue.AsText()) then
-                        BCEnvironment."Hard Delete Pending On" := 0DT; // Clear if evaluation fails
-                end;
-                if JsonObjectLoop.Get('DeleteReason', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Delete Reason" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('appSourceAppsUpdateCadence', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."AppSource Apps Update Cadence" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('platformVersion', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Platform Version" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('linkedPowerPlatformEnvironmentId', JsonTokenField) then begin
-                    JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment."Linked PowerPlatform Env ID" := JsonValue.AsText();
-                end;
-                // Handle nested versionDetails object
-                if JsonObjectLoop.Get('versionDetails', JsonTokenField) then
-                    if JsonTokenField.IsObject() then begin
-                        JsonVersionDetails := JsonTokenField.AsObject();
-                        if JsonVersionDetails.Get('gracePeriodStartDate', JsonTokenField) then begin
-                            JsonValue := JsonTokenField.AsValue();
-                            if not Evaluate(BCEnvironment."Grace Period Start Date", JsonValue.AsText()) then
-                                BCEnvironment."Grace Period Start Date" := 0DT; // Clear if evaluation fails
-                        end;
-                        if JsonVersionDetails.Get('enforcedUpdatePeriodStartDate', JsonTokenField) then begin
-                            JsonValue := JsonTokenField.AsValue();
-                            if not Evaluate(BCEnvironment."Enforced Update Period Start", JsonValue.AsText()) then
-                                BCEnvironment."Enforced Update Period Start" := 0DT; // Clear if evaluation fails
-                        end;
-                    end;
-
+                FillEnvironmentFromJsonObject(BCEnvironment, JsonObjectLoop);
                 BCEnvironment.Insert();
             end;
         end;
+    end;
+
+    procedure GetEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text)
+    var
+        BCEnvironment: Record "D4P BC Environment";
+        JsonObject: JsonObject;
+        JsonResponse: JsonObject;
+        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
+    begin
+        BCEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
+        BCEnvironment.SetRange("Tenant ID", BCTenant."Tenant ID");
+        BCEnvironment.DeleteAll();
+
+        AdminAPIClient.SetTenant(BCTenant);
+        if not AdminAPIClient.Get('/applications/businesscentral/environments/' + EnvironmentName, JsonResponse) then
+            Error(FailedToFetchErr, Format(JsonResponse));
+
+        BCEnvironment.Init();
+        BCEnvironment."Customer No." := BCTenant."Customer No.";
+        BCEnvironment."Tenant ID" := BCTenant."Tenant ID";
+
+        JsonObject := JsonResponse;
+        FillEnvironmentFromJsonObject(BCEnvironment, JsonObject);
+        BCEnvironment.Insert();
+    end;
+
+    local procedure FillEnvironmentFromJsonObject(var BCEnvironment: Record "D4P BC Environment"; JsonObject: JsonObject)
+    var
+        JsonTokenField: JsonToken;
+        JsonValue: JsonValue;
+        JsonVersionDetails: JsonObject;
+    begin
+        if JsonObject.Get('name', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment.Name := JsonValue.AsText();
+        end;
+        if JsonObject.Get('applicationFamily', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Application Family" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('type', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment.Type := JsonValue.AsText();
+        end;
+        if JsonObject.Get('status', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment.State := JsonValue.AsText();
+        end;
+        if JsonObject.Get('countryCode', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Country/Region" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('applicationVersion', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Current Version" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('friendlyName', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Friendly Name" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('aadTenantId', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            if not Evaluate(BCEnvironment."AAD Tenant ID", JsonValue.AsText()) then
+                BCEnvironment."AAD Tenant ID" := CreateGuid(); // Fallback if evaluation fails
+        end;
+        if JsonObject.Get('webClientLoginUrl', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Web Client Login URL" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('webServiceUrl', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Web Service URL" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('locationName', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Location Name" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('geoName', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Geo Name" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('ringName', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Ring Name" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('appInsightsKey', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Application Insights String" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('SoftDeletedOn', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            if not Evaluate(BCEnvironment."Soft Deleted On", JsonValue.AsText()) then
+                BCEnvironment."Soft Deleted On" := 0DT; // Clear if evaluation fails
+        end;
+        if JsonObject.Get('HardDeletePendingOn', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            if not Evaluate(BCEnvironment."Hard Delete Pending On", JsonValue.AsText()) then
+                BCEnvironment."Hard Delete Pending On" := 0DT; // Clear if evaluation fails
+        end;
+        if JsonObject.Get('DeleteReason', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Delete Reason" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('appSourceAppsUpdateCadence', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."AppSource Apps Update Cadence" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('platformVersion', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Platform Version" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('linkedPowerPlatformEnvironmentId', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            BCEnvironment."Linked PowerPlatform Env ID" := JsonValue.AsText();
+        end;
+        // Handle nested versionDetails object
+        if JsonObject.Get('versionDetails', JsonTokenField) then
+            if JsonTokenField.IsObject() then begin
+                JsonVersionDetails := JsonTokenField.AsObject();
+                if JsonVersionDetails.Get('gracePeriodStartDate', JsonTokenField) then begin
+                    JsonValue := JsonTokenField.AsValue();
+                    if not Evaluate(BCEnvironment."Grace Period Start Date", JsonValue.AsText()) then
+                        BCEnvironment."Grace Period Start Date" := 0DT; // Clear if evaluation fails
+                end;
+                if JsonVersionDetails.Get('enforcedUpdatePeriodStartDate', JsonTokenField) then begin
+                    JsonValue := JsonTokenField.AsValue();
+                    if not Evaluate(BCEnvironment."Enforced Update Period Start", JsonValue.AsText()) then
+                        BCEnvironment."Enforced Update Period Start" := 0DT; // Clear if evaluation fails
+                end;
+            end;
     end;
 
     procedure GetAllInstalledApps(ShowProgressDialog: Boolean)
@@ -187,7 +216,6 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
@@ -213,71 +241,110 @@ codeunit 62000 "D4P BC Environment Mgt"
 
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
-                if JsonObjectLoop.Get('id', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."App ID" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('name', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."App Name" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('publisher', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."App Publisher" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('version', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."App Version" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('state', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    case JsonValue.AsText() of
-                        'Installed':
-                            InstalledApp.State := Enum::"D4P App State"::Installed;
-                        'UpdatePending':
-                            InstalledApp.State := Enum::"D4P App State"::"Update Pending";
-                        'Updating':
-                            InstalledApp.State := Enum::"D4P App State"::Updating;
-                        else
-                            InstalledApp.State := Enum::"D4P App State"::Installed;
-                    end;
-                end;
-                if JsonObjectLoop.Get('appType', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    case LowerCase(JsonValue.AsText()) of
-                        'global':
-                            InstalledApp."App Type" := Enum::"D4P App Type"::Global;
-                        'pte', 'tenant':
-                            InstalledApp."App Type" := Enum::"D4P App Type"::PTE;
-                        'dev':
-                            InstalledApp."App Type" := Enum::"D4P App Type"::DEV;
-                        else
-                            InstalledApp."App Type" := Enum::"D4P App Type"::" ";
-                    end;
-                end;
-                if JsonObjectLoop.Get('lastOperationId', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    InstalledApp."Last Operation Id" := JsonValue.AsText();
-                end;
-                if JsonObjectLoop.Get('lastUpdateAttemptResult', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    case JsonValue.AsText() of
-                        'Succeeded':
-                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
-                        'Failed':
-                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Failed;
-                        'Canceled':
-                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Canceled;
-                        'Skipped':
-                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Skipped;
-                        else
-                            InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
-                    end;
-                end;
-                InstalledApp."Available Update Version" := '';
+                FillInstalledAppFromJsonObject(InstalledApp, JsonObjectLoop);
                 InstalledApp.Insert();
             end;
         end;
+    end;
+
+    procedure GetInstalledApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid)
+    var
+        InstalledApp: Record "D4P BC Installed App";
+        BCTenant: Record "D4P BC Tenant";
+        JsonObject: JsonObject;
+        JsonResponse: JsonObject;
+        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
+    begin
+        BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
+
+        InstalledApp.SetRange("Customer No.", BCTenant."Customer No.");
+        InstalledApp.SetRange("Tenant ID", BCTenant."Tenant ID");
+        InstalledApp.SetRange("Environment Name", BCEnvironment.Name);
+        InstalledApp.DeleteAll();
+
+        AdminAPIClient.SetTenant(BCTenant);
+        if not AdminAPIClient.Get(
+            '/applications/businesscentral/environments/' + BCEnvironment.Name + '/apps/' + Format(AppId), JsonResponse) then
+            Error(FailedToFetchErr, Format(JsonResponse));
+
+        InstalledApp.Init();
+        InstalledApp."Customer No." := BCTenant."Customer No.";
+        InstalledApp."Tenant ID" := BCTenant."Tenant ID";
+        InstalledApp."Environment Name" := BCEnvironment.Name;
+        InstalledApp."Environment Type" := BCEnvironment.Type;
+
+        JsonObject := JsonResponse;
+        FillInstalledAppFromJsonObject(InstalledApp, JsonObject);
+        InstalledApp.Insert();
+    end;
+
+    local procedure FillInstalledAppFromJsonObject(var InstalledApp: Record "D4P BC Installed App"; JsonObject: JsonObject)
+    var
+        JsonTokenField: JsonToken;
+        JsonValue: JsonValue;
+    begin
+        if JsonObject.Get('id', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            InstalledApp."App ID" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('name', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            InstalledApp."App Name" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('publisher', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            InstalledApp."App Publisher" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('version', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            InstalledApp."App Version" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('state', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            case JsonValue.AsText() of
+                'Installed':
+                    InstalledApp.State := Enum::"D4P App State"::Installed;
+                'UpdatePending':
+                    InstalledApp.State := Enum::"D4P App State"::"Update Pending";
+                'Updating':
+                    InstalledApp.State := Enum::"D4P App State"::Updating;
+                else
+                    InstalledApp.State := Enum::"D4P App State"::Installed;
+            end;
+        end;
+        if JsonObject.Get('appType', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            case LowerCase(JsonValue.AsText()) of
+                'global':
+                    InstalledApp."App Type" := Enum::"D4P App Type"::Global;
+                'pte', 'tenant':
+                    InstalledApp."App Type" := Enum::"D4P App Type"::PTE;
+                'dev':
+                    InstalledApp."App Type" := Enum::"D4P App Type"::DEV;
+                else
+                    InstalledApp."App Type" := Enum::"D4P App Type"::" ";
+            end;
+        end;
+        if JsonObject.Get('lastOperationId', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            InstalledApp."Last Operation Id" := JsonValue.AsText();
+        end;
+        if JsonObject.Get('lastUpdateAttemptResult', JsonTokenField) then begin
+            JsonValue := JsonTokenField.AsValue();
+            case JsonValue.AsText() of
+                'Succeeded':
+                    InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
+                'Failed':
+                    InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Failed;
+                'Canceled':
+                    InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Canceled;
+                'Skipped':
+                    InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Skipped;
+                else
+                    InstalledApp."Last Update Attempt Result" := Enum::"D4P Update Attempt Result"::Succeeded;
+            end;
+        end;
+        InstalledApp."Available Update Version" := '';
     end;
 
     procedure GetEnvironmentUpdates(var BCEnvironment: Record "D4P BC Environment"; ShowMessage: Boolean)
@@ -459,19 +526,15 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure GetAvailableAppUpdates(var BCEnvironment: Record "D4P BC Environment"; ShowMessage: Boolean)
     var
-        InstalledApp: Record "D4P BC Installed App";
         BCTenant: Record "D4P BC Tenant";
-        appId: Guid;
         JsonArray: JsonArray;
         JsonObjectLoop: JsonObject;
         JsonResponse: JsonObject;
         JsonToken: JsonToken;
         JsonTokenLoop: JsonToken;
-        JsonValue: JsonValue;
         AvailableUpdatesFetchedMsg: Label 'Available updates for the selected environment have been fetched successfully.';
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
         NoAvailableUpdatesMsg: Label 'No available updates found for the selected environment.';
-        appVersion: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
@@ -485,34 +548,77 @@ codeunit 62000 "D4P BC Environment Mgt"
 
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
-                if JsonObjectLoop.Get('appId', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    appId := JsonValue.AsText();
-                end;
-                // if JsonObjectLoop.Get('name', JsonTokenLoop) then begin
-                //     JsonValue := JsonTokenLoop.AsValue();
-                //     appName := JsonValue.AsText();
-                // end;
-                // if JsonObjectLoop.Get('publisher', JsonTokenLoop) then begin
-                //     JsonValue := JsonTokenLoop.AsValue();
-                //     appPublisher := JsonValue.AsText();
-                // end;
-                if JsonObjectLoop.Get('version', JsonTokenLoop) then begin
-                    JsonValue := JsonTokenLoop.AsValue();
-                    appVersion := JsonValue.AsText();
-                end;
-                //Update the app entry
-                if InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, appId) then begin
-                    InstalledApp."Available Update Version" := appVersion;
-                    InstalledApp.Modify();
-                end;
+                FillAvailableUpdateVersionFromJsonObject(BCTenant, BCEnvironment, JsonObjectLoop);
             end;
             if ShowMessage and GuiAllowed then
                 Message(AvailableUpdatesFetchedMsg);
-        end
-        else
+        end else
             if ShowMessage and GuiAllowed then
                 Message(NoAvailableUpdatesMsg);
+    end;
+
+    procedure GetAvailableAppUpdate(var BCEnvironment: Record "D4P BC Environment"; AppID: Guid; ShowMessage: Boolean)
+    var
+        BCTenant: Record "D4P BC Tenant";
+        JsonArray: JsonArray;
+        JsonObjectLoop: JsonObject;
+        JsonResponse: JsonObject;
+        JsonToken: JsonToken;
+        JsonTokenLoop: JsonToken;
+        AvailableUpdatesFetchedMsg: Label 'Available updates for the selected environment have been fetched successfully.';
+        FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
+        NoAvailableUpdatesMsg: Label 'No available updates found for the selected environment.';
+    begin
+        BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
+
+        AdminAPIClient.SetTenant(BCTenant);
+        if not AdminAPIClient.Get(
+            '/applications/businesscentral/environments/' + BCEnvironment.Name + '/apps/' + Format(AppID) + '/availableUpdates', JsonResponse) then
+            Error(FailedToFetchErr, Format(JsonResponse));
+
+        if JsonResponse.Get('value', JsonToken) then begin
+            JsonArray := JsonToken.AsArray();
+
+            foreach JsonTokenLoop in JsonArray do begin
+                JsonObjectLoop := JsonTokenLoop.AsObject();
+                FillAvailableUpdateVersionFromJsonObject(BCTenant, BCEnvironment, JsonObjectLoop);
+            end;
+            if ShowMessage and GuiAllowed then
+                Message(AvailableUpdatesFetchedMsg);
+        end else
+            if ShowMessage and GuiAllowed then
+                Message(NoAvailableUpdatesMsg);
+    end;
+
+    local procedure FillAvailableUpdateVersionFromJsonObject(BCTenant: Record "D4P BC Tenant"; BCEnvironment: Record "D4P BC Environment"; JsonObject: JsonObject)
+    var
+        InstalledApp: Record "D4P BC Installed App";
+        JsonToken: JsonToken;
+        JsonValue: JsonValue;
+        appId: Guid;
+        appVersion: Text;
+    begin
+        if JsonObject.Get('appId', JsonToken) then begin
+            JsonValue := JsonToken.AsValue();
+            appId := JsonValue.AsText();
+        end;
+        // if JsonObject.Get('name', JsonToken) then begin
+        //     JsonValue := JsonToken.AsValue();
+        //     appName := JsonValue.AsText();
+        // end;
+        // if JsonObject.Get('publisher', JsonToken) then begin
+        //     JsonValue := JsonToken.AsValue();
+        //     appPublisher := JsonValue.AsText();
+        // end;
+        if JsonObject.Get('version', JsonToken) then begin
+            JsonValue := JsonToken.AsValue();
+            appVersion := JsonValue.AsText();
+        end;
+        //Update the app entry
+        if InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, appId) then begin
+            InstalledApp."Available Update Version" := appVersion;
+            InstalledApp.Modify();
+        end;
     end;
 
     procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid; showNotification: Boolean)
