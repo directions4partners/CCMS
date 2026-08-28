@@ -54,9 +54,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonResponse: JsonObject;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
     begin
-        BCEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
-        BCEnvironment.SetRange("Tenant ID", BCTenant."Tenant ID");
-        BCEnvironment.DeleteAll();
+        if BCEnvironment.Get(BCTenant."Customer No.", BCTenant."Tenant ID", EnvironmentName) then
+            BCEnvironment.Delete(true);
 
         AdminAPIClient.SetTenant(BCTenant);
         if not AdminAPIClient.Get('/applications/businesscentral/environments/' + EnvironmentName, JsonResponse) then
@@ -257,10 +256,8 @@ codeunit 62000 "D4P BC Environment Mgt"
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
-        InstalledApp.SetRange("Customer No.", BCTenant."Customer No.");
-        InstalledApp.SetRange("Tenant ID", BCTenant."Tenant ID");
-        InstalledApp.SetRange("Environment Name", BCEnvironment.Name);
-        InstalledApp.DeleteAll();
+        if InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, AppId) then
+            InstalledApp.Delete(true);
 
         AdminAPIClient.SetTenant(BCTenant);
         if not AdminAPIClient.Get(
