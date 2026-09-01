@@ -313,6 +313,37 @@ page 62003 "D4P BC Environment List"
                     end;
                 end;
             }
+            action(RescheduleUpdate)
+            {
+                Caption = 'Reschedule Update';
+                Image = Timesheet;
+                ToolTip = 'Select and schedule an update version for the environment.';
+                trigger OnAction()
+                var
+                    TempAvailableUpdate: Record "D4P BC Available Update" temporary;
+                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                    UpdateSelectionDialog: Page "D4P Update Selection Dialog";
+                    SelectedDate: Date;
+                    ExpectedMonth: Integer;
+                    ExpectedYear: Integer;
+                    NoUpdatesAvailableErr: Label 'No updates available for the environment %1.', Comment = '%1 = Environment Name';
+                    TargetVersion: Text[100];
+                begin
+                    // Get available updates from API
+                    EnvironmentManagement.GetAvailableUpdates(Rec, TempAvailableUpdate);
+
+                    if TempAvailableUpdate.IsEmpty() then
+                        Error(NoUpdatesAvailableErr, Rec.Name);
+
+                    // Pass data to selection dialog and show it
+                    UpdateSelectionDialog.SetData(TempAvailableUpdate);
+                    if UpdateSelectionDialog.RunModal() = Action::OK then begin
+                        UpdateSelectionDialog.GetSelectedVersion(TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
+                        EnvironmentManagement.SelectTargetVersion(Rec, TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
+                        CurrPage.Update(false);
+                    end;
+                end;
+            }
         }
         area(Navigation)
         {
@@ -471,6 +502,9 @@ page 62003 "D4P BC Environment List"
                 {
                 }
                 actionref(RenameEnvironmentPromoted; RenameEnvironment)
+                {
+                }
+                actionref(RescheduleUpdatePromoted; RescheduleUpdate)
                 {
                 }
             }

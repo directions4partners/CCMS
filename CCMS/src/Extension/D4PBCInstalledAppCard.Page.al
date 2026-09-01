@@ -100,20 +100,6 @@ page 62024 "D4P BC Installed App Card"
                     EnvironmentManagement.GetAvailableAppUpdates(BCEnvironment, true);
                 end;
             }
-            action(UpdateApp)
-            {
-                Caption = 'Update App';
-                Image = UpdateXML;
-                ToolTip = 'Update the selected app to the latest version.';
-                trigger OnAction()
-                var
-                    BCEnvironment: Record "D4P BC Environment";
-                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
-                begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false, false);
-                end;
-            }
             action(ScheduleAppUpdate)
             {
                 Caption = 'Schedule App Update';
@@ -126,6 +112,20 @@ page 62024 "D4P BC Installed App Card"
                 begin
                     BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
                     EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false, true);
+                end;
+            }
+            action(UpdateApp)
+            {
+                Caption = 'Update App';
+                Image = UpdateXML;
+                ToolTip = 'Update the selected app to the latest version.';
+                trigger OnAction()
+                var
+                    BCEnvironment: Record "D4P BC Environment";
+                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                begin
+                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
+                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false, false);
                 end;
             }
             action(DeleteAll)
@@ -161,10 +161,10 @@ page 62024 "D4P BC Installed App Card"
             actionref(GetAvailableUpdatesPromoted; GetAvailableUpdates)
             {
             }
-            actionref(UpdateAppPromoted; UpdateApp)
+            actionref(ScheduleAppUpdatePromoted; ScheduleAppUpdate)
             {
             }
-            actionref(ScheduleAppUpdatePromoted; ScheduleAppUpdate)
+            actionref(UpdateAppPromoted; UpdateApp)
             {
             }
             actionref(DeleteAllPromoted; DeleteAll)

@@ -112,11 +112,35 @@ page 62008 "D4P BC Installed Apps List"
                             EnvironmentManagement.GetAllAvailableAppUpdates(true);
                 end;
             }
+            action(ScheduleSelectedAppsUpdate)
+            {
+                Caption = 'Schedule Selected Apps Update';
+                Image = UpdateXML;
+                ToolTip = 'Schedule the selected apps to be updated to the latest version. The apps will be updated in the next environment update window.';
+                trigger OnAction()
+                var
+                    BCEnvironment: Record "D4P BC Environment";
+                    BCInstalledApp: Record "D4P BC Installed App";
+                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                begin
+                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
+
+                    CurrPage.SetSelectionFilter(BCInstalledApp);
+                    if BCInstalledApp.FindSet() then
+                        repeat
+                            EnvironmentManagement.UpdateApp(BCEnvironment, BCInstalledApp."App ID", false, true);
+                        until BCInstalledApp.Next() = 0;
+                end;
+            }
             action(UpdateApp)
             {
                 Caption = 'Update App';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected app to the latest version.';
+                ObsoleteState = Pending;
+                ObsoleteReason = 'Use "Update Selected Apps" instead, which allows updating multiple apps at once.';
+                ObsoleteTag = '0.0.2.0';
+                Visible = false;
                 trigger OnAction()
                 var
                     BCEnvironment: Record "D4P BC Environment";
@@ -142,26 +166,6 @@ page 62008 "D4P BC Installed Apps List"
                         repeat
                             EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", true, false);
                         until Rec.Next() = 0;
-                end;
-            }
-            action(ScheduleSelectedAppsUpdate)
-            {
-                Caption = 'Schedule Selected Apps Update';
-                Image = UpdateXML;
-                ToolTip = 'Schedule the selected apps to be updated to the latest version. The apps will be updated in the next environment update window.';
-                trigger OnAction()
-                var
-                    BCEnvironment: Record "D4P BC Environment";
-                    BCInstalledApp: Record "D4P BC Installed App";
-                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
-                begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-
-                    CurrPage.SetSelectionFilter(BCInstalledApp);
-                    if BCInstalledApp.FindSet() then
-                        repeat
-                            EnvironmentManagement.UpdateApp(BCEnvironment, BCInstalledApp."App ID", false, true);
-                        until BCInstalledApp.Next() = 0;
                 end;
             }
             action(DeleteAll)
@@ -197,13 +201,17 @@ page 62008 "D4P BC Installed Apps List"
             actionref(GetAvailableUpdatesPromoted; GetAvailableUpdates)
             {
             }
+            actionref(ScheduleSelectedAppsUpdatePromoted; ScheduleSelectedAppsUpdate)
+            {
+            }
             actionref(UpdateAppPromoted; UpdateApp)
             {
+                ObsoleteState = Pending;
+                ObsoleteReason = 'Use "Update Selected Apps" instead, which allows updating multiple apps at once.';
+                ObsoleteTag = '0.0.2.0';
+                Visible = false;
             }
             actionref(UpdateSelectedAppsPromoted; UpdateSelectedApps)
-            {
-            }
-            actionref(ScheduleSelectedAppsUpdatePromoted; ScheduleSelectedAppsUpdate)
             {
             }
             actionref(DeleteAllPromoted; DeleteAll)
