@@ -42,14 +42,22 @@ table 62005 "D4P BC App Registration"
     }
 
     /// <summary>
-    /// Retrieve the client secret which has been saved in isolated storage for this client id.
+    /// Retrieve the client secret which has been saved in isolated storage for this client id, or which
+    /// a secret provider supplied by another extension returns for it.
     /// </summary>
     /// <param name="ClientId">The app registration client id to retrieve the client secret for.</param>
     /// <returns>SecretText containing the client secret.</returns>
     procedure GetClientSecret(ClientId: Guid) ClientSecret: SecretText
+    var
+        SecretProvider: Interface "D4P Secret Provider";
+        IsHandled: Boolean;
     begin
         if IsNullGuid(ClientId) then
             exit;
+
+        OnGetSecretProvider(ClientId, SecretProvider, IsHandled);
+        if IsHandled then
+            exit(SecretProvider.GetClientSecret(ClientId));
 
         if IsolatedStorage.Contains(ClientId, DataScope::Company) then
             IsolatedStorage.Get(ClientId, DataScope::Company, ClientSecret);
@@ -91,9 +99,16 @@ table 62005 "D4P BC App Registration"
     /// <param name="ClientId">The client id to test for the existence of a client secret.</param>
     /// <returns>Boolean indicating whether a client secret exists for the specified client id.</returns>
     procedure HasClientSecret(ClientId: Guid): Boolean
+    var
+        SecretProvider: Interface "D4P Secret Provider";
+        IsHandled: Boolean;
     begin
         if IsNullGuid(ClientId) then
             exit(false);
+
+        OnGetSecretProvider(ClientId, SecretProvider, IsHandled);
+        if IsHandled then
+            exit(SecretProvider.HasClientSecret(ClientId));
 
         exit(IsolatedStorage.Contains(ClientId, DataScope::Company));
     end;
@@ -142,5 +157,18 @@ table 62005 "D4P BC App Registration"
         MissingSecretNotification.AddAction(OpenCardMsg, Codeunit::"D4P BC App Registration", 'OpenAppRegistrationCard');
         MissingSecretNotification.SetData('ClientID', Format(Rec."Client ID"));
         MissingSecretNotification.Send();
+    end;
+
+    /// <summary>
+    /// Allows another extension to supply client secrets from outside this extension, for example from a
+    /// central Azure Key Vault. While the event is handled for a client id, CCMS neither reads nor checks
+    /// isolated storage for that client id. Leave it unhandled to keep the isolated storage behaviour.
+    /// </summary>
+    /// <param name="ClientId">The app registration client id the secret is requested for.</param>
+    /// <param name="SecretProvider">The provider that supplies the secret for this client id.</param>
+    /// <param name="IsHandled">Set to true to have the provider answer instead of isolated storage.</param>
+    [IntegrationEvent(false, false)]
+    local procedure OnGetSecretProvider(ClientId: Guid; var SecretProvider: Interface "D4P Secret Provider"; var IsHandled: Boolean)
+    begin
     end;
 }
