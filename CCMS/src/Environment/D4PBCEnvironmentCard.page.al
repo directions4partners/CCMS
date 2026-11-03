@@ -49,6 +49,10 @@ page 62004 "D4P BC Environment Card"
                 {
                     Editable = false;
                 }
+                field("Security Group Name"; Rec."Security Group Name")
+                {
+                    Editable = false;
+                }
                 field(Type; Rec.Type)
                 {
                     Editable = false;

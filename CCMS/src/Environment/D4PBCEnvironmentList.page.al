@@ -237,8 +237,10 @@ page 62003 "D4P BC Environment List"
             action(CreateNewEnvironment)
             {
                 Caption = 'New';
+                Enabled = false;
                 Image = NewProperties;
-                ToolTip = 'Creates a new environment.';
+                ToolTip = 'Creating environments from CCMS is not allowed.';
+                Visible = false;
                 trigger OnAction()
                 var
                     BCTenant: Record "D4P BC Tenant";

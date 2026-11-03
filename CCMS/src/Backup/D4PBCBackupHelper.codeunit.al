@@ -9,6 +9,7 @@ codeunit 62015 "D4P BC Backup Helper"
     procedure StartEnvironmentDatabaseExport(var BCEnvironment: Record "D4P BC Environment")
     var
         BCTenant: Record "D4P BC Tenant";
+        EnvironmentAccess: Codeunit "D4P BC Environment Access";
         JsonObject: JsonObject;
         ConfirmMsg: Label 'You are about to start a database export with the following settings:\\ Environment: %1\ Container: %2\ Blob File: %3\\These settings CANNOT be changed after the export starts.\\Do you want to continue?', Comment = '%1 = Environment Name, %2 = Container Name, %3 = Blob Name';
         ExportStartedMsg: Label 'Database export for environment %1 successfully started.\Blob: %2', Comment = '%1 = Environment Name, %2 = Blob Name';
@@ -24,6 +25,7 @@ codeunit 62015 "D4P BC Backup Helper"
             Error(NotProductionErr, BCEnvironment.Name, BCEnvironment.Type);
 
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
+        EnvironmentAccess.CheckCanManage(BCTenant, BCEnvironment.Name);
 
         // Validate that SAS URI and Container Name are configured
         if BCTenant."Backup SAS URI" = '' then

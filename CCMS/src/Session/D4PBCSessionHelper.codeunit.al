@@ -9,6 +9,7 @@ codeunit 62017 "D4P BC Session Helper"
 {
     var
         AdminAPIClient: Codeunit D4PBCAdminAPIClient;
+        EnvironmentAccess: Codeunit "D4P BC Environment Access";
 
     procedure GetSessions(var BCEnvironment: Record "D4P BC Environment")
     var
@@ -94,15 +95,16 @@ codeunit 62017 "D4P BC Session Helper"
         Endpoint: Text;
         ResponseText: Text;
     begin
+        // Get the tenant record
+        BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
+        EnvironmentAccess.CheckCanManage(BCTenant, BCEnvironment.Name);
+
         // Get the session record to show user info
         if not BCSession.Get(SessionId) then
             Error(SessionNotFoundErr, SessionId);
 
         if not Confirm(ConfirmMsg, false, SessionId, BCSession."User ID") then
             exit;
-
-        // Get the tenant record
-        BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
 
         // Call Admin API to delete session
         Endpoint := '/applications/' + BCEnvironment."Application Family" + '/environments/' + BCEnvironment.Name + '/sessions/' + SessionId;

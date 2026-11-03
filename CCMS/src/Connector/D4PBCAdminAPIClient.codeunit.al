@@ -38,6 +38,40 @@ codeunit 62036 D4PBCAdminAPIClient
         Response := HttpResponseMessage.GetContent().AsJson().AsObject();
     end;
 
+    /// <summary>
+    /// Gets the Microsoft Entra security group assigned to an environment. The API returns 204 when no group is set.
+    /// </summary>
+    /// <returns>True when the call succeeded (also when no group is assigned), false otherwise.</returns>
+    procedure GetSecurityGroup(EnvironmentName: Text; var GroupId: Text; var GroupName: Text) Success: Boolean
+    var
+        HttpResponseMessage: Codeunit "Http Response Message";
+        JsonResponse: JsonObject;
+        JsonToken: JsonToken;
+        ResponseText: Text;
+    begin
+        if not IsInitialized then
+            Error(NotInitializedErr);
+
+        GroupId := '';
+        GroupName := '';
+
+        HttpResponseMessage := RestClient.Get('/applications/businesscentral/environments/' + EnvironmentName + '/settings/securitygroupaccess');
+        if not HttpResponseMessage.GetIsSuccessStatusCode() then
+            exit(false);
+
+        Success := true;
+        ResponseText := HttpResponseMessage.GetContent().AsText();
+        if (HttpResponseMessage.GetHttpStatusCode() = 204) or (ResponseText = '') then
+            exit;
+
+        if not JsonResponse.ReadFrom(ResponseText) then
+            exit(false);
+        if JsonResponse.Get('id', JsonToken) then
+            GroupId := JsonToken.AsValue().AsText();
+        if JsonResponse.Get('displayName', JsonToken) then
+            GroupName := JsonToken.AsValue().AsText();
+    end;
+
     procedure Post(Endpoint: Text; RequestBody: JsonObject; var Response: Text) Success: Boolean
     var
         HttpContent: Codeunit "Http Content";
