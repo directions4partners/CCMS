@@ -29,6 +29,9 @@ page 62018 "D4P BC Installed Apps FactBox"
                 field("App Version"; Rec."App Version")
                 {
                 }
+                field("Update Status"; Rec."Update Status")
+                {
+                }
             }
         }
     }
@@ -47,7 +50,7 @@ page 62018 "D4P BC Installed Apps FactBox"
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
                     BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.GetInstalledApps(BCEnvironment);
+                    EnvironmentManagement.GetInstalledAppsWithUpdates(BCEnvironment);
                 end;
             }
         }

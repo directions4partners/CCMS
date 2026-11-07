@@ -49,6 +49,13 @@ page 62008 "D4P BC Installed Apps List"
                 {
                     StyleExpr = UpdateAvailableStyleExpr;
                 }
+                field("Update Status"; Rec."Update Status")
+                {
+                    StyleExpr = UpdateAvailableStyleExpr;
+                }
+                field("Update Requirements"; Rec."Update Requirements")
+                {
+                }
                 field("Environment Type"; Rec."Environment Type")
                 {
                 }
@@ -87,10 +94,10 @@ page 62008 "D4P BC Installed Apps List"
                 begin
                     if Rec.GetFilter("Environment Name") <> '' then begin
                         BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                        EnvironmentManagement.GetInstalledApps(BCEnvironment);
+                        EnvironmentManagement.GetInstalledAppsWithUpdates(BCEnvironment);
                     end else
                         if Confirm(ConfirmationGetInstalledAppsQst, true) then
-                            EnvironmentManagement.GetAllInstalledApps(true);
+                            EnvironmentManagement.GetAllInstalledApps(true, true);
                 end;
             }
             action(GetAvailableUpdates)

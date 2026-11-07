@@ -26,16 +26,33 @@ codeunit 62036 D4PBCAdminAPIClient
         IsInitialized := true;
     end;
 
+    /// <summary>
+    /// Sends a GET request to the Admin Center API.
+    /// If the response body is not a JSON object (for example an empty body or an HTML error page),
+    /// the request counts as failed and the raw body is returned in the "message" property,
+    /// instead of raising a runtime error that would stop the caller.
+    /// </summary>
+    /// <param name="Endpoint">The endpoint relative to the Admin Center API base URL.</param>
+    /// <param name="Response">The JSON response, or {"message": body} if the body is not a JSON object.</param>
+    /// <returns>True if the status code indicates success and the body is a JSON object.</returns>
     procedure Get(Endpoint: Text; var Response: JsonObject) Success: Boolean
     var
         HttpResponseMessage: Codeunit "Http Response Message";
+        ResponseText: Text;
     begin
         if not IsInitialized then
             Error(NotInitializedErr);
 
         HttpResponseMessage := RestClient.Get(Endpoint);
         Success := HttpResponseMessage.GetIsSuccessStatusCode();
-        Response := HttpResponseMessage.GetContent().AsJson().AsObject();
+        ResponseText := HttpResponseMessage.GetContent().AsText();
+
+        Clear(Response);
+        if not Response.ReadFrom(ResponseText) then begin
+            Clear(Response);
+            Response.Add('message', ResponseText);
+            Success := false;
+        end;
     end;
 
     procedure Post(Endpoint: Text; RequestBody: JsonObject; var Response: Text) Success: Boolean
