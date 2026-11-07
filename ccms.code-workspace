@@ -8,6 +8,9 @@
         },
         {
             "path": "CCMS"
+        },
+        {
+            "path": "CCMS.Test"
         }
     ],
     "settings": {}

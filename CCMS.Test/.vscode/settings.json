@@ -1,0 +1,10 @@
+{
+    "CRS.ObjectNamePrefix": "D4P",
+    "CRS.RenameWithGit": false,
+    "CRS.FileNamePattern": "<ObjectNameShort>.<ObjectType>.al",
+    "al.ruleSetPath": "../CCMS/.vscode/app.ruleset.json",
+    "al.codeAnalyzers": [
+        "${CodeCop}",
+        "${UICop}"
+    ]
+}
