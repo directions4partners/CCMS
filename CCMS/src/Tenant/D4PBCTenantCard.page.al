@@ -11,6 +11,9 @@ page 62011 "D4P BC Tenant Card"
     Caption = 'D365BC Entra Tenant Card';
     PageType = Card;
     SourceTable = "D4P BC Tenant";
+    // Insert the record only after the primary key (Customer No. + Tenant ID) is complete.
+    // Otherwise the record is inserted with an empty Tenant ID and must be renamed afterwards, which fails.
+    DelayedInsert = true;
 
     layout
     {

@@ -26,6 +26,13 @@
     "includeSourceInSymbolFile": true
   },
   "runtime": "16.0",
+  "internalsVisibleTo": [
+    {
+      "id": "0a99b4a1-c15a-4283-be43-da74f6451879",
+      "name": "Cloud Customer Management Solution Test",
+      "publisher": "Directions for partners"
+    }
+  ],
   "features": [
     "NoImplicitWith",
     "TranslationFile"
