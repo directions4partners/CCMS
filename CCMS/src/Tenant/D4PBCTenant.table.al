@@ -122,6 +122,15 @@ table 62001 "D4P BC Tenant"
         }
     }
 
+    trigger OnInsert()
+    var
+        TenantIdMissingErr: Label 'You must specify a %1 before the tenant can be created.', Comment = '%1 = Tenant ID field caption';
+    begin
+        TestField("Customer No.");
+        if IsNullGuid("Tenant ID") then
+            Error(TenantIdMissingErr, FieldCaption("Tenant ID"));
+    end;
+
     /// <summary>
     /// Gets the client secret from isolated storage for this tenant's configured Client ID.
     /// If the Client ID is a null GUID, or a secret has not been set for this Client ID then an empty SecretText will be returned.
