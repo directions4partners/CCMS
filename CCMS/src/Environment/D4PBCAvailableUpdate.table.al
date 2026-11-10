@@ -38,6 +38,7 @@ table 62024 "D4P BC Available Update"
         field(60; "Ignore Update Window"; Boolean)
         {
             Caption = 'Ignore Update Window';
+            ToolTip = 'Specifies whether the update can run outside the update window of the environment. Combined with today as the selected date, the update starts immediately.';
         }
         field(70; "Rollout Status"; Text[50])
         {

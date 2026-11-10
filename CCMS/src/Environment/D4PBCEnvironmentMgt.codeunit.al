@@ -790,7 +790,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         end;
     end;
 
-    procedure SelectTargetVersion(var BCEnvironment: Record "D4P BC Environment"; TargetVersion: Text[100]; SelectedDate: Date; ExpectedMonth: Integer; ExpectedYear: Integer)
+    procedure SelectTargetVersion(var BCEnvironment: Record "D4P BC Environment"; TargetVersion: Text[100]; SelectedDate: Date; IgnoreUpdateWindow: Boolean; ExpectedMonth: Integer; ExpectedYear: Integer)
     var
         BCSetup: Record "D4P BC Setup";
         BCTenant: Record "D4P BC Tenant";
@@ -815,11 +815,15 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonObject.Add('selected', true);
 
         if IsAvailable then begin
-            // Convert Date to DateTime (at midnight)
-            SelectedDateTime := CreateDateTime(SelectedDate, 0T);
+            // Convert Date to DateTime (at midnight). For today, midnight is already in the past and the
+            // Admin API rejects it, so use the current time plus a margin: the update then starts in the next update window.
+            if SelectedDate = Today() then
+                SelectedDateTime := CurrentDateTime() + 1 * 60 * 1000
+            else
+                SelectedDateTime := CreateDateTime(SelectedDate, 0T);
             // For available versions, include schedule details
             JsonScheduleDetails.Add('selectedDateTime', SelectedDateTime);
-            JsonScheduleDetails.Add('ignoreUpdateWindow', false);
+            JsonScheduleDetails.Add('ignoreUpdateWindow', IgnoreUpdateWindow);
             JsonObject.Add('scheduleDetails', JsonScheduleDetails);
         end;
 
@@ -837,6 +841,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         BCEnvironment."Target Version" := TargetVersion;
         if IsAvailable then begin
             BCEnvironment."Selected DateTime" := SelectedDateTime;
+            BCEnvironment."Ignore Update Window" := IgnoreUpdateWindow;
             BCEnvironment."Expected Availability" := '';
             Message(UpdateScheduledMsg, TargetVersion, SelectedDate);
         end else begin

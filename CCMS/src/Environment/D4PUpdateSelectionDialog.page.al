@@ -44,7 +44,6 @@ page 62025 "D4P Update Selection Dialog"
                 {
                     Caption = 'Selected Date';
                     Editable = DateFieldEditable;
-                    Visible = DateFieldsVisible;
                     StyleExpr = RowStyleExpr;
 
                     trigger OnValidate()
@@ -52,22 +51,24 @@ page 62025 "D4P Update Selection Dialog"
                         ValidateSelectedDate();
                     end;
                 }
+                field("Ignore Update Window"; Rec."Ignore Update Window")
+                {
+                    Editable = DateFieldEditable;
+                    StyleExpr = RowStyleExpr;
+                }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
                     Editable = false;
-                    Visible = DateFieldsVisible;
                     StyleExpr = RowStyleExpr;
                 }
                 field("Expected Month"; Rec."Expected Month")
                 {
                     Editable = false;
-                    Visible = ExpectedFieldsVisible;
                     StyleExpr = RowStyleExpr;
                 }
                 field("Expected Year"; Rec."Expected Year")
                 {
                     Editable = false;
-                    Visible = ExpectedFieldsVisible;
                     StyleExpr = RowStyleExpr;
                 }
             }
@@ -82,8 +83,6 @@ page 62025 "D4P Update Selection Dialog"
 
     var
         DateFieldEditable: Boolean;
-        DateFieldsVisible: Boolean;
-        ExpectedFieldsVisible: Boolean;
         DateTooEarlyErr: Label 'Selected date cannot be earlier than current date and time.';
         DateTooLateErr: Label 'Selected date cannot be later than %1.', Comment = '%1 = Maximum date';
         RowStyleExpr: Text;
@@ -115,11 +114,7 @@ page 62025 "D4P Update Selection Dialog"
     local procedure UpdateFieldVisibility()
     begin
         // Show date fields if version is available
-        DateFieldsVisible := Rec.Available;
         DateFieldEditable := Rec.Available and (Rec."Latest Selectable Date" <> 0D);
-
-        // Show expected fields if version is not available
-        ExpectedFieldsVisible := not Rec.Available;
     end;
 
     local procedure SetDefaultDateTime()
@@ -164,10 +159,11 @@ page 62025 "D4P Update Selection Dialog"
         end;
     end;
 
-    procedure GetSelectedVersion(var TargetVersion: Text[100]; var SelectedDate: Date; var ExpectedMonth: Integer; var ExpectedYear: Integer)
+    procedure GetSelectedVersion(var TargetVersion: Text[100]; var SelectedDate: Date; var IgnoreUpdateWindow: Boolean; var ExpectedMonth: Integer; var ExpectedYear: Integer)
     begin
         TargetVersion := Rec."Target Version";
         SelectedDate := Rec."User Selected Date";
+        IgnoreUpdateWindow := Rec."Ignore Update Window";
         ExpectedMonth := Rec."Expected Month";
         ExpectedYear := Rec."Expected Year";
     end;

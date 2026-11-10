@@ -36,7 +36,7 @@ codeunit 62050 "D4P BC Environment Access"
             Error(NoGroupErr, EnvironmentName);
         end;
 
-        if not IsCurrentUserMember(GroupId) then begin
+        if not IsCurrentUserMember(GroupId, GroupName) then begin
             LogDenied(EnvironmentName, 'NotMember');
             if GroupName = '' then
                 GroupName := GroupId;
@@ -52,17 +52,23 @@ codeunit 62050 "D4P BC Environment Access"
         CheckCanManage(BCTenant, BCEnvironment.Name);
     end;
 
-    local procedure IsCurrentUserMember(GroupId: Text): Boolean
+    local procedure IsCurrentUserMember(GroupId: Text; GroupName: Text): Boolean
     var
         TempMemberBuffer: Record "Security Group Member Buffer" temporary;
         SecurityGroup: Codeunit "Security Group";
         FailedGroups: List of [Code[20]];
         GroupCode: Code[20];
     begin
-        // The group must be registered as a security group in this environment, otherwise nobody matches.
-        if not SecurityGroup.GetCode(CopyStr(GroupId, 1, 250), GroupCode) then
-            if not SecurityGroup.GetCode(CopyStr(LowerCase(GroupId), 1, 250), GroupCode) then
+        // The group has to exist as a security group in this environment to list its members.
+        // If it is not registered yet, register it with the standard "Security Group" codeunit.
+        if not FindGroupCode(SecurityGroup, GroupId, GroupCode) then begin
+            if not CreateGroup(SecurityGroup, GroupId, GroupName) then
                 exit(false);
+            // Keep the group even when the check ends in an error (user not a member), which rolls back the transaction
+            Commit();
+            if not FindGroupCode(SecurityGroup, GroupId, GroupCode) then
+                exit(false);
+        end;
 
         FailedGroups := SecurityGroup.GetMembers(TempMemberBuffer);
         if FailedGroups.Contains(GroupCode) then
@@ -71,6 +77,32 @@ codeunit 62050 "D4P BC Environment Access"
         TempMemberBuffer.SetRange("Security Group Code", GroupCode);
         TempMemberBuffer.SetRange("User Security ID", UserSecurityId());
         exit(not TempMemberBuffer.IsEmpty());
+    end;
+
+    local procedure FindGroupCode(var SecurityGroup: Codeunit "Security Group"; GroupId: Text; var GroupCode: Code[20]): Boolean
+    begin
+        if SecurityGroup.GetCode(CopyStr(GroupId, 1, 250), GroupCode) then
+            exit(true);
+        exit(SecurityGroup.GetCode(CopyStr(LowerCase(GroupId), 1, 250), GroupCode));
+    end;
+
+    local procedure CreateGroup(var SecurityGroup: Codeunit "Security Group"; GroupId: Text; GroupName: Text): Boolean
+    var
+        GroupCodePrefixTok: Label 'D4P', Locked = true;
+    begin
+        // Same code as the group name, like the groups registered by hand
+        if GroupName <> '' then
+            if TryCreateGroup(SecurityGroup, CopyStr(GroupName, 1, 20), GroupId) then
+                exit(true);
+
+        // No name, name too long to be unique, or code already used: derive the code from the group ID
+        exit(TryCreateGroup(SecurityGroup, CopyStr(GroupCodePrefixTok + DelChr(GroupId, '=', '{}-'), 1, 20), GroupId));
+    end;
+
+    [TryFunction]
+    local procedure TryCreateGroup(var SecurityGroup: Codeunit "Security Group"; GroupCode: Code[20]; GroupId: Text)
+    begin
+        SecurityGroup.Create(GroupCode, GroupId);
     end;
 
     local procedure LogDenied(EnvironmentName: Text; Reason: Text)
