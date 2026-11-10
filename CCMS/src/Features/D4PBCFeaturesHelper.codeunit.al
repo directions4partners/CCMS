@@ -208,6 +208,8 @@ codeunit 62014 "D4P BC Features Helper"
         if not BCTenant.Get(Feature."Customer No.", Feature."Tenant ID") then
             Error(TenantNotFoundErr);
 
+        EnvironmentAccess.CheckCanManage(BCTenant, BCEnvironment.Name);
+
         // Get company ID
         CompanyId := GetFirstCompanyId(BCTenant, BCEnvironment);
 
@@ -253,6 +255,8 @@ codeunit 62014 "D4P BC Features Helper"
         // Find the tenant
         if not BCTenant.Get(Feature."Customer No.", Feature."Tenant ID") then
             Error(TenantNotFoundErr);
+
+        EnvironmentAccess.CheckCanManage(BCTenant, BCEnvironment.Name);
 
         // Get company ID
         CompanyId := GetFirstCompanyId(BCTenant, BCEnvironment);
@@ -308,4 +312,5 @@ codeunit 62014 "D4P BC Features Helper"
 
     var
         AutomationAPIClient: Codeunit D4PBCAutomationAPIClient;
+        EnvironmentAccess: Codeunit "D4P BC Environment Access";
 }

@@ -5,6 +5,18 @@ All notable changes to the Cloud Customer Management System (CCMS) project will 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+- **Environment access control**: write operations on an environment (update app, select target version, copy, rename, delete, Application Insights key, database export, terminate session, activate/deactivate feature) are only allowed to members of the Microsoft Entra security group assigned to that environment in the Business Central admin center.
+  - The group is read from the Admin API (`settings/securitygroupaccess`) on every write and shown on the Environment List and Card.
+  - Environments without a security group are blocked.
+  - The group must also be registered under Security Groups in the environment where CCMS is installed.
+  - Denied attempts are logged to telemetry (D4P0050).
+
+### Changed
+- Creating environments from CCMS is no longer allowed.
+
 ## [0.0.1] - 2025-12-10
 
 ### Added

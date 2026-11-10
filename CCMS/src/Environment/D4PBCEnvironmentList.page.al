@@ -31,19 +31,23 @@ page 62003 "D4P BC Environment List"
 
                 field("Customer No."; Rec."Customer No.")
                 {
+                    Visible = false;
                 }
                 field("Customer Name"; Rec."Customer Name")
                 {
+                    Visible = false;
                     DrillDown = false;
                 }
                 field("Tenant ID"; Rec."Tenant ID")
                 {
+                    Visible = false;
                 }
                 field(Name; Rec.Name)
                 {
                 }
                 field("Application Family"; Rec."Application Family")
                 {
+                    Visible = false;
                 }
                 field(Type; Rec.Type)
                 {
@@ -51,6 +55,9 @@ page 62003 "D4P BC Environment List"
                 field(State; Rec.State)
                 {
                     StyleExpr = StateStyleExpr;
+                }
+                field("Security Group Name"; Rec."Security Group Name")
+                {
                 }
                 field("Country/Region"; Rec."Country/Region")
                 {
@@ -72,36 +79,42 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Target Version Type"; Rec."Target Version Type")
                 {
+                    Visible = false;
                     Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Selected DateTime"; Rec."Selected DateTime")
                 {
+                    Visible = false;
                     Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Latest Selectable Date"; Rec."Latest Selectable Date")
                 {
+                    Visible = false;
                     Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Expected Availability"; Rec."Expected Availability")
                 {
+                    Visible = false;
                     Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Rollout Status"; Rec."Rollout Status")
                 {
+                    Visible = false;
                     Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
                 }
                 field("Ignore Update Window"; Rec."Ignore Update Window")
                 {
+                    Visible = false;
                     Editable = false;
                     Style = Favorable;
                     StyleExpr = true;
@@ -113,29 +126,37 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Friendly Name"; Rec."Friendly Name")
                 {
+                    Visible = false;
                 }
                 field("Ring Name"; Rec."Ring Name")
                 {
+                    Visible = false;
                 }
                 field("Location Name"; Rec."Location Name")
                 {
+                    Visible = false;
                 }
                 field("Geo Name"; Rec."Geo Name")
                 {
+                    Visible = false;
                 }
                 field("Web Client Login URL"; Rec."Web Client Login URL")
                 {
+                    Visible = false;
                     ExtendedDatatype = URL;
                 }
                 field("Web Service URL"; Rec."Web Service URL")
                 {
+                    Visible = false;
                     ExtendedDatatype = URL;
                 }
                 field("AppSource Apps Update Cadence"; Rec."AppSource Apps Update Cadence")
                 {
+                    Visible = false;
                 }
                 field("Platform Version"; Rec."Platform Version")
                 {
+                    Visible = false;
                 }
                 field("Telemetry API Key"; Rec."Telemetry API Key")
                 {
@@ -144,12 +165,15 @@ page 62003 "D4P BC Environment List"
                 }
                 field("Telemetry Application ID"; Rec."Telemetry Application ID")
                 {
+                    Visible = false;
                 }
                 field("Telemetry Tenant ID"; Rec."Telemetry Tenant ID")
                 {
+                    Visible = false;
                 }
                 field("Telemetry Description"; Rec."Telemetry Description")
                 {
+                    Visible = false;
                     Editable = false;
                     ToolTip = 'Specifies the Tenant ID for telemetry data access (automatically retrieved from AppInsights Connection Setup).';
                 }
@@ -237,8 +261,10 @@ page 62003 "D4P BC Environment List"
             action(CreateNewEnvironment)
             {
                 Caption = 'New';
+                Enabled = false;
                 Image = NewProperties;
-                ToolTip = 'Creates a new environment.';
+                ToolTip = 'Creating environments from CCMS is not allowed.';
+                Visible = false;
                 trigger OnAction()
                 var
                     BCTenant: Record "D4P BC Tenant";

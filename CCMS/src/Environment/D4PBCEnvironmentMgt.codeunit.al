@@ -9,6 +9,7 @@ codeunit 62000 "D4P BC Environment Mgt"
 {
     var
         AdminAPIClient: Codeunit D4PBCAdminAPIClient;
+        EnvironmentAccess: Codeunit "D4P BC Environment Access";
 
     procedure ShowDebugMessagePublic(ResponseText: Text; ActionName: Text)
     begin
@@ -18,6 +19,10 @@ codeunit 62000 "D4P BC Environment Mgt"
     procedure GetEnvironments(var BCTenant: Record "D4P BC Tenant")
     var
         BCEnvironment: Record "D4P BC Environment";
+        StaleEnvironment: Record "D4P BC Environment";
+        IsNew: Boolean;
+        SeenNames: List of [Text];
+        EnvironmentName: Text[100];
         JsonArray: JsonArray;
         JsonObjectLoop: JsonObject;
         JsonResponse: JsonObject;
@@ -28,25 +33,32 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonValue: JsonValue;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
     begin
-        BCEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
-        BCEnvironment.SetRange("Tenant ID", BCTenant."Tenant ID");
-        BCEnvironment.DeleteAll();
-
         AdminAPIClient.SetTenant(BCTenant);
         if not AdminAPIClient.Get('/applications/businesscentral/environments', JsonResponse) then
             Error(FailedToFetchErr, Format(JsonResponse));
 
         if JsonResponse.Get('value', JsonToken) then begin
             JsonArray := JsonToken.AsArray();
-            BCEnvironment.Init();
-            BCEnvironment."Customer No." := BCTenant."Customer No.";
-            BCEnvironment."Tenant ID" := BCTenant."Tenant ID";
 
+            // Update the existing records instead of deleting and reloading them, so the data that comes
+            // from other calls (updates, telemetry setup) is kept between refreshes
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
+                EnvironmentName := '';
                 if JsonObjectLoop.Get('name', JsonTokenField) then begin
                     JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment.Name := JsonValue.AsText();
+                    EnvironmentName := CopyStr(JsonValue.AsText(), 1, MaxStrLen(BCEnvironment.Name));
+                end;
+                if EnvironmentName = '' then
+                    continue;
+                SeenNames.Add(EnvironmentName);
+
+                IsNew := not BCEnvironment.Get(BCTenant."Customer No.", BCTenant."Tenant ID", EnvironmentName);
+                if IsNew then begin
+                    BCEnvironment.Init();
+                    BCEnvironment."Customer No." := BCTenant."Customer No.";
+                    BCEnvironment."Tenant ID" := BCTenant."Tenant ID";
+                    BCEnvironment.Name := EnvironmentName;
                 end;
                 if JsonObjectLoop.Get('applicationFamily', JsonTokenField) then begin
                     JsonValue := JsonTokenField.AsValue();
@@ -143,9 +155,41 @@ codeunit 62000 "D4P BC Environment Mgt"
                         end;
                     end;
 
-                BCEnvironment.Insert();
+                GetSecurityGroup(BCEnvironment);
+                if IsNew then
+                    BCEnvironment.Insert()
+                else
+                    BCEnvironment.Modify();
             end;
+
+            // Remove the environments that no longer exist in the tenant
+            StaleEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
+            StaleEnvironment.SetRange("Tenant ID", BCTenant."Tenant ID");
+            if StaleEnvironment.FindSet() then
+                repeat
+                    if not SeenNames.Contains(StaleEnvironment.Name) then
+                        StaleEnvironment.Delete();
+                until StaleEnvironment.Next() = 0;
         end;
+    end;
+
+    local procedure GetSecurityGroup(var BCEnvironment: Record "D4P BC Environment")
+    var
+        GroupId: Text;
+        GroupName: Text;
+    begin
+        Clear(BCEnvironment."Security Group Id");
+        BCEnvironment."Security Group Name" := '';
+        BCEnvironment."Security Group Checked At" := 0DT;
+
+        // Informational only: enforcement always reads the group again from the Admin API
+        if not AdminAPIClient.GetSecurityGroup(BCEnvironment.Name, GroupId, GroupName) then
+            exit;
+
+        if GroupId <> '' then
+            Evaluate(BCEnvironment."Security Group Id", GroupId);
+        BCEnvironment."Security Group Name" := CopyStr(GroupName, 1, MaxStrLen(BCEnvironment."Security Group Name"));
+        BCEnvironment."Security Group Checked At" := CurrentDateTime();
     end;
 
     procedure GetAllInstalledApps(ShowProgressDialog: Boolean)
@@ -528,6 +572,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
+        EnvironmentAccess.CheckCanManage(BCTenant, BCEnvironment.Name);
 
         if not InstalledApp.Get(BCTenant."Customer No.", BCTenant."Tenant ID", BCEnvironment.Name, AppId) then
             Error(AppNotFoundErr);
@@ -556,22 +601,9 @@ codeunit 62000 "D4P BC Environment Mgt"
 
     procedure CreateNewBCEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100]; Localization: Code[2]; EnvironmentType: Enum "D4P Environment Type")
     var
-        JsonObject: JsonObject;
-        EnvironmentCreatedMsg: Label 'New environment %1 successfully created.', Comment = '%1 = Environment Name';
-        FailedToCreateErr: Label 'Failed to create new environment: %1', Comment = '%1 = Error message';
-        ResponseText: Text;
+        CreateNotAllowedErr: Label 'Creating environments from CCMS is not allowed.';
     begin
-        JsonObject.Add('environmentType', Format(EnvironmentType));
-        JsonObject.Add('countryCode', Localization);
-
-        AdminAPIClient.SetTenant(BCTenant);
-        if not AdminAPIClient.Put(
-            '/applications/businesscentral/environments/' + EnvironmentName,
-            JsonObject, ResponseText)
-        then
-            Error(FailedToCreateErr, ResponseText);
-
-        Message(EnvironmentCreatedMsg, EnvironmentName);
+        Error(CreateNotAllowedErr);
     end;
 
     procedure CopyBCEnvironment(var BCTenant: Record "D4P BC Tenant"; SourceEnvironmentName: Text[100]; NewEnvironmentName: Text[100]; NewEnvironmentType: Enum "D4P Environment Type")
@@ -581,6 +613,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         FailedToCreateErr: Label 'Failed to create new environment: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
+        EnvironmentAccess.CheckCanManage(BCTenant, SourceEnvironmentName);
+
         JsonObject.Add('environmentName', NewEnvironmentName);
         JsonObject.Add('type', Format(NewEnvironmentType));
 
@@ -601,6 +635,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         FailedToRenameErr: Label 'Failed to rename environment: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
+        EnvironmentAccess.CheckCanManage(BCTenant, SourceEnvironmentName);
+
         JsonObject.Add('NewEnvironmentName', NewEnvironmentName);
 
         AdminAPIClient.SetTenant(BCTenant);
@@ -619,6 +655,8 @@ codeunit 62000 "D4P BC Environment Mgt"
         FailedToDeleteErr: Label 'Failed to delete environment: %1', Comment = '%1 = Error message';
         ResponseText: Text;
     begin
+        EnvironmentAccess.CheckCanManage(BCTenant, EnvironmentName);
+
         AdminAPIClient.SetTenant(BCTenant);
         if not AdminAPIClient.Delete(
             '/applications/businesscentral/environments/' + EnvironmentName, ResponseText) then
@@ -775,7 +813,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         end;
     end;
 
-    procedure SelectTargetVersion(var BCEnvironment: Record "D4P BC Environment"; TargetVersion: Text[100]; SelectedDate: Date; ExpectedMonth: Integer; ExpectedYear: Integer)
+    procedure SelectTargetVersion(var BCEnvironment: Record "D4P BC Environment"; TargetVersion: Text[100]; SelectedDate: Date; IgnoreUpdateWindow: Boolean; ExpectedMonth: Integer; ExpectedYear: Integer)
     var
         BCSetup: Record "D4P BC Setup";
         BCTenant: Record "D4P BC Tenant";
@@ -790,6 +828,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
+        EnvironmentAccess.CheckCanManage(BCTenant, BCEnvironment.Name);
         BCSetup.Get();
 
         // Determine if the version is available (has a date) or not (has month/year)
@@ -799,11 +838,15 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonObject.Add('selected', true);
 
         if IsAvailable then begin
-            // Convert Date to DateTime (at midnight)
-            SelectedDateTime := CreateDateTime(SelectedDate, 0T);
+            // Convert Date to DateTime (at midnight). For today, midnight is already in the past and the
+            // Admin API rejects it, so use the current time plus a margin: the update then starts in the next update window.
+            if SelectedDate = Today() then
+                SelectedDateTime := CurrentDateTime() + 1 * 60 * 1000
+            else
+                SelectedDateTime := CreateDateTime(SelectedDate, 0T);
             // For available versions, include schedule details
             JsonScheduleDetails.Add('selectedDateTime', SelectedDateTime);
-            JsonScheduleDetails.Add('ignoreUpdateWindow', false);
+            JsonScheduleDetails.Add('ignoreUpdateWindow', IgnoreUpdateWindow);
             JsonObject.Add('scheduleDetails', JsonScheduleDetails);
         end;
 
@@ -821,6 +864,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         BCEnvironment."Target Version" := TargetVersion;
         if IsAvailable then begin
             BCEnvironment."Selected DateTime" := SelectedDateTime;
+            BCEnvironment."Ignore Update Window" := IgnoreUpdateWindow;
             BCEnvironment."Expected Availability" := '';
             Message(UpdateScheduledMsg, TargetVersion, SelectedDate);
         end else begin
@@ -843,6 +887,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         ResponseText: Text;
     begin
         BCTenant.Get(BCEnvironment."Customer No.", BCEnvironment."Tenant ID");
+        EnvironmentAccess.CheckCanManage(BCTenant, BCEnvironment.Name);
 
         // Determine if we're removing (empty string) or setting the key
         IsRemoving := (BCEnvironment."Application Insights String" = '');

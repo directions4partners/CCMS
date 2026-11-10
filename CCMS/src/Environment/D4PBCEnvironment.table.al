@@ -214,6 +214,24 @@ table 62002 "D4P BC Environment"
             FieldClass = FlowField;
             ToolTip = 'Specifies the name of the customer associated with this environment.';
         }
+        field(39; "Security Group Id"; Guid)
+        {
+            Caption = 'Security Group Id';
+            Editable = false;
+            ToolTip = 'Specifies the object ID of the Microsoft Entra security group assigned to the environment. Only members of this group can manage the environment.';
+        }
+        field(40; "Security Group Name"; Text[250])
+        {
+            Caption = 'Security Group';
+            Editable = false;
+            ToolTip = 'Specifies the name of the Microsoft Entra security group assigned to the environment. Only members of this group can manage the environment.';
+        }
+        field(41; "Security Group Checked At"; DateTime)
+        {
+            Caption = 'Security Group Checked At';
+            Editable = false;
+            ToolTip = 'Specifies when the security group of the environment was last retrieved.';
+        }
     }
 
     keys
