@@ -19,6 +19,10 @@ codeunit 62000 "D4P BC Environment Mgt"
     procedure GetEnvironments(var BCTenant: Record "D4P BC Tenant")
     var
         BCEnvironment: Record "D4P BC Environment";
+        StaleEnvironment: Record "D4P BC Environment";
+        IsNew: Boolean;
+        SeenNames: List of [Text];
+        EnvironmentName: Text[100];
         JsonArray: JsonArray;
         JsonObjectLoop: JsonObject;
         JsonResponse: JsonObject;
@@ -29,25 +33,32 @@ codeunit 62000 "D4P BC Environment Mgt"
         JsonValue: JsonValue;
         FailedToFetchErr: Label 'Failed to fetch data from Endpoint: %1', Comment = '%1 = Error message';
     begin
-        BCEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
-        BCEnvironment.SetRange("Tenant ID", BCTenant."Tenant ID");
-        BCEnvironment.DeleteAll();
-
         AdminAPIClient.SetTenant(BCTenant);
         if not AdminAPIClient.Get('/applications/businesscentral/environments', JsonResponse) then
             Error(FailedToFetchErr, Format(JsonResponse));
 
         if JsonResponse.Get('value', JsonToken) then begin
             JsonArray := JsonToken.AsArray();
-            BCEnvironment.Init();
-            BCEnvironment."Customer No." := BCTenant."Customer No.";
-            BCEnvironment."Tenant ID" := BCTenant."Tenant ID";
 
+            // Update the existing records instead of deleting and reloading them, so the data that comes
+            // from other calls (updates, telemetry setup) is kept between refreshes
             foreach JsonTokenLoop in JsonArray do begin
                 JsonObjectLoop := JsonTokenLoop.AsObject();
+                EnvironmentName := '';
                 if JsonObjectLoop.Get('name', JsonTokenField) then begin
                     JsonValue := JsonTokenField.AsValue();
-                    BCEnvironment.Name := JsonValue.AsText();
+                    EnvironmentName := CopyStr(JsonValue.AsText(), 1, MaxStrLen(BCEnvironment.Name));
+                end;
+                if EnvironmentName = '' then
+                    continue;
+                SeenNames.Add(EnvironmentName);
+
+                IsNew := not BCEnvironment.Get(BCTenant."Customer No.", BCTenant."Tenant ID", EnvironmentName);
+                if IsNew then begin
+                    BCEnvironment.Init();
+                    BCEnvironment."Customer No." := BCTenant."Customer No.";
+                    BCEnvironment."Tenant ID" := BCTenant."Tenant ID";
+                    BCEnvironment.Name := EnvironmentName;
                 end;
                 if JsonObjectLoop.Get('applicationFamily', JsonTokenField) then begin
                     JsonValue := JsonTokenField.AsValue();
@@ -145,8 +156,20 @@ codeunit 62000 "D4P BC Environment Mgt"
                     end;
 
                 GetSecurityGroup(BCEnvironment);
-                BCEnvironment.Insert();
+                if IsNew then
+                    BCEnvironment.Insert()
+                else
+                    BCEnvironment.Modify();
             end;
+
+            // Remove the environments that no longer exist in the tenant
+            StaleEnvironment.SetRange("Customer No.", BCTenant."Customer No.");
+            StaleEnvironment.SetRange("Tenant ID", BCTenant."Tenant ID");
+            if StaleEnvironment.FindSet() then
+                repeat
+                    if not SeenNames.Contains(StaleEnvironment.Name) then
+                        StaleEnvironment.Delete();
+                until StaleEnvironment.Next() = 0;
         end;
     end;
 

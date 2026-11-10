@@ -1,5 +1,7 @@
 namespace D4P.CCMS.Setup;
 
+using D4P.CCMS.Refresh;
+
 page 62010 "D4P BC Setup"
 {
     PageType = Card;
@@ -64,6 +66,22 @@ page 62010 "D4P BC Setup"
                         CurrPage.Update(false);
                         Message(RestoredSuccessMsg);
                     end;
+                end;
+            }
+            action(CreateJobQueueEntries)
+            {
+                Caption = 'Create Job Queue Entries';
+                Image = Job;
+                ToolTip = 'Creates the job queue entries that keep environments, updates, apps, operations, capacity and features up to date. Entries that already exist are not changed.';
+
+                trigger OnAction()
+                var
+                    RefreshJobMgt: Codeunit "D4P BC Refresh Job Mgt";
+                    CreatedCount: Integer;
+                    CreatedMsg: Label '%1 job queue entries created. Entries that already existed were not changed.', Comment = '%1 = Number of entries created';
+                begin
+                    CreatedCount := RefreshJobMgt.CreateJobQueueEntries();
+                    Message(CreatedMsg, CreatedCount);
                 end;
             }
         }
