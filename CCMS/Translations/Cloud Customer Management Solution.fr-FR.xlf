@@ -3019,6 +3019,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1896412547 - Method 1734414723 - NamedType 262470439" size-unit="char" translate="yes" xml:space="preserve">
+          <source>There is no environment matching the current filters.</source>
+          <target>Aucun environnement ne correspond aux filtres actuels.</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Method GetTargetEnvironments - NamedType NoEnvironmentMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1896412547 - Control 2766253784 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Specifies the unique identifier of the app.</source>
           <target>Spécifie l'identifiant unique de l'application.</target>
@@ -3098,8 +3104,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Control Tenant ID - Property ToolTip</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 389138476 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Delete all fetched installed apps records.</source>
-          <target>Supprimer tous les enregistrements d'applications installées récupérés.</target>
+          <source>Delete the selected installed apps records.</source>
+          <target>Supprime les enregistrements d'applications installées sélectionnés.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action DeleteAll - Property ToolTip</note>
         </trans-unit>
@@ -3110,8 +3116,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action DeleteAll - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 389138476 - Method 1377591017 - NamedType 407090172" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Are you sure you want to delete all %1 fetched installed apps records?</source>
-          <target>Êtes-vous sûr de vouloir supprimer tous les enregistrements d'applications installées récupérés (%1) ?</target>
+          <source>Are you sure you want to delete %1 fetched installed apps record(s)?</source>
+          <target>Êtes-vous sûr de vouloir supprimer %1 enregistrement(s) d'applications installées récupéré(s) ?</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action DeleteAll - Method OnAction - NamedType DeleteMsg</note>
         </trans-unit>
@@ -3122,8 +3128,8 @@
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action DeleteAll - Method OnAction - NamedType DeletedSuccessMsg</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 227458231 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get the list of available apps updates for the selected environment.</source>
-          <target>Obtenir la liste des mises à jour d'applications disponibles pour l'environnement sélectionné.</target>
+          <source>Get the list of available apps updates for the environments of the selected apps. If the list is empty, the environments matching the current filters are used.</source>
+          <target>Obtient la liste des mises à jour d'applications disponibles pour les environnements des applications sélectionnées. Si la liste est vide, les environnements correspondant aux filtres actuels sont utilisés.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action GetAvailableUpdates - Property ToolTip</note>
         </trans-unit>
@@ -3133,9 +3139,21 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action GetAvailableUpdates - Property Caption</note>
         </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 227458231 - Method 1377591017 - NamedType 3527802784" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to get the available app updates for %1 environment(s)?</source>
+          <target>Voulez-vous récupérer les mises à jour d'applications disponibles pour %1 environnement(s) ?</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Number of environments</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action GetAvailableUpdates - Method OnAction - NamedType ConfirmationGetAvailableUpdatesQst</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 227458231 - Method 1377591017 - NamedType 4288424883" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Available app updates retrieved for %1 environment(s), %2 failure(s).</source>
+          <target>Mises à jour d'applications disponibles récupérées pour %1 environnement(s), %2 échec(s).</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Number of environments, %2 = Number of failures</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action GetAvailableUpdates - Method OnAction - NamedType DoneMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1896412547 - Action 4242874840 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
-          <source>Get the list of installed apps for the selected environment.</source>
-          <target>Obtenir la liste des applications installées pour l'environnement sélectionné.</target>
+          <source>Get the list of installed apps for the environments of the selected apps. If the list is empty, the environments matching the current filters are used.</source>
+          <target>Obtient la liste des applications installées pour les environnements des applications sélectionnées. Si la liste est vide, les environnements correspondant aux filtres actuels sont utilisés.</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action GetInstalledApps - Property ToolTip</note>
         </trans-unit>
@@ -3144,6 +3162,18 @@
           <target>Obtenir les applications installées</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action GetInstalledApps - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 4242874840 - Method 1377591017 - NamedType 2204770031" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Do you want to get the installed apps for %1 environment(s)?</source>
+          <target>Voulez-vous récupérer les applications installées pour %1 environnement(s) ?</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Number of environments</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action GetInstalledApps - Method OnAction - NamedType ConfirmationGetInstalledAppsQst</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - Action 4242874840 - Method 1377591017 - NamedType 4288424883" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Installed apps retrieved for %1 environment(s), %2 failure(s).</source>
+          <target>Applications installées récupérées pour %1 environnement(s), %2 échec(s).</target>
+          <note from="Developer" annotates="general" priority="2">%1 = Number of environments, %2 = Number of failures</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action GetInstalledApps - Method OnAction - NamedType DoneMsg</note>
         </trans-unit>
         <trans-unit id="Page 1896412547 - Action 544754716 - Property 1295455071" size-unit="char" translate="yes" xml:space="preserve">
           <source>Update the selected app to the latest version.</source>
@@ -3168,6 +3198,18 @@
           <target>Mettre à jour les applications sélectionnées</target>
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - Action UpdateSelectedApps - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - View 2109889454 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Apps with Available Updates</source>
+          <target>Applications avec mises à jour disponibles</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - View AppsWithUpdates - Property Caption</note>
+        </trans-unit>
+        <trans-unit id="Page 1896412547 - View 3059024891 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
+          <source>Non-Microsoft Apps</source>
+          <target>Applications non-Microsoft</target>
+          <note from="Developer" annotates="general" priority="2"></note>
+          <note from="Xliff Generator" annotates="general" priority="3">Page D4P BC Installed Apps List - View NonMicrosoftApps - Property Caption</note>
         </trans-unit>
         <trans-unit id="Page 3331374484 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>PTE Object Ranges</source>
