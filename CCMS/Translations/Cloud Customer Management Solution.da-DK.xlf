@@ -2625,6 +2625,12 @@
           <note from="Developer" annotates="general" priority="2"></note>
           <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method UpdateApp - NamedType NoUpdateAvailableErr</note>
         </trans-unit>
+        <trans-unit id="Codeunit 175239086 - Method 2459944221 - NamedType 2260800525" size-unit="char" translate="yes" xml:space="preserve">
+          <source>The following apps were not updated because no update is available:%1</source>
+          <target>Følgende apps blev ikke opdateret, fordi der ikke er nogen tilgængelig opdatering:%1</target>
+          <note from="Developer" annotates="general" priority="2">%1 = List of app names, one per line</note>
+          <note from="Xliff Generator" annotates="general" priority="3">Codeunit D4P BC Environment Mgt - Method UpdateApps - NamedType AppsNotUpdatedMsg</note>
+        </trans-unit>
         <trans-unit id="Page 1494117452 - Property 2879900210" size-unit="char" translate="yes" xml:space="preserve">
           <source>D365BC Environment Details</source>
           <target>D365BC-miljødetaljer</target>

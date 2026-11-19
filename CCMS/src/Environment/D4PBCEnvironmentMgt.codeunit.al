@@ -560,6 +560,34 @@ codeunit 62000 "D4P BC Environment Mgt"
         UpdateApp(BCEnvironment, AppId, showNotification, false);
     end;
 
+    /// <summary>
+    /// Updates every app in the filtered set. Apps without an available update are skipped
+    /// instead of stopping the loop, and are listed in a single message at the end.
+    /// </summary>
+    procedure UpdateApps(var InstalledApp: Record "D4P BC Installed App"; UseEnvironmentUpdateWindow: Boolean)
+    var
+        BCEnvironment: Record "D4P BC Environment";
+        AppsNotUpdatedMsg: Label 'The following apps were not updated because no update is available:%1', Comment = '%1 = List of app names, one per line';
+        SkippedApps: Text;
+    begin
+        InstalledApp.SetLoadFields("Customer No.", "Tenant ID", "Environment Name", "App ID", "App Name", "Available Update Version");
+        if not InstalledApp.FindSet() then
+            exit;
+
+        repeat
+            if InstalledApp."Available Update Version" = '' then
+                SkippedApps += '\' + InstalledApp."App Name"
+            else begin
+                // The list can show apps from several environments: read the environment of each app
+                BCEnvironment.Get(InstalledApp."Customer No.", InstalledApp."Tenant ID", InstalledApp."Environment Name");
+                UpdateApp(BCEnvironment, InstalledApp."App ID", true, UseEnvironmentUpdateWindow);
+            end;
+        until InstalledApp.Next() = 0;
+
+        if (SkippedApps <> '') and GuiAllowed() then
+            Message(AppsNotUpdatedMsg, SkippedApps);
+    end;
+
     procedure CreateNewBCEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100]; Localization: Code[2]; EnvironmentType: Enum "D4P Environment Type")
     var
         JsonObject: JsonObject;

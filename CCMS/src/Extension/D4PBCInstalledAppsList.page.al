@@ -119,17 +119,11 @@ page 62008 "D4P BC Installed Apps List"
                 ToolTip = 'Schedule the selected apps to be updated to the latest version. The apps will be updated in the next environment update window.';
                 trigger OnAction()
                 var
-                    BCEnvironment: Record "D4P BC Environment";
                     BCInstalledApp: Record "D4P BC Installed App";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-
                     CurrPage.SetSelectionFilter(BCInstalledApp);
-                    if BCInstalledApp.FindSet() then
-                        repeat
-                            EnvironmentManagement.UpdateApp(BCEnvironment, BCInstalledApp."App ID", true, true);
-                        until BCInstalledApp.Next() = 0;
+                    EnvironmentManagement.UpdateApps(BCInstalledApp, true);
                 end;
             }
             action(UpdateApp)
@@ -143,11 +137,12 @@ page 62008 "D4P BC Installed Apps List"
                 Visible = false;
                 trigger OnAction()
                 var
-                    BCEnvironment: Record "D4P BC Environment";
+                    BCInstalledApp: Record "D4P BC Installed App";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false, false);
+                    BCInstalledApp := Rec;
+                    BCInstalledApp.SetRecFilter();
+                    EnvironmentManagement.UpdateApps(BCInstalledApp, false);
                 end;
             }
             action(UpdateSelectedApps)
@@ -157,15 +152,11 @@ page 62008 "D4P BC Installed Apps List"
                 ToolTip = 'Update the selected apps (multiple) to the latest version.';
                 trigger OnAction()
                 var
-                    BCEnvironment: Record "D4P BC Environment";
+                    BCInstalledApp: Record "D4P BC Installed App";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    CurrPage.SetSelectionFilter(Rec);
-                    if Rec.FindSet() then
-                        repeat
-                            EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", true, false);
-                        until Rec.Next() = 0;
+                    CurrPage.SetSelectionFilter(BCInstalledApp);
+                    EnvironmentManagement.UpdateApps(BCInstalledApp, false);
                 end;
             }
             action(DeleteAll)
