@@ -313,6 +313,19 @@ page 62003 "D4P BC Environment List"
                     end;
                 end;
             }
+            action(RescheduleUpdate)
+            {
+                Caption = 'Reschedule Update';
+                Image = Timesheet;
+                ToolTip = 'Select and schedule an update version for the environment.';
+                trigger OnAction()
+                var
+                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                begin
+                    if EnvironmentManagement.RescheduleUpdate(Rec) then
+                        CurrPage.Update(false);
+                end;
+            }
         }
         area(Navigation)
         {
@@ -471,6 +484,9 @@ page 62003 "D4P BC Environment List"
                 {
                 }
                 actionref(RenameEnvironmentPromoted; RenameEnvironment)
+                {
+                }
+                actionref(RescheduleUpdatePromoted; RescheduleUpdate)
                 {
                 }
             }

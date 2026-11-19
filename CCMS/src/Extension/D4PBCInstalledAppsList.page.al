@@ -112,18 +112,37 @@ page 62008 "D4P BC Installed Apps List"
                             EnvironmentManagement.GetAllAvailableAppUpdates(true);
                 end;
             }
+            action(ScheduleSelectedAppsUpdate)
+            {
+                Caption = 'Schedule Selected Apps Update';
+                Image = UpdateXML;
+                ToolTip = 'Schedule the selected apps to be updated to the latest version. The apps will be updated in the next environment update window.';
+                trigger OnAction()
+                var
+                    BCInstalledApp: Record "D4P BC Installed App";
+                    EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
+                begin
+                    CurrPage.SetSelectionFilter(BCInstalledApp);
+                    EnvironmentManagement.UpdateApps(BCInstalledApp, true);
+                end;
+            }
             action(UpdateApp)
             {
                 Caption = 'Update App';
                 Image = UpdateXML;
                 ToolTip = 'Update the selected app to the latest version.';
+                ObsoleteState = Pending;
+                ObsoleteReason = 'Use "Update Selected Apps" instead, which allows updating multiple apps at once.';
+                ObsoleteTag = '0.0.3.0';
+                Visible = false;
                 trigger OnAction()
                 var
-                    BCEnvironment: Record "D4P BC Environment";
+                    BCInstalledApp: Record "D4P BC Installed App";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", false);
+                    BCInstalledApp := Rec;
+                    BCInstalledApp.SetRecFilter();
+                    EnvironmentManagement.UpdateApps(BCInstalledApp, false);
                 end;
             }
             action(UpdateSelectedApps)
@@ -133,15 +152,11 @@ page 62008 "D4P BC Installed Apps List"
                 ToolTip = 'Update the selected apps (multiple) to the latest version.';
                 trigger OnAction()
                 var
-                    BCEnvironment: Record "D4P BC Environment";
+                    BCInstalledApp: Record "D4P BC Installed App";
                     EnvironmentManagement: Codeunit "D4P BC Environment Mgt";
                 begin
-                    BCEnvironment.Get(Rec."Customer No.", Rec."Tenant ID", Rec."Environment Name");
-                    CurrPage.SetSelectionFilter(Rec);
-                    if Rec.FindSet() then
-                        repeat
-                            EnvironmentManagement.UpdateApp(BCEnvironment, Rec."App ID", true);
-                        until Rec.Next() = 0;
+                    CurrPage.SetSelectionFilter(BCInstalledApp);
+                    EnvironmentManagement.UpdateApps(BCInstalledApp, false);
                 end;
             }
             action(DeleteAll)
@@ -177,8 +192,15 @@ page 62008 "D4P BC Installed Apps List"
             actionref(GetAvailableUpdatesPromoted; GetAvailableUpdates)
             {
             }
+            actionref(ScheduleSelectedAppsUpdatePromoted; ScheduleSelectedAppsUpdate)
+            {
+            }
             actionref(UpdateAppPromoted; UpdateApp)
             {
+                ObsoleteState = Pending;
+                ObsoleteReason = 'Use "Update Selected Apps" instead, which allows updating multiple apps at once.';
+                ObsoleteTag = '0.0.3.0';
+                Visible = false;
             }
             actionref(UpdateSelectedAppsPromoted; UpdateSelectedApps)
             {

@@ -515,7 +515,7 @@ codeunit 62000 "D4P BC Environment Mgt"
                 Message(NoAvailableUpdatesMsg);
     end;
 
-    procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid; showNotification: Boolean)
+    procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid; showNotification: Boolean; UseEnvironmentUpdateWindow: Boolean)
     var
         InstalledApp: Record "D4P BC Installed App";
         BCTenant: Record "D4P BC Tenant";
@@ -535,7 +535,7 @@ codeunit 62000 "D4P BC Environment Mgt"
         if InstalledApp."Available Update Version" = '' then
             Error(NoUpdateAvailableErr);
 
-        JsonObject.Add('useEnvironmentUpdateWindow', false);
+        JsonObject.Add('useEnvironmentUpdateWindow', UseEnvironmentUpdateWindow);
         JsonObject.Add('targetVersion', InstalledApp."Available Update Version");
         JsonObject.Add('allowPreviewVersion', false);
         JsonObject.Add('installOrUpdateNeededDependencies', true);
@@ -552,6 +552,40 @@ codeunit 62000 "D4P BC Environment Mgt"
             AppUpdateNotification.Send();
         end else
             Message(AppUpdateScheduledMsg, InstalledApp."App Name", InstalledApp."Available Update Version");
+    end;
+
+    [Obsolete('Use UpdateApp with the UseEnvironmentUpdateWindow parameter instead.', '0.0.3.0')]
+    procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid; showNotification: Boolean)
+    begin
+        UpdateApp(BCEnvironment, AppId, showNotification, false);
+    end;
+
+    /// <summary>
+    /// Updates every app in the filtered set. Apps without an available update are skipped
+    /// instead of stopping the loop, and are listed in a single message at the end.
+    /// </summary>
+    procedure UpdateApps(var InstalledApp: Record "D4P BC Installed App"; UseEnvironmentUpdateWindow: Boolean)
+    var
+        BCEnvironment: Record "D4P BC Environment";
+        AppsNotUpdatedMsg: Label 'The following apps were not updated because no update is available:%1', Comment = '%1 = List of app names, one per line';
+        SkippedApps: Text;
+    begin
+        InstalledApp.SetLoadFields("Customer No.", "Tenant ID", "Environment Name", "App ID", "App Name", "Available Update Version");
+        if not InstalledApp.FindSet() then
+            exit;
+
+        repeat
+            if InstalledApp."Available Update Version" = '' then
+                SkippedApps += '\' + InstalledApp."App Name"
+            else begin
+                // The list can show apps from several environments: read the environment of each app
+                BCEnvironment.Get(InstalledApp."Customer No.", InstalledApp."Tenant ID", InstalledApp."Environment Name");
+                UpdateApp(BCEnvironment, InstalledApp."App ID", true, UseEnvironmentUpdateWindow);
+            end;
+        until InstalledApp.Next() = 0;
+
+        if (SkippedApps <> '') and GuiAllowed() then
+            Message(AppsNotUpdatedMsg, SkippedApps);
     end;
 
     procedure CreateNewBCEnvironment(var BCTenant: Record "D4P BC Tenant"; EnvironmentName: Text[100]; Localization: Code[2]; EnvironmentType: Enum "D4P Environment Type")
@@ -829,6 +863,33 @@ codeunit 62000 "D4P BC Environment Mgt"
             Message(UpdateSelectedMsg, TargetVersion, ExpectedMonth, ExpectedYear);
         end;
         BCEnvironment.Modify();
+    end;
+
+    /// <summary>
+    /// Lets the user pick one of the available update versions and schedules it for the environment.
+    /// </summary>
+    /// <returns>True if an update version was selected and scheduled.</returns>
+    procedure RescheduleUpdate(var BCEnvironment: Record "D4P BC Environment"): Boolean
+    var
+        TempAvailableUpdate: Record "D4P BC Available Update" temporary;
+        UpdateSelectionDialog: Page "D4P Update Selection Dialog";
+        SelectedDate: Date;
+        ExpectedMonth: Integer;
+        ExpectedYear: Integer;
+        NoUpdatesAvailableErr: Label 'No updates available for the environment %1.', Comment = '%1 = Environment Name';
+        TargetVersion: Text[100];
+    begin
+        GetAvailableUpdates(BCEnvironment, TempAvailableUpdate);
+        if TempAvailableUpdate.IsEmpty() then
+            Error(NoUpdatesAvailableErr, BCEnvironment.Name);
+
+        UpdateSelectionDialog.SetData(TempAvailableUpdate);
+        if UpdateSelectionDialog.RunModal() <> Action::OK then
+            exit(false);
+
+        UpdateSelectionDialog.GetSelectedVersion(TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
+        SelectTargetVersion(BCEnvironment, TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
+        exit(true);
     end;
 
     procedure SetApplicationInsightsConnectionString(var BCEnvironment: Record "D4P BC Environment")
