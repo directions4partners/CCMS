@@ -554,6 +554,7 @@ codeunit 62000 "D4P BC Environment Mgt"
             Message(AppUpdateScheduledMsg, InstalledApp."App Name", InstalledApp."Available Update Version");
     end;
 
+    [Obsolete('Use UpdateApp with the UseEnvironmentUpdateWindow parameter instead.', '0.0.3.0')]
     procedure UpdateApp(var BCEnvironment: Record "D4P BC Environment"; AppId: Guid; showNotification: Boolean)
     begin
         UpdateApp(BCEnvironment, AppId, showNotification, false);
@@ -834,6 +835,33 @@ codeunit 62000 "D4P BC Environment Mgt"
             Message(UpdateSelectedMsg, TargetVersion, ExpectedMonth, ExpectedYear);
         end;
         BCEnvironment.Modify();
+    end;
+
+    /// <summary>
+    /// Lets the user pick one of the available update versions and schedules it for the environment.
+    /// </summary>
+    /// <returns>True if an update version was selected and scheduled.</returns>
+    procedure RescheduleUpdate(var BCEnvironment: Record "D4P BC Environment"): Boolean
+    var
+        TempAvailableUpdate: Record "D4P BC Available Update" temporary;
+        UpdateSelectionDialog: Page "D4P Update Selection Dialog";
+        SelectedDate: Date;
+        ExpectedMonth: Integer;
+        ExpectedYear: Integer;
+        NoUpdatesAvailableErr: Label 'No updates available for the environment %1.', Comment = '%1 = Environment Name';
+        TargetVersion: Text[100];
+    begin
+        GetAvailableUpdates(BCEnvironment, TempAvailableUpdate);
+        if TempAvailableUpdate.IsEmpty() then
+            Error(NoUpdatesAvailableErr, BCEnvironment.Name);
+
+        UpdateSelectionDialog.SetData(TempAvailableUpdate);
+        if UpdateSelectionDialog.RunModal() <> Action::OK then
+            exit(false);
+
+        UpdateSelectionDialog.GetSelectedVersion(TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
+        SelectTargetVersion(BCEnvironment, TargetVersion, SelectedDate, ExpectedMonth, ExpectedYear);
+        exit(true);
     end;
 
     procedure SetApplicationInsightsConnectionString(var BCEnvironment: Record "D4P BC Environment")

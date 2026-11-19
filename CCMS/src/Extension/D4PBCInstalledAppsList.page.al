@@ -128,7 +128,7 @@ page 62008 "D4P BC Installed Apps List"
                     CurrPage.SetSelectionFilter(BCInstalledApp);
                     if BCInstalledApp.FindSet() then
                         repeat
-                            EnvironmentManagement.UpdateApp(BCEnvironment, BCInstalledApp."App ID", false, true);
+                            EnvironmentManagement.UpdateApp(BCEnvironment, BCInstalledApp."App ID", true, true);
                         until BCInstalledApp.Next() = 0;
                 end;
             }
@@ -139,7 +139,7 @@ page 62008 "D4P BC Installed Apps List"
                 ToolTip = 'Update the selected app to the latest version.';
                 ObsoleteState = Pending;
                 ObsoleteReason = 'Use "Update Selected Apps" instead, which allows updating multiple apps at once.';
-                ObsoleteTag = '0.0.2.0';
+                ObsoleteTag = '0.0.3.0';
                 Visible = false;
                 trigger OnAction()
                 var
@@ -208,7 +208,7 @@ page 62008 "D4P BC Installed Apps List"
             {
                 ObsoleteState = Pending;
                 ObsoleteReason = 'Use "Update Selected Apps" instead, which allows updating multiple apps at once.';
-                ObsoleteTag = '0.0.2.0';
+                ObsoleteTag = '0.0.3.0';
                 Visible = false;
             }
             actionref(UpdateSelectedAppsPromoted; UpdateSelectedApps)
