@@ -17,6 +17,7 @@ codeunit 62037 D4PBCAutomationAPIClient
         EnvironmentName: Text[100];
         IsInitialized: Boolean;
         NotInitializedErr: Label 'Automation API Client is not initialized. Call SetContext before making API requests.';
+        HttpStatusTxt: Label 'HTTP %1 %2', Comment = '%1 = HTTP status code, %2 = HTTP reason phrase';
 
     procedure SetContext(BCTenant: Record "D4P BC Tenant"; BCEnvironment: Record "D4P BC Environment")
     begin
@@ -43,7 +44,7 @@ codeunit 62037 D4PBCAutomationAPIClient
 
         HttpResponseMessage := RestClient.Get(Endpoint);
         Success := HttpResponseMessage.GetIsSuccessStatusCode();
-        Response := HttpResponseMessage.GetContent().AsJson().AsObject();
+        Response := GetResponseJson(HttpResponseMessage);
     end;
 
     procedure Post(Endpoint: Text; RequestBody: Text; var ResponseText: Text): Boolean
@@ -81,8 +82,53 @@ codeunit 62037 D4PBCAutomationAPIClient
             HttpRequestMessage.SetContent(HttpContent.Create(RequestBody, 'application/json'));
 
         HttpResponseMessage := RestClient.Send(HttpRequestMessage);
-        ResponseText := HttpResponseMessage.GetContent().AsText();
+        ResponseText := GetResponseText(HttpResponseMessage);
 
         exit(HttpResponseMessage.GetIsSuccessStatusCode());
+    end;
+
+    /// <summary>
+    /// Returns the response body. For a failed request the HTTP status code and reason phrase are prepended,
+    /// so the caller can show a meaningful error even when the response body is empty.
+    /// </summary>
+    local procedure GetResponseText(HttpResponseMessage: Codeunit "Http Response Message") ResponseText: Text
+    var
+        StatusText: Text;
+    begin
+        ResponseText := HttpResponseMessage.GetContent().AsText();
+        if HttpResponseMessage.GetIsSuccessStatusCode() then
+            exit;
+
+        StatusText := StrSubstNo(HttpStatusTxt, HttpResponseMessage.GetHttpStatusCode(), HttpResponseMessage.GetReasonPhrase());
+        if ResponseText = '' then
+            ResponseText := StatusText
+        else
+            ResponseText := StatusText + ': ' + ResponseText;
+    end;
+
+    /// <summary>
+    /// Returns the response body as a JSON object. For a failed request the result contains the HTTP status code,
+    /// the reason phrase and the response body (if any), because error responses can be empty or not JSON at all.
+    /// </summary>
+    local procedure GetResponseJson(HttpResponseMessage: Codeunit "Http Response Message") Response: JsonObject
+    var
+        Content: JsonToken;
+        ResponseText: Text;
+    begin
+        ResponseText := HttpResponseMessage.GetContent().AsText();
+        if HttpResponseMessage.GetIsSuccessStatusCode() then begin
+            if ResponseText <> '' then
+                Response.ReadFrom(ResponseText);
+            exit;
+        end;
+
+        Response.Add('statusCode', HttpResponseMessage.GetHttpStatusCode());
+        Response.Add('reasonPhrase', HttpResponseMessage.GetReasonPhrase());
+        if ResponseText = '' then
+            exit;
+        if Content.ReadFrom(ResponseText) then
+            Response.Add('content', Content)
+        else
+            Response.Add('content', ResponseText);
     end;
 }
