@@ -15,7 +15,7 @@ codeunit 62036 D4PBCAdminAPIClient
         CurrentTenantId: Guid;
         IsInitialized: Boolean;
         NotInitializedErr: Label 'Admin API Client is not initialized. Call SetTenant before making API requests.';
-        HttpStatusTxt: Label 'HTTP %1 %2', Comment = '%1 = HTTP status code, %2 = HTTP reason phrase';
+        HttpStatusTxt: Label 'HTTP %1 %2', Locked = true;
 
     procedure SetTenant(BCTenant: Record "D4P BC Tenant")
     begin

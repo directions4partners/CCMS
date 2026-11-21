@@ -17,7 +17,7 @@ codeunit 62037 D4PBCAutomationAPIClient
         EnvironmentName: Text[100];
         IsInitialized: Boolean;
         NotInitializedErr: Label 'Automation API Client is not initialized. Call SetContext before making API requests.';
-        HttpStatusTxt: Label 'HTTP %1 %2', Comment = '%1 = HTTP status code, %2 = HTTP reason phrase';
+        HttpStatusTxt: Label 'HTTP %1 %2', Locked = true;
 
     procedure SetContext(BCTenant: Record "D4P BC Tenant"; BCEnvironment: Record "D4P BC Environment")
     begin
