@@ -15,6 +15,7 @@ codeunit 62036 D4PBCAdminAPIClient
         CurrentTenantId: Guid;
         IsInitialized: Boolean;
         NotInitializedErr: Label 'Admin API Client is not initialized. Call SetTenant before making API requests.';
+        HttpStatusTxt: Label 'HTTP %1 %2', Locked = true;
 
     procedure SetTenant(BCTenant: Record "D4P BC Tenant")
     begin
@@ -35,7 +36,7 @@ codeunit 62036 D4PBCAdminAPIClient
 
         HttpResponseMessage := RestClient.Get(Endpoint);
         Success := HttpResponseMessage.GetIsSuccessStatusCode();
-        Response := HttpResponseMessage.GetContent().AsJson().AsObject();
+        Response := GetResponseJson(HttpResponseMessage);
     end;
 
     procedure Post(Endpoint: Text; RequestBody: JsonObject; var Response: Text) Success: Boolean
@@ -48,7 +49,7 @@ codeunit 62036 D4PBCAdminAPIClient
 
         HttpResponseMessage := RestClient.Post(Endpoint, HttpContent.Create(RequestBody));
         Success := HttpResponseMessage.GetIsSuccessStatusCode();
-        Response := HttpResponseMessage.GetContent().AsText();
+        Response := GetResponseText(HttpResponseMessage);
     end;
 
     procedure Put(Endpoint: Text; RequestBody: JsonObject; var ResponseText: Text) Success: Boolean
@@ -61,7 +62,7 @@ codeunit 62036 D4PBCAdminAPIClient
 
         HttpResponseMessage := RestClient.Put(Endpoint, HttpContent.Create(RequestBody));
         Success := HttpResponseMessage.GetIsSuccessStatusCode();
-        ResponseText := HttpResponseMessage.GetContent().AsText();
+        ResponseText := GetResponseText(HttpResponseMessage);
     end;
 
     procedure Patch(Endpoint: Text; RequestBody: JsonObject; var ResponseText: Text) Success: Boolean
@@ -74,7 +75,7 @@ codeunit 62036 D4PBCAdminAPIClient
 
         HttpResponseMessage := RestClient.Patch(Endpoint, HttpContent.Create(RequestBody));
         Success := HttpResponseMessage.GetIsSuccessStatusCode();
-        ResponseText := HttpResponseMessage.GetContent().AsText();
+        ResponseText := GetResponseText(HttpResponseMessage);
     end;
 
     procedure Delete(Endpoint: Text; var ResponseText: Text) Success: Boolean
@@ -85,6 +86,51 @@ codeunit 62036 D4PBCAdminAPIClient
             Error(NotInitializedErr);
         HttpResponseMessage := RestClient.Delete(Endpoint);
         Success := HttpResponseMessage.GetIsSuccessStatusCode();
+        ResponseText := GetResponseText(HttpResponseMessage);
+    end;
+
+    /// <summary>
+    /// Returns the response body. For a failed request the HTTP status code and reason phrase are prepended,
+    /// so the caller can show a meaningful error even when the response body is empty.
+    /// </summary>
+    local procedure GetResponseText(HttpResponseMessage: Codeunit "Http Response Message") ResponseText: Text
+    var
+        StatusText: Text;
+    begin
         ResponseText := HttpResponseMessage.GetContent().AsText();
+        if HttpResponseMessage.GetIsSuccessStatusCode() then
+            exit;
+
+        StatusText := StrSubstNo(HttpStatusTxt, HttpResponseMessage.GetHttpStatusCode(), HttpResponseMessage.GetReasonPhrase());
+        if ResponseText = '' then
+            ResponseText := StatusText
+        else
+            ResponseText := StatusText + ': ' + ResponseText;
+    end;
+
+    /// <summary>
+    /// Returns the response body as a JSON object. For a failed request the result contains the HTTP status code,
+    /// the reason phrase and the response body (if any), because error responses can be empty or not JSON at all.
+    /// </summary>
+    local procedure GetResponseJson(HttpResponseMessage: Codeunit "Http Response Message") Response: JsonObject
+    var
+        Content: JsonToken;
+        ResponseText: Text;
+    begin
+        ResponseText := HttpResponseMessage.GetContent().AsText();
+        if HttpResponseMessage.GetIsSuccessStatusCode() then begin
+            if ResponseText <> '' then
+                Response.ReadFrom(ResponseText);
+            exit;
+        end;
+
+        Response.Add('statusCode', HttpResponseMessage.GetHttpStatusCode());
+        Response.Add('reasonPhrase', HttpResponseMessage.GetReasonPhrase());
+        if ResponseText = '' then
+            exit;
+        if Content.ReadFrom(ResponseText) then
+            Response.Add('content', Content)
+        else
+            Response.Add('content', ResponseText);
     end;
 }
